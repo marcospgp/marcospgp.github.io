@@ -6,7 +6,7 @@ permalink: /about/
 
 Hello! Thanks for visiting my website.
 
-I am Marcos, a developer from Portugal. I mostly have made a living so far on working on web apps, but I am more interested in AI and games.
+I am Marcos, a developer from Portugal. I mostly have made a living so far working on web apps, but am more interested in AI and games. I have been working part time for most of my career and wish to eventually stop relying on selling my time.
 
 Many years ago GTA San Andreas opened my eyes to how amazing and immersive virtual worlds can be. I now work towards making these worlds more alive. I believe that anything we create in them can be a source of inspiration for and will certainly spill over into base reality.
 
