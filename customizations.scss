@@ -30,3 +30,12 @@ body {
 body #main {
   flex: 1;
 }
+
+.wrapper-masthead {
+  // Normally, navbar bottom margin would be collapsed against the margin of
+  // whatever was below it, but this doesn't happen after we changed <body>
+  // to display: flex. To prevent excessive spacing, we remove navbar's bottom
+  // margin.
+  // See more at https://stackoverflow.com/questions/43882869/margin-collapsing-in-flexbox
+  margin-bottom: 0;
+}
