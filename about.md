@@ -35,7 +35,7 @@ Hello! Thanks for visiting my website.
 <details>
   <summary>I am a strong believer in the church of ease of use.</summary>
   <p>
-  I live by progressive disclosure of complexity, which means every interface should be obvious to someone seeing it for the first time, yet still powerful for someone who has explored its details. And if you want to explain something to someone, build your ideas up as little lego bricks before you start putting together your tower of reasoning.
+  I live by progressive disclosure of complexity, which means every interface should be obvious to someone seeing it for the first time, yet still powerful for one has explored its details. And if you want to explain something to someone, build your ideas up as little lego bricks before you start putting together your tower of reasoning.
   </p>
 </details>
 
