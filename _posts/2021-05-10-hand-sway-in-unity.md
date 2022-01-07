@@ -25,11 +25,11 @@ The entire Unity project is [available on Github](https://github.com/marcospgp/h
 
 The code responsible for the hand sway can be found entirely in the [`UpdatePositionAndRotation` method](https://github.com/marcospgp/Hand-Sway/blob/main/Assets/Components/Player/Hands/PlayerHands.cs#L120) of the `PlayerHands` component:
 
-![UpdatePositionAndRotation]({% link assets/2022-01-07-hand-sway-in-unity/3.png %})
+![UpdatePositionAndRotation]({% link assets/2021-05-10-hand-sway-in-unity/3.png %})
 
 ## Explanation
 
-![Hierarchy]({% link assets/2022-01-07-hand-sway-in-unity/1.png %})
+![Hierarchy]({% link assets/2021-05-10-hand-sway-in-unity/1.png %})
 
 First of all, the `Player Hands` are kept separate from the `Player` object in the hierarchy, so they can rotate independently.
 
@@ -37,10 +37,12 @@ The `Player` object has a camera and some simple movement and look-around functi
 
 The `Player Hands` object is solely responsible for the hand sway. It holds a reference to the player's `Camera` and follows it around by applying three different forces:
 
-![Forces]({% link assets/2022-01-07-hand-sway-in-unity/2.png %})
+![Forces]({% link assets/2021-05-10-hand-sway-in-unity/2.png %})
 
 1. Camera follow strength: pulls the hands along when the camera rotates;
 2. Spring force: constantly pulls the hands towards the center of the view;
 3. Sway drag: a drag force that acts against the previous two.
 
-Please let me know if you have any questions, I'd be happy to help!
+And that's it. The actual implementation of each of these forces can be found in [the code](https://github.com/marcospgp/Hand-Sway/blob/main/Assets/Components/Player/Hands/PlayerHands.cs#L120), so feel free to check it out! And please let me know if you have any questions - I'd be happy to help!
+
+**Update**: Revisiting this, I suspect it might be a better idea to rely on translation rather than rotation to achieve a realistic sway effect. Something to try in the future, perhaps.

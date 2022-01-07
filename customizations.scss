@@ -8,6 +8,12 @@
 
 @import "variables";
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+}
+
 details {
   margin-bottom: 1em;
 
@@ -43,4 +49,8 @@ body #main {
 hr {
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+code {
+  background-color: $lightGray;
 }
