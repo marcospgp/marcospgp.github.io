@@ -18,3 +18,9 @@ There are a few reasons why this works for me:
 3. The pressure to be productive that was hindering you will dissolve when your body sees that you have the time to sit and do nothing.
 
 It probably feels like you don't have the time to do this, but taking a break to do nothing - even if it takes a few days to feel ready to get back to work - will be more productive in the long run than pushing against your mind.
+
+There's nothing wrong with watching Youtube or browsing social media when you want to, but you must avoid it if you feel like you should be working right now but can't be productive.
+
+Predatorial recommendation algorithms allow you to procrastinate endlessly.
+
+Only a refreshed mind, a fit body, and a good dose of natural boredom can reignite the flame that drives you to do what you evolved to do - have an impact on those around you.
