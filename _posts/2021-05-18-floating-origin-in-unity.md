@@ -5,6 +5,10 @@ title: Floating origin in Unity
 
 If your Unity game is large enough, you will sooner or later run into floating point precision issues when your camera is far from the origin.
 
+![Terrain]({% link assets/terrain.jpeg %})
+
+_Some large terrain._
+
 As the coordinates become larger, there are less bits left to represent sub-unit values. This makes the effect worsen the further you are from the origin.
 
 A popular solution for this is to reset the entire world back towards (0, 0, 0) when the player's distance to it passes a certain threshold. This is known as a floating origin, because the world's origin is no longer fixed.
