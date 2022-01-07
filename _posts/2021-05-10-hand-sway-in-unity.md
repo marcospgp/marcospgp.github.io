@@ -35,7 +35,7 @@ First of all, the `Player Hands` are kept separate from the `Player` object in t
 
 The `Player` object has a camera and some simple movement and look-around functionality.
 
-The `Player Hands` object is solely responsible for the hand sway. It holds a reference to the player's `Camera` and follows it around by applying three different forces:
+The `Player Hands` object is solely responsible for the hand sway. It holds a reference to the `Player`'s camera and follows it around by applying three different forces:
 
 ![Forces]({% link assets/2021-05-10-hand-sway-in-unity/2.png %})
 
