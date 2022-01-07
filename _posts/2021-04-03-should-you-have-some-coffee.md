@@ -12,7 +12,9 @@ guide my reasoning.
 It's not serious or strictly scientific, but I did my best to rely on well
 thought and unbiased data.
 
-You can find it here: [shouldyouhavesome.coffee](shouldyouhavesome.coffee)
+You can find it at [shouldyouhavesomecoffee.netlify.app](https://shouldyouhavesomecoffee.netlify.app/)
+
+(It used to be hosted at `shouldyouhavesome.coffee`, but it wasn't worth it to keep paying to renew the domain)
 
 I have to admit, I don't always guide my actions by it - in a bit of a self
 destructive manner. I am inclined to believe that even if something is harmful,
