@@ -5,3 +5,4 @@ MD033: # Allow raw html for specific elements
     - details
     - summary
     - p
+    - br
