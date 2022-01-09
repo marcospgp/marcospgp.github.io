@@ -3,14 +3,6 @@ layout: post
 title: Hand sway in Unity
 ---
 
-<!-- markdownlint-disable no-inline-html -->
-<div style="position: relative; padding-bottom: 78.18627450980392%; height: 0;"><iframe src="https://www.loom.com/embed/adbb51721e5f4e40a7d905452b714ab1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-<!-- markdownlint-enable no-inline-html -->
-
-_Forgive the poor video quality, I will figure out how to record things properly soon._
-
-## Motivation
-
 While setting up a first person controller in Unity, I decided to add some sway to the player's hands.
 
 It took a surprisingly large number of iterations to get right. There is no standard way to go about it, and every solution I tried seemed to run into one or other issue.
@@ -19,13 +11,19 @@ I couldn't bring myself to give up and go back to the static hands, however - no
 
 I managed to settle on a solution I'm satisfied with, which I'll describe below.
 
+<br>
+
+<!-- markdownlint-disable no-inline-html -->
+<div style="position: relative; padding-bottom: 78.18627450980392%; height: 0;"><iframe src="https://www.loom.com/embed/adbb51721e5f4e40a7d905452b714ab1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<!-- markdownlint-enable no-inline-html -->
+
+_Forgive the poor video quality, I will figure out how to record things properly soon._
+
 ## Project
 
 The entire Unity project is [available on Github](https://github.com/marcospgp/hand-sway) (editor version 2020.3.7f1).
 
-The code responsible for the hand sway can be found entirely in the [`UpdatePositionAndRotation` method](https://github.com/marcospgp/Hand-Sway/blob/main/Assets/Components/Player/Hands/PlayerHands.cs#L120) of the `PlayerHands` component:
-
-![UpdatePositionAndRotation]({% link assets/2021-05-10-hand-sway-in-unity/3.png %})
+The code responsible for the hand sway can be found entirely in the [`UpdatePositionAndRotation` method](https://github.com/marcospgp/Hand-Sway/blob/main/Assets/Components/Player/Hands/PlayerHands.cs#L120) of the `PlayerHands` component.
 
 ## Explanation
 
