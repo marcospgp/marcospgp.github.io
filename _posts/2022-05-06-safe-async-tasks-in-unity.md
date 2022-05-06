@@ -11,7 +11,9 @@ I am working on infinite terrain in Unity, voxel based just like Minecraft - exc
 
 I didn't even consider using Unity's coroutines for this - they are single threaded, so the most I could do is dedicate some miliseconds each frame towards building the chunks. I hate that idea, and I dislike how coroutines rely on IEnumerator which has nothing to do with parallelism.
 
-I discovered C# has a cozy API for multithreading that is very high level and clean. To execute code on C#'s "thread pool", all one has to do is pass a function to `Task.Run()` and `await` it to get its result or to discover if an exception was thrown.
+Unity's new C# jobs were my first real option. I gave them a try, but the concept of defining tasks inside a struct and not really knowing what data is accessible from there really irked me. It is not at all clear at which level of abstraction a job should be defined (a single slow operation? the entire task one wants to accomplish?). Most of all, having to use a struct and pass data around with `NativeContainer`s made it hard to convert existing single threaded code into something that can run on a background thread.
+
+Very annoyed by the audacity of Unity to push those struct monstrosities upon me, I discovered C# has a cozy API for multithreading that is very high level and clean. To execute code on C#'s "thread pool", all one has to do is pass a function to `Task.Run()` and `await` it to get its result or to discover if an exception was thrown.
 
 But it can never be that simple. Unity's documentation warns against using tasks, then brings up this `SynchronizationContext` thing, and I was off to the docs. During several days I must have read over a hundred pages of documentation and stack overflow, discussing this concept very indirectly - apparently, no one has actually ever seen a `SynchronizationContext` in the wild, they have only heard tales.
 
@@ -19,7 +21,9 @@ These bumps on the road for a project always get me very stressed, so I became a
 
 Unity defines its own `SynchronizationContext` so that code execution returns to the main thread after an `await`. Otherwise, you would not be able to call most of Unity's APIs.
 
-Another matter Unity brings up is that it will not terminate tasks upon exiting play mode, which can lead to much craziness. To handle this, I built a wrapper around Task.Run() that ignores the result of any running task when play mode ends.
+Upon reading the previous sentence, I am amazed it took so long to understand. Who writes these docs?
+
+Another matter Unity brings up is that it will not terminate tasks upon exiting play mode, which can lead to much craziness spilling onto edit mode and getting saved alongside the scene. To handle this, I built a wrapper around `Task.Run()` that ignores the result of any running task if play mode is exited.
 
 The code is below. I hope it helps, and I hope it is quickly made obsolete by Unity.
 
