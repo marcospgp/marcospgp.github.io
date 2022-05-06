@@ -5,6 +5,8 @@ title: Safe Async Tasks in Unity
 
 Is Minecraft single threaded? I think it must be, because I remember a slight stutter when flying fast across the world. Too many chunks being loaded starts eating into the main thread's render time. Apparently this stutter was short and rare enough that it could be ignored by Notch, but I am not so lucky.
 
+![Terrain]({% link assets/terrain2.jpeg %})
+
 I am working on infinite terrain in Unity, voxel based just like Minecraft - except it can be smoothed. The terrain is smoothed by displacing each vertex towards the average of its neighbors. This makes building a chunk slow enough that I can't do it on the fly in a single thread. I thus had to find a way to do it in the background, as the player moves.
 
 I didn't even consider using Unity's coroutines for this - they are single threaded, so the most I could do is dedicate some miliseconds each frame towards building the chunks. I hate that idea, and I dislike how coroutines rely on IEnumerator which has nothing to do with parallelism.
