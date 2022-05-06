@@ -3,7 +3,7 @@ layout: post
 title: Safe Async Tasks in Unity
 ---
 
-Is Minecraft single threaded? I think it must be, because I remember a slight stutter when flying fast across the world. Too many chunks being loaded starts eating into the main thread's render time. Apparently this stutter was short and rare enough that it could be ignored by Notch, but I am not so lucky.
+Is Minecraft single threaded? I think it must be, because I remember a slight stutter when flying fast across the world. Too many chunks being loaded starts eating into the main thread's render time. Apparently this stutter was short and rare enough that it could be ignored by Notch, but I was not as lucky.
 
 ![Terrain]({% link assets/terrain2.jpeg %})
 
