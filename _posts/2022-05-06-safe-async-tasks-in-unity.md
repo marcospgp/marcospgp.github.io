@@ -7,7 +7,7 @@ Is Minecraft single threaded? I think it must be, because I remember a slight st
 
 ![Terrain]({% link assets/terrain2.jpg %})
 
-I am working on infinite terrain in Unity, voxel based just like Minecraft - except it can be smoothed. The terrain is smoothed by displacing each vertex towards the average of its neighbors. This makes building a chunk slow enough that I can't do it on the fly in a single thread. I thus had to find a way to do it in the background, as the player moves.
+I am working on infinite terrain in Unity, voxel based just like Minecraft - except it can be smoothed. The smoothing works by displacing each vertex towards the average of its neighbors. This makes building a chunk slow enough that I can't do it on the fly in a single thread. I thus had to find a way to do it in the background, as the player moves.
 
 I didn't even consider using Unity's coroutines for this - they are single threaded, so the most I could do is dedicate some miliseconds each frame towards building the chunks. I hate that idea, and I dislike how coroutines rely on IEnumerator which has nothing to do with parallelism.
 
