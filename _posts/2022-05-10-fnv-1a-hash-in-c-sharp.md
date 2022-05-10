@@ -22,6 +22,6 @@ The second is to hash the bytes in a random sequence. This randomization is hard
 
 Without these two tricks, the hash looks like this (much farther from white noise):
 
-![Hash without tricks]({% link assets/2022-05-10-fnv-1a-hash-in-c-sharp/hash-with-tricks.jpg %})
+![Hash without tricks]({% link assets/2022-05-10-fnv-1a-hash-in-c-sharp/hash-without-tricks.jpg %})
 
 <script src="https://gist.github.com/marcospgp/ed991372f1c814eb21b8b248db258187.js"></script>
