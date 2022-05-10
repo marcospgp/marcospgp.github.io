@@ -1,6 +1,6 @@
 ---
 layout: post
-title: FNV 1a Hash in C#
+title: A Simple Hash for Perlin Noise
 ---
 
 I needed a hashing algorithm that is simple to implement and quick to compute, to be used as a basis
@@ -18,7 +18,7 @@ I used a couple tricks to get the hash to look as close as possible to white noi
 
 The first trick is to multiply each coordinate by one of the algorithm's parameters (the prime number), which gets the bits away from being almost all 0s when hashing low values.
 
-The second trick is to hash the bytes in a random sequence. This randomization is hardcoded for simplicity, so it is always the same.
+The second trick is to hash the bytes in a random sequence. This sequence is hardcoded for simplicity.
 
 Without these two tricks, the hash looks much less like pure white noise. This is the result if we hash the coordinates as floating point numbers:
 
