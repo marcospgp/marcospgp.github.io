@@ -10,7 +10,7 @@ I couldn't rely on simple randomness since terrain generation has to be determin
 
 I ended up implementing the [Fowler–Noll–Vo 1a hash](http://www.isthe.com/chongo/tech/comp/fnv/index.html), which checks those boxes. Perhaps the code may help someone else, so I'm sharing it below.
 
-You can use the `DebugTexture` method to get a sample of what it looks like, by hashing the coordinates of each pixel and mapping the hash to a grayscale color from 0 to 1:
+You can use the `DebugTexture()` method to get a sample of what it looks like. This hashes the coordinates of each pixel and maps the hash to a color between black and white:
 
 ![Hash with tricks]({% link assets/2022-05-10-fnv-1a-hash-in-c-sharp/hash-with-tricks.jpg %})
 
