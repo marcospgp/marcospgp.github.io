@@ -20,14 +20,14 @@ The first trick is to multiply each coordinate by one of the algorithm's paramet
 
 The second trick is to hash the bytes in a random sequence. This sequence is hardcoded for simplicity.
 
-Without these two tricks, the hash looks much less like pure white noise. This is the result if we hash the coordinates as floating point numbers:
+Without these two tricks, the hash looks much less like pure white noise. This is the result if we hash the coordinates as floating point numbers, using no tricks:
 
 ![Hash without tricks from floats]({% link assets/2022-05-10-a-simple-hash-for-perlin-noise/hash-without-tricks.jpg %})
 
-And this if we hash coordinates as integers:
+And this if we hash coordinates as integers, also with no tricks:
 
 ![Hash without tricks from integers]({% link assets/2022-05-10-a-simple-hash-for-perlin-noise/hash-without-tricks-int.jpg %})
 
-Here is the full source code:
+The full source code is below:
 
 <script src="https://gist.github.com/marcospgp/ed991372f1c814eb21b8b248db258187.js"></script>
