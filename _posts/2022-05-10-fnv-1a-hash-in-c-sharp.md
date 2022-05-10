@@ -28,5 +28,4 @@ And this if we hash coordinates as integers:
 
 ![Hash without tricks from integers]({% link assets/2022-05-10-fnv-1a-hash-in-c-sharp/hash-without-tricks-int.jpg %})
 
-
 <script src="https://gist.github.com/marcospgp/ed991372f1c814eb21b8b248db258187.js"></script>
