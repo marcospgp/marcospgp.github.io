@@ -1,10 +1,10 @@
 # Site settings
-title:       Pixyll
+title: Marcos Pereira
 email:       your_email@example.com
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+author:      Marcos Pereira
+description: "Making NPCs alive"
 baseurl:     ""
-url:         "https://pixyll.com"
+url:         "https://marcospgp.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
@@ -14,7 +14,7 @@ header_pages:
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: G-8NMMK1ZP7T
 google_tag_manager:
 # Bing services
 bing_verification:
@@ -47,7 +47,7 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
+github_username: marcospgp
 reddit_username:
 bitbucket_username:
 stackoverflow_id:
