@@ -1,53 +1,94 @@
 ---
 layout: page
-title: About
+title: About Pixyll
 permalink: /about/
+tags: about
 ---
 
-Hello! Thanks for visiting my website.
+This Jekyll theme was crafted with <3 by [John Otander](https://johno.com/)
+([@4lpine](https://twitter.com/4lpine)).
 
-<details>
-  <summary>I am Marcos, a developer from Portugal.</summary>
-  <p>
-    I mostly have made a living so far working on web apps, but am more interested in AI and games. I have been working part time for most of my career and wish to soon stop relying on selling my time.
-  </p>
+Checkout the [GitHub repository](https://github.com/johno/pixyll) to download it,
+request a feature, report a bug, or contribute. It's free, and open source
+([MIT](https://opensource.org/licenses/MIT)).
 
-  <p>
-    Many years ago GTA San Andreas opened my eyes to how amazing and immersive virtual worlds can be. I now work towards making these worlds more alive. I believe that anything we create in them can be a source of inspiration for and will certainly spill over into base reality.
-  </p>
+Thanks to the following:
 
-  <p>
-    I have a software engineering bachelor's that I really wished to drop out of due to how boring it was, but couldn't find the courage to (it was still hard work, of course). I believe education should have a target application, closer to the present the less fun it is to study. I learn by working on projects - I initially got into web development by finding work on reddit.com/r/forhire as a student.
-  </p>
-</details>
+* [BASSCSS](https://basscss.com/)
+* [Jekyll](https://jekyllrb.com/)
+* [Refills](https://refills.bourbon.io/)
+* [Type Scale](https://type-scale.com/)
 
-<details>
-  <summary>I identify with and mostly live by stoic philosophy.</summary>
-  <p>
-    I tend to overthink things I care about and underthink things I am not interested in. I am trying to lean more towards action, but am bothered by the idea of imperfection. I still haven't figured out how to sleep well or how much coffee I should have.
-  </p>
+List of contributors:
 
-  <p>
-    I don't believe in fancy wording. If you talk weird, you got something to hide. And making something harder to understand than it has to be is a crime against humanity.
-  </p>
-</details>
-
-<details>
-  <summary>I am a strong believer in the church of ease of use.</summary>
-  <p>
-  I live by progressive disclosure of complexity, which means every interface should be obvious to someone seeing it for the first time, yet still powerful for one who has explored its details. And if you want to explain something to someone, build your ideas up as little lego bricks before you start putting together your tower of reasoning.
-  </p>
-</details>
-
-<details>
-  <summary>It feels nice to have things under control and neatly organized in one's head, but acting out in the world is hard.</summary>
-  <p>
-    There are two components to doing things - being good at doing, and being good at judging. If you don't hate what you do, improve your judgement. And if you hate what you do, keep doing.
-  </p>
-
-  <p>
-    Whatever it is you're doing, if no one is paying for it and you're not doing it for its own sake then it's not worth it. Judge your usefulness by whether people are willing to give something in exchange.
-  </p>
-</details>
-
-If you wish to get in touch, you can reach out through the links in the footer, or send an email to &#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#114;&#99;&#111;&#115;&#112;&#101;&#114;&#101;&#105;&#114;&#97;&#46;&#109;&#101;.
+- Aaron S. Hawley
+- Adam Menges
+- Alex Claman
+- Alex Johnson
+- Alex Touchet
+- Allister Antosik
+- Amin Bandali
+- Anders Nissen
+- Andrea Margiovanni
+- Andreas Niedermair
+- Andrzej Ośmiałowski
+- Anuj More
+- Arvind Chembarpu
+- Assaf Gelber
+- Barry vd. Heuvel
+- Bartek Krzemień
+- Benjamin Sinkula
+- Bennett Rogers
+- Brian Gaid
+- Brian Hurst
+- Chee Yeo
+- Cody Chan
+- Cristian Henrique
+- David Ernst
+- David Moodie
+- Donate Altenburger
+- Eddie Schoute
+- Fernando Mantoan
+- Gurchet Rai
+- Harish Narayanan
+- Jack Platten
+- Jehan Tremback
+- Jiaxi Gu (Isaac)
+- John Otander
+- Jordan Danielewski
+- Josh Buxton
+- Kirill Kulikov
+- Kyle Maxwell
+- Marta Sztybor
+- Martin Wagner
+- Matthew Graybosch
+- Maxim Tsoy
+- Mete Balci
+- Mike Lloyd
+- Mikhail Grachev
+- mindwind
+- Nick Rakochy
+- Nikolay Georgiev
+- Noel Bautista
+- Oliver Hamlet
+- Onur (e0i)
+- Praveer Gupta
+- Rassol (Karmeye)
+- Renato Fialho
+- Ricky Han
+- Roberto Pesando
+- Ryan Jacobs
+- Scott Martin
+- Selim Eren Bekçe
+- Shruti Rijhwani
+- Steef Hegeman
+- Tehmasp Chaudhri
+- Thomas Galvin
+- Timothy Gu
+- Tom Kraak
+- Vishnu Ks
+- Vladislav Arbatov
+- Wilfred Hughes
+- Yaroslav Yadrishnikov
+- Yee Chie Tu
+- Yeou Chien
