@@ -5,7 +5,7 @@ title: Floating origin in Unity
 
 If your Unity game is large enough, you will sooner or later run into floating point precision issues when your camera is far from the origin.
 
-![Terrain]({% link assets/terrain.jpeg %})
+![Terrain]({% link assets/2021-05-18-floating-origin-in-unity/terrain.jpeg %})
 
 _Some large terrain._
 
