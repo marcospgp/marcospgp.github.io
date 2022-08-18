@@ -1,6 +1,6 @@
 # Site settings
 title: Marcos Pereira
-email:       your_email@example.com
+email:
 author:      Marcos Pereira
 description: "Making NPCs alive"
 baseurl:     ""
@@ -23,11 +23,11 @@ bing_verification:
 animated:             false
 show_related_posts:   false
 show_post_footers:    false
-show_social_icons:    false
+show_social_icons:    true
 ajaxify_contact_form: false
 enable_mathjax: true
-extended_fonts: false
-enable_anchorjs: false
+extended_fonts: true
+enable_anchorjs: true
 # Preview image for social media aka og:image and twitter:image
 post_preview_image: false
 
@@ -115,7 +115,7 @@ markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
-paginate:     4
+paginate:     5
 sass:
   style: compressed
 plugins:

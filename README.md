@@ -1,10 +1,8 @@
 # marcospgp.github.io
 
-Repo for personal website.
+Repo for Jekyll based personal website.
 
 Theme documentation [here](PIXYLL.md).
-
-
 
 ## Usage
 
