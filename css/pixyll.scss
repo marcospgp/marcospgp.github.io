@@ -1,6 +1,9 @@
 ---
-# The scss file which include files from _sass/
 ---
+
+// ^ Blank front matter required for jekyll to process this file. This may cause
+// a linting error to show up below.
+
 @charset "UTF-8";
 
 /*!
@@ -34,3 +37,17 @@
 @import 'gists';
 @import 'measure';
 @import 'pagination';
+
+// Additional styles below
+
+details {
+    margin-bottom: 1em;
+
+    p {
+        margin-left: 1em;
+    }
+}
+
+summary:hover {
+    cursor: pointer;
+}

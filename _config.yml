@@ -4,7 +4,7 @@ email:
 author:      Marcos Pereira
 description: "Making NPCs alive"
 baseurl:     ""
-url:         "https://marcospgp.github.io"
+url:         "https://marcospereira.me"
 date_format: "%b %-d, %Y"
 header_pages:
  - about.md
@@ -14,8 +14,8 @@ header_pages:
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics: G-8NMMK1ZP7T
-google_tag_manager:
+google_analytics:
+google_tag_manager: G-8NMMK1ZP7T
 # Bing services
 bing_verification:
 
@@ -126,6 +126,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Rakefile
+  - LICENSE
   - README.md
+  - PIXYLL.md
   - screenshot.png
   - vendor

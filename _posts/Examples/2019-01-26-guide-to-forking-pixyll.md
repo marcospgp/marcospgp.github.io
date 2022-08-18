@@ -4,6 +4,7 @@ title: Guide to Forking Pixyll
 date: 2019-01-26 19:22
 summary: Pixyll is available to you under the MIT license.
 categories: jekyll pixyll
+published: false
 ---
 
 The following is an overview to copying and sharing Pixyll.[^1]
@@ -49,11 +50,11 @@ If you want to publish a fork of Pixyll under a different name but keeping it un
 However, if you want to publish a fork of Pixyll under a different name *and* a different license, then you should should still add your name to the copyright notices but have a section titled "Pixyll" at the bottom of your LICENSE file that preserves the copyright and license notices for Pixyll:
 
     Pixyll
-    
+
     Copyright (c) 2014-2021 John Otander
-    
+
     MIT License
-    
+
     Permission is hereby granted, [...]
 
 If you are just modifying Pixyll in small ways to customize your site, you are not obligated to maintain the copyright notices of Pixyll on your site.  However, if you want to credit the Pixyll theme that would be appreciated, see section on "Pixyll Plug" in the README file that came with Pixyll.

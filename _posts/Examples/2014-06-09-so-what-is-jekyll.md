@@ -4,10 +4,11 @@ title:      So, What is Jekyll?
 date:       2014-06-09 12:32:18
 summary:    Transform your plain text into static websites and blogs. Simple, static, and blog-aware.
 categories: jekyll pixyll
+published: false
 ---
 
-Jekyll is a tool for transforming your plain text into static websites and 
-blogs. It is simple, static, and blog-aware. Jekyll uses the 
+Jekyll is a tool for transforming your plain text into static websites and
+blogs. It is simple, static, and blog-aware. Jekyll uses the
 [Liquid](https://shopify.dev/docs/themes/liquid/reference/basics) templating
 language and has builtin [Markdown](https://daringfireball.net/projects/markdown/)
 and [Textile](https://en.wikipedia.org/wiki/Textile_(markup_language)) support.
