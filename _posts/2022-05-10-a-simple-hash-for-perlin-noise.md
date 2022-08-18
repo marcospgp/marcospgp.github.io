@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Simple Hash for Perlin Noise
+title: A Simple Hash For Perlin Noise
 ---
 
 I needed a hashing algorithm that is simple to implement and quick to compute, to be used as a basis
