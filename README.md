@@ -1,4 +1,4 @@
-# marcospgp.github.io
+# marcospereira.me / marcospgp.github.io
 
 Repo for Jekyll based personal website.
 
