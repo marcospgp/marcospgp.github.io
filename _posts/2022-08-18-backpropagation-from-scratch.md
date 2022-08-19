@@ -99,7 +99,6 @@ We will also need the derivatives involving the cost function and the activation
 
 We can now replace the weighted input derivatives in $$\eqref{1}$$, $$\eqref{2}$$, and $$\eqref{3}$$ with the results we just calculated:
 
-
 $$
 \begin{align*}
 \tag{4}\label{4}
@@ -141,7 +140,7 @@ $$
 \end{equation*}
 $$
 
-There is a clever simplification for calculating the derivatives of the last layer. When it applies a softmax activation followed by the cross entropy loss, as described on page 3 of https://www.ics.uci.edu/~pjsadows/notes.pdf, we end up with the formula:
+There is a clever simplification for calculating the derivatives of the last layer. When it applies a softmax activation followed by the cross entropy loss, as described on page 3 of <https://www.ics.uci.edu/~pjsadows/notes.pdf>, we end up with the formula:
 
 $$
 \begin{equation}

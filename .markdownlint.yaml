@@ -6,3 +6,5 @@ MD033: # Allow raw html for specific elements
     - summary
     - p
     - br
+    - script
+    - iframe
