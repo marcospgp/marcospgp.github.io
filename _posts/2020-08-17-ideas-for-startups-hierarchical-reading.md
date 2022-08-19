@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ideas For Startups by Paul Graham: A Hierarchical Reading
+title: "Ideas For Startups by Paul Graham: A Hierarchical Reading"
 ---
 
 I summarized [Paul Graham's "Ideas For Startups" essay](http://www.paulgraham.com/ideas.html) in an experimental reading format that I believe has a lot of potential.
