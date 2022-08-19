@@ -302,7 +302,7 @@ Here is a rough overview of the steps that need to be taken:
 5. Use the activations gradient to calculate weights & biases gradient;
 6. Repeat until input layer is reached;
 7. Update weights & biases by subtracting the gradient multiplied by a small learning rate
-Go back to 1.
+8. Go back to 1.
 
 We can now jump into a notebook and start writing some code:
 
