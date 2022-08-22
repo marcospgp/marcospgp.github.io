@@ -3,7 +3,7 @@ layout: post
 title: Backpropagation From Scratch
 ---
 
-In this post we summarize the mathematics behind deep learning, then implement with NumPy a simple network that can  achieve 85% accuracy classifying digits from the MNIST dataset.
+In this post we summarize the mathematics behind deep learning, then implement with NumPy a simple network that can achieve 85% accuracy classifying digits from the MNIST dataset.
 
 It is assumed that the reader is familiar with how neural networks are composed of layers of neurons, and how each layer is connected to the next by weights and biases.
 
@@ -102,14 +102,14 @@ We can now replace the weighted input derivatives in $$\eqref{1}$$, $$\eqref{2}$
 $$
 \begin{align*}
 \tag{4}\label{4}
-\frac{\partial C}{\partial w_{ij}^{l}} ={\displaystyle \frac{\textstyle \partial z_{i}^{l}}{\partial w_{ij}^{l}} \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}} & & \Rightarrow  & & \frac{\partial C}{\partial w_{ij}^{l}} =a{\displaystyle _{j}^{l-1} \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}}
+\frac{\partial C}{\partial w_{ij}^{l}} ={\displaystyle \frac{\textstyle \partial z_{i}^{l}}{\partial w_{ij}^{l}} \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}} & & \Rightarrow & & \frac{\partial C}{\partial w_{ij}^{l}} =a{\displaystyle _{j}^{l-1} \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}}
 \end{align*}
 $$
 
 $$
 \begin{align*}
 \tag{5}\label{5}
-\frac{\partial C}{\partial b_{i}^{l}} ={\displaystyle \frac{\textstyle \partial z_{i}^{l}}{\partial b_{i}^{l}} \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}} & & \Rightarrow  & & \frac{\partial C}{\partial b_{i}^{l}} =1{\displaystyle \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}}
+\frac{\partial C}{\partial b_{i}^{l}} ={\displaystyle \frac{\textstyle \partial z_{i}^{l}}{\partial b_{i}^{l}} \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}} & & \Rightarrow & & \frac{\partial C}{\partial b_{i}^{l}} =1{\displaystyle \cdot }\frac{\partial a_{i}^{l}}{\partial z_{i}^{l}} \cdot \frac{\partial C}{\partial a_{i}^{l}}
 \end{align*}
 $$
 
