@@ -22,8 +22,8 @@ layout: null
                 </content:encoded>
                 <guid isPermaLink="false">{{ post.url }}</guid>
                 <description>
-                    {% if post.summary %}
-                    {{ post.summary | xml_escape }}
+                    {% if post.description %}
+                    {{ post.description | xml_escape }}
                     {% endif %}
                 </description>
                 <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
