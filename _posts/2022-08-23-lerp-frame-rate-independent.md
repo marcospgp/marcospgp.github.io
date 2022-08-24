@@ -11,12 +11,11 @@ We want to find out if interpolating a value towards another over multiple frame
 
 ## Iterative Lerp
 
-The lerp (linear interpolation) function is commonly used in games to make a variable $$a$$ smoothly approach a target value $$b$$ over multiple frames:
+The lerp (linear interpolation) function is commonly used in games to make a variable $$a$$ smoothly approach a target value $$b$$ over multiple frames, moving a fraction $$d \in [0, 1]$$ of the remaining distance each frame:
 
 $$ lerp(a, b, d) = a + (b - a) \cdot d $$
 
-This is done by using its result as the starting point $$a$$ for the following frame.
-The factor $$d \in [0, 1]$$ determines how much $$a$$ moves towards $$b$$ each frame: 1 means $$a$$ will end up equal to $$b$$, and 0 means it will not change at all.
+In this context, running an iterative lerp means to use its result as the starting point $$a$$ for the following frame.
 
 In {% post_link 2022-08-22-lerp %}, we saw that an iterative lerp from 0 to 1 with a factor $$d \in [0, 1]$$ given a frame number $$k$$ can be written as:
 
