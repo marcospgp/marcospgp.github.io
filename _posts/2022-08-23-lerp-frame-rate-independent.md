@@ -95,7 +95,7 @@ I was actually surprised to see how little of a difference it makes! Is it even 
 
 Perhaps multiplying $$d$$ by $$\Delta time$$ is good enough. But good enough is not good enough for us, so we shall battle on!
 
-Coming Soon: A part 3 where we finally find out how to make an iterative lerp perfectly independent from fluctuations in frame rate.
+Check out part 3, {% post_link 2022-08-24-lerp-how-to-frame-rate-independent %}, where we finally find out how to make an iterative lerp perfectly independent from fluctuations in frame rate.
 
 ## Acknowledgements
 

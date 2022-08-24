@@ -8,3 +8,4 @@ MD033: # Allow raw html for specific elements
     - br
     - script
     - iframe
+    - div
