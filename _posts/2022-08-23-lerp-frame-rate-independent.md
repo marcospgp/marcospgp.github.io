@@ -74,9 +74,9 @@ And now we can visualize an iterative lerp as a function of time:
 
 <iframe src="https://www.desmos.com/calculator/wysqvzgvpt" width="800" height="450" style="border: 1px solid #ccc" frameborder=0></iframe>
 
-The factor $$d$$ still determines how much $$a$$ moves towards $$b$$ **per frame**, even though the x axis now represents time.
-
 By dragging the slider for the $$\Delta time$$ (represented as $$D$$), we can see how variations in the frame rate affect the curve. A frame rate of 30 frames per second is $$D = \frac{1}{30} = 0.0333...$$, and a frame rate of 120 frames per second is $$D = \frac{1}{120} = 0.008333...$$.
+
+The factor $$d$$ still determines how much $$a$$ moves towards $$b$$ **per frame**, even though the x axis now represents time.
 
 ## An Imperfect Solution
 
@@ -90,7 +90,7 @@ And we can see it on a graph:
 
 <iframe src="https://www.desmos.com/calculator/wustamboeu" width="800" height="450" style="border: 1px solid #ccc" frameborder=0></iframe>
 
-And indeed this makes a big difference, but as we can see by again dragging the slider for $$D$$, the curve is still slightly affected when the frame rate changes.
+And indeed this makes a big difference, but as we can see by again dragging the slider for $$D$$, the curve is still slightly affected by changes in frame rate.
 
 I was actually surprised to see how little of a difference it makes! Is it even worth it to worry about making lerp perfectly frame rate independent for non competitive games? And even for competitive games, since the game logic will likely be running at a fixed framerate on the server side?
 
@@ -103,7 +103,3 @@ Coming Soon: A part 3 where we finally find out how to make an iterative lerp pe
 ["Improved Lerp Smoothing" by Scott Lembcke on Game Developer](https://www.gamedeveloper.com/programming/improved-lerp-smoothing-)
 
 ["Frame Rate Independent Damping Using Lerp" by Rory Driscoll](https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/)
-
----
-
-{:footnotes}
