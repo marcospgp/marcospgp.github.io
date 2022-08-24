@@ -83,7 +83,7 @@ By dragging the slider for the $$\Delta time$$ (represented as $$D$$), we can se
 A common solution for iterative lerp's frame rate dependence is to multiply the factor $$d$$ by $$\Delta time$$:
 
 $$
-\text{iterative_lerp}(a, b, d, t) &= b - (b - a) \cdot (1 - (d \cdot \Delta time))^{\frac{t}{\Delta time}}
+\text{iterative_lerp}(a, b, d, t) = b - (b - a) \cdot (1 - (d \cdot \Delta time))^{\frac{t}{\Delta time}}
 $$
 
 And we can see it on a graph:
