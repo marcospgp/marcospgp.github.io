@@ -75,7 +75,7 @@ And now we can visualize an iterative lerp as a function of time:
 
 By dragging the slider for the $$\Delta time$$ (represented as $$D$$), we can see how variations in the frame rate affect the curve. A frame rate of 30 frames per second is $$D = \frac{1}{30} = 0.0333...$$, and a frame rate of 120 frames per second is $$D = \frac{1}{120} = 0.008333...$$.
 
-The factor $$d$$ still determines how much $$a$$ moves towards $$b$$ **per frame**, even though the x axis now represents time.
+The factor $$d$$ still determines how much $$a$$ moves towards $$b$$ **per frame**, even though the horizontal axis now represents time.
 
 ## An Imperfect Solution
 
