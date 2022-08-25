@@ -28,6 +28,8 @@ public void Update() {
 }
 {% endhighlight %}
 
+`this.delta` controls how much we move `this.value` towards `this.target` per second.
+
 ## The Problem
 
 In {% post_link 2022-08-22-lerp %}, we saw that running lerp over multiple frames while reusing its result as the starting point for the next frame results in an exponential curve. We also started calling this an iterative lerp.
