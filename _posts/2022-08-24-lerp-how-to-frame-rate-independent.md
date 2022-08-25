@@ -130,6 +130,10 @@ public void Update() {
 
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
 
+## Why Use Lerp()
+
+Is there a reason to use Unity's `Mathf.Lerp()` over defining the formula yourself? Not really, as [their implementation](https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Mathf.cs#L220) is plain C# code and nothing particularly optimized.
+
 ## Acknowledgements
 
 ["Improved Lerp Smoothing" by Scott Lembcke on Game Developer](https://www.gamedeveloper.com/programming/improved-lerp-smoothing-)
