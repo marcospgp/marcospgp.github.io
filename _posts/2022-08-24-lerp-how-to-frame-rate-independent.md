@@ -14,7 +14,9 @@ $$
 
 ## Conclusion
 
-To make an iterative lerp perfectly frame rate independent, all we have to do is switch $$a$$ and $$b$$ and make the factor $$d$$ an exponential of $$\Delta time$$:
+To make an iterative[^1] lerp perfectly frame rate independent, all we have to do is switch $$a$$ and $$b$$ and make the factor $$d$$ an exponential of $$\Delta time$$:
+
+[^1]: An iterative lerp means running lerp over multiple frames while reusing its result as the starting point for the next frame.
 
 {% highlight csharp %}
 public void Update() {
@@ -145,3 +147,7 @@ If not, then maybe there is something special about lerp after all. Perhaps it h
 ["Improved Lerp Smoothing" by Scott Lembcke on Game Developer](https://www.gamedeveloper.com/programming/improved-lerp-smoothing-)
 
 ["Frame Rate Independent Damping Using Lerp" by Rory Driscoll](https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/)
+
+---
+
+{:footnotes}
