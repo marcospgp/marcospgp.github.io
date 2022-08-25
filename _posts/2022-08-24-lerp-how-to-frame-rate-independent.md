@@ -130,9 +130,15 @@ public void Update() {
 
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
 
-## Why Use Lerp()
+## Do We Have To Use Mathf.Lerp()?
 
 Is there a reason to use Unity's `Mathf.Lerp()` over defining the formula yourself? Not really, as [their implementation](https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Mathf.cs#L220) is plain C# code and nothing particularly optimized.
+
+## Open Question
+
+We made lerp in particular frame rate independent because it is so commonly used and there's a higher chance people are using it wrong. But can the same process be done for other animation curves? Does the $$f(t + u)$$ trick work for a $$sin$$ curve or a parabola?
+
+If not, then maybe there is something special about lerp after all. Perhaps it has something to do with the derivative of $$e^x$$ being $$e^x$$.
 
 ## Acknowledgements
 
