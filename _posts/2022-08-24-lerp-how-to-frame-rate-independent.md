@@ -118,7 +118,7 @@ $$
 \end{aligned}
 $$
 
-Remember that $$u$$ is the time since the last frame $$\Delta time$$, which in the Unity game engine can be referenced as `Time.deltaTime` from anywhere in the code.
+Remember that $$u$$ is the time since the last frame $$\Delta time$$, which in the Unity game engine can be referenced as `Time.deltaTime`.
 
 This means that to make an iterative lerp perfectly frame rate independent, all we have to do is switch $$a$$ and $$b$$ and make the factor $$d$$ an exponential of $$\Delta time$$:
 
