@@ -56,7 +56,7 @@ Instead of representing how much to move $$a$$ towards the target value $$b$$ ea
 
 But obviously, this is not enough. We now need to work backwards from this expression and end up with something that we can implement in code.
 
-We need to think in a series mindset once again, by seeing time as $$ t + u $$: $$t$$ being the time at the previous frame, and $$u$$ being the time since the last frame:
+We need to think in a series mindset once again, by seeing time as $$ t + u $$. With $$t$$ being the time at the previous frame, and $$u$$ being the time since the last frame:
 
 $$
 \begin{aligned}
