@@ -17,14 +17,10 @@ Very annoyed by the audacity of Unity to push those struct monstrosities upon me
 
 But it can never be that simple. Unity's documentation warns against using tasks, then brings up this `SynchronizationContext` thing, and I was off to the docs. During several days I must have read over a hundred pages of documentation and stack overflow, discussing this concept very indirectly - apparently, no one has actually ever seen a `SynchronizationContext` in the wild, they have only heard tales.
 
-These bumps on the road for a project always get me very stressed, so I became a mess. But now at least I mostly understand what is going on.
-
-Unity defines its own `SynchronizationContext` so that code execution returns to the main thread after an `await`. Otherwise, you would not be able to call most of Unity's APIs.
-
-Upon reading the previous sentence, I am amazed it took so long to understand. Who writes these docs?
+The simple explanation,it seems, is that Unity defines its own `SynchronizationContext` so that code execution returns to the main thread after an `await`. Otherwise, you would not be able to call most of Unity's APIs.
 
 Another matter Unity brings up is that it will not terminate tasks upon exiting play mode, which can lead to much craziness spilling onto edit mode and getting saved alongside the scene. To handle this, I built a wrapper around `Task.Run()` that ignores the result of any running task if play mode is exited.
 
-The code is below. I hope it helps, and I hope it is quickly made obsolete by Unity.
+The code is below. I hope it helps, and that it may quickly be made obsolete by Unity.
 
 <script src="https://gist.github.com/marcospgp/291a8239f5dcb1a326fad37d624f3630.js"></script>
