@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How To Make Lerp Frame Rate Independent
+title: How to Make Lerp Frame Rate Independent
 description: How to smoothly move a value towards another while taking frame rate into account.
 ---
 

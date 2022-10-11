@@ -1,6 +1,6 @@
 ---
 layout: post
-title: polygon reducer is now available on the unity asset store
+title: Polygon Reducer is now available on the Unity asset store
 ---
 
 I just published my first package on the Unity asset store. It's called Polygon Reducer, and it reduces the vertex count of meshes in real time, as you drag a slider.
