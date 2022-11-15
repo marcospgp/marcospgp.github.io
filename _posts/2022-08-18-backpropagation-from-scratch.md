@@ -3,7 +3,7 @@ layout: post
 title: Backpropagation From Scratch
 ---
 
-In this post we summarize the mathematics behind deep learning, then implement with NumPy a simple network that can achieve 85% accuracy classifying digits from the MNIST dataset.
+In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
 
 It is assumed that the reader is familiar with how neural networks are composed of layers of neurons, and how each layer is connected to the next by weights and biases.
 
