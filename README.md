@@ -10,3 +10,5 @@ Adding new posts to this repo should update the website automatically, which is
 done by a Github action.
 
 To run the website locally, install Docker and run `docker compose up`.
+
+Remember to restart manually when changing `_config.yml`.
