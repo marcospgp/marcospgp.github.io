@@ -21,7 +21,7 @@
         {% if post.description %}
         {{ post.description }}
         {% else %}
-        {{ post.excerpt | strip_html | truncatewords: 30 }}
+        {{ post.excerpt | strip_html | truncatewords: 3 }}
         {% endif %}
       </span>
 
