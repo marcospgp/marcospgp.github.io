@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Should you have some coffee?
+tag: Life 👶
 ---
 
 I like coffee. Though sometimes, I'm not sure whether I should have it, especially when it's late in the day or I've already had some. So I took to doing some research and built up a little questionnaire to help guide my reasoning.

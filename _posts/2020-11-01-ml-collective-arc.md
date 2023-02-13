@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Applying Neural Cellular Automata to the ARC Challenge
+tag: AI 🤖
 ---
 
 I reached out to the ML Collective about tackling the [ARC challenge](https://github.com/fchollet/ARC), a dataset of grid-based abstraction and reasoning puzzles.

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Backpropagation From Scratch
+tag: AI 🤖
 ---
 
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.

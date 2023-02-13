@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Simple Hash For Perlin Noise
+tag: Game Dev 👾
 ---
 
 I needed a hashing algorithm that is simple to implement and quick to compute, to be used as a basis

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Is Lerp Frame Rate Independent?"
+tag: Game Dev 👾
 ---
 
 In this post, we find out that interpolating a value towards another over multiple frames is affected by fluctuations in frame rate, but that this is almost entirely fixed by a very popular solution - taking the time between frames (commonly referenced as delta time) into account.

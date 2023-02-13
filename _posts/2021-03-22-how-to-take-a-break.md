@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to take a break
+tag: Life 👶
 ---
 
 If you can't be productive because you are too stressed, burnt out, or simply feel a lack of energy and motivation, allow yourself to rest.

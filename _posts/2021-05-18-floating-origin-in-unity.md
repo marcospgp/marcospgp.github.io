@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Floating origin in Unity
+tag: Game Dev 👾
 ---
 
 If your Unity game is large enough, you will sooner or later run into floating point precision issues when your camera is far from the origin.

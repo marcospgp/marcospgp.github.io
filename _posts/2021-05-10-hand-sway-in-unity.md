@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hand sway in Unity
+tag: Game Dev 👾
 ---
 
 While setting up a first person controller in Unity, I decided to add some sway to the player's hands.
