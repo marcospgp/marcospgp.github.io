@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SQLite Checklist
+title: A checklist for SQLite
 tag: Web 💻
 ---
 
