@@ -10,29 +10,32 @@
         {% include social_links.html %}
       {% endif %}
 
-      <br>
-
-      <nav class="site-nav" style="float: none; text-align: left;">
-        {% if page.pagination.tag %}
-          <a class="nav-link" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
-        {% else %}
-          <a class="nav-active" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
-        {% endif %}
-
-        {% assign tags = site.tags | sort %}
-
-        {% for tag in tags %}
-          {% if page.pagination.tag == tag[0] %}
-
-            <a class="nav-active" href="{{ "/tags/" | append: tag[0] | relative_url }}">{{tag[0]}}</a>&nbsp;
-
+      {% if page.pagination.enabled %}
+        <!-- Browse by tag -->
+        <br>
+        <nav class="site-nav" style="float: none; text-align: left;">
+          {% if page.pagination.tag %}
+            <a class="nav-link" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
           {% else %}
-
-            <a class="nav-link" href="{{ "/tags/" | append: tag[0] | relative_url }}">{{tag[0]}}</a>&nbsp;
-
+            <a class="nav-active" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
           {% endif %}
-        {% endfor %}
-      </nav>
+
+          {% assign tags = site.tags | sort %}
+
+          {% for tag in tags %}
+            {% if page.pagination.tag == tag[0] %}
+
+              <a class="nav-active" href="{{ "/tags/" | append: tag[0] | relative_url }}">{{tag[0]}}</a>&nbsp;
+
+            {% else %}
+
+              <a class="nav-link" href="{{ "/tags/" | append: tag[0] | relative_url }}">{{tag[0]}}</a>&nbsp;
+
+            {% endif %}
+          {% endfor %}
+        </nav>
+      {% endif %}
+
     </div>
   </div>
 </header>
