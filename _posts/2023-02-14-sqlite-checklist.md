@@ -108,7 +108,7 @@ Outside of strict mode, SQLite will attempt to do some very weird guessing for o
 
 ### Numeric Primary Keys
 
-A numeric primary key will only be made an [alias for `rowid`](https://www.sqlite.org/autoinc.html) if declared with the type `INTEGER` verbatim (who knows why!).
+A numeric primary key will only be made an alias for [`rowid`](https://www.sqlite.org/autoinc.html) if declared with the type `INTEGER` verbatim (case insensitive), becoming an `INTEGER PRIMARY KEY` (as described [here](https://www.sqlite.org/lang_createtable.html#rowid)). It's not clear why, but that's how it is.
 
 ### Boolean
 
