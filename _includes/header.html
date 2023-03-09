@@ -25,11 +25,15 @@
           {% for tag in tags %}
             {% if page.pagination.tag == tag[0] %}
 
-              <a class="nav-active" href="{{ "/tags/" | append: tag[0] | relative_url }}">{{tag[0]}}</a>&nbsp;
+              <a class="nav-active" href="{{ '/tags/' | append: tag[0] | relative_url }}">
+                {{tag[0] | replace: ' ', '&nbsp;'}}
+              </a>&nbsp;
 
             {% else %}
 
-              <a class="nav-link" href="{{ "/tags/" | append: tag[0] | relative_url }}">{{tag[0]}}</a>&nbsp;
+              <a class="nav-link" href="{{ '/tags/' | append: tag[0] | relative_url }}">
+                {{tag[0] | replace: ' ', '&nbsp;'}}
+              </a>&nbsp;
 
             {% endif %}
           {% endfor %}
