@@ -16,7 +16,21 @@
   <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  <title>{% if page.title %}{{ page.title | strip_html }} - {% endif %}{{ site.title | strip_html }}</title>
+  {% comment %}
+  Pagination v2, which we use on the homepage, is setting `page.title`
+  erroneously (with a value equal to `site.title`).
+  We check for that to avoid repeating the site name in the `<title>` of the
+  homepage.
+  {% endcomment %}
+
+  {% capture title %}
+  {% if page.title and page.title != site.title %}
+  {{ page.title | strip_html }} -&nbsp;
+  {% endif %}
+  {{ site.title | strip_html }}
+  {% endcapture %}
+
+  <title>{{ title }}</title>
 
   {% capture description %}
   {% if page.description %}
