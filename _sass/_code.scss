@@ -10,7 +10,7 @@ code {
 }
 
 code {
-  color: #7a7a7a;
+  color: $mid-gray;
 }
 
 pre {
@@ -18,7 +18,7 @@ pre {
   line-height: 1.11;
   overflow-x: scroll;
   margin-bottom: 0.88em;
-  background-color: $pre-background-color;
+  background-color: $lighter-gray;
 }
 
 .highlight .p {
@@ -46,7 +46,7 @@ pre a::before {
   text-align: right;
   opacity: 0.7;
   display: inline-block;
-  color: $light-gray;
+  color: $lighter-gray;
   margin-right: 16px;
   font-size: 13px;
   -webkit-touch-callout: none;
