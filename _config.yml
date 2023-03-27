@@ -128,12 +128,11 @@ exclude:
 
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
-  enabled: false
+  enabled: true
   debug: false
   collection: 'posts'
   per_page: 16
   permalink: '/page-:num/'
-  title: false
   limit: 0
   sort_field: 'date'
   sort_reverse: true
