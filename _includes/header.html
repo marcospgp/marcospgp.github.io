@@ -10,8 +10,10 @@
         {% include social_links.html %}
       {% endif %}
 
-      {% # Browse by tag %}
-      {% if page.pagination.enabled # Detect homepage %}
+      {% comment %}
+      Browse by tag. Homepage is detected through `page.pagination.enabled`.
+      {% endcomment %}
+      {% if page.pagination.enabled %}
 
         <br>
         <nav class="site-nav" style="float: none; text-align: left;">
