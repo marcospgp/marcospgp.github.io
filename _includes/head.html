@@ -30,7 +30,7 @@
   {{ site.title | strip_html }}
   {% endcapture %}
 
-  <title>{{ title }}</title>
+  <title>{{- title -}}</title>
 
   {% capture description %}
   {% if page.description %}
