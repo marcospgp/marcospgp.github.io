@@ -16,7 +16,7 @@
   <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  {%- comment -%}
+  {% comment -%}
   Pagination v2, which we use on the homepage, is setting `page.title`
   erroneously (with a value equal to `site.title`).
   We check for that to avoid repeating the site name in the `<title>` of the
@@ -24,12 +24,12 @@
   Dashes next to brackets are supposed to trim whitespace for cleanliness.
   {%- endcomment -%}
 
-  {% capture title %}
+  {%- capture title -%}
   {%- if page.title and page.title != site.title -%}
   {{- page.title | strip_html -}} -&#32;
   {%- endif -%}
   {{- site.title | strip_html -}}
-  {% endcapture %}
+  {%- endcapture -%}
 
   <title>{{ title | strip_newlines }}</title>
 
@@ -41,7 +41,7 @@
   {%- else -%}
   {{- site.description | xml_escape -}}
   {%- endif -%}
-  {%- endcapture -%}
+  {%- endcapture %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
