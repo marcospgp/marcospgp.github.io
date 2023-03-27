@@ -44,9 +44,9 @@ $dark-green: #009f06 !default;
 $light-pink: #ffdddd !default;
 $light-green: #ddffdd !default;
 $dark-gray: #333 !default;
-$mid-gray: #777 !default;
-$light-gray: #ccc !default;
-$lighter-gray: #eee !default;
+$mid-gray: #444 !default;
+$light-gray: #777 !default;
+$lighter-gray: #ccc !default;
 $darken-1: rgba(#000,.0625) !default;
 $darken-2: rgba(#000,.125) !default;
 $darken-3: rgba(#000,.25) !default;
@@ -120,10 +120,10 @@ $header-font-weight: 300;
 
 // Nav
 $nav-color: $mid-gray;
-$nav-link-color: #444;
+$nav-link-color: $mid-gray;
 $nav-padding: $space-2;
 $nav-link-padding-x: $space-2;
-$nav-link-border-bottom: 2px solid #444;
+$nav-link-border-bottom: 2px solid $mid-gray;
 $nav-active-border-bottom: 1px solid $light-gray;
 
 // Footer
