@@ -137,7 +137,7 @@ pagination:
   # want `page.title` to be set so that only `site.title` is displayed.
   # A value of ":title" was causing a homepage title of
   # "Marcos Pereira - Marcos Pereira".
-  title:
+  title: ''
   limit: 0
   sort_field: 'date'
   sort_reverse: true
