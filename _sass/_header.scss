@@ -14,10 +14,6 @@
   font-size: $h2;
 }
 
-// .site-nav {
-//   padding-top: $nav-padding;
-// }
-
 .site-header nav a {
   color: $nav-color;
 }
@@ -54,4 +50,8 @@
 
 .site-header .site-nav {
   text-align: center;
+}
+
+.browse-by-tag {
+  font-size: $h4;
 }
