@@ -24,13 +24,13 @@
   {% endcomment %}
 
   {% capture title %}
-  {% if page.title and page.title != site.title %}
-  {{ page.title | strip_html }} -&nbsp;
-  {% endif %}
+  {%- if page.title and page.title != site.title -%}
+  {{ page.title | strip_html }} -&#32;
+  {%- endif -%}
   {{ site.title | strip_html }}
   {% endcapture %}
 
-  <title>{{- title -}}</title>
+  <title>{{ title | strip_newlines }}</title>
 
   {% capture description %}
   {% if page.description %}
