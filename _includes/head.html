@@ -18,12 +18,20 @@
 
   <title>{% if page.title %}{{ page.title | strip_html }} - {% endif %}{{ site.title | strip_html }}</title>
 
-  {% capture description %}{% if page.description %}{{ page.description | xml_escape }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | xml_escape | truncatewords: 30 }}{% else %}{{ site.description | xml_escape }}{% endif %}{% endcapture %}
+  {% capture description %}
+  {% if page.description %}
+  {{ page.description | xml_escape }}
+  {% elsif page.excerpt %}
+  {{ page.excerpt | strip_html | xml_escape | truncatewords: 30 }}
+  {% else %}
+  {{ site.description | xml_escape }}
+  {% endif %}
+  {% endcapture %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | truncatewords: 30 }}{% endif %}">
+  <meta name="description" content="{{ description }}">
   <meta name="author" content="{{ site.author }}">
   <!-- <link rel="manifest" type="application/manifest+json; charset=utf-8" href="{{ "/manifest.json" | relative_url }}"> -->
   {% if page.meta_robots %}<meta name="robots" content="{{ page.meta_robots }}">
