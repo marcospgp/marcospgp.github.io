@@ -133,7 +133,7 @@ pagination:
   collection: 'posts'
   per_page: 16
   permalink: '/page-:num/'
-  title:
+  title: false
   limit: 0
   sort_field: 'date'
   sort_reverse: true
