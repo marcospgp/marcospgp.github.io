@@ -128,7 +128,7 @@ exclude:
 
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
-  enabled: true
+  enabled: false
   debug: false
   collection: 'posts'
   per_page: 16
