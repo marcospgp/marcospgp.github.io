@@ -16,32 +16,32 @@
   <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  {% comment %}
+  {%- comment -%}
   Pagination v2, which we use on the homepage, is setting `page.title`
   erroneously (with a value equal to `site.title`).
   We check for that to avoid repeating the site name in the `<title>` of the
   homepage.
   Dashes next to brackets are supposed to trim whitespace for cleanliness.
-  {% endcomment %}
+  {%- endcomment -%}
 
   {% capture title %}
-  {% if page.title and page.title != site.title %}
+  {%- if page.title and page.title != site.title -%}
   {{- page.title | strip_html -}} -&#32;
-  {% endif %}
+  {%- endif -%}
   {{- site.title | strip_html -}}
   {% endcapture %}
 
   <title>{{ title | strip_newlines }}</title>
 
-  {% capture description %}
-  {% if page.description %}
-  {{ page.description | xml_escape }}
-  {% elsif page.excerpt %}
-  {{ page.excerpt | strip_html | xml_escape | truncatewords: 30 }}
-  {% else %}
-  {{ site.description | xml_escape }}
-  {% endif %}
-  {% endcapture %}
+  {%- capture description -%}
+  {%- if page.description -%}
+  {{- page.description | xml_escape -}}
+  {%- elsif page.excerpt -%}
+  {{- page.excerpt | strip_html | xml_escape | truncatewords: 30 -}}
+  {%- else -%}
+  {{- site.description | xml_escape -}}
+  {%- endif -%}
+  {%- endcapture -%}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
