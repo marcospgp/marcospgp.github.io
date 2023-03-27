@@ -1,8 +1,8 @@
 # Site settings
-title: Marcos Pereira
+title:       Marcos Pereira
 email:
 author:      Marcos Pereira
-description: "Making NPCs alive"
+description:
 baseurl:     ""
 url:         "https://marcospereira.me"
 date_format: "%b %-d, %Y"
@@ -134,7 +134,7 @@ pagination:
   collection: 'posts'
   per_page: 10
   permalink: '/page-:num/'
-  title: ':title'
+  title: 'ohh yummm :title'
   limit: 0
   sort_field: 'date'
   sort_reverse: true
