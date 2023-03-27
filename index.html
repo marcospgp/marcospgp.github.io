@@ -2,6 +2,8 @@
 layout: default
 pagination:
   enabled: true
+# Force empty title otherwise page.title is set to site.title, causing issues.
+title: ""
 ---
 
 {% include index.html %}
