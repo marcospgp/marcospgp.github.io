@@ -133,11 +133,7 @@ pagination:
   collection: 'posts'
   per_page: 16
   permalink: '/page-:num/'
-  # Keep title empty because pagination happens in homepage, where we do not
-  # want `page.title` to be set so that only `site.title` is displayed.
-  # A value of ":title" was causing a homepage title of
-  # "Marcos Pereira - Marcos Pereira".
-  title: ''
+  title:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
