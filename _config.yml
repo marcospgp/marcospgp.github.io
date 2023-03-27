@@ -133,6 +133,9 @@ pagination:
   collection: 'posts'
   per_page: 16
   permalink: '/page-:num/'
+  # Empty title because pagination is used in homepage, and we don't want to
+  # mess with its `<title>`.
+  title:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
