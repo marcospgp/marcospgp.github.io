@@ -23,7 +23,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ description }}">
+  <meta name="description" content="{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | truncatewords: 30 }}{% endif %}">
   <meta name="author" content="{{ site.author }}">
   <!-- <link rel="manifest" type="application/manifest+json; charset=utf-8" href="{{ "/manifest.json" | relative_url }}"> -->
   {% if page.meta_robots %}<meta name="robots" content="{{ page.meta_robots }}">
