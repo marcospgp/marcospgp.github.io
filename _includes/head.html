@@ -21,13 +21,14 @@
   erroneously (with a value equal to `site.title`).
   We check for that to avoid repeating the site name in the `<title>` of the
   homepage.
+  Dashes next to brackets are supposed to trim whitespace for cleanliness.
   {% endcomment %}
 
   {% capture title %}
-  {%- if page.title and page.title != site.title -%}
-  {{ page.title | strip_html }} -&#32;
-  {%- endif -%}
-  {{ site.title | strip_html }}
+  {% if page.title and page.title != site.title %}
+  {{- page.title | strip_html -}} -&#32;
+  {% endif %}
+  {{- site.title | strip_html -}}
   {% endcapture %}
 
   <title>{{ title | strip_newlines }}</title>
