@@ -15,7 +15,7 @@
     {% if site.stackoverflow_id %}
       <a class="fa fa-stack-overflow" href="https://stackoverflow.com/users/{{ site.stackoverflow_id }}" aria-label="stackoverflow"></a>
     {% endif %}
-    <a class="fa fa-rss" href="{{ "/feed.xml" | relative_url }}"></a>
+    <a class="fa fa-rss" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed"></a>
     {% if site.skype_username %}
       <a class="fa fa-skype" href="skype:{{ site.skype_username }}?userinfo" aria-label="skype"></a>
     {% endif %}
