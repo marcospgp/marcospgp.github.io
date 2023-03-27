@@ -10,8 +10,9 @@
         {% include social_links.html %}
       {% endif %}
 
-      {% if page.pagination.enabled %}
-        <!-- Browse by tag -->
+      {% # Browse by tag %}
+      {% if page.pagination.enabled # Detect homepage %}
+
         <br>
         <nav class="site-nav" style="float: none; text-align: left;">
           {% if page.pagination.tag %}
