@@ -1,92 +1,115 @@
 <head>
-    {% if site.google_tag_manager %}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  {% if site.google_tag_manager %}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-      gtag('config', '{{ site.google_tag_manager }}');
-    </script>
-    {% endif %}
+    gtag('config', '{{ site.google_tag_manager }}');
+  </script>
+  {% endif %}
 
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-    <title>{% if page.title %}{{ page.title | strip_html }} - {% endif %}{{ site.title | strip_html }}</title>
+  {% comment -%}
+  Pagination v2, which we use on the homepage, is setting `page.title`
+  erroneously (with a value equal to `site.title`).
+  We check for that to avoid repeating the site name in the `<title>` of the
+  homepage.
+  Dashes next to brackets are supposed to trim whitespace for cleanliness.
+  {%- endcomment -%}
 
-    {% capture description %}{% if page.description %}{{ page.description | xml_escape }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | xml_escape | truncatewords: 30 }}{% else %}{{ site.description | xml_escape }}{% endif %}{% endcapture %}
+  {%- capture title -%}
+  {%- if page.title and page.title != site.title -%}
+  {{- page.title | strip_html }} -&#32;
+  {%- endif -%}
+  {{- site.title | strip_html -}}
+  {%- endcapture -%}
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ description }}">
-    <meta name="author" content="{{ site.author }}">
-    <!-- <link rel="manifest" type="application/manifest+json; charset=utf-8" href="{{ "/manifest.json" | relative_url }}"> -->
-    {% if page.meta_robots %}<meta name="robots" content="{{ page.meta_robots }}">
-    {% else %}<meta name="robots" content="all">{% endif %}
-    {% if site.fb_page %}<meta property="fb:pages" content="{{ site.fb_page_id }}">{% endif %}
-    {% if page.categories %}<meta name="keywords" content="{{ page.categories | join: ', ' }}">{% endif %}
+  <title>{{ title | strip_newlines }}</title>
 
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+  {%- capture description -%}
+  {%- if page.description -%}
+  {{- page.description | xml_escape -}}
+  {%- elsif page.excerpt -%}
+  {{- page.excerpt | strip_html | xml_escape | truncatewords: 30 -}}
+  {%- else -%}
+  {{- site.description | xml_escape -}}
+  {%- endif -%}
+  {%- endcapture %}
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ "/css/pixyll.css" | relative_url }}?{{ site.time | date: "%Y%m%d%H%M" }}" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description }}">
+  <meta name="author" content="{{ site.author }}">
+  <!-- <link rel="manifest" type="application/manifest+json; charset=utf-8" href="{{ "/manifest.json" | relative_url }}"> -->
+  {% if page.meta_robots %}<meta name="robots" content="{{ page.meta_robots }}">
+  {% else %}<meta name="robots" content="all">{% endif %}
+  {% if site.fb_page %}<meta property="fb:pages" content="{{ site.fb_page_id }}">{% endif %}
+  {% if page.categories %}<meta name="keywords" content="{{ page.categories | join: ', ' }}">{% endif %}
 
-    <!-- Fonts -->
-    {% if site.extended_fonts %}
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    {% else %}
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
-    {% endif %}
-    {% if site.show_social_icons or site.show_sharing_icons %}
-      <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    {% endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
 
-    <!-- MathJax -->
-    {% if site.enable_mathjax %}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    {% endif %}
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ "/css/pixyll.css" | relative_url }}?{{ site.time | date: "%Y%m%d%H%M" }}" type="text/css">
 
-    <!-- Verifications -->
-    {% if site.google_verification %}
-      <meta name="google-site-verification" content="{{ site.google_verification }}">
-    {% endif %}
-    {% if site.bing_verification %}
-      <meta name="msvalidate.01" content="{{ site.bing_verification }}">
-    {% endif %}
+  <!-- Fonts -->
+  {% if site.extended_fonts %}
+  <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  {% else %}
+  <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+  {% endif %}
+  {% if site.show_social_icons or site.show_sharing_icons %}
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  {% endif %}
 
-    <!-- Open Graph -->
-    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
-    <meta property="og:locale" content="{{ site.text.og_locale | default: "en_US" }}">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}">
-    <meta property="og:description" content="{{description}}">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:site_name" content="{{ site.title | xml_escape }}">
-    {% if site.post_preview_image %}
-    <meta property="og:image" content="{{ site.url }}/images/me.jpeg">
-    {% endif %}
+  <!-- MathJax -->
+  {% if site.enable_mathjax %}
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    {% if site.twitter_username %}
-        <meta name="twitter:site" content="@{{ site.twitter_username }}">
-        <meta name="twitter:creator" content="@{{ site.twitter_username }}">
-    {% endif %}
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta name="twitter:description" content="{{ description }}">
-    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-    {% if site.post_preview_image %}
-    <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg">
-    {% endif %}
+  <!-- Verifications -->
+  {% if site.google_verification %}
+  <meta name="google-site-verification" content="{{ site.google_verification }}">
+  {% endif %}
+  {% if site.bing_verification %}
+  <meta name="msvalidate.01" content="{{ site.bing_verification }}">
+  {% endif %}
 
-    {% include favicon.html %}
+  <!-- Open Graph -->
+  <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+  <meta property="og:locale" content="{{ site.text.og_locale | default: "en_US" }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title | xml_escape }}">
+  {% if site.post_preview_image %}
+  <meta property="og:image" content="{{ site.url }}/images/me.jpeg">
+  {% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  {% if site.twitter_username %}
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+  {% endif %}
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+  {% if site.post_preview_image %}
+  <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg">
+  {% endif %}
+
+  {% include favicon.html %}
 </head>

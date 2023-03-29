@@ -7,7 +7,7 @@ Hello! Thanks for visiting my website. I am Marcos, a developer from Portugal.
 
 My focus is in AI and games, and my professional background also includes a lot of backend web development.
 
-I [publish]({% post_url 2022-01-10-i-just-published-polygon-reducer-on-the-unity-asset-store %}) on the Unity asset store and have done [some research]({% post_url 2020-11-01-ml-collective-arc %}) at MLC, a lab led by Rosanne Liu from Google Brain.
+I [publish]({% post_url 2022-01-10-i-just-published-polygon-reducer-on-the-unity-asset-store %}) on the Unity asset store and have done [some research]({% post_url 2020-11-01-ml-collective-arc %}) at MLC, a deep learning lab led by Rosanne Liu from Google Brain.
 
 If you're looking for a resume, I keep one up to date [at Toptal](https://www.toptal.com/resume/marcos-pereira).
 
