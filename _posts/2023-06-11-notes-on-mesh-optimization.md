@@ -2,6 +2,7 @@
 layout: post
 title: Notes on mesh optimization
 tag: Game Dev 👾
+published: false
 ---
 
 Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
