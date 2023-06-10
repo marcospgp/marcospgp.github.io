@@ -125,6 +125,10 @@ exclude:
   - PIXYLL.md
   - screenshot.png
   - vendor
+# Render posts with future dates. Timezone differences means post with current
+# date in author's timezone may not be rendered.
+# No current reason to hide future posts either.
+future: true
 
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
