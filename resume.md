@@ -32,7 +32,7 @@ My full work history is available on [LinkedIn](https://www.linkedin.com/in/marc
 
 ## Side projects
 
-Working on my own projects is a large part of what I spend my time on. In this section are some of the things I've done.
+Working on my own projects is a large part of what I spend my time on. Below are some of the things I've done.
 
 ### Machine learning
 
