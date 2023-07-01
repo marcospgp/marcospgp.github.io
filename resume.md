@@ -4,9 +4,9 @@ title: Resume
 ---
 
 <style>
-.anchorjs-link {
+  .anchorjs-link {
     display: none;
-}
+  }
 </style>
 
 Developer based in [Porto, Portugal](https://goo.gl/maps/AAJhJkfqMChWV19s6).
