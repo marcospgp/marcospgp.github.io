@@ -47,6 +47,10 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 ### Web
 
+- [Built flappy goat](https://github.com/marcospgp/flappygoat), a web-based clone of the hit mobile game, in pure JavaScript
+- [Published Twitter Infinite Scroll Disabler](https://github.com/marcospgp/twitter-infinite-scroll-disabler), a browser extension that replaced Twitter's infinite scroll with a "show more" button
+- Built a modular web questionnaire scaffolding and published [should you have some coffee](https://github.com/marcospgp/should-you-have-some-coffee)
+- [Built Watch Together](https://github.com/marcospgp/watch-together), a browser extension for synchronizing video players across multiple users on a popular web streaming service
 - [Set up a VPS](https://marcospereira.me/2023/03/13/vps/) in a repeatable way, with zero manual steps
 - [Wrote a checklist for using SQLite](https://marcospereira.me/2023/02/14/checklist-for-sqlite/) for personal web projects in the safest & cleanest possible way
 
