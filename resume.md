@@ -48,7 +48,7 @@ Working on my own projects is a large part of what I spend my time on. Below are
 ### Web
 
 - [Set up my own VPS](https://marcospereira.me/2023/03/13/vps/) in a repeatable way, with zero manual steps
-- [Wrote a checklist for using SQLite](https://marcospereira.me/2023/02/14/checklist-for-sqlite/) for personal web projects in the safest & cleanest possibble way
+- [Wrote a checklist for using SQLite](https://marcospereira.me/2023/02/14/checklist-for-sqlite/) for personal web projects in the safest & cleanest possible way
 
 ## Links
 
@@ -60,4 +60,4 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 ## How to reach out
 
-DM on [Twitter](https://twitter.com/voxelbased) or <email@marcospereira.me>.
+DM on [Twitter](https://twitter.com/voxelbased) or &#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#114;&#99;&#111;&#115;&#112;&#101;&#114;&#101;&#105;&#114;&#97;&#46;&#109;&#101;.
