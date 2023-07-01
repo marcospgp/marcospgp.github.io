@@ -53,25 +53,25 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 ### Game development
 
-- [Published a mesh optimization tool in the Unity asset store](https://marcospereira.me/2022/01/10/i-just-published-polygon-reducer-on-the-unity-asset-store/) (my first profitable side project)
-- [Researched frame rate independent linear interpolation](https://marcospereira.me/2022/08/24/lerp-how-to-frame-rate-independent/) (a 3-part blog post series)
-- [Implemented Fowler–Noll–Vo 1a hash in C#](https://marcospereira.me/2022/05/10/a-simple-hash-for-perlin-noise/)
+- Published a [mesh optimization tool](https://marcospereira.me/2022/01/10/i-just-published-polygon-reducer-on-the-unity-asset-store/) in the Unity asset store (my first profitable side project)
+- Researched [frame rate independent linear interpolation](https://marcospereira.me/2022/08/24/lerp-how-to-frame-rate-independent/) (a 3-part blog post series)
+- Implemented [Fowler–Noll–Vo 1a hash in C#](https://marcospereira.me/2022/05/10/a-simple-hash-for-perlin-noise/) as part of my efforts towards infinite procedural terrain generation with a graph-based UI
 
 ### Web
 
-- [Built flappy goat](https://github.com/marcospgp/flappygoat), a web-based clone of the hit mobile game, in pure JavaScript
-- [Published Twitter Infinite Scroll Disabler](https://github.com/marcospgp/twitter-infinite-scroll-disabler), a browser extension that replaced Twitter's infinite scroll with a "show more" button
+- Built [flappy goat](https://github.com/marcospgp/flappygoat), a web-based clone of the hit mobile game, in pure JavaScript
+- Published [Twitter Infinite Scroll Disabler](https://github.com/marcospgp/twitter-infinite-scroll-disabler), a browser extension that replaced Twitter's infinite scroll with a "show more" button
 - Built a modular web questionnaire scaffolding and published [should you have some coffee](https://github.com/marcospgp/should-you-have-some-coffee)
-- [Built Watch Together](https://github.com/marcospgp/watch-together), a browser extension for synchronizing video players across multiple users on a popular web streaming service
+- Built [Watch Together](https://github.com/marcospgp/watch-together), a browser extension for synchronizing video players across multiple users on a popular web streaming service
 - [Set up a VPS](https://marcospereira.me/2023/03/13/vps/) in a repeatable way, with zero manual steps
-- [Wrote a checklist for using SQLite](https://marcospereira.me/2023/02/14/checklist-for-sqlite/) for personal web projects in the safest & cleanest possible way
+- Wrote a [checklist for using SQLite](https://marcospereira.me/2023/02/14/checklist-for-sqlite/) on personal web projects in the safest & cleanest possible way
 
 ## Links
 
+- [Personal website](https://marcospereira.me/) (you are here)
 - [Twitter](https://twitter.com/voxelbased)
 - [GitHub](https://github.com/marcospgp)
 - [Toptal](https://www.toptal.com/resume/marcos-pereira)
-- [Personal website](https://marcospereira.me/)
 - [LinkedIn](https://www.linkedin.com/in/marcosrafaelpereira/)
 
 ## How to reach out
