@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Marcos Pereira
+title: Resume
 ---
 
 Developer based in [Porto, Portugal](https://goo.gl/maps/AAJhJkfqMChWV19s6).
