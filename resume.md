@@ -11,7 +11,7 @@ Remote work on any of web, AI, and games.
 
 Full time availability, and open to traveling periodically.
 
-Value smart colleagues, small teams, good code culture (documentation, code reviews, integration tests), challenging problems, freedom to suggest priorities & approaches.
+Value smart colleagues, small teams, good code culture (documentation, code reviews, integration tests), challenging problems, and freedom to suggest priorities & approaches.
 
 ## Experience
 
