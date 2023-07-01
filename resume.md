@@ -47,7 +47,7 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 ### Web
 
-- [Set up my own VPS](https://marcospereira.me/2023/03/13/vps/) in a repeatable way, with zero manual steps
+- [Set up a VPS](https://marcospereira.me/2023/03/13/vps/) in a repeatable way, with zero manual steps
 - [Wrote a checklist for using SQLite](https://marcospereira.me/2023/02/14/checklist-for-sqlite/) for personal web projects in the safest & cleanest possible way
 
 ## Links
