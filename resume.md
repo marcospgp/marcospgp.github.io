@@ -27,7 +27,7 @@ Value smart colleagues, small teams, good code culture (documentation, code revi
 - Freelancing since high school (2013)
 - Software Engineering degree (2015-2018)
 - Joined [Toptal](https://www.toptal.com/resume/marcos-pereira) in 2017
-- Invited to join [MLC](http://mlcollective.org/) research lab [in 2020](https://marcospereira.me/2020/11/01/ml-collective-arc/)
+- Joined [MLC](http://mlcollective.org/) research lab [in 2020](https://marcospereira.me/2020/11/01/ml-collective-arc/)
 
 Some companies I have worked with:
 
