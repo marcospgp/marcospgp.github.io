@@ -33,11 +33,12 @@ Some companies I have worked with:
 
 - [Apprentice](https://www.apprentice.io/)
 - [Angle Health](https://www.anglehealth.com/)
+- [Transloadit](https://transloadit.com/)
 - [Kitty's Co.](https://www.kittys.co/)
 - [Youblicity](https://youblicity.com/)
 - [Kogneta](https://kogneta.com/)
 
-I have a background in web development (focus on backend), data science, machine learning, and game development (focus on the Unity engine).
+I have a background in machine learning, data science, web development (focus on backend), and game development (focus on the Unity engine).
 
 Comfortable with any modern language, framework, and library. Happy to pick up new technologies.
 
