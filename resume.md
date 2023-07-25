@@ -52,7 +52,7 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 ### Machine learning
 
-- [Derived backpropagation from scratch](https://marcospereira.me/2022/08/18/backpropagation-from-scratch/) for learning purposes
+- [Derived backpropagation from scratch](https://marcospereira.me/2022/08/18/backpropagation-from-scratch/) to develop an intuitive understanding of the algorithm powering modern ML models
 - [Applied neural cellular automata models to the abstraction and reasoning corpus](https://marcospereira.me/2020/11/01/ml-collective-arc/) as part of my research at MLC
 
 ### Game development
