@@ -54,12 +54,15 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 - [Derived backpropagation from scratch](https://marcospereira.me/2022/08/18/backpropagation-from-scratch/) to develop an intuitive understanding of the algorithm powering modern ML models
 - [Applied neural cellular automata models to the abstraction and reasoning corpus](https://marcospereira.me/2020/11/01/ml-collective-arc/) as part of my research at MLC
+- Experimented with neural network weight compression using lossy low-rank matrix approximation
+- Experimented with applying LLMs to NPCs in virtual worlds and triggering actions based on model output
 
 ### Game development
 
 - Published a [mesh optimization tool](https://marcospereira.me/2022/01/10/i-just-published-polygon-reducer-on-the-unity-asset-store/) in the Unity asset store (my first profitable side project)
 - Researched [frame rate independent linear interpolation](https://marcospereira.me/2022/08/24/lerp-how-to-frame-rate-independent/) (a 3-part blog post series)
-- Implemented [Fowler–Noll–Vo 1a hash in C#](https://marcospereira.me/2022/05/10/a-simple-hash-for-perlin-noise/) as part of my efforts towards infinite procedural terrain generation with a graph-based UI
+- Implemented [Fowler–Noll–Vo 1a hash in C#](https://marcospereira.me/2022/05/10/a-simple-hash-for-perlin-noise/) as part of my procedural generation interest
+- Working on an infinite terrain generator based on a graph editor (inspired by shader graph). Currently looking into using the browser as a UI due to insufficient support for graph-based UIs in the Unity editor.
 
 ### Web
 
