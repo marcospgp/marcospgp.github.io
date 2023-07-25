@@ -9,11 +9,15 @@ title: Resume
   }
 </style>
 
+## About me
+
 Developer based in [Porto, Portugal](https://goo.gl/maps/AAJhJkfqMChWV19s6).
 
-## Looking for
+Main interests are: machine learning, games, and web.
 
-Remote work on any of web, AI, and games.
+- Experience with ML engineering and research, including as a research lab member at the [Machine Learning Collective](https://twitter.com/ml_collective) under [Rosanne Liu](https://twitter.com/savvyRL) from Google Brain;
+- Extensive backend web development background;
+- Game development experience includes successful Unity asset store publishing.
 
 Full time availability, and open to traveling periodically.
 
