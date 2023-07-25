@@ -3,13 +3,12 @@ layout: page
 title: Resume
 ---
 
+<!-- Disable Anchor JS -->
 <style>
   .anchorjs-link {
     display: none;
   }
 </style>
-
-## About me
 
 Developer based in [Porto, Portugal](https://goo.gl/maps/AAJhJkfqMChWV19s6).
 
@@ -28,7 +27,7 @@ Value smart colleagues, small teams, good code culture (documentation, code revi
 - Freelancing since high school (2013)
 - Software Engineering degree (2015-2018)
 - Joined [Toptal](https://www.toptal.com/resume/marcos-pereira) in 2017
-- Machine Learning [research](https://marcospereira.me/2020/11/01/ml-collective-arc/) at [MLC](http://mlcollective.org/) in 2020
+- [Joined](https://marcospereira.me/2020/11/01/ml-collective-arc/) [MLC](http://mlcollective.org/) research lab in 2020
 
 Some companies I have worked with:
 
