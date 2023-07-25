@@ -44,6 +44,8 @@ Comfortable with any modern language, framework, and library. Happy to pick up n
 
 Have a lot of experience with JavaScript/TypeScript, Python, C#, and Bash. Worked with most popular machine learning libraries, including TensorFlow, PyTorch, and JAX.
 
+Operations experience includes setting up, managing, and automating various server processes and CI pipelines.
+
 My full work history is available on [LinkedIn](https://www.linkedin.com/in/marcosrafaelpereira/).
 
 ## Side projects
