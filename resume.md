@@ -63,7 +63,7 @@ Working on my own projects is a large part of what I spend my time on. Below are
 
 - Published a [mesh optimization tool](https://marcospereira.me/2022/01/10/i-just-published-polygon-reducer-on-the-unity-asset-store/) in the Unity asset store (my first profitable side project)
 - Researched [frame rate independent linear interpolation](https://marcospereira.me/2022/08/24/lerp-how-to-frame-rate-independent/) (a 3-part blog post series)
-- Implemented [Fowler–Noll–Vo 1a hash in C#](https://marcospereira.me/2022/05/10/a-simple-hash-for-perlin-noise/) as part of my procedural generation interest
+- Implemented [Fowler–Noll–Vo 1a hash in C#](https://marcospereira.me/2022/05/10/a-simple-hash-for-perlin-noise/) as part of my procedural generation efforts
 - Working on an infinite terrain generator based on a graph editor (inspired by shader graph). Currently looking into using the browser as a UI due to insufficient support for graph-based UIs in the Unity editor.
 
 ### Web
