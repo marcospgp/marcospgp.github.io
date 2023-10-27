@@ -8,8 +8,9 @@ layout: default
   </header>
 
   <article>
-    {% if page.table_of_contents %}
-    {% include table_of_contents.html html=content %}
+    {% assign toc = page.table_of_contents | default: true %}
+    {% if toc %}
+      {% include table_of_contents.html html=content %}
     {% endif %}
   </article>
 

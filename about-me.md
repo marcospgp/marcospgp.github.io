@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+table_of_contents: false
 ---
 
 Hello! Thanks for visiting my website. I am Marcos, a developer from Portugal with a focus on web, machine learning, and games.
