@@ -22,11 +22,13 @@ layout: default
   </span>
 </div>
 
-<article class="post-content">
+<article>
   {% if page.table_of_contents %}
-    {% include table_of_contents.html html=content %}
+  {% include table_of_contents.html html=content %}
   {% endif %}
+</article>
 
+<article class="post-content">
   {{ content }}
 </article>
 
