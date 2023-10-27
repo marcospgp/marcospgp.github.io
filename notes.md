@@ -25,11 +25,12 @@ That can be fixed by downloading the default Mixamo character (Y Bot) in T-pose 
 
 ### Settings
 
-- Disable saving .blend1 files
+- Disable saving `.blend1` files
 
 ### Unity interop
 
-- Store .blend files directly inside the Unity project's "Assets" folder
+- Store `.blend` files directly inside the Unity project's "Assets" folder
+- There doesn't seem to be a way to store textures in `.blend` file, so keep them in "Assets" folder and use them in both Blender and Unity
 
 ## LODs
 
