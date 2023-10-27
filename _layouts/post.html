@@ -23,6 +23,11 @@ layout: default
 </div>
 
 <article class="post-content">
+  {% if page.table_of_contents %}
+    <h2>Table of contents</h2>
+    {% include table_of_contents.html html=content %}
+  {% endif %}
+
   {{ content }}
 </article>
 

@@ -1,11 +1,10 @@
 ---
 layout: page
 title: Notes
+table_of_contents: true
 ---
 
 This is where I keep notes for things I keep revisiting throughout my work.
-
-{% include table_of_contents.html html=content %}
 
 # Unity game dev
 
