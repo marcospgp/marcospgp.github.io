@@ -8,6 +8,7 @@ url:         "https://marcospereira.me"
 date_format: "%b %-d, %Y"
 header_pages:
  - about-me.md
+ - notes.md
 
 # Google services
 google_verification:
