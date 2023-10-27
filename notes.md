@@ -5,9 +5,7 @@ title: Notes
 
 This is where I keep notes for things I keep revisiting throughout my work.
 
-<details>
-<summary>Unity game dev</summary>
-<br>
+# Unity game dev
 
 ## Animations
 
@@ -39,5 +37,3 @@ That can be fixed by downloading the default Mixamo character (Y Bot) in T-pose 
 - Advancements like Nanite can change 3D lore fast
 
 Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
-
-</details>
