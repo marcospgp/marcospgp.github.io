@@ -16,6 +16,9 @@
 
 .site-header nav a {
   color: $nav-color;
+
+  // Prevent default link underline
+  text-decoration: none;
 }
 
 .site-header nav a:hover,
