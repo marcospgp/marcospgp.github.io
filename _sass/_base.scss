@@ -2,7 +2,9 @@ html {
   font-size: $base-font-size;
 }
 
-body {
+// Expand height to fit screen.
+// Must be applied to both html and body.
+html, body {
   height: auto;
   min-height: 100%;
 }
