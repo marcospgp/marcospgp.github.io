@@ -7,6 +7,8 @@ This is where I keep notes for things I keep revisiting throughout my work.
 
 # Unity game dev
 
+Utilities repo: <https://github.com/marcospgp/unity-utilities>
+
 ## Animations
 
 ### Importing
@@ -37,3 +39,11 @@ That can be fixed by downloading the default Mixamo character (Y Bot) in T-pose 
 - Advancements like Nanite can change 3D lore fast
 
 Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
+
+## Math
+
+# General development
+
+## Git
+
+- Commit without a message: `git commit -a --allow-empty-message -m ''`
