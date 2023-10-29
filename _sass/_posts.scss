@@ -15,7 +15,7 @@
 // }
 
 .post-link .post-title {
-  margin: 0.5rem 0 1rem 0;
+  margin: 0;
   font-weight: 600;
   color: $dark-gray;
 }
@@ -24,8 +24,7 @@
 .post-meta {
   width: auto;
   font-weight: 300;
-  margin: 0;
-  padding: .25em 0;
+  margin: 0.5rem 0 1rem 0;
   color: $mid-gray;
   // font-style: italic;
 }
