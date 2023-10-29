@@ -3,11 +3,6 @@
     font-size: 16px;
   }
 
-  h1,
-  .h1 {
-    font-size: $h1;
-  }
-
   .site-header {
     text-align: left;
   }
@@ -17,11 +12,11 @@
   }
 
   .site-header a {
-    font-size: $h3;
+    font-size: $h4;
   }
 
   .site-header .site-title {
-    font-size: $h2;
+    font-size: $h3;
     float: left;
   }
 
