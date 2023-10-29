@@ -23,8 +23,7 @@ layout: default
 </div>
 
 <article>
-  {% assign toc = page.table_of_contents | default: true %}
-  {% if toc %}
+  {% if page.table_of_contents != false %}
     {% include table_of_contents.html html=content %}
   {% endif %}
 </article>
