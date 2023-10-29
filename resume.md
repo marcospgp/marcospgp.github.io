@@ -19,9 +19,9 @@ Main interests: machine learning, games, and web.
 - Extensive backend web development background;
 - Game development experience includes successful Unity asset store publishing.
 
-Full time availability, and open to traveling periodically.
-
 Value smart colleagues, small teams, good code culture (documentation, code reviews, integration tests), challenging problems, and freedom to suggest priorities & approaches.
+
+Open to traveling periodically.
 
 ## Experience
 
@@ -39,6 +39,8 @@ Some companies I have worked with:
 - [Youblicity](https://youblicity.com/)
 - [Kogneta](https://kogneta.com/)
 
+My full work history is available on [LinkedIn](https://www.linkedin.com/in/marcosrafaelpereira/).
+
 I have a background in machine learning, data science, web development (focus on backend), and game development (focus on the Unity engine).
 
 Comfortable with any modern language, framework, and library. Happy to pick up new technologies.
@@ -46,8 +48,6 @@ Comfortable with any modern language, framework, and library. Happy to pick up n
 Have a lot of experience with JavaScript/TypeScript, Python, C#, and Bash. Worked with most popular machine learning libraries, including TensorFlow, PyTorch, and JAX.
 
 Operations experience includes setting up, managing, and automating various server processes and CI pipelines.
-
-My full work history is available on [LinkedIn](https://www.linkedin.com/in/marcosrafaelpereira/).
 
 ## Side projects
 
