@@ -5,6 +5,11 @@
   <div class="posts">
     {% for post in paginator.posts %}
     <div class="post">
+
+      <a href="{{ post.url | relative_url }}" class="post-link">
+        <h3 class="post-title" style="text-transform: capitalize;">{{ post.title }}</h3>
+      </a>
+
       <p class="post-meta">
         {% if site.date_format %}
         {{ post.date | date: site.date_format }}
@@ -14,9 +19,6 @@
         | {{post.tags}}
       </p>
 
-      <a href="{{ post.url | relative_url }}" class="post-link">
-        <h3 class="post-title" style="text-transform: capitalize;">{{ post.title }}</h3>
-      </a>
       <span class="post-summary">
         {% if post.description %}
         {{ post.description }}
