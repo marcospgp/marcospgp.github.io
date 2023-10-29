@@ -56,4 +56,4 @@ Ready to use code should be available in the [Unity utilities repo](https://gith
 
 #### Commit without a message
 
-`git commit -a --allow-empty-message -m ''`
+`git commit -a --allow-empty-message -m '' && git push`
