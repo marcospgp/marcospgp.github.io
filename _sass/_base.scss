@@ -1,19 +1,8 @@
-@charset "UTF-8";
-/*!
+html {
+  font-size: $base-font-size;
+}
 
-Pixyll
-
-A simple, beautiful theme for Jekyll that emphasizes content rather than
-aesthetic fluff.
-
-Built upon BASSCSS (https://basscss.com/).
-
-Crafted with <3 by John Otander (@4lpine) - ©2015-2021 John Otander
-MIT License https://opensource.org/licenses/MIT
-
-*/
-
-html, body {
+body {
   height: auto;
   min-height: 100%;
 }
@@ -39,5 +28,42 @@ article {
 
 h2 {
   margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+abbr {
+  border-bottom: $abbr-border-bottom;
+  cursor: help;
+}
+
+p {
+  color: $dark-gray;
+  line-height: 1.5;
+}
+
+small,
+.small {
+  font-size: 0.707rem;
+}
+
+sup {
+  position: relative;
+  vertical-align: middle;
+  top: -0.9ex;
+}
+
+details {
+  margin-bottom: 1em;
+
+  p {
+      margin: 1em;
+  }
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+iframe {
   margin-bottom: 1em;
 }
