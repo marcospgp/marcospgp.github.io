@@ -16,14 +16,15 @@
 
 .post-link .post-title {
   margin: 0;
-  font-weight: 600;
+  font-weight: bold;
   color: $dark-gray;
 }
 
 .meta,
 .post-meta {
+  font-family: $heading-font-family;
+  font-weight: bold;
   width: auto;
-  font-weight: 300;
   margin: 0.5rem 0 1rem 0;
   color: $mid-gray;
   // font-style: italic;
