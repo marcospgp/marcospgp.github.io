@@ -7,8 +7,6 @@ This is where I keep notes for things I keep revisiting throughout my work.
 
 ## Unity game dev
 
-Utilities repo: <https://github.com/marcospgp/unity-utilities>
-
 ### Animations
 
 #### Importing
@@ -42,8 +40,20 @@ Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
 
 ### Math
 
+#### Frame rate independent lerp
+
+Use a [frame rate independent](https://marcospereira.me/2022/08/24/lerp-how-to-frame-rate-independent/) form of linear interpolation instead of the default `Mathf.Lerp()`.
+
+Ready to use code should be available in the [Unity utilities repo](https://github.com/marcospgp/unity-utilities).
+
+### Utilities repo
+
+<https://github.com/marcospgp/unity-utilities>
+
 ## General development
 
 ### Git
 
-- Commit without a message: `git commit -a --allow-empty-message -m ''`
+#### Commit without a message
+
+`git commit -a --allow-empty-message -m ''`
