@@ -26,11 +26,6 @@ ul {
   margin-bottom: 1em;
 }
 
-// No margin for lists inside lists
-li ul, li ol {
-  margin: 0;
-}
-
 ol,
 ul {
   padding-left: $space-3;

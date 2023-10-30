@@ -40,7 +40,6 @@ abbr {
 
 p {
   color: $dark-gray;
-  line-height: 1.5;
 }
 
 small,
@@ -100,4 +99,13 @@ iframe {
 
 code {
   font-size: 14px;
+}
+
+// No margin for lists inside lists
+li ul, li ol {
+  margin: 0;
+}
+
+li {
+  margin: 0.2rem 0;
 }
