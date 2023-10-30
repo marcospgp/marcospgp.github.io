@@ -14,7 +14,7 @@
       Browse by tag. Homepage is detected through `page.pagination.enabled`.
       {% endcomment %}
       {% if page.pagination.enabled %}
-        <nav class="site-nav post-navigation" style="float: none; text-align: left;">
+        <nav class="post-navigation" style="float: none; text-align: left;">
           {% if page.pagination.tag %}
             <a class="nav-link" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
           {% else %}

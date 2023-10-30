@@ -44,6 +44,10 @@
   margin-left: $nav-link-padding-x;
 }
 
+.post-navigation a + a {
+  margin-left: $nav-link-padding-x;
+}
+
 .site-header a:hover,
 .posts .post a:hover .post-meta,
 .posts .post a:hover .post-title,
@@ -56,5 +60,9 @@
 }
 
 .site-header .site-nav {
+  text-align: center;
+}
+
+.post-navigation {
   text-align: center;
 }
