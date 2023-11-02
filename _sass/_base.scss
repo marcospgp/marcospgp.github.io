@@ -9,17 +9,6 @@ html, body {
   min-height: 100%;
 }
 
-img {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-em img {
-  max-width: 100%;
-  margin-left: 0;
-}
-
 body {
   // Fix for links (<a>) overflowing out of body
   word-break: break-word;
@@ -32,6 +21,20 @@ body {
 
   color: $dark-gray;
   background-color: white;
+
+  font-family: $font-family;
+  font-size: 100%;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+em img {
+  max-width: 100%;
+  margin-left: 0;
 }
 
 pre,
@@ -225,4 +228,86 @@ a:active {
 // List markers
 ::marker {
   font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-weight: bold;
+  line-height: $heading-line-height;
+}
+
+p,
+dl,
+ol,
+ul {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+ol,
+ul {
+  padding-left: $space-3;
+}
+
+pre,
+code,
+samp {
+  font-family: $monospace-font-family;
+  font-size: inherit;
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: $space-2;
+  overflow-x: scroll;
+}
+
+hr {
+  margin-top: $space-3;
+  margin-bottom: $space-3;
+}
+
+blockquote {
+  margin-top: $space-3;
+  margin-bottom: $space-3;
+  margin-left: 0;
+  padding-left: $space-2;
+  padding-right: $space-2;
+}
+
+blockquote,
+blockquote p {
+  font-size: $h3;
+  font-style: italic;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h2;
+  border-bottom: 1px solid $light-gray;
+}
+
+h3 {
+  font-size: $h3;
+}
+
+h4 {
+  font-size: $h4;
+}
+
+h5 {
+  font-size: $h5;
+}
+
+h6 {
+  font-size: $h6;
 }
