@@ -48,14 +48,6 @@ More info at <https://kybernetik.com.au/animancer/docs/manual/blending/mixers/#s
 
 ## Blender
 
-## Submodules
-
-test test test
-
-## Color banding
-
-[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
-
 ### Settings
 
 - Disable saving `.blend1` files
@@ -64,6 +56,10 @@ test test test
 
 - Store `.blend` files directly inside the Unity project's "Assets" folder
 - There doesn't seem to be a way to store textures in `.blend` file, so keep them in "Assets" folder and use them in both Blender and Unity
+
+## Color banding
+
+[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
 
 ## LODs
 
