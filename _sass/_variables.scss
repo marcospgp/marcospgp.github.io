@@ -31,17 +31,7 @@ $viewport-medium: 48em;
 $viewport-large: 64em;
 
 // Colors
-$blue: #005cad !default;
-$red: #b43a18 !default;
-$yellow: #e6c300 !default;
-$orange: #c78711 !default;
-$purple: #af0e57 !default;
-$dark-blue: #002e8a !default;
-$green: #00882b !default;
-$dark-green: #007404 !default;
-$light-pink: #ffdddd !default;
-$light-green: #ddffdd !default;
-$dark-gray: #111 !default;
+$dark-gray: #222 !default;
 $mid-gray: #444 !default;
 $light-gray: #777 !default;
 $lighter-gray: #efefef !default;
@@ -90,6 +80,16 @@ $form-field-padding-y: .5rem;
 $form-field-padding-x: .5rem;
 
 // Code
+$blue: #005cad !default;
+$red: #b43a18 !default;
+$yellow: #e6c300 !default;
+$orange: #c78711 !default;
+$purple: #af0e57 !default;
+$dark-blue: #002e8a !default;
+$green: #00882b !default;
+$dark-green: #007404 !default;
+$light-pink: #ffdddd !default;
+$light-green: #ddffdd !default;
 $pre-border-radius: 0;
 $hljs-comment: $mid-gray;
 $hljs-keyword: $dark-blue;
