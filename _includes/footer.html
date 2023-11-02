@@ -19,6 +19,8 @@
     // This prevents issues such as adding an <h3> to an existing page
     // where an equal <h3> was already present later in the page overriding
     // the latter's link.
+    //
+    // This was introduced for the Notes page, which changes often.
     const headers = document.querySelectorAll('h2, h3, h4, h5, h6');
     const lastHeaders = {};
 
