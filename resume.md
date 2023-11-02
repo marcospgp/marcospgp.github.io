@@ -79,11 +79,11 @@ Working on my own projects is a large part of what I spend my time on. Below are
 ## Links
 
 - [Personal website](https://marcospereira.me/) (you are here)
-- [Twitter](https://twitter.com/voxelbased)
+- [X](https://x.com/voxelbased)
 - [GitHub](https://github.com/marcospgp)
 - [Toptal](https://www.toptal.com/resume/marcos-pereira)
 - [LinkedIn](https://www.linkedin.com/in/marcosrafaelpereira/)
 
 ## How to reach out
 
-DM on [Twitter](https://twitter.com/voxelbased) or &#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#114;&#99;&#111;&#115;&#112;&#101;&#114;&#101;&#105;&#114;&#97;&#46;&#109;&#101;.
+DM on [X](https://x.com/voxelbased) or &#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#114;&#99;&#111;&#115;&#112;&#101;&#114;&#101;&#105;&#114;&#97;&#46;&#109;&#101;.
