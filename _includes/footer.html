@@ -16,9 +16,9 @@
     // Set our own IDs for AnchorJS to use when linking to headers.
     //
     // We include parent headers in children header IDs, except for "<h1>"s.
-    // This prevents issues such as when adding an <h3> to an existing page
-    // where an equal <h3> was already present later in the page would
-    // override the latter's link.
+    // This prevents issues such as adding an <h3> to an existing page
+    // where an equal <h3> was already present later in the page overriding
+    // the latter's link.
     const headers = document.querySelectorAll('h2, h3, h4, h5, h6');
     const lastHeaders = {};
 
