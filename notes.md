@@ -40,9 +40,17 @@ This is what the resulting blend tree looks like:
 
 ![Blend tree]({% link assets/notes/unity-movement-blend-tree.jpg %})
 
+Downsides of this approach:
+
+- Cannot interpolate
+
 More info at <https://kybernetik.com.au/animancer/docs/manual/blending/mixers/#synchronisation>
 
 ## Blender
+
+## Color banding
+
+[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
 
 ### Settings
 
