@@ -75,6 +75,13 @@ Use a [frame rate independent](https://marcospereira.me/2022/08/24/lerp-how-to-f
 
 Ready to use code should be available in the [Unity utilities repo](https://github.com/marcospgp/unity-utilities).
 
+## Multithreading
+
+Use the `SafeTask` wrapper:
+
+- <https://github.com/marcospgp/unity-utilities/blob/main/Async/SafeTask.cs>
+- <https://marcospereira.me/2022/05/06/safe-async-tasks-in-unity/>
+
 ## Utilities repo
 
 <https://github.com/marcospgp/unity-utilities>
