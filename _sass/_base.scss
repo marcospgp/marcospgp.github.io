@@ -27,6 +27,8 @@ body {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+
+  line-height: normal;
 }
 
 article {
@@ -199,4 +201,9 @@ a:active {
 
 .float-right {
   float: right;
+}
+
+// List markers
+::marker {
+  font-weight: bold;
 }
