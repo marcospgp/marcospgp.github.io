@@ -97,9 +97,9 @@ Ready to use code should be available in the [Unity utilities repo](https://gith
 
 Git submodules are a nice way of setting up project dependencies.
 
-You can add a dependency into a repo by running (from any subfolder):
+You can add a dependency into a repo by running:
 
-`git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder-name>`
+`git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder>`
 
 To update dependencies or download them after a fresh `git clone`, use:
 
