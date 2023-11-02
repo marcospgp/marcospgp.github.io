@@ -40,9 +40,7 @@ This is what the resulting blend tree looks like:
 
 ![Blend tree]({% link assets/notes/unity-movement-blend-tree.jpg %})
 
-Downsides of this approach:
-
-- Cannot interpolate
+It may be possible to still blend between movement and other animations by nesting blend trees, although copy pasting a blend tree you previously created [requires a simple workaround](https://twitter.com/voxelbased/status/1720082569260343547).
 
 More info at <https://kybernetik.com.au/animancer/docs/manual/blending/mixers/#synchronisation>
 
