@@ -111,3 +111,89 @@ li ul, li ol {
 li {
   margin: 0.2rem 0;
 }
+
+blockquote {
+  border-left: 5px solid #7a7a7a;
+  font-style: italic;
+  margin-left: $space-1;
+  padding: $space-1;
+}
+
+blockquote footer {
+  background-color: #fff;
+  border-color: transparent;
+  color: #7a7a7a;
+  font-size: .85rem;
+  font-style: normal;
+  text-align: left;
+  padding: 0;
+}
+
+.site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-wrap {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+footer {
+  background-color: $footer-bg-color;
+  border-top: $footer-border-top;
+  color: $footer-color;
+  font-size: $footer-font-size;
+  font-weight: $footer-font-weight;
+  padding: $footer-padding;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+  border: 0;
+  color: $link-hover-color;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+  color: white;
+}
+
+.anchorjs-link:hover,
+.anchorjs-link:focus,
+.anchorjs-link:active{
+    border: 0;
+    color: $link-hover-color;
+}
+
+.measure {
+  margin: 0 auto;
+  max-width: $measure-width;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
