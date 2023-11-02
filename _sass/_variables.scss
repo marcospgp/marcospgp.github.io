@@ -31,6 +31,7 @@ $viewport-medium: 48em;
 $viewport-large: 64em;
 
 // Colors
+$blue: #002e8a !default;
 $dark-gray: #222 !default;
 $mid-gray: #444 !default;
 $light-gray: #777 !default;
@@ -78,21 +79,21 @@ $form-field-padding-x: .5rem;
 // Code
 $pre-border-radius: 0;
 $hljs-comment: $mid-gray;
-$hljs-keyword: #002e8a;
+$hljs-keyword: $blue;
 $hljs-name: $dark-gray;
 $hljs-number: #007404;
 $hljs-string: #b43a18;
 $hljs-title: #b43a18;
-$hljs-type: #002e8a;
-$hljs-tag: #002e8a;
+$hljs-type: $blue;
+$hljs-tag: $blue;
 $hljs-attribute: #007404;
 $hljs-regexp: #007404;
 $hljs-symbol: #af0e57;
-$hljs-built-in: #002e8a;
+$hljs-built-in: $blue;
 $hljs-preprocessor: $mid-gray;
 $hljs-deletion: #ffdddd;
 $hljs-addition: #ddffdd;
-$hljs-change: #002e8a;
+$hljs-change: $blue;
 $hljs-chunk: $light-gray;
 
 // Header
