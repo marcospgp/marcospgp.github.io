@@ -29,6 +29,22 @@ body {
   -webkit-box-sizing: border-box;
 
   line-height: normal;
+
+  color: $dark-gray;
+  background-color: white;
+}
+
+pre,
+code {
+  background-color: $lighter-gray;
+  border-radius: $border-radius;
+}
+
+hr {
+  border: 0;
+  border-bottom-style: solid;
+  border-bottom-width: $border-width;
+  border-bottom-color: $border-color;
 }
 
 article {
@@ -167,6 +183,9 @@ footer {
 a {
   text-decoration: none;
   color: $link-color;
+
+  color: #005cad;
+  text-decoration: none;
 }
 
 a:hover,
@@ -174,7 +193,7 @@ a:focus,
 a:active {
   text-decoration: underline;
   border: 0;
-  color: $link-hover-color;
+  color: #00396b;
 }
 
 .button:hover,
@@ -187,7 +206,7 @@ a:active {
 .anchorjs-link:focus,
 .anchorjs-link:active{
     border: 0;
-    color: $link-hover-color;
+    color: #00396b;
 }
 
 .measure {
