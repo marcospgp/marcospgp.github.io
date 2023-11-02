@@ -88,3 +88,15 @@ Ready to use code should be available in the [Unity utilities repo](https://gith
 ### Commit without a message
 
 `git add -A && git commit --allow-empty-message -m '' && git push`
+
+### Submodules
+
+Git submodules are a nice way of setting up project dependencies.
+
+You can add a dependency into a repo by running (from any subfolder):
+
+`git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder-name>`
+
+To update dependencies or download them after a fresh `git clone`, use:
+
+`git submodule update --init --recursive --merge --remote`
