@@ -7,6 +7,14 @@ This is where I keep notes for things I keep revisiting throughout my work.
 
 # Unity game dev
 
+## Analyzers
+
+As of 2023-10-06, and since a new Unity extension for VSCode has been released, there is no official way to support adding Roslyn analyzers for C# code (perhaps other than reverting to using Omnisharp).
+
+There should be an [official way](https://docs.unity3d.com/2023.3/Documentation/Manual/roslyn-analyzers.html) of adding these directly in the Unity editor, but I was [unsuccessful](https://forum.unity.com/threads/support-roslyn-analyzers-in-unity-projects.927437/page-2#post-9386087) in doing so.
+
+I may revisit this later, but at this point it might be wiser to wait for the VSCode extension to become more mature.
+
 ## Animations
 
 ### Importing
