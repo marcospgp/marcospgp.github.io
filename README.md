@@ -6,14 +6,9 @@ Theme documentation [here](PIXYLL.md).
 
 ## Deployment
 
-This site is deployed to GitHub Pages, which now relies on GitHub Actions for the deployment workflow.
-
-We use the `jekyll.yml` action and not `jekyll-gh-pages.yml` because we depend on `jekyll-paginate-v2` (see [starter workflows here](https://github.com/actions/starter-workflows/tree/main/pages)).
+This project uses a GitHub Action to deploy to GitHub Pages from the master branch.
 
 ## Usage
-
-Adding new posts to this repo should update the website automatically, which is
-done by a Github action.
 
 To run the website locally, install Docker and run `docker compose up`.
 
@@ -38,3 +33,7 @@ And on the deployed site outputs:
 ```text
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
 ```
+
+## Anchors
+
+AnchorJS is used to add anchor links to headers. There is some [custom scripting](https://github.com/marcospgp/marcospgp.github.io/blob/432ed970cd9d8f3739fc9e4c5e4f2535f08fe6f5/_includes/footer.html#L16-L42) that includes parent headers when creating links starting at `h3`.
