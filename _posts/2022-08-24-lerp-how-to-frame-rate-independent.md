@@ -20,6 +20,7 @@ To make an iterative[^1] lerp perfectly frame rate independent, all we have to d
 [^1]: An iterative lerp means running lerp over multiple frames while reusing its result as the starting point for the next frame.
 
 ```C#
+{% highlight csharp %}
 public void Update() {
     this.value = Mathf.Lerp(
         this.target,
@@ -27,6 +28,7 @@ public void Update() {
         Mathf.Pow(1f - this.delta, Time.deltaTime)
     );
 }
+{% endhighlight %}
 ```
 
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
@@ -47,11 +49,17 @@ $$
 \text{iterative_lerp}(a, b, d, k) = b - (b - a) \cdot (1 - d)^k
 $$
 
-Now that we want to make iterative lerp independent from frame rate, we can simply declare that it is based on time by exchanging $$k$$ with a $$t$$:
+Now that we want to make iterative lerp independent from frame rate, we can start by declaring that it is based on time, not frames elapsed. We can make this clearer to us from here on out by exchanging $$k$$ with a $$t$$:
 
 $$
 \text{iterative_lerp}(a, b, d, t) = b - (b - a) \cdot (1 - d)^t
 $$
+
+To make this step easier to understand, let's reiterate what we've done step by step:
+
+1. We turned our iterative lerp code/algorithm into a (recursive) mathematical series
+2. We made the series non-recursive, then being able to directly translate it into a continuous function
+3.
 
 Instead of representing how much to move $$a$$ towards the target value $$b$$ each **frame**, $$d$$ will now represent how much to move towards the target per **second**.
 
@@ -76,13 +84,13 @@ $$
 
 \text{iterative_lerp}(a, b, d, t + u) &= b - (b - a) \cdot (1 - d)^t \cdot (1 - d)^u \\
 
-&= b + (\highlight{b} - (b - a) \cdot (1 - d)^t \highlight{- b}) \cdot (1 - d)^u
+&= b + (\highlightalt{b} - (b - a) \cdot (1 - d)^t \highlightalt{- b}) \cdot (1 - d)^u
 
 \quad\text{(add and remove }b\text{)} \\
 
-&= b + (\highlightalt{b - (b - a) \cdot (1 - d)^t} - b) \cdot (1 - d)^u \\
+&= b + (\highlight{b - (b - a) \cdot (1 - d)^t} - b) \cdot (1 - d)^u \\
 
-&= b + (\highlightalt{\text{iterative_lerp}(a, b, d, t)} - b) \cdot (1 - d)^u
+&= b + (\highlight{\text{iterative_lerp}(a, b, d, t)} - b) \cdot (1 - d)^u
 
 \end{aligned}
 $$
@@ -96,9 +104,9 @@ $$
 
 \begin{aligned}
 
-\text{iterative_lerp}(a, b, d, t + u) &= b + (\highlightalt{\text{iterative_lerp}(a, b, d, t)} - b) \cdot (1 - d)^u \\
+\text{iterative_lerp}(a, b, d, t + u) &= b + (\highlight{\text{iterative_lerp}(a, b, d, t)} - b) \cdot (1 - d)^u \\
 
-&= b + (\highlightalt{a} - b) \cdot (1 - d)^u
+&= b + (\highlight{a} - b) \cdot (1 - d)^u
 
 \end{aligned}
 $$
@@ -124,6 +132,7 @@ Remember that $$u$$ is the time since the last frame $$\Delta time$$, which in t
 This means that to make an iterative lerp perfectly frame rate independent, all we have to do is switch $$a$$ and $$b$$ and make the factor $$d$$ an exponential of $$\Delta time$$:
 
 ```C#
+{% highlight csharp %}
 public void Update() {
     this.value = Mathf.Lerp(
         this.target,
@@ -131,13 +140,16 @@ public void Update() {
         Mathf.Pow(1f - this.delta, Time.deltaTime)
     );
 }
+{% endhighlight %}
 ```
 
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
 
-## Do We Have To Use Mathf.Lerp()?
+We use Unity's `Mathf.Lerp()` here but don't necessarily have to - [their implementation](https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Mathf.cs#L220) is plain C# code and not some lower level magically efficient concoction.
 
-Is there a reason to use Unity's `Mathf.Lerp()` over defining the formula yourself? Not really, as [their implementation](https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Mathf.cs#L220) is plain C# code and nothing particularly optimized.
+## Making it better
+
+Now we arrived at the result above because we wanted to build something exactly like a plain iterative lerp but with a simple change: the lerp factor $$d$$
 
 ## Open Question
 
