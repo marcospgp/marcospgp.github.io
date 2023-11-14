@@ -49,23 +49,17 @@ $$
 \text{iterative_lerp}(a, b, d, k) = b - (b - a) \cdot (1 - d)^k
 $$
 
-Now that we want to make iterative lerp independent from frame rate, we can start by declaring that it is based on time, not frames elapsed. We can make this clearer to us from here on out by exchanging $$k$$ with a $$t$$:
+Now that we want to make iterative lerp independent from frame rate, we can start by declaring that it is based on time, not frames elapsed. We can make this clearer by exchanging $$k$$ with a $$t$$:
 
 $$
 \text{iterative_lerp}(a, b, d, t) = b - (b - a) \cdot (1 - d)^t
 $$
 
-To make this step easier to understand, let's reiterate what we've done step by step:
+This means that $$d$$ will now represent how much to move towards the target per **second**, instead of per frame.
 
-1. We turned our iterative lerp code/algorithm into a (recursive) mathematical series
-2. We made the series non-recursive, then being able to directly translate it into a continuous function
-3.
+We now need to get rid of the $$t$$ parameter before using this formula in code - otherwise, we would have to keep track of the time elapsed since the start of the interpolation. We want to instead rely on the previous frame's interpolation result, which is the idea behind an iterative lerp.
 
-Instead of representing how much to move $$a$$ towards the target value $$b$$ each **frame**, $$d$$ will now represent how much to move towards the target per **second**.
-
-But obviously, this is not enough. We now need to work backwards from this expression and end up with something that we can implement in code.
-
-We need to think in a series mindset once again, by seeing time as $$ t + u $$. With $$t$$ being the time at the previous frame, and $$u$$ being the time since the last frame:
+We can think of $$t$$ as the time elapsed at the last frame, and $$u$$ as the time since the last frame. This means the time at the current frame can be expressed as $$t + u$$:
 
 $$
 \begin{aligned}
@@ -95,9 +89,7 @@ $$
 \end{aligned}
 $$
 
-This means that we don't have to keep track of how much time has passed - we can simply reuse lerp's result from frame to frame, which is the whole point of an iterative lerp!
-
-And since $$ \text{iterative_lerp}(a, b, d, t) $$ is last frame's result, which we will use as $$a$$ in the next frame, we can simplify the expression:
+And since $$ \text{iterative_lerp}(a, b, d, t) $$ is last frame's result, which we will use as the starting value $$a$$ in the next frame, we can simplify the expression:
 
 $$
 \tag{1}\label{1}
