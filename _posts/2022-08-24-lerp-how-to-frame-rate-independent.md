@@ -19,7 +19,7 @@ To make an iterative[^1] lerp perfectly frame rate independent, all we have to d
 
 [^1]: An iterative lerp means running lerp over multiple frames while reusing its result as the starting point for the next frame.
 
-{% highlight csharp %}
+```C#
 public void Update() {
     this.value = Mathf.Lerp(
         this.target,
@@ -27,7 +27,7 @@ public void Update() {
         Mathf.Pow(1f - this.delta, Time.deltaTime)
     );
 }
-{% endhighlight %}
+```
 
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
 
@@ -47,7 +47,7 @@ $$
 \text{iterative_lerp}(a, b, d, k) = b - (b - a) \cdot (1 - d)^k
 $$
 
-Now that we want to make iterative lerp independent from frame rate, we can simply declare that it is now based on time by exchanging $$k$$ with a $$t$$:
+Now that we want to make iterative lerp independent from frame rate, we can simply declare that it is based on time by exchanging $$k$$ with a $$t$$:
 
 $$
 \text{iterative_lerp}(a, b, d, t) = b - (b - a) \cdot (1 - d)^t
@@ -114,7 +114,7 @@ $$
 
 \text{iterative_lerp}(a, b, d, t + u) &= b + (a - b) \cdot (1 - d)^u \\
 
-&= \text{lerp}(b, a, (1-d)^u)
+&= \highlight{\text{lerp}(b, a, (1-d)^u)}
 
 \end{aligned}
 $$
@@ -123,7 +123,7 @@ Remember that $$u$$ is the time since the last frame $$\Delta time$$, which in t
 
 This means that to make an iterative lerp perfectly frame rate independent, all we have to do is switch $$a$$ and $$b$$ and make the factor $$d$$ an exponential of $$\Delta time$$:
 
-{% highlight csharp %}
+```C#
 public void Update() {
     this.value = Mathf.Lerp(
         this.target,
@@ -131,7 +131,7 @@ public void Update() {
         Mathf.Pow(1f - this.delta, Time.deltaTime)
     );
 }
-{% endhighlight %}
+```
 
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
 
