@@ -3,7 +3,13 @@ layout: post
 title: How to Make Lerp Frame Rate Independent
 description: How to smoothly move a value towards another while taking frame rate into account.
 tag: Game Dev 👾
+published: false
 ---
+
+{% comment %}
+This post has been unpublished because it was not accurate.
+There is a new post with correct information.
+{% endcomment %}
 
 <div style="display: none;">
 $$
@@ -134,10 +140,6 @@ public void Update() {
 `this.delta` controls how much we move `this.value` towards `this.target` per second.
 
 We use Unity's `Mathf.Lerp()` here but don't necessarily have to - [their implementation](https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Math/Mathf.cs#L220) is plain C# code and not some lower level magically efficient concoction.
-
-## Making it better
-
-Now we arrived at the result above because we wanted to build something exactly like a plain iterative lerp but with a simple change: the lerp factor $$d$$
 
 ## Open Question
 
