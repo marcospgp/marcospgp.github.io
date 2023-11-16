@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to approach a value each frame in a frame rate independent way
+title: On frame rate independence
 tag: Game Dev 👾
 ---
 
