@@ -51,7 +51,7 @@ While this helps, it is not a real solution - as we will see below.
 
 The problem is thus: how do we iteratively approach a target value in a frame rate independent way?
 
-This means making the movement appear the same for a player running a game at 60fps and another playing at 120fps, or even for the same player when their frame rate varies during play time.
+This means making an animation appear the same for a player running a game at 60fps and another playing at 120fps, or even for the same player when their frame rate varies during play time.
 
 ## Iterative lerp is an exponential curve
 
@@ -72,7 +72,7 @@ S(0) = a
 S(n) = S(n-1) + (b - S(n-1)) * d
 ```
 
-Then expanding `S(n-1}` into `S(n-2}`, then `S(n-3}`, and noting patterns such as a geometric series - and replacing it with its sum formula:
+Then expanding `S(n-1)` into `S(n-2)`, then `S(n-3)`, and noting patterns such as a geometric series - and replacing it with its sum formula:
 
 ```text
 a + ar + ar^2 + ... + ar^(n-1) = a * (1-r^n) / (1-r)
