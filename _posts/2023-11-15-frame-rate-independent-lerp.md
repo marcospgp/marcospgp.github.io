@@ -96,12 +96,6 @@ We can also reason that `d` now means "fraction of distance remaining after 1 se
 
 Note that `d` should be a value between 0 and 1.
 
-### Caveat
-
-The reasoning so far assumed `b` and `delta_time` remained constant.
-
-Changes in target value `b` may happen at different times for simulations running at different frame rates, causing small discrepancies that may be barely noticeable next to floating point imprecision.
-
 ## Generalizing
 
 ### Formalizing
@@ -247,3 +241,19 @@ What is the deeper underlying meaning of frame rate independence?
 It may be put this way: for something to be independent from frame rate, any step with `delta_time` of `x` should result in the same value as any number of steps whose `delta_time` adds up to `x`.
 
 But how can we express this?
+
+Maybe including `delta_time` as a parameter to the sequence - using lerp as an example:
+
+```text
+S(a, delta_time) = a + (b - a) * (1 - d^delta_time)
+```
+
+Then the following should be true:
+
+```text
+S(a, j + k) = S(S(a, j), k)
+```
+
+Meaning that one frame with time step `j + k` should result in the same value as a frame with time step `j` followed by a frame with time step `k`.
+
+I didn't take this reasoning too far, however.
