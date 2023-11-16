@@ -86,15 +86,23 @@ f(t) = b - (b - a) * (1 - (1 - d^delta_time))^(t / delta_time)
      = b - (b - a) * d^t
 ```
 
-We can also reason that `d` now means "fraction of distance remaining after 1 second", because at `t = 1` we have `b - (b - a) * d`.
-
-Our iterative lerp should now look like:
+Our frame rate independent iterative lerp should then look like:
 
 ```text
 a = lerp(a, b, (1 - d^delta_time))
 ```
 
-And be perfectly frame rate independent - or imperfectly so, if `delta_time` varies from frame to frame.
+We can also reason that `d` now means "fraction of distance remaining after 1 second", because at `t = 1`, `b - (b - a) * dˆt` becomes `b - (b - a) * d`.
+
+Note that `d` should be a value between 0 and 1.
+
+## Caveats
+
+The reasoning so far assumed everything remained constant throughout the simulation.
+
+However, the target value `b` and the time between iterations `delta_time` may change dynamically, perhaps even on every iteration.
+
+This may have an effect that is dependent on frame rate.
 
 ## Generalizing
 
@@ -227,14 +235,6 @@ Which as we saw before, is equivalent to running lerp iteratively as follows:
 a = lerp(a, b, (1 - u^delta_time))
 ```
 
-## Caveats
-
-The reasoning so far assumed everything remained constant throughout the simulation.
-
-However, the target value `b` and the time between iterations `delta_time` may change dynamically, perhaps even on every iteration.
-
-This may have an effect that is dependent on frame rate.
-
 ## Questions at this point
 
 1. Is the geometric series/exponential curve special in this scenario? Or can other curves be made independent from frame rate?
@@ -242,11 +242,3 @@ This may have an effect that is dependent on frame rate.
 3. When the factor `d` for lerp becomes `(1 - u^delta_time)` above, does `u` now have a human understandable meaning? Experimentally, it appears to mean "fraction of distance remaining after 1 second".
 
 Regarding question 2, we know that keeping track of starting value and time elapsed allows us to make something 100% frame rate independent. It basically allows us to skip the whole recursive sequence reasoning and jump into evaluating a function based on time. Maybe that is a clue on arriving at an answer.
-
-## Another perspective
-
-What is the deeper underlying meaning of frame rate independence?
-
-It may be put this way: for something to be independent from frame rate, any step with `delta_time` of `x` should result in the same value as any number of steps whose `delta_time` adds up to `x`.
-
-But how can we express this?
