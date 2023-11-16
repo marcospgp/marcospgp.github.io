@@ -72,7 +72,7 @@ This means we can update the `f(n)` expression we saw above to `f(t)` by replaci
 
 If you plot this function with varying values for `delta_time`, you will see that an iterative lerp with a constant factor `d` is dependent on frame rate (which is kind of obvious).
 
-However the common solution previously shown of multiplying the factor `d` by `delta_time` will not entirely solve this issue:
+The previously mentioned common solution of multiplying the factor `d` by `delta_time` will not entirely solve this issue:
 
 `f(t) = b - (b - a) * (1 - (d * delta_time))^(t / delta_time)`
 
