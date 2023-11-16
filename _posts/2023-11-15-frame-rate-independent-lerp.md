@@ -46,7 +46,7 @@ While this helps, it is not a real solution - as we will see below.
 
 The problem we are interested in is: how can we know whether an iterative process is independent from frame rate?
 
-We can begin by thinking about lerp specifically - and how we can make it independent from variations in `delta_time`: the time between simulation steps.
+We can begin by thinking about lerp specifically - and how we can make it independent from variations in `delta_time` (the time between simulation steps).
 
 ## Iterative lerp is an exponential curve
 
