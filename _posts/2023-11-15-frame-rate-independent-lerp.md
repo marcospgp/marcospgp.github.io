@@ -104,6 +104,8 @@ a = lerp(a, b, (1 - d^[k * delta_time]))
 
 Which allows one to modulate the underlying curve.
 
+Other modifications may be possible, as long as the cancelling of `delta_time` as shown above is not compromised.
+
 ## Generalizing
 
 ### Formalizing
