@@ -34,7 +34,7 @@ a = lerp(a, b, d)
 
 This means using the last frame's result as the starting value for the next frame.
 
-An issue becomes apparent - unlike animation curves in option 1, which keep track of elapsed time, this iterative approach is not necessarily frame rate independent, and in this case, entirely dependent on frame rate.
+An issue becomes apparent - this process is entirely dependent on frame rate. Running this at 30fps will cause a slower change in real time than running it at 120fps.
 
 A common workaround is to multiply the factor `d` by the time elapsed since the last frame `delta_time`:
 
@@ -44,9 +44,9 @@ a = lerp(a, b, d * delta_time)
 
 While this helps, it is not a real solution - as we will see below.
 
-The problem is thus: how do we iteratively approach a target value in a frame rate independent way?
+The problem we are interested in is: how can we know whether an iterative process is independent from frame rate?
 
-This means making an animation appear the same for a player running a game at 60fps and another playing at 120fps, or even for the same player when their frame rate varies during play time.
+We can begin by thinking about lerp specifically - and how we can make it independent from variations in time between simulation steps.
 
 ## Iterative lerp is an exponential curve
 
