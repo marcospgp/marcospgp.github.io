@@ -96,13 +96,11 @@ We can also reason that `d` now means "fraction of distance remaining after 1 se
 
 Note that `d` should be a value between 0 and 1.
 
-## Caveats
+### Caveat
 
-The reasoning so far assumed everything remained constant throughout the simulation.
+The reasoning so far assumed `b` and `delta_time` remained constant.
 
-However, the target value `b` and the time between iterations `delta_time` may change dynamically, perhaps even on every iteration.
-
-This may have an effect that is dependent on frame rate.
+Changes in target value `b` may happen at different times for simulations running at different frame rates, causing small discrepancies that may be barely noticeable next to floating point imprecision.
 
 ## Generalizing
 
@@ -239,6 +237,13 @@ a = lerp(a, b, (1 - u^delta_time))
 
 1. Is the geometric series/exponential curve special in this scenario? Or can other curves be made independent from frame rate?
 2. Is there a way to guarantee that an iterative process will be independent of frame rate even when `b` and `delta_time` change between iterations?
-3. When the factor `d` for lerp becomes `(1 - u^delta_time)` above, does `u` now have a human understandable meaning? Experimentally, it appears to mean "fraction of distance remaining after 1 second".
 
 Regarding question 2, we know that keeping track of starting value and time elapsed allows us to make something 100% frame rate independent. It basically allows us to skip the whole recursive sequence reasoning and jump into evaluating a function based on time. Maybe that is a clue on arriving at an answer.
+
+## Another perspective
+
+What is the deeper underlying meaning of frame rate independence?
+
+It may be put this way: for something to be independent from frame rate, any step with `delta_time` of `x` should result in the same value as any number of steps whose `delta_time` adds up to `x`.
+
+But how can we express this?
