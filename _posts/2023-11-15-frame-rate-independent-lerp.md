@@ -90,6 +90,20 @@ f(t) = b - (b - a) * (1 - (1 - d^delta_time))^(t / delta_time)
      = b - (b - a) * d^t
 ```
 
+Which is equivalent to running lerp iteratively as follows:
+
+```text
+a = lerp(a, b, (1 - d^delta_time))
+```
+
+One can also introduce a constant `k`:
+
+```text
+a = lerp(a, b, (1 - d^[k * delta_time]))
+```
+
+Which allows one to modulate the underlying curve.
+
 ## Generalizing
 
 ### Formalizing
@@ -215,7 +229,7 @@ S(t) = b + (1 - (1 - u^delta_time))^(t / delta_time) * (a - b)
      = b + u^t * (a - b)
 ```
 
-Which is equivalent to running lerp iteratively as follows:
+Which as we saw before, is equivalent to running lerp iteratively as follows:
 
 ```text
 a = lerp(a, b, (1 - u^delta_time))
