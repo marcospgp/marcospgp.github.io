@@ -132,7 +132,7 @@ S(n) = S(n-1) + (b - S(n-1)) * d
 
 ### Removing recursion
 
-The next step is to somehow make the sequence non-recursive. This is not straightforward and there is no clear path, but a good general approach is to expand `S(n-1)` backwards a few steps (into `S(n-2)`, `S(n-3)`), and noting patterns - such as series that can be replaced by sum formulas.
+The next step is to somehow make the sequence non-recursive. This is not straightforward and there is no clear path, but a good general approach is to expand `S(n-1)` backwards a few steps (into `S(n-2)`, `S(n-3)`), and noting patterns - such as a series that can be replaced by a formula for the sum of its first `n` terms.
 
 ```text
 S(0) = a
