@@ -92,16 +92,6 @@ Which is equivalent to running lerp iteratively as follows:
 a = lerp(a, b, (1 - d^delta_time))
 ```
 
-A constant `k` can also be introduced:
-
-```text
-a = lerp(a, b, (1 - d^[k * delta_time]))
-```
-
-Which allows one to modulate the underlying curve.
-
-Other modifications may be possible, as long as the cancelling of `delta_time` as shown above is not compromised.
-
 ## Generalizing
 
 ### Formalizing
