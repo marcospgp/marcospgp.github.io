@@ -96,7 +96,7 @@ Which is equivalent to running lerp iteratively as follows:
 a = lerp(a, b, (1 - d^delta_time))
 ```
 
-One can also introduce a constant `k`:
+A constant `k` can also be introduced:
 
 ```text
 a = lerp(a, b, (1 - d^[k * delta_time]))
