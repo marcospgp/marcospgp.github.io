@@ -236,6 +236,8 @@ This may have an effect that is dependent on frame rate.
 
 ## Questions at this point
 
-- Is the geometric series/exponential curve special in this scenario? Or can other curves be made frame rate independent?
-- Is there a way to guarantee that an iterative process will be independent of frame rate even when `b` and `delta_time` change between iterations?
-- When the factor `d` for lerp becomes `(1 - u^delta_time)` above, does `u` now have a human understandable meaning? Experimentally, it appears to mean "fraction of distance remaining after 1 second".
+1. Is the geometric series/exponential curve special in this scenario? Or can other curves be made frame rate independent?
+2. Is there a way to guarantee that an iterative process will be independent of frame rate even when `b` and `delta_time` change between iterations?
+3. When the factor `d` for lerp becomes `(1 - u^delta_time)` above, does `u` now have a human understandable meaning? Experimentally, it appears to mean "fraction of distance remaining after 1 second".
+
+Regarding question 2, we know that keeping track of starting value and time elapsed allows us to make something 100% frame rate independent. It basically allows us to skip the whole recursive sequence reasoning and jump into evaluating a function based on time. Maybe that is a clue on arriving at an answer.
