@@ -217,7 +217,7 @@ We can now change the expression to:
 S(t) = b + (1 - d)^(t / delta_time) * (a - b)
 ```
 
-When arriving at this step, the effect of variations in `delta_time` should become clear. In this case, we can compensate for that by adjusting the `d` constant in order to cancel `delta_time` out of the expression:
+The effect of variations in `delta_time` should now become clear. In this case, we can compensate for it by adjusting the `d` constant in order to cancel `delta_time` out of the expression:
 
 ```text
 d = (1 - u^delta_time)
