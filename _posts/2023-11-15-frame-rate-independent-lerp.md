@@ -7,22 +7,24 @@ tag: Game Dev 👾
 
 ## The Problem
 
-When working on iterative simulations - such as games - we frequently want to move a value towards another over time.
+When working on iterative simulations - such as games - we frequently want to animate a value over time.
 
 There are two ways to go about this:
 
-1. Evaluate an animation function with a time parameter
-2. Iteratively update the value each frame (without keeping track of elapsed time)
+1. Calculate the current value given a starting value and time elapsed (an animation curve)
+2. Update the value given the time since the last step (such as moving forward at a given speed)
 
-Option 1 is best suited for scenarios where the animation is finite, but option 2 is a better choice when we want to move towards a target value indefinitely.
+Option 2 does not require keeping track of starting value nor time elapsed. It is especially attractive when we don't have an end in sight - meaning no fixed duration.
 
-A common approach for option 2 is to use lerp (linear interpolation):
+It allows us to build an iterative process that does something indefinitely.
+
+A common use case is applying lerp (linear interpolation) every frame to move a value `a` towards a value `b` over time:
 
 ```text
 lerp(a, b, d) = a + (b - a) * d
 ```
 
-Where `d` is a value between 0 and 1 representing the fraction of distance to cover.
+Where the factor `d` is a value between 0 and 1 representing the fraction of distance to cover.
 
 We can run lerp iteratively like so:
 
