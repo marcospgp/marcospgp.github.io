@@ -88,7 +88,7 @@ f(t) = b - (b - a) * (1 - (1 - d^delta_time))^(t / delta_time)
 
 We can also reason that `d` now means "fraction of distance remaining after 1 second", because at `t = 1` we have `b - (b - a) * d`.
 
-Our iterative lerp now should look like:
+Our iterative lerp should now look like:
 
 ```text
 a = lerp(a, b, (1 - d^delta_time))
