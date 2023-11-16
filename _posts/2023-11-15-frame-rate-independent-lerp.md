@@ -62,15 +62,11 @@ Which shows the underlying curve is exponential.
 
 ## Making lerp frame rate independent
 
-Now we know the resulting value for `a` after `n` iterations of `a = lerp(a, b, d)` can be expressed as:
-
-`f(n) = b - (b - a) * (1 - d)^n`
-
-Since we know that, given elapsed time `t` and a constant `delta_time` representing the time between frames:
+We can relate the number of iterations to the elapsed time `t`, given a constant `delta_time` representing the time between iterations:
 
 `n = t / delta_time`
 
-We can replace `n` in the expression above:
+This means we can update the `f(n)` expression we saw above:
 
 `f(t) = b - (b - a) * (1 - d)^(t / delta_time)`
 
