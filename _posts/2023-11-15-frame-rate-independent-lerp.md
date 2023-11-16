@@ -65,19 +65,6 @@ This means we can express the resulting value at frame `n` with:
 
 Which shows the underlying curve is exponential.
 
-We could also arrive at this conclusion by expressing an iterative lerp as a sequence:
-
-```text
-S(0) = a
-S(n) = S(n-1) + (b - S(n-1)) * d
-```
-
-Then expanding `S(n-1)` into `S(n-2)`, then `S(n-3)`, and noting patterns such as a geometric series - and replacing it with its sum formula:
-
-```text
-a + ar + ar^2 + ... + ar^(n-1) = a * (1-r^n) / (1-r)
-```
-
 ## Making lerp frame rate independent
 
 Now we know the resulting value for `a` after `n` iterations of `a = lerp(a, b, d)` can be expressed as:
@@ -108,6 +95,147 @@ f(t) = b - (b - a) * (1 - (1 - d^delta_time))^(t / delta_time)
      = b - (b - a) * d^t
 ```
 
-A caveat is that while this makes lerping iteratively perfectly frame rate independent for a constant target value, this is not so true when the target value also changes over time, as it will change at different times for simulations running at different frame rates.
+## Generalizing
 
-This effect however should be much less noticeable than the issues covered previously.
+### Formalizing
+
+The reasoning we used above can be formalized, so we can hopefully apply it to any iterative process.
+
+The main idea is to start with a recursive sequence:
+
+```text
+S(0) = a
+S(n) = f(S(n-1))
+```
+
+Where `a` is a constant representing the starting value, and function `f` can be anything you do in code (as long as you can express it mathematically).
+
+We will use lerp as an example from here on out. It can be expressed as the following function (with constants `b` and `d`):
+
+```text
+f(x) = x + (b - x) * d
+```
+
+Once you have a function `f`, you can expand it in the sequence:
+
+```text
+S(0) = a
+S(n) = S(n-1) + (b - S(n-1)) * d
+```
+
+### Removing recursion
+
+The next step is to somehow make the sequence non-recursive. This is not straightforward and there is no clear path, but a good general approach is to expand `S(n-1)` backwards a few steps (into `S(n-2)`, `S(n-3)`), and noting patterns - such as series that can be replaced by sum formulas.
+
+```text
+S(0) = a
+S(n) = S(n-1) + (b - S(n-1)) * d
+     = S(n-1) * (1 - d) + db
+     = (S(n-2) * (1 - d) + db) * (1 - d) + db
+     = ([S(n-3) * (1 - d) + db] * (1 - d) + db) * (1 - d) + db
+```
+
+Now that we have quite a long expression, we can reorganize it a bit:
+
+```text
+S(n) = ([S(n-3) * (1 - d) + db] * (1 - d) + db) * (1 - d) + db
+
+     (start by reversing it to make it easier to read left-to-right)
+     = db + (1 - d) * (db + (1 - d) * [db + (1 - d) * S(n-3)])
+
+     = db + (1 - d) * db + (1 - d)^2 * db + (1 - d)^3 * S(n-3)
+```
+
+We can see two patterns above:
+
+```text
+db + (1 - d) * db + (1 - d)^2 * db
+```
+
+and
+
+```text
+(1 - d)^3 * S(n-3)
+```
+
+The first pattern is a geometric series - which has the following formula for the sum of the first `n` terms:
+
+```text
+a + ar + ar^2 + ... + ar^(n-1) = a * (1 - r^n) / (1 - r)
+```
+
+So with `a = db` and `r = (1 - d)` we can change it into the following:
+
+```text
+db + (1 - d) * db + (1 - d)^2 * db
+
+  = db * (1 - (1 - d)^n) / (1 - (1 - d))
+  = db * (1 - (1 - d)^n) / d
+  = b * (1 - (1 - d)^n)
+```
+
+The second pattern can be dealt with through a simple replacement:
+
+```text
+(1 - d)^3 * S(n-3) = (1 - d)^n * a
+```
+
+Note that eventually the remaining `S(n-3)` term will become `a`, which is the starting value of the sequence.
+
+So by adding back together the the two patterns, `S(n)` becomes:
+
+```text
+S(n) = b * (1 - (1 - d)^n) + (1 - d)^n * a
+     = b - (b * (1 - d)^n) + (1 - d)^n * a
+     = b + (1 - d)^n * (a - b)
+```
+
+And now `S(n)` is no longer a recursive expression:
+
+```text
+S(n) = b + (1 - d)^n * (a - b)
+```
+
+### Turning frames to time
+
+The next step is to evaluate the expression as a function of time, not iterations (or frames elapsed).
+
+We can use the following expression to convert frames `n` to time `t`, given a constant time between frames `delta_time`:
+
+`n = t / delta_time`
+
+We can now change the expression to:
+
+```text
+S(t) = b + (1 - d)^(t / delta_time) * (a - b)
+```
+
+When arriving at this step, the effect of variations in `delta_time` should become clear. In this case, we can compensate for that by adjusting the `d` constant in order to cancel `delta_time` out of the expression:
+
+```text
+d = (1 - u^delta_time)
+
+S(t) = b + (1 - (1 - u^delta_time))^(t / delta_time) * (a - b)
+     = b + (u^delta_time)^(t / delta_time) * (a - b)
+     = b + u^t * (a - b)
+```
+
+Which is equivalent to running lerp iteratively as follows:
+
+```text
+a = lerp(a, b, (1 - u^delta_time))
+```
+
+## Caveats
+
+The reasoning so far assumed everything remained constant throughout the simulation.
+
+However, the target value `b` and the time between iterations `delta_time` may change during the course of simulation, perhaps even on every iteration.
+
+This may have an effect that is dependent on frame rate.
+
+## Questions at this point
+
+- Is the geometric series/exponential curve special in this scenario? Or can other curves be made frame rate independent?
+- Is there a way to guarantee that an iterative process will be independent of frame rate even when `b` and `delta_time` change between iterations?
+- When the factor `d` for lerp becomes `(1 - u^delta_time)` above, does `u` now have a human understandable meaning? Experimentally, it appears to mean "fraction of distance remaining after 1 second".
