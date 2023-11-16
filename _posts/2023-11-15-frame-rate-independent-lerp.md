@@ -66,7 +66,7 @@ We can relate the number of iterations to the elapsed time `t`, given a constant
 
 `n = t / delta_time`
 
-This means we can update the `f(n)` expression we saw above:
+This means we can update the `f(n)` expression we saw above to `f(t)` by replacing `n` with `t / delta_time`:
 
 `f(t) = b - (b - a) * (1 - d)^(t / delta_time)`
 
