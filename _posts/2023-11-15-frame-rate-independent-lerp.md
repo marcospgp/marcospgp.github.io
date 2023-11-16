@@ -1,6 +1,7 @@
 ---
 layout: post
 title: On frame rate independence
+description: Diving into how we can determine whether some way of iteratively updating a value will be affected by variations in time step.
 tag: Game Dev 👾
 ---
 
