@@ -123,6 +123,29 @@ iframe {
   margin: 3rem 0;
 }
 
+.posts {
+  margin: 0;
+}
+
+.post-link {
+  // Override anchor hover color.
+  color: $dark-gray !important;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.meta,
+.post-meta {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 0.9rem;
+  width: auto;
+  margin: 0.5rem 0 1rem 0;
+  color: $mid-gray;
+}
+
 code {
   font-size: 14px;
 }
@@ -309,31 +332,4 @@ h5 {
 
 h6 {
   font-size: $h6;
-}
-
-.posts {
-  margin: 0;
-}
-
-.post-link {
-  // Override anchor hover color.
-  color: $dark-gray !important;
-
-  h3 {
-    margin: 0;
-  }
-}
-
-.meta,
-.post-meta {
-  font-family: $heading-font-family;
-  font-weight: 700;
-  font-size: 0.9rem;
-  width: auto;
-  margin: 0.5rem 0 1rem 0;
-  color: $mid-gray;
-}
-
-.related-post-title {
-  border-bottom: thin solid $lighter-gray;
 }
