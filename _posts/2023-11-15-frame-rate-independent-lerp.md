@@ -5,14 +5,6 @@ description: Diving into how we can determine whether some way of iteratively up
 tag: Game Dev 👾
 ---
 
-<div style="display: none;">
-$$
-\definecolor{LightBlue}{RGB}{156, 223, 237}
-\newcommand{\highlight}[1]{\colorbox{Apricot}{$\displaystyle #1$}}
-\newcommand{\highlightalt}[1]{\colorbox{LightBlue}{$\displaystyle #1$}}
-$$
-</div>
-
 ## The Problem
 
 When working on iterative simulations - such as games - we frequently want to move a value towards another over time.
