@@ -237,7 +237,7 @@ a = lerp(a, b, (1 - u^delta_time))
 
 The reasoning so far assumed everything remained constant throughout the simulation.
 
-However, the target value `b` and the time between iterations `delta_time` may change during the course of simulation, perhaps even on every iteration.
+However, the target value `b` and the time between iterations `delta_time` may change dynamically, perhaps even on every iteration.
 
 This may have an effect that is dependent on frame rate.
 
