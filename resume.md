@@ -41,13 +41,9 @@ Some companies I have worked with:
 
 My full work history is available on [LinkedIn](https://www.linkedin.com/in/marcosrafaelpereira/).
 
-I have a background in machine learning, data science, web development (focus on backend), and game development (focus on the Unity engine).
+Some languages I tend to work with frequently are JavaScript/TypeScript, Python, C#, and Bash. I have also worked with most popular machine learning libraries, including TensorFlow, PyTorch, and JAX.
 
-Comfortable with any modern language, framework, and library. Happy to pick up new technologies.
-
-Have a lot of experience with JavaScript/TypeScript, Python, C#, and Bash. Worked with most popular machine learning libraries, including TensorFlow, PyTorch, and JAX.
-
-Operations experience includes setting up, managing, and automating various server processes and CI pipelines.
+I am comfortable working with most tech stacks, and happy to pick up any I haven't worked with before. I believe the tools are a means to an end, and at the end of the day it's all about creating value for the end user.
 
 ## Side projects
 
