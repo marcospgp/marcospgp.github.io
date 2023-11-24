@@ -1,12 +1,12 @@
 <div class="social-icons">
   <div class="social-icons-left">
     {% if site.twitter_username %}
-      <a class="fa fa-brands fa-x-twitter" href="https://x.com/{{ site.twitter_username }}" aria-label="X"></a>
+      <a class="fa" href="https://x.com/{{ site.twitter_username }}" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
     {% endif %}
     {% if site.github_username %}
-      <a class="fa fa-brands fa-github" href="https://github.com/{{ site.github_username }}" aria-label="github"></a>
+      <a class="fa" href="https://github.com/{{ site.github_username }}" aria-label="github"><i class="fa-brands fa-github"></i></a>
     {% endif %}
-    <a class="fa fa-solid fa-rss" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed"></a>
+    <a class="fa" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed"><i class="fa-solid fa-rss"></i></a>
   </div>
 </div>
 <div class="clearfix"></div>
