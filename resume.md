@@ -19,10 +19,6 @@ Main areas of focus: web, machine learning, and 3D games & simulations.
 - Expert on state of the art machine learning & research lab member at the [Machine Learning Collective](https://twitter.com/ml_collective) under [Rosanne Liu](https://twitter.com/savvyRL) (Google DeepMind);
 - Extensive experience with the Unity engine, including as an asset store publisher.
 
-Value smart colleagues, small teams, good code culture (documentation, code reviews, integration tests), challenging problems, and freedom to suggest priorities & approaches.
-
-Open to traveling periodically.
-
 ## Experience
 
 - Freelancing since high school (2013)
