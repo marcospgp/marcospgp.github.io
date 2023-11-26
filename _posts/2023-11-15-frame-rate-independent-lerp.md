@@ -62,7 +62,7 @@ Which shows the underlying curve is exponential.
 
 ## Making lerp frame rate independent
 
-We can relate the number of iterations to the elapsed time `t`, given a constant `delta_time` representing the time between iterations:
+We can relate the number of iterations `n` to the elapsed time `t`, given a constant `delta_time` representing the time between iterations:
 
 `n = t / delta_time`
 
