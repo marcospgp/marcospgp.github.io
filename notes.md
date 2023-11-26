@@ -5,7 +5,33 @@ title: Notes
 
 This is where I keep notes for things I keep revisiting throughout my work.
 
+Entries are sorted alphabetically.
+
 ---
+
+# General development
+
+## Email
+
+When setting up an email account, make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages and help prevent outgoing email from being marked as spam.
+
+## Git
+
+### Commit without a message
+
+`git add -A && git commit --allow-empty-message -m '' && git push`
+
+### Submodules
+
+Git submodules are a nice way of setting up project dependencies.
+
+You can add a dependency into a repo by running:
+
+`git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder>`
+
+To update dependencies or download them after a fresh `git clone`, use:
+
+`git submodule update --init --recursive --merge --remote`
 
 # Unity game dev
 
@@ -95,23 +121,3 @@ Use the `SafeTask` wrapper:
 ## Utilities repo
 
 <https://github.com/marcospgp/unity-utilities>
-
-# General development
-
-## Git
-
-### Commit without a message
-
-`git add -A && git commit --allow-empty-message -m '' && git push`
-
-### Submodules
-
-Git submodules are a nice way of setting up project dependencies.
-
-You can add a dependency into a repo by running:
-
-`git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder>`
-
-To update dependencies or download them after a fresh `git clone`, use:
-
-`git submodule update --init --recursive --merge --remote`
