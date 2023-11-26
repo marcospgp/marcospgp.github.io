@@ -238,22 +238,20 @@ Regarding question 2, we know that keeping track of starting value and time elap
 
 What is the deeper underlying meaning of frame rate independence?
 
-It may be put this way: for something to be independent from frame rate, any step with `delta_time` of `x` should result in the same value as any number of steps whose `delta_time` adds up to `x`.
+It may be put this way: any step with `delta_time` of `k` should be equivalent to any number of steps whose `delta_time` adds up to `k`.
 
-But how can we express this?
+We can simplify this into:
 
-Maybe including `delta_time` as a parameter to the sequence - using lerp as an example:
+Any step with `delta_time` of `k` should be divisible into two steps with `delta_time`s `i` and `j` where `k = i + j`.
+
+Because if a step is divisible into two, we can keep dividing arbitrarily into any number of steps.
+
+This can be expressed mathematically as:
+
+Given a function `f(a, d)` that updates a state `a` given a `delta_time` `d`, and values `k`, `i`, and `j` such that `k = i + j`:
 
 ```text
-S(a, delta_time) = a + (b - a) * (1 - d^delta_time)
+f(a, k) = f(f(a, i), j)
 ```
 
-Then the following should be true:
-
-```text
-S(a, j + k) = S(S(a, j), k)
-```
-
-Meaning that one frame with time step `j + k` should result in the same value as a frame with time step `j` followed by a frame with time step `k`.
-
-I didn't take this reasoning too far, however.
+I found out by asking on the game development [stack exchange](https://gamedev.stackexchange.com/a/207937/43966) that this is equivalent to [flow](<https://en.wikipedia.org/wiki/Flow_(mathematics)>).
