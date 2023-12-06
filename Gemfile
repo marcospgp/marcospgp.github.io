@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'jekyll'
+# Limiting Jekyll to v3 because latest breaks SCSS parsing.
+gem 'jekyll', '~> 3'
 gem 'kramdown-parser-gfm'
 gem 'webrick'
 
