@@ -53,7 +53,7 @@ But how could we have arrived at this solution? And more importantly, how can we
 
 A simple way of obtaining frame rate independence is to make use of total time elapsed, instead of updating a value iteratively using delta time.
 
-This is common for animations with fixed durations, and matches the concept of easing curves. These are functions with `f(0) = 0` and `f(1) = 1`, representing a curve that can be multiplied by a value one wants to animate over the duration of the animation.
+This is common for animations with fixed durations, and matches the concept of easing curves. These are functions with `f(0) = 0` and `f(1) = 1`, representing a curve that can be multiplied by a value one wants to animate over a certain duration.
 
 For example, with an easing curve `f(t) = t^2` one can animate a value with:
 
