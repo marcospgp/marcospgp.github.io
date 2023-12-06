@@ -102,7 +102,13 @@ The solution `x(t)` is a flow - which means it is frame rate independent.
 
 In other words, anything we can specify in terms of a change over time (differential equation), then solve, results in an expression we can use iteratively with variable time steps.
 
-We can also use flow directly to check whether a given function is frame rate independent, by simply expanding its expression and checking if the two sides are indeed equal.
+We can also use flow directly to check whether a given function is frame rate independent, by simply expanding the property:
+
+```text
+f(a, t1 + t2) = f(f(a, t1), t2)
+```
+
+And checking if the two sides are indeed equal.
 
 ## Example: motion with constant acceleration
 
