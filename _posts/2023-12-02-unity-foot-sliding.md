@@ -1,7 +1,6 @@
 ---
 layout: post
-title: On Frame Rate Independence
-description: Diving into how we can determine whether some way of iteratively updating a value will be affected by variations in time step.
+title: How to avoid foot sliding
 tag: Game Dev 👾
 ---
 
