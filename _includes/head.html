@@ -115,11 +115,6 @@
 
   {% if site.enable_anchorjs %}<!-- AnchorJS -->
 
-  <!--
-    The scripts below have been placed in the <head> because they must run
-    before the table of contents is generated.
-  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>
   <script>
       // Set our own IDs for AnchorJS to use when linking to headers.
       //
@@ -127,6 +122,11 @@
       // This prevents issues such as adding an <h3> to an existing page
       // where an equal <h3> was already present later in the page overriding
       // the latter's link.
+      //
+      // This has been placed in the <head> because it must run before the
+      // table of contents is generated.
+      // AnchorJS still has to run after the <body> is rendered, so it is loaded
+      // at the bottom of the page.
       //
       // This was introduced for the Notes page, which changes often.
 
@@ -149,9 +149,6 @@
           header.id = uniqueId;
           lastHeaders[header.tagName.toLowerCase()] = header;
       });
-
-      anchors.options.visible = 'always';
-      anchors.add('article h2, article h3, article h4, article h5, article h6');
   </script>
 
   {% endif %}
