@@ -114,13 +114,13 @@ And checking if the two sides are indeed equal.
 
 Let's use motion with constant acceleration as an example.
 
-We know that
+We know that the velocity changes by a value equal to the acceleration each second:
 
 ```text
 dv/dt = a
 ```
 
-and
+And that the position changes by the velocity:
 
 ```text
 dx/dt = v
