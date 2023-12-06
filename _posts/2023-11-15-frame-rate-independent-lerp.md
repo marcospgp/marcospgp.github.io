@@ -13,7 +13,7 @@ The time interval between these simulation steps can be variable - which is why 
 
 This iterative process of calculating successive simulation states, often with variable time steps, is commonly known as the "render loop".
 
-Physics are commonly calculated in a separate loop running on a fixed time interval - the physics loop - that is run parallel to the render loop. Given enough complexity, it can be impossible to obtain exactly the same progression over time for simulations running at different time steps, so the time step is fixed.
+Physics are commonly calculated separately, running on a fixed time interval known as the physics loop. Given enough complexity, it can be impossible to obtain exactly the same progression over time for simulations running at different time steps, so the time step is fixed.
 
 For many kinds of computations, however, the render loop is fine - and a lot of game logic ends up being placed there.
 
