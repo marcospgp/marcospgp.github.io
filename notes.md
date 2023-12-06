@@ -57,7 +57,7 @@ That can be fixed by downloading the default Mixamo character (Y Bot) in T-pose 
 
 ### Movement without foot sliding
 
-See {% post_link 2023-12-02-unity-foot-sliding %}
+See {% post_link 2023-12-02-unity-foot-sliding %}.
 
 ## Blender
 
