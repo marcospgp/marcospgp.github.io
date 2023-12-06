@@ -112,4 +112,47 @@
   {% endif %}
 
   {% include favicon.html %}
+
+  {% if site.enable_anchorjs %}<!-- AnchorJS -->
+
+  <!--
+    The scripts below have been placed in the <head> because they must run
+    before the table of contents is generated.
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>
+  <script>
+      // Set our own IDs for AnchorJS to use when linking to headers.
+      //
+      // We include parent headers in children header IDs, except for "<h1>"s.
+      // This prevents issues such as adding an <h3> to an existing page
+      // where an equal <h3> was already present later in the page overriding
+      // the latter's link.
+      //
+      // This was introduced for the Notes page, which changes often.
+
+      const headers = document.querySelectorAll('h2, h3, h4, h5, h6');
+      const lastHeaders = {};
+
+      headers.forEach(header => {
+          let uniqueId = header.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+
+          const hLevel = parseInt(header.tagName[1]) - 1
+
+          for (let i = hLevel; i >= 2; i--) {
+              const lastHeader = lastHeaders['h' + i];
+              if (lastHeader) {
+                  uniqueId = lastHeader.id + '--' + uniqueId;
+                  break;
+              }
+          }
+
+          header.id = uniqueId;
+          lastHeaders[header.tagName.toLowerCase()] = header;
+      });
+
+      anchors.options.visible = 'always';
+      anchors.add('article h2, article h3, article h4, article h5, article h6');
+  </script>
+
+  {% endif %}
 </head>
