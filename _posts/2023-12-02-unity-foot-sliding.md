@@ -4,7 +4,7 @@ title: How to avoid foot sliding
 tag: Game Dev 👾
 ---
 
-Goal: set up player movement that is script controlled (as opposed to root motion based, for better responsiveness), but sync up animations to minimize discrepancies such as foot sliding.
+Goal: set up player movement in the Unity engine that is script controlled (as opposed to root motion based, for better responsiveness), but sync up animations to minimize discrepancies such as foot sliding.
 
 1. Set up blend tree
    - 2D simple directional (no idle animation)
