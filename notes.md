@@ -29,6 +29,8 @@ You can add a dependency into a repo by running:
 
 `git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder>`
 
+If using Unity, it may be a good idea to place submodules in the `Assets` folder.
+
 To update dependencies or download them after a fresh `git clone`, use:
 
 `git submodule update --init --recursive --merge --remote`
