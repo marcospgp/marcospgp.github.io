@@ -99,6 +99,10 @@ Use the `SafeTask` wrapper:
 - <https://github.com/marcospgp/unity-utilities/blob/main/Async/SafeTask.cs>
 - <https://marcospereira.me/2022/05/06/safe-async-tasks-in-unity/>
 
+## Procedural generation
+
+Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.html) on meshes that are updated frequently at runtime.
+
 ## Utilities repo
 
 <https://github.com/marcospgp/unity-utilities>
