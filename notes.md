@@ -103,6 +103,16 @@ Use the `SafeTask` wrapper:
 
 Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.html) on meshes that are updated frequently at runtime.
 
+## Shaders
+
+### Shader Graph
+
+#### Hiding properties from inspector
+
+Before version 2023.3.0a11, Shader Graph properties not marked as "Exposed" simply don't work unless initialized in code. The expected behavior would be to simply hide the property from the material inspector.
+
+There is more info about this issue in [this thread](https://forum.unity.com/threads/non-exposed-parameters-dont-work.912149).
+
 ## Utilities repo
 
 <https://github.com/marcospgp/unity-utilities>
