@@ -11,9 +11,9 @@ This is where I keep notes for things I keep revisiting throughout my work. Entr
 
 ## Email
 
-When setting up an email account, make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages and help prevent outgoing email from being marked as spam. Use <https://www.dmarctester.com> to test this.
+When setting up email initially, make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
 
-When sending email through a third party SMTP service for a Google Workspace account, "Allow per-user outbound gateways" must be enabled in the admin panel to avoid email being silently rejected.
+If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
 
 ## Git
 
