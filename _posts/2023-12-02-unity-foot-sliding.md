@@ -4,9 +4,7 @@ title: How to avoid foot sliding
 tag: Game Dev 👾
 ---
 
-## The goal
-
-Set up player movement in the Unity engine where the speed is set by a script and animation root motion is not applied, but synchronize the two in order to avoid issues such as foot sliding.
+How to set up player movement in the Unity engine where the speed is set by a script and animation root motion is not applied, but synchronize the two in order to avoid issues such as foot sliding.
 
 ## The problem
 
