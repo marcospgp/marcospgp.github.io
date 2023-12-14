@@ -4,7 +4,21 @@ title: How to avoid foot sliding
 tag: Game Dev 👾
 ---
 
-Goal: set up player movement in the Unity engine that is script controlled (as opposed to root motion based, for better responsiveness), but sync up animations to minimize discrepancies such as foot sliding.
+## The goal
+
+Set up player movement in the Unity engine that is script controlled (as opposed to root motion based, for better responsiveness), but sync up animations to minimize discrepancies such as foot sliding.
+
+## The problem
+
+In animation blend trees, root motion isn't linearly blended. Blending halfway towards a forward movement animation will not result in a root motion with half that animation's speed.
+
+This likely has to do with things like foot phase synchronization. More info on this is available at <https://kybernetik.com.au/animancer/docs/manual/blending/mixers/synchronization/>.
+
+## The solution
+
+The key aspect to work around non-linear root motion blending is to not blend root motion. Instead, we can manipulate the speed of animations with known root motion velocity in order to match in-game player velocity.
+
+Here's the step by step approach:
 
 1. Set up blend tree
    - 2D simple directional (no idle animation)
@@ -25,4 +39,6 @@ This is what the resulting blend tree looks like:
 
 It may be possible to still blend between movement and other animations by nesting blend trees, although copy pasting a blend tree you previously created [requires a simple workaround](https://twitter.com/voxelbased/status/1720082569260343547).
 
-More info at <https://kybernetik.com.au/animancer/docs/manual/blending/mixers/#synchronisation>
+## Why isn't root motion linearly blended?
+
+This has to do with foot phase synchronization.
