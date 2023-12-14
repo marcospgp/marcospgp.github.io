@@ -6,7 +6,7 @@ tag: Game Dev 👾
 
 ## The goal
 
-Set up player movement in the Unity engine that is script controlled (as opposed to root motion based, for better responsiveness), but sync up animations to minimize discrepancies such as foot sliding.
+Set up player movement in the Unity engine where the speed is set by a script and animation root motion is not applied, but synchronize the two in order to avoid issues such as foot sliding.
 
 ## The problem
 
@@ -38,7 +38,3 @@ This is what the resulting blend tree looks like:
 ![Blend tree]({% link assets/2023-12-02-unity-foot-sliding/unity-movement-blend-tree.jpg %})
 
 It may be possible to still blend between movement and other animations by nesting blend trees, although copy pasting a blend tree you previously created [requires a simple workaround](https://twitter.com/voxelbased/status/1720082569260343547).
-
-## Why isn't root motion linearly blended?
-
-This has to do with foot phase synchronization.
