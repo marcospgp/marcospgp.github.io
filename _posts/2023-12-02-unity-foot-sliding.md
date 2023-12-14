@@ -16,7 +16,9 @@ This likely has to do with things like foot phase synchronization. More info on 
 
 ## The solution
 
-The key aspect to work around non-linear root motion blending is to not blend root motion. Instead, we can manipulate the speed of animations with known root motion velocity in order to match in-game player velocity.
+The key aspect to work around non-linear root motion blending is to not blend root motion at all. Instead, we can manipulate the speed of animations with known root motion velocity in order to match in-game player velocity.
+
+We still use a blend tree to simplify transitioning between different movement animations, even though we aim to always end up with a single active animation.
 
 Here's the step by step approach:
 
