@@ -8,7 +8,7 @@ A 32-bit [IEEE 754 floating point](https://evanw.github.io/float-toy/) number is
 
 `0_00000000_00000000000000000000000`
 
-1. The sign (1 or -1)
+1. The sign (0 or 1 representing 1 and -1 respectively)
 2. The exponent
 3. The fraction
 
