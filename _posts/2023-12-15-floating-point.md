@@ -35,8 +35,8 @@ There are also two special cases for the exponent:
 Also note that it's possible to represent both +0 and -0:
 
 ```text
-1_00000000_00000000000000000000000 = -0
 0_00000000_00000000000000000000000 = +0
+1_00000000_00000000000000000000000 = -0
 ```
 
 ## Key insights
