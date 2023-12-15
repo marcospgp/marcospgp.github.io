@@ -46,12 +46,16 @@ Also note that it's possible to represent both +0 and -0:
 
 Being aware of the internal design of a floating point number allows us to derive some key insights, which can be useful when deciding how to use this type in order to make the most use of its representational space.
 
-### Half of the representation space is in [-1, 1]
+### Half of the representation space is in ]-1, 1[
 
 ```text
 1_01111111_00000000000000000000000 = -1
 0_01111111_00000000000000000000000 = 1
 ```
+
+Any floating point number with exponent or significand higher than the ones shown above will be outside the [-1, 1] range.
+
+This means half the available exponents are in the ]-1, 1[ range.
 
 All numbers starting with the 9 bits in those two examples above will be between -1 and 1.
 
