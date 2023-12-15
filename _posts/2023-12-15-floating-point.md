@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Key insights on IEEE 754 floating point numbers
+description: Understanding floating point representation can help design systems in order to make the most out of this type.
 tag: Web 💻
 ---
 
