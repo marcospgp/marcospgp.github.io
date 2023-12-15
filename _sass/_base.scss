@@ -342,15 +342,15 @@ blockquote p {
   width: 100%;
 }
 
-.social-icons a:first-child {
-  padding-left: 0!important;
-}
-
 .social-icons a.fa {
   cursor: pointer;
   opacity: 0.8;
   padding: 0.2em;
   font-size: 1.5rem;
+}
+
+.social-icons a.fa:first-child {
+  padding-left: 0;
 }
 
 .social-icons a.fa:hover {
