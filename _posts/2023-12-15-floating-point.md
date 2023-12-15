@@ -5,6 +5,8 @@ description: Understanding floating point representation can help design systems
 tag: Web 💻
 ---
 
+## IEEE 754
+
 A 32-bit [IEEE 754 floating point](https://evanw.github.io/float-toy/) number is organized in 3 bit groups:
 
 `0_00000000_00000000000000000000000`
