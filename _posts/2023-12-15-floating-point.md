@@ -53,13 +53,7 @@ Being aware of the internal design of a floating point number allows us to deriv
 0_01111111_00000000000000000000000 = 1
 ```
 
-Any floating point number with exponent or significand higher than the ones shown above will be outside the [-1, 1] range.
-
 This means half the available exponents are in the ]-1, 1[ range.
-
-All numbers starting with the 9 bits in those two examples above will be between -1 and 1.
-
-This means the second bit is what determines whether a number is inside or outside of [-1, 1]. Half of the representational space for each.
 
 ### There are the same number of representable numbers between each power of 2
 
