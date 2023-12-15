@@ -55,7 +55,7 @@ Being aware of the internal design of a floating point number allows us to deriv
 
 This means any exponent at or above 127 (which happens to be the offset) represents numbers outside ]-1, 1[ (regardless of the significand).
 
-This is very close to half of the representational space.
+This is very close to half of the representation space.
 
 ### There are the same number of representable numbers between each power of 2
 
