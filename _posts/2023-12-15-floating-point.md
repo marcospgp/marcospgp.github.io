@@ -30,7 +30,7 @@ There are also two special cases for the exponent:
    (-1)^sign * 2^(-126) * 0.fraction
    ```
 
-2. Exponent with all ones (`11111111`) is either infinity (if fraction is all zeros) or NaN, the latter signaling an error.
+2. Exponent with all ones (`11111111`) is either infinity (if fraction is all zeros) or NaN (otherwise), the latter signaling an error.
 
 Also note that it's possible to represent both +0 and -0:
 
