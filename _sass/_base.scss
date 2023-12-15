@@ -27,8 +27,7 @@ body {
 }
 
 img {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 3rem auto 3rem auto;
   display: block;
 }
 
@@ -148,15 +147,6 @@ iframe {
 
 code {
   font-size: 14px;
-}
-
-// No margin for lists inside lists
-li ul, li ol {
-  margin: 0;
-}
-
-li {
-  margin: 0.2rem 0;
 }
 
 blockquote {
@@ -288,18 +278,23 @@ h6 {
   font-size: $h6;
 }
 
-p,
-dl,
-ol,
-ul {
-  font-size: 1em;
+p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-ol,
-ul {
+dl, ol, ul {
+  margin: 2em 0 2em 0;
   padding-left: $space-3;
+}
+
+// No margin for lists inside lists
+li ul, li ol {
+  margin: 0;
+}
+
+li {
+  margin: 1em 0 1em 0;
 }
 
 pre,
