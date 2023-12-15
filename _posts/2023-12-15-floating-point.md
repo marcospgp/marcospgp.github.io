@@ -32,6 +32,52 @@ There are also two special cases for the exponent:
 
 2. Exponent with all ones (`11111111`) is either infinity (if fraction is all zeros) or NaN, the latter signaling an error.
 
-Aside from some
+Also note that it's possible to represent both +0 and -0:
 
-- Half of the representation space is in [-1, 1]
+```text
+1_00000000_00000000000000000000000 = -0
+0_00000000_00000000000000000000000 = +0
+```
+
+## Key insights
+
+Being aware of the internal design of a floating point number allows us to derive some key insights, which can be useful when deciding how to use this type in order to make the most use of its representational space.
+
+### Half of the representation space is in [-1, 1]
+
+```text
+1_01111111_00000000000000000000000 = -1
+0_01111111_00000000000000000000000 = 1
+```
+
+All numbers starting with the 9 bits in those two examples above will be between -1 and 1.
+
+This means the second bit is what determines whether a number is inside or outside of [-1, 1]. Half of the representational space for each.
+
+### There are the same number of representable numbers between each power of 2
+
+Because the fraction is fixed to 23 bits, we can represent 2^23 numbers between each possible exponent.
+
+This means the distance between floating point numbers is fixed for each exponent, and grows as the exponent grows.
+
+The space between consecutive floating point numbers is determined by two things: the exponent `X` and the number of bits in the significand `B`. The formula is:
+
+```text
+2^(X - 127) * 2^(-B)
+```
+
+Which means for a 32-bit float (23-bit significand) and exponent 128 (`01111111`) the error is:
+
+```text
+2^1 * 2^(-23) = 2 * 1/(2^23) = 1/(2^22)
+```
+
+And each successive exponent increases the spacing between adjacent floating point numbers by a factor of 2.
+
+With an exponent of 150, the error is exactly 1:
+
+```text
+2^23 * 2^(-23) = 1
+```
+
+Which means there are no 32-bit floating point numbers between 8388608 and 8388609, for example.
