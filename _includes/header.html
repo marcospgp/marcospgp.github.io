@@ -2,45 +2,26 @@
   <div class="mt2 wrap">
     <div class="measure">
       <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
-      <nav class="site-nav">
-        {% include navigation.html %}
+      <nav>
+        {% assign default_paths = site.pages | map: "path" %}
+        {% assign page_paths = site.header_pages | default: default_paths %}
+
+        {% for path in page_paths %}
+
+            {% assign item = site.pages | where: "path", path | first %}
+
+            {% if page.title == item.title %}
+                <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% else %}
+                <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% endif %}
+
+        {% endfor %}
       </nav>
       <div class="clearfix"></div>
       {% if site.show_social_icons %}
         {% include social_links.html %}
       {% endif %}
-
-      {% comment %}
-      Browse by tag. Homepage is detected through `page.pagination.enabled`.
-      {% endcomment %}
-      {% if page.pagination.enabled %}
-        <nav class="post-navigation" style="float: none; text-align: left;">
-          {% if page.pagination.tag %}
-            <a class="nav-link" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
-          {% else %}
-            <a class="nav-active" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
-          {% endif %}
-
-          {% assign tags = site.tags | sort %}
-
-          {% for tag in tags %}
-            {% if page.pagination.tag == tag[0] %}
-
-              <a class="nav-active" href="{{ '/tags/' | append: tag[0] | relative_url }}">
-                {{tag[0] | replace: ' ', '&nbsp;'}}
-              </a>&nbsp;
-
-            {% else %}
-
-              <a class="nav-link" href="{{ '/tags/' | append: tag[0] | relative_url }}">
-                {{tag[0] | replace: ' ', '&nbsp;'}}
-              </a>&nbsp;
-
-            {% endif %}
-          {% endfor %}
-        </nav>
-      {% endif %}
-
     </div>
   </div>
 </header>

@@ -3,16 +3,12 @@
     text-align: left;
   }
 
-  .site-nav {
-    margin-top: 0;
-  }
-
   .site-header .site-title {
     font-size: $h3;
     float: left;
   }
 
-  .site-header .site-nav {
+  .site-header nav {
     float: right;
     margin-top: .25rem;
   }

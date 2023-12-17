@@ -1,68 +1,44 @@
-// .site-header {
-//   padding-top: $space-1;
-//   padding-bottom: $space-2;
-// }
-
 .site-header a {
-  color: $header-color;
+  color: $dark-gray;
   font-size: $h4;
-  font-weight: $header-font-weight;
-  background-image: none;
-}
-
-.post-navigation a {
-  font-size: $h5!important;
 }
 
 .site-header .site-title {
   font-size: $h3;
 }
 
-.site-header nav a {
-  color: $nav-color;
-
-  // Prevent default link underline
-  text-decoration: none;
-}
-
-.site-header nav a:hover,
-.site-header nav a:focus,
-.site-header nav a:active,
-.site-header nav a.nav-active:hover,
-.site-header nav a.nav-active:focus,
-.site-header nav a.nav-active:active {
-  color: $nav-link-color;
-  opacity: 1;
-  border-bottom: $nav-link-border-bottom;
-}
-
-.site-header nav a.nav-active {
-  border-bottom: $nav-active-border-bottom;
-}
-
-.site-nav a + a {
-  margin-left: $nav-link-padding-x;
-}
-
-.post-navigation a + a {
-  margin-left: $nav-link-padding-x;
-}
-
 .site-header a:hover,
-.posts .post a:hover .post-meta,
-.posts .post a:hover .post-title,
-.posts .post a:hover .post-summary {
-  opacity: 0.88;
+.posts .post a:hover .post-title {
+  color: $mid-gray;
 }
 
 .site-header {
   text-align: center;
 }
 
-.site-header .site-nav {
+// Social icons
+
+.social-icons-left, .social-icons-left {
   text-align: center;
+  float: none;
 }
 
-.post-navigation {
-  text-align: center;
+.social-icons {
+  font-size: 1.25rem;
+  padding: 0.5em 0 0 0;
+  width: 100%;
+}
+
+.social-icons a.fa {
+  cursor: pointer;
+  padding: 0.2em;
+  font-size: 1.5rem;
+}
+
+.social-icons a.fa:first-child {
+  padding-left: 0;
+}
+
+.social-icons a.fa:hover {
+  color: $mid-gray;
 }

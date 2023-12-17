@@ -1,5 +1,36 @@
 {% assign posts_count = paginator.posts | size %}
 
+{% comment %}
+Browse by tag. Requires pagination to be enabled.
+{% endcomment %}
+{% if page.pagination.enabled %}
+  <nav class="browse-by-tag" style="float: none; text-align: left;">
+    {% if page.pagination.tag %}
+      <a class="nav-link" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
+    {% else %}
+      <a class="nav-active" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
+    {% endif %}
+
+    {% assign tags = site.tags | sort %}
+
+    {% for tag in tags %}
+      {% if page.pagination.tag == tag[0] %}
+
+        <a class="nav-active" href="{{ '/tags/' | append: tag[0] | relative_url }}">
+          {{tag[0] | replace: ' ', '&nbsp;'}}
+        </a>&nbsp;
+
+      {% else %}
+
+        <a class="nav-link" href="{{ '/tags/' | append: tag[0] | relative_url }}">
+          {{tag[0] | replace: ' ', '&nbsp;'}}
+        </a>&nbsp;
+
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
+
 <div class="home">
   {% if posts_count > 0 %}
   <div class="posts">
