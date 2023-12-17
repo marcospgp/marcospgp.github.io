@@ -1,6 +1,6 @@
 {% assign posts_count = paginator.posts | size %}
 
-<h2>Highlighted</h2>
+<h1>Highlighted</h1>
 
 <div class="posts">
   {% for post in paginator.posts %}
@@ -10,7 +10,7 @@
   {% endfor %}
 </div>
 
-<h2>Chronology</h2>
+<h1>Chronology</h1>
 
 {% comment %}
 Browse by tag. Requires pagination to be enabled.

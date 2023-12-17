@@ -4,11 +4,7 @@ title: About Me
 table_of_contents: false
 ---
 
-Hello! Thanks for visiting my website. I am Marcos, a developer from Portugal with a focus on web, machine learning, and games.
-
-I've done some [deep learning research]({% post_url 2020-11-01-ml-collective-arc %}) at the Machine Learning Collective, under Rosanne Liu (Google DeepMind).
-
-I have also [published]({% post_url 2022-01-10-i-just-published-polygon-reducer-on-the-unity-asset-store %}) on the Unity asset store.
+Hi there! I am Marcos, a developer from Portugal with a focus on web, AI, and games.
 
 You can check out my resume [here](/resume).
 
