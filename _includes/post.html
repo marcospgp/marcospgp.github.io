@@ -1,0 +1,25 @@
+<div class="post">
+
+  <a href="{{ post.url | relative_url }}" class="post-link">
+    <h3 class="post-title" style="text-transform: capitalize;">{{ post.title }}</h3>
+  </a>
+
+  <p class="post-meta">
+    {% if site.date_format %}
+    {{ post.date | date: site.date_format }}
+    {% else %}
+    {{ post.date | date: "%b %-d, %Y" }}
+    {% endif %}
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    {{post.tags}}
+  </p>
+
+  <span class="post-summary">
+    {% if post.description %}
+    {{ post.description }}
+    {% else %}
+    {{ post.excerpt | strip_html | truncatewords: 30 }}
+    {% endif %}
+  </span>
+
+</div>

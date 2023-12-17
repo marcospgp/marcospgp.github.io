@@ -1,14 +1,22 @@
 {% assign posts_count = paginator.posts | size %}
 
-<nav>
-  <h2>Highlights ⭐️</h2>
-</nav>
+<h2>Highlighted ⭐️</h2>
+
+<div class="posts">
+  {% for post in paginator.posts %}
+    {% if post.highlight %}
+      {% include post.html post=post %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+<h2>Posts</h2>
 
 {% comment %}
 Browse by tag. Requires pagination to be enabled.
 {% endcomment %}
 {% if page.pagination.enabled %}
-<nav class="browse-by-tag" style="float: none; text-align: left;">
+<nav>
   {% if page.pagination.tag %}
     <a class="nav-link" href="{{ "/" | relative_url }}">All Posts</a>&nbsp;
   {% else %}
@@ -35,38 +43,10 @@ Browse by tag. Requires pagination to be enabled.
 </nav>
 {% endif %}
 
-{% if posts_count > 0 %}
 <div class="posts">
   {% for post in paginator.posts %}
-  <div class="post">
-
-    <a href="{{ post.url | relative_url }}" class="post-link">
-      <h3 class="post-title" style="text-transform: capitalize;">{{ post.title }}</h3>
-    </a>
-
-    <p class="post-meta">
-      {% if site.date_format %}
-      {{ post.date | date: site.date_format }}
-      {% else %}
-      {{ post.date | date: "%b %-d, %Y" }}
-      {% endif %}
-      <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-      {{post.tags}}
-    </p>
-
-    <span class="post-summary">
-      {% if post.description %}
-      {{ post.description }}
-      {% else %}
-      {{ post.excerpt | strip_html | truncatewords: 30 }}
-      {% endif %}
-    </span>
-
-  </div>
+    {% include post.html post=post %}
   {% endfor %}
 </div>
 
 {% include pagination.html %}
-{% else %}
-<h1 class='center'>{{ site.text.index.coming_soon }}</h1>
-{% endif %}

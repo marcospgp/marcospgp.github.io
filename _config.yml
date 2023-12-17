@@ -74,9 +74,6 @@ share_stumbleupon: false
 share_hackernews: false
 
 text:
-  pagination:
-    newer: 'Newer'
-    older: 'Older'
   share_buttons:
     text:         'Share this post!'
     facebook:     'Share on Facebook'
@@ -138,7 +135,7 @@ pagination:
   enabled: true
   debug: false
   collection: 'posts'
-  per_page: 16
+  per_page: 12
   permalink: '/page-:num/'
   # Empty title because pagination is used in homepage, and we don't want to
   # mess with its `<title>`.

@@ -137,8 +137,6 @@ blockquote footer {
 }
 
 .site-wrap {
-  margin-bottom: 15rem;
-
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1 0 auto;
@@ -277,8 +275,6 @@ blockquote p {
 }
 
 nav {
-  text-align: center;
-
   a {
     color: $dark-gray;
   }
