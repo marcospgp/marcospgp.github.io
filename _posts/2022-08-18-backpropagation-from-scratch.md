@@ -2,6 +2,7 @@
 layout: post
 title: Backpropagation From Scratch
 tag: AI 🤖
+highlight: true
 ---
 
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
@@ -50,11 +51,11 @@ $$
 
 Where:
 
-* $$\displaystyle C$$ is the cost;
-* $$\displaystyle w_{ij}^{l}$$ is the weight connecting neuron $$\displaystyle j$$ of layer $$\displaystyle l-1$$ to neuron $$\displaystyle i$$ of layer $$\displaystyle l$$;
-* $$\displaystyle z_{i}^{l}$$ is the weighted input of neuron $$\displaystyle i$$ of layer $$\displaystyle l$$;
-* $$\displaystyle a_{i}^{l}$$ is the activation of neuron $$\displaystyle i$$ of layer $$\displaystyle l$$;
-* and $$\displaystyle b_{i}^{l}$$ is the bias of neuron $$\displaystyle i$$ of layer $$\displaystyle l$$.
+- $$\displaystyle C$$ is the cost;
+- $$\displaystyle w_{ij}^{l}$$ is the weight connecting neuron $$\displaystyle j$$ of layer $$\displaystyle l-1$$ to neuron $$\displaystyle i$$ of layer $$\displaystyle l$$;
+- $$\displaystyle z_{i}^{l}$$ is the weighted input of neuron $$\displaystyle i$$ of layer $$\displaystyle l$$;
+- $$\displaystyle a_{i}^{l}$$ is the activation of neuron $$\displaystyle i$$ of layer $$\displaystyle l$$;
+- and $$\displaystyle b_{i}^{l}$$ is the bias of neuron $$\displaystyle i$$ of layer $$\displaystyle l$$.
 
 Here we use the superfix $$\displaystyle ^{( this\ thing\ here)}$$ not for exponentiation but for indexing the layer a variable belongs to.
 

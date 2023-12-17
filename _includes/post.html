@@ -12,6 +12,11 @@
     {% endif %}
     <span style="font-weight: normal">&nbsp;•&nbsp;</span>
     {{post.tags}}
+
+    {% if post.highlight %}
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    Highlighted ⭐️
+    {% endif %}
   </p>
 
   <span class="post-summary">

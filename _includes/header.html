@@ -1,27 +1,28 @@
-<header class="site-header m2 px-responsive">
-  <div class="mt2 wrap">
-    <div class="measure">
+<div class="measure">
+  <div class="site-header">
+    <div>
       <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
-      <nav>
-        {% assign default_paths = site.pages | map: "path" %}
-        {% assign page_paths = site.header_pages | default: default_paths %}
-
-        {% for path in page_paths %}
-
-            {% assign item = site.pages | where: "path", path | first %}
-
-            {% if page.title == item.title %}
-                <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-            {% else %}
-                <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-            {% endif %}
-
-        {% endfor %}
-      </nav>
-      <div class="clearfix"></div>
-      {% if site.show_social_icons %}
-        {% include social_links.html %}
-      {% endif %}
     </div>
+
+    {% if site.show_social_icons %}
+      {% include social_links.html %}
+    {% endif %}
+
+    <nav>
+      {% assign default_paths = site.pages | map: "path" %}
+      {% assign page_paths = site.header_pages | default: default_paths %}
+
+      {% for path in page_paths %}
+
+          {% assign item = site.pages | where: "path", path | first %}
+
+          {% if page.title == item.title %}
+              <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          {% else %}
+              <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          {% endif %}
+
+      {% endfor %}
+    </nav>
   </div>
-</header>
+</div>

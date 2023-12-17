@@ -1,3 +1,8 @@
+.site-header {
+  text-align: center;
+  margin: 3rem 0;
+}
+
 .site-header a {
   color: $dark-gray;
   font-size: $h4;
@@ -10,11 +15,6 @@
 .site-header a:hover,
 .posts .post a:hover .post-title {
   color: $mid-gray;
-}
-
-.site-header {
-  text-align: center;
-  margin: 3rem;
 }
 
 // Social icons

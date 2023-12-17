@@ -174,15 +174,7 @@ a:active {
   max-width: $measure-width;
 }
 
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
-}
-
-// List markers
+// List markers (bullet points, numbers)
 ::marker {
   font-weight: bold;
 }
@@ -275,6 +267,8 @@ blockquote p {
 }
 
 nav {
+  margin: 2rem 0;
+
   a {
     color: $dark-gray;
   }
