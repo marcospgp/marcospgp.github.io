@@ -28,16 +28,13 @@
 
 // End of BASSCSS
 
+@import 'misc/clearfix';
+@import 'misc/code';
+@import 'misc/forms';
+@import 'misc/tables';
+@import 'misc/animations';
+@import 'misc/media-queries';
+@import 'misc/gists';
 @import 'base';
-
-@import 'clearfix';
-@import 'code';
-@import 'forms';
-// @import 'typography';
 @import 'header';
-@import 'tables';
-@import 'animations';
-@import 'media-queries';
-@import 'gists';
-@import 'pagination';
 @import 'home';
