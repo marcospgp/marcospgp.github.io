@@ -3,7 +3,7 @@
 <h1>Highlighted</h1>
 
 <div class="posts">
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
     {% if post.highlight %}
       {% include post.html post=post %}
     {% endif %}
@@ -48,10 +48,6 @@ Browse by tag. Requires pagination to be enabled.
     {% include post.html post=post %}
   {% endfor %}
 </div>
-
-{% comment %}
-Pagination
-{% endcomment %}
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
