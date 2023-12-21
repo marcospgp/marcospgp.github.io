@@ -207,7 +207,7 @@ a(t) = b + C * e^(-dt)
 
 Where C is an arbitrary constant.
 
-Remember that because that because `a(t)` is a solution to a differential equation, we know it is frame rate independent.
+Remember that because `a(t)` is a solution to a differential equation, we know it is frame rate independent.
 
 To make `a(t)` start at a constant `a` and move towards a constant `b`, we can say that:
 
