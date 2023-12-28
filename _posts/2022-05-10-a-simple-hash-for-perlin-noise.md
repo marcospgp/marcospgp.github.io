@@ -39,4 +39,4 @@ The full source code is below:
 
 This post is mainly about getting around patterns showing up when hashing consecutive numbers.
 
-A simpler alternative I found for this is to hash the numbers once before concatenating the bytes and hashing again.
+A simpler alternative I found for this is to hash twice. Hashing coordinates separately or with their bytes concatenated didn't result in a noticeable difference.
