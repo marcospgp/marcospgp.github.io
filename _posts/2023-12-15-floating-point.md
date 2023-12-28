@@ -89,7 +89,9 @@ Which means there are no 32-bit floating point numbers between 8388608 and 83886
 
 Sampling a random floating point number is more complex than it seems if one cares about covering all of the representation space.
 
-The popular technique `randomInteger / maxInteger` (casting the integers to float) fails to cover a large portion of that space.
+The popular technique `randomInteger / maxInteger` (casting the integers to float) fails to cover a large portion of that space (however, in a way that is biased towards extreme values).
+
+### Sampling between 0 and 1
 
 To generate a random 32-bit floating point in `[0, 1)`, since there are 125 possible exponents (`00000001` to `01111110`) representing successive powers of 2, one needs 125 random bits just to sample the exponent.
 
@@ -102,3 +104,15 @@ I've tried to think of a way to sample this with less bits, but found none. In t
 This is surprising because the underlying floating point number only has 32 bits, with the exponent taking up a single byte.
 
 As to the sign and fraction, 1 and 23 random bits respectively will suffice.
+
+### Caveat
+
+To be fair, just the 8 highest exponents cover over 99% of the `[0, 1)` interval:
+
+```text
+1 - 2^-8 = 0.99609375
+```
+
+Which means floating point numbers near 0 are highly biased towards extremely small values, in terms of representation space occupation.
+
+Sampling with a simpler technique may be sufficient most of the time.
