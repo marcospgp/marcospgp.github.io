@@ -37,6 +37,6 @@ The full source code is below:
 
 ## A 2023 update
 
-This post is mainly about getting around patterns showing up when hashing consecutive numbers.
+This post is mainly about getting around patterns showing up when hashing consecutive numbers. This is a result of the FNV hash having poor avalanche properties.
 
-A simpler alternative I found for this is to hash twice. Hashing coordinates separately or with their bytes concatenated didn't result in a noticeable difference.
+A simpler alternative I found to work around this is to hash twice when hashing coordinates. Doing this for each coordinate separately or with bytes concatenated didn't result in a noticeable difference.
