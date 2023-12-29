@@ -40,3 +40,5 @@ The full source code is below:
 This post is mainly about getting around patterns showing up when hashing consecutive numbers. This is a result of the FNV hash having poor avalanche properties.
 
 A simpler alternative I found to work around this is to hash twice when hashing coordinates. Doing this for each coordinate separately or with bytes concatenated didn't result in a noticeable difference.
+
+One should also consider [alternative hashing algorithms](https://stackoverflow.com/a/21315884/2037431), such as xxHash or MurmurHash.
