@@ -41,4 +41,4 @@ This post is mainly about getting around patterns showing up when hashing consec
 
 A simpler alternative I found to work around this is to hash twice when hashing coordinates. Doing this for each coordinate separately or with bytes concatenated didn't result in a noticeable difference.
 
-One should also consider [alternative hashing algorithms](https://stackoverflow.com/a/21315884/2037431), such as xxHash or MurmurHash.
+One should also consider [alternative hashing algorithms](https://stackoverflow.com/a/21315884/2037431), such as xxHash or MurmurHash. xxHash is available in the [System.IO.Hashing](https://www.nuget.org/packages/System.IO.Hashing/) package.
