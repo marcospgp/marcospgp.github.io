@@ -27,7 +27,9 @@ Git submodules are a nice way of setting up project dependencies.
 
 You can add a dependency into a repo by running:
 
-`git submodule add https://github.com/marcospgp/steamworksnt.git <target-folder>`
+`git submodule add --name steamworksnt https://github.com/marcospgp/steamworksnt.git <target-folder>`
+
+Including the `--name` prevents the destination path from being used as the name by default, which can be confusing if the module is moved with `git mv` later.
 
 If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
 
