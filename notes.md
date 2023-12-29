@@ -25,6 +25,8 @@ If unable to send email through a third party client for a Google Workspace acco
 
 Git submodules are a nice way of setting up project dependencies.
 
+#### Adding
+
 You can add a dependency into a repo by running:
 
 `git submodule add --name steamworksnt https://github.com/marcospgp/steamworksnt.git <target-folder>`
@@ -33,9 +35,22 @@ Including the `--name` prevents the destination path from being used as the name
 
 If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
 
+#### Updating
+
 To update dependencies or download them after a fresh `git clone`, use:
 
 `git submodule update --init --recursive --merge --remote`
+
+#### Removing
+
+To remove a submodule, use `git rm <submodule path>` (and not `git submodule deinit`) in accordance with [the docs](https://git-scm.com/docs/gitsubmodules#_forms).
+
+However, also note that:
+
+> the Git directory is kept around as it to make it possible to checkout past commits without requiring fetching from another repository.
+> To completely remove a submodule, manually delete `$GIT_DIR/modules/<name>/`.
+
+`$GIT_DIR` will usually be the `.git` folder.
 
 # Unity game dev
 
