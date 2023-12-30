@@ -128,7 +128,9 @@ iframe {
 }
 
 code {
-  font-size: 14px;
+  // Set to 14px as a percentage of default size, which should be 15px.
+  // 14px = 14px/15px = 0.9(3)
+  font-size: 93.33%;
 }
 
 blockquote {
