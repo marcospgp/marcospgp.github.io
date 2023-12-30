@@ -20,11 +20,6 @@ $h0-responsive-max: 5.76rem !default;
 $h1-responsive-max: 3.84rem !default;
 $abbr-border-bottom: 1px black dotted;
 
-// Viewport widths
-$viewport-small: 32em;
-$viewport-medium: 48em;
-$viewport-large: 64em;
-
 // Colors
 $red: #b43a18;
 $yellow: #fffb00;
@@ -49,30 +44,8 @@ $space-2: 16px !default;
 $space-3: 32px !default;
 $space-4: 64px !default;
 
-// Buttons
-$button-font-size: inherit !default;
-$button-font-weight: normal !default;
-$button-line-height: 1.125rem !default;
-$button-padding-y: .5rem !default;
-$button-padding-x: 1rem !default;
-$button-font-family: $heading-font-family;
-
-// Forms
-$form-field-font-size: 1rem !default;
-$form-field-height: 2.25rem !default;
-$form-field-padding-y: .5rem !default;
-$form-field-padding-x: .5rem !default;
-
-// Borders
-$border-color: $light-gray !default;
-$border-width: 1px !default;
+// Border radius
 $border-radius: 3px !default;
-
-// Forms
-$form-field-font-size: 1rem;
-$form-field-height: 2.25rem;
-$form-field-padding-y: .5rem;
-$form-field-padding-x: .5rem;
 
 // Code
 $pre-border-radius: 0;

@@ -1,5 +1,6 @@
 html {
-  font-size: $base-font-size;
+  // Respect user's font size browser settings.
+  font-size: 100%;
 }
 
 // Expand height to fit screen.
@@ -26,6 +27,26 @@ body {
   font-size: 100%;
 }
 
+.site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-wrap {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
 img {
   margin: 3rem auto 3rem auto;
   display: block;
@@ -45,8 +66,8 @@ code {
 hr {
   border: 0;
   border-bottom-style: solid;
-  border-bottom-width: $border-width;
-  border-bottom-color: $border-color;
+  border-bottom-width: 1px;
+  border-bottom-color: $light-gray;
 }
 
 article {
@@ -59,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 abbr {
-  border-bottom: $abbr-border-bottom;
+  border-bottom: 1px black dotted;
   cursor: help;
 }
 
@@ -107,40 +128,9 @@ code {
 }
 
 blockquote {
-  border-left: 5px solid #7a7a7a;
+  border-left: 5px solid $light-gray;
   font-style: italic;
-  margin-left: $space-1;
   padding: $space-1;
-}
-
-blockquote footer {
-  background-color: #fff;
-  border-color: transparent;
-  color: #7a7a7a;
-  font-size: .85rem;
-  font-style: normal;
-  text-align: left;
-  padding: 0;
-}
-
-.site {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: 100vh;
-}
-
-.site-wrap {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
 }
 
 a {
@@ -250,20 +240,6 @@ pre {
 hr {
   margin-top: $space-3;
   margin-bottom: $space-3;
-}
-
-blockquote {
-  margin-top: $space-3;
-  margin-bottom: $space-3;
-  margin-left: 0;
-  padding-left: $space-2;
-  padding-right: $space-2;
-}
-
-blockquote,
-blockquote p {
-  font-size: $h3;
-  font-style: italic;
 }
 
 nav {
