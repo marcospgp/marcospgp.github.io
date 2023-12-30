@@ -9,6 +9,18 @@ This is where I keep notes for things I keep revisiting throughout my work. Entr
 
 # General development
 
+## CSS
+
+### px vs rem
+
+There's no consensus on whether to always use `rem` or only for font size related styles (using mainly `px` otherwise).
+
+Browsers zoom by increasing the size of `px`, so this decision should only affect users who manually configure a different browser default font size.
+
+For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
+
+So generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
+
 ## Email
 
 When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
