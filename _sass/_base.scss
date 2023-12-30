@@ -1,6 +1,10 @@
 html {
-  // Respect user's font size browser settings.
-  font-size: 100%;
+  // Set default font size in a relative unit in order to respect user's font
+  // size browser settings.
+  //
+  // Most browsers have default font size 16px.
+  // To set this to 15px, we do 15px/16px = 0.9375.
+  font-size: 93.75%;
 }
 
 // Expand height to fit screen.
