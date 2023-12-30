@@ -128,6 +128,23 @@ Use the `SafeTask` wrapper:
 - <https://github.com/marcospgp/unity-utilities/blob/main/Async/SafeTask.cs>
 - <https://marcospereira.me/2022/05/06/safe-async-tasks-in-unity/>
 
+## NuGet dependencies
+
+Unity doesn't interface with NuGet out of the box at time of writing. [NuGet for Unity](https://github.com/GlitchEnzo/NuGetForUnity) is too heavy handed and is not solid/official enough.
+
+Downloading packages manually and copying `.dll`s to the Unity project is troublesome because one has to manually go through dependencies and download those, with no simple way to keep track of everything over time.
+
+One can instead set up NuGet dependencies for Unity [through a separate C# project](https://medium.com/@alexandredemersroberge/use-nuget-packages-with-unity-25b8525f628) that sits next to the Unity project (and not inside it!). We can then build it and include the resulting `.dll` in the Unity project.
+
+We can do this by creating a class library project that targets the .Net Standard 2.1 (see Unity's [.NET profile support doc](https://docs.unity3d.com/Manual/dotnetProfileSupport.html))
+
+These are the steps:
+
+1. `dotnet new classlib --framework netstandard2.1 -o NuGetDependencies`
+1. `cd NuGetDependencies`
+1. `dotnet new gitignore`
+1. `dotnet add package <package name> --version <version>` (for each dependency to be installed). Command can be copied from NuGet website directly.
+
 ## Procedural generation
 
 Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.html) on meshes that are updated frequently at runtime.
