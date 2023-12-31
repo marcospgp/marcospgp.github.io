@@ -136,7 +136,7 @@ Unity doesn't interface with NuGet out of the box at time of writing. [NuGet for
 
 Downloading packages manually and copying `.dll`s to the Unity project is troublesome because one has to manually go through dependencies and download them, with no simple way of keeping track of everything over time.
 
-These are the steps to create the C# project:
+These are the steps to create and build the C# project:
 
 1. Run `dotnet new classlib --framework netstandard2.1 -o NuGetDependencies`. We target .NET Standard 2.1 according to [Unity compatibility](https://docs.unity3d.com/Manual/dotnetProfileSupport.html).
 1. `cd NuGetDependencies`
