@@ -145,6 +145,8 @@ These are the steps to create and build the C# project:
 1. Build with `dotnet publish` (debug configuration is the default). Note we don't use `dotnet build`, which doesn't include dependency `.dll`s in build files.
 1. Copy the files in `./bin/Debug/netstandard2.1/publish/` to somewhere in the Unity project's `Assets` folder, such as `Assets/NuGetDependencies/`
 
+Feel free to also remove any default `.cs` files added to the C# project.
+
 ## Procedural generation
 
 Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.html) on meshes that are updated frequently at runtime.
