@@ -130,17 +130,21 @@ Use the `SafeTask` wrapper:
 
 ## NuGet dependencies
 
-One can set up NuGet dependencies for Unity through a separate C# project that sits next to the Unity project (and not inside it!). We can then build it and include the resulting `.dll`s in the Unity project.
+With no official NuGet support in Unity at time of writing, one can set up NuGet dependencies through a separate C# project.
 
-Unity doesn't interface with NuGet out of the box at time of writing. [NuGet for Unity](https://github.com/GlitchEnzo/NuGetForUnity) is an option but too bulky and unofficial.
+There are two other options worth mentioning:
 
-Downloading packages manually and copying `.dll`s to the Unity project is troublesome because one has to manually go through dependencies and download them, with no simple way of keeping track of everything over time.
+- [NuGet for Unity](https://github.com/GlitchEnzo/NuGetForUnity) (too heavy handed/complex solution that runs the risk of going unmaintained)
+- Downloading packages manually and copying `.dll`s to the Unity project (troublesome not just for the extra manual work but also because one has to manually go through dependencies and download each, with no simple way of keeping track of everything over time)
 
-These are the steps to create and build the C# project:
+These are the steps to set up dependencies through a standalone C# project:
 
 1. Run `dotnet new classlib --framework netstandard2.1 -o NuGetDependencies`.
+
    We target .NET Standard 2.1 according to [Unity compatibility](https://docs.unity3d.com/Manual/dotnetProfileSupport.html).
+
    Also feel free to delete any `.cs` files created by default, as we won't need to write any code.
+
 1. `cd NuGetDependencies`
 1. `dotnet new gitignore`
 1. Add dependencies with `dotnet add package <package name> --version <version>` (can be copied from NuGet website directly)
