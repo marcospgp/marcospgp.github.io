@@ -8,7 +8,11 @@
   {% endfor %}
 </div>
 
-<h1>Chronology</h1>
+{% comment %}
+Pagination links to this section.
+If modifying, make sure to update that logic as well.
+{% endcomment %}
+<h1 id="chronology">Chronology</h1>
 
 {% comment %}
 Browse by tag. Requires pagination to be enabled.
@@ -51,10 +55,14 @@ Browse by tag. Requires pagination to be enabled.
 <div class="pagination">
   <div>
     {% if paginator.previous_page %}
+      {% comment %}
+      Special case is required for linking to page 1.
+      See https://jekyllrb.com/docs/pagination/.
+      {% endcomment %}
       {% if paginator.page == 2 %}
-        <a class="pagination-item" href="{{ "/" | relative_url }}">Previous</a>
+        <a class="pagination-item" href="{{ "/" | relative_url }}#chronology">Previous</a>
       {% else %}
-        <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}">Previous</a>
+        <a class="pagination-item" href="{{ paginator.previous_page_path | relative_url }}#chronology">Previous</a>
       {% endif %}
     {% else %}
       <span class="pagination-item disabled">Previous</span>
@@ -63,7 +71,7 @@ Browse by tag. Requires pagination to be enabled.
   <div class="pagination-text">Page {{ paginator.page }} of {{ paginator.total_pages }}</div>
   <div>
     {% if paginator.next_page %}
-      <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}">Next</a>
+      <a class="pagination-item" href="{{ paginator.next_page_path | relative_url }}#chronology">Next</a>
     {% else %}
       <span class="pagination-item disabled">Next</span>
     {% endif %}
