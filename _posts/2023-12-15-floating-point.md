@@ -93,26 +93,30 @@ The popular technique `randomInteger / maxInteger` (casting the integers to floa
 
 ### Sampling between 0 and 1
 
-To generate a random 32-bit floating point in `[0, 1)`, since there are 125 possible exponents (`00000001` to `01111110`) representing successive powers of 2, one needs 125 random bits just to sample the exponent.
+To generate a random 32-bit floating point in `[0, 1)`, since there are 127 possible exponents (`00000000` to `01111110`) one needs 126 random bits to sample among these.
 
-Exponent `01111110` (`2^-1`) represents half of the `[0, 1)` interval, so the first bit decides whether it is picked. If it is 0, the next bit decides whether exponent `01111101` (`2^-2`) is picked (which covers half of the previous interval).
+Exponents `00000001` (`2^-126`) through `01111110` (`2^-1`) represent successive powers of two. The highest exponent `01111110` represents half of the `[0, 1)` interval, and each successive smaller exponent will cover half of the one before it.
 
-Exponent `00000000` (`2^-126`) being a special case (same as `00000001` except significand starts with 0 instead of 1) means we need one extra bit just for it (even though it is microscopic) making the total requirement 125 + 1 = 126 bits. This last bit will decide which of `00000000` or `00000001` to pick.
+This means we can go through exponents in descending order, with each successive random bit deciding whether we pick the current one or continue descending.
 
-I've tried to think of a way to sample this with less bits, but found none. In the end, we need one possible state to represent each of `00000000` and `00000001`. Each successive exponent covering double the space requires double the probability, thus double the possible states - quickly arriving at `2^125` values for the largest exponent `01111110`.
+This is because each bit has a 50% chance of being 1, which coincides with each successive exponent covering 50% of the remaining space.
+
+Exponent `00000000` (`2^-126`) being a special case - the same as `00000001` except significand starts with 0 instead of 1 - means these two exponents cover the same space. This saves us from requiring a special case for the last bit, where we decide between two exponents with a 50% chance for each.
+
+I've tried to think of a way to sample an exponent with less bits, but didn't find one. In the end, because we need at least one bit to sample between `00000000` and `00000001` (one possible value for each), and each successive exponent covers double the space, we quickly arrive at requiring `2^125` values for the largest exponent `01111110`.
 
 This is surprising because the underlying floating point number only has 32 bits, with the exponent taking up a single byte.
 
-As to the sign and fraction, 1 and 23 random bits respectively will suffice.
+As to the sign and fraction, 1 and 23 random bits respectively will suffice, as there is no non-linearity to handle.
 
-### Caveat
+### Caveat: few exponent do trick
 
-To be fair, just the 8 highest exponents cover over 99% of the `[0, 1)` interval:
+To be fair, just the 8 highest exponents cover over 99% of the `[0, 1)` interval.
 
-```text
-1 - 2^-8 = 0.99609375
-```
+The 8th highest exponent in `[0, 1)`, `01110111`, represents `2^8` - which means that number is also exactly the smallest we can express with that exponent.
 
-Which means floating point numbers near 0 are highly biased towards extremely small values, in terms of representation space occupation.
+Since `1 - 2^-8 = 0.99609375`, the 8th largest exponents in `[0, 1)` cover over 99.6% of the interval.
 
-Sampling with a simpler technique may be sufficient most of the time.
+We can thus see that floating point numbers near 0 are highly biased towards extremely small values, in terms of representation space occupation.
+
+The conclusion here is that sampling with a simpler technique may be sufficient most of the time.
