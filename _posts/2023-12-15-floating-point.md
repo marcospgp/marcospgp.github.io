@@ -109,7 +109,7 @@ This is surprising because the underlying floating point number only has 32 bits
 
 As to the sign and fraction, 1 and 23 random bits respectively will suffice, as there is no non-linearity to handle.
 
-### Caveat: few exponent do trick
+### Caveat
 
 To be fair, just the 8 highest exponents cover over 99% of the `[0, 1)` interval.
 
