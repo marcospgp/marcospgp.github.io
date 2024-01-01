@@ -59,7 +59,7 @@ Because exponent `11111111` is a special case (infinity or NaN), this is basical
 
 ### There are the same number of representable numbers between each power of 2
 
-Because the fraction is fixed to 23 bits, we can represent 2^23 numbers between each possible exponent.
+Because the fraction is fixed to 23 bits, we can represent `2^23` numbers between each possible exponent.
 
 This means the distance between floating point numbers is fixed for each exponent, and grows as the exponent grows.
 
@@ -95,11 +95,11 @@ The popular technique `randomInteger / maxInteger` (casting the integers to floa
 
 To generate a random 32-bit floating point in `[0, 1)`, since there are 125 possible exponents (`00000001` to `01111110`) representing successive powers of 2, one needs 125 random bits just to sample the exponent.
 
-Exponent `01111110` (2^-1) represents half of the `[0, 1)` interval, so the first bit decides whether it is picked. If it is 0, the next bit decides whether exponent `01111101` (2^-2) is picked (which covers half of the previous interval).
+Exponent `01111110` (`2^-1`) represents half of the `[0, 1)` interval, so the first bit decides whether it is picked. If it is 0, the next bit decides whether exponent `01111101` (`2^-2`) is picked (which covers half of the previous interval).
 
-Exponent `00000000` (2^-126) being a special case (same as `00000001` except significand starts with 0 instead of 1) means we need one extra bit just for it (even though it is microscopic) making the total requirement 125 + 1 = 126 bits. This last bit will decide which of `00000000` or `00000001` to pick.
+Exponent `00000000` (`2^-126`) being a special case (same as `00000001` except significand starts with 0 instead of 1) means we need one extra bit just for it (even though it is microscopic) making the total requirement 125 + 1 = 126 bits. This last bit will decide which of `00000000` or `00000001` to pick.
 
-I've tried to think of a way to sample this with less bits, but found none. In the end, we need one possible state to represent each of `00000000` and `00000001`. Each successive exponent covering double the space requires double the probability, thus double the possible states - quickly arriving at 2^125 values for the largest exponent `01111110`.
+I've tried to think of a way to sample this with less bits, but found none. In the end, we need one possible state to represent each of `00000000` and `00000001`. Each successive exponent covering double the space requires double the probability, thus double the possible states - quickly arriving at `2^125` values for the largest exponent `01111110`.
 
 This is surprising because the underlying floating point number only has 32 bits, with the exponent taking up a single byte.
 
