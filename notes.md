@@ -138,14 +138,14 @@ Downloading packages manually and copying `.dll`s to the Unity project is troubl
 
 These are the steps to create and build the C# project:
 
-1. Run `dotnet new classlib --framework netstandard2.1 -o NuGetDependencies`. We target .NET Standard 2.1 according to [Unity compatibility](https://docs.unity3d.com/Manual/dotnetProfileSupport.html).
+1. Run `dotnet new classlib --framework netstandard2.1 -o NuGetDependencies`.
+   We target .NET Standard 2.1 according to [Unity compatibility](https://docs.unity3d.com/Manual/dotnetProfileSupport.html).
+   Also feel free to delete any `.cs` files created by default, as we won't need to write any code.
 1. `cd NuGetDependencies`
 1. `dotnet new gitignore`
 1. Add dependencies with `dotnet add package <package name> --version <version>` (can be copied from NuGet website directly)
 1. Build with `dotnet publish` (debug configuration is the default). Note we don't use `dotnet build`, which doesn't include dependency `.dll`s in build files.
 1. Copy the files in `./bin/Debug/netstandard2.1/publish/` to somewhere in the Unity project's `Assets` folder, such as `Assets/NuGetDependencies/`
-
-Feel free to also remove any default `.cs` files added to the C# project.
 
 ## Procedural generation
 
