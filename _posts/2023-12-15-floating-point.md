@@ -95,15 +95,15 @@ The popular technique `randomInteger / maxInteger` (casting the integers to floa
 
 To generate a random 32-bit floating point in `[0, 1)`, since there are 127 possible exponents (`00000000` to `01111110`) one needs 126 random bits to sample among these.
 
-Exponents `00000001` (`2^-126`) through `01111110` (`2^-1`) represent successive powers of two. The highest exponent `01111110` represents half of the `[0, 1)` interval, and each successive smaller exponent will cover half of the one before it.
+Exponents `00000001` (`2^-126`) through `01111110` (`2^-1`) represent successive powers of two. The highest exponent `01111110` represents half of the `[0, 1)` interval, and each successive lower exponent will cover half of the one before it.
 
 This means we can go through exponents in descending order, with each successive random bit deciding whether we pick the current one or continue descending.
 
 This is because each bit has a 50% chance of being 1, which coincides with each successive exponent covering 50% of the remaining space.
 
-Exponent `00000000` (`2^-126`) being a special case - the same as `00000001` except significand starts with 0 instead of 1 - means these two exponents cover the same space. This saves us from requiring a special case for the last bit, where we decide between two exponents with a 50% chance for each.
+Exponent `00000000` (`2^-126`) being a special case (the same as `00000001` except significand starts with 0 instead of 1) means the two lowest exponents cover the same space. This saves us from requiring a special case for the last bit, where we decide between two exponents with a 50% chance for each.
 
-I've tried to think of a way to sample an exponent with less bits, but didn't find one. In the end, because we need at least one bit to sample between `00000000` and `00000001` (one possible value for each), and each successive exponent covers double the space, we quickly arrive at requiring `2^125` values for the largest exponent `01111110`.
+I've tried to think of a way to sample an exponent with less bits, but didn't find one. In the end, because we need at least one bit to sample between `00000000` and `00000001` (one possible value for each), and each successive exponent covers double the space, we quickly arrive at requiring `2^125` values for the highest exponent `01111110`.
 
 This is surprising because the underlying floating point number only has 32 bits, with the exponent taking up a single byte.
 
@@ -115,8 +115,8 @@ To be fair, just the 8 highest exponents cover over 99% of the `[0, 1)` interval
 
 The 8th highest exponent in `[0, 1)`, `01110111`, represents `2^8` - which means that number is also exactly the smallest we can express with that exponent.
 
-Since `1 - 2^-8 = 0.99609375`, the 8th largest exponents in `[0, 1)` cover over 99.6% of the interval.
+Since `1 - 2^-8 = 0.99609375`, the 8th highest exponents in `[0, 1)` cover over 99.6% of that interval.
 
 We can thus see that floating point numbers near 0 are highly biased towards extremely small values, in terms of representation space occupation.
 
-The conclusion here is that sampling with a simpler technique may be sufficient most of the time.
+From this we can conclude that sampling with a simpler technique may be sufficient most of the time.
