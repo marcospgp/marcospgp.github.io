@@ -74,6 +74,12 @@ Ready to use code should be available in the [Unity utilities repo](https://gith
 
 The difference may be small however since CPUs generally handle 64bit math better than GPUs.
 
+### Optimizations
+
+#### Comparing distances
+
+When comparing distances, one can avoid the expensive square root operation by comparing squared distances.
+
 ## Multithreading
 
 Use the `SafeTask` wrapper:
