@@ -7,63 +7,6 @@ This is where I keep notes for things I keep revisiting throughout my work. Entr
 
 ---
 
-# General development
-
-## CSS
-
-### px vs rem
-
-There's no consensus on whether to always use `rem` or only for font size related styles (using mainly `px` otherwise).
-
-Browsers zoom by increasing the size of `px`, so this decision should only affect users who manually configure a different browser default font size.
-
-For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
-
-So generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
-
-## Email
-
-When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
-
-If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
-
-## Git
-
-### Commit without a message
-
-`git add -A && git commit --allow-empty-message -m '' && git push`
-
-### Submodules
-
-Git submodules are a nice way of setting up project dependencies.
-
-#### Adding
-
-You can add a dependency into a repo by running:
-
-`git submodule add --name steamworksnt https://github.com/marcospgp/steamworksnt.git <target-folder>`
-
-Including the `--name` prevents the destination path from being used as the name by default, which can be confusing if the module is moved with `git mv` later.
-
-If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
-
-#### Updating
-
-To update dependencies or download them after a fresh `git clone`, use:
-
-`git submodule update --init --recursive --merge --remote`
-
-#### Removing
-
-To remove a submodule, use `git rm <submodule path>` (and not `git submodule deinit`) in accordance with [the docs](https://git-scm.com/docs/gitsubmodules#_forms).
-
-However, also note that:
-
-> the Git directory is kept around as it to make it possible to checkout past commits without requiring fetching from another repository.
-> To completely remove a submodule, manually delete `$GIT_DIR/modules/<name>/`.
-
-`$GIT_DIR` will usually be the `.git` folder.
-
 # Unity game dev
 
 ## Analyzers
@@ -180,3 +123,60 @@ There is more info about this issue in [this thread](https://forum.unity.com/thr
 ## Utilities repo
 
 <https://github.com/marcospgp/unity-utilities>
+
+# Web
+
+## CSS
+
+### px vs rem
+
+There's no consensus on whether to always use `rem` or only for font size related styles (using mainly `px` otherwise).
+
+Browsers zoom by increasing the size of `px`, so this decision should only affect users who manually configure a different browser default font size.
+
+For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
+
+So generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
+
+## Email
+
+When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
+
+If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
+
+## Git
+
+### Commit without a message
+
+`git add -A && git commit --allow-empty-message -m '' && git push`
+
+### Submodules
+
+Git submodules are a nice way of setting up project dependencies.
+
+#### Adding
+
+You can add a dependency into a repo by running:
+
+`git submodule add --name steamworksnt https://github.com/marcospgp/steamworksnt.git <target-folder>`
+
+Including the `--name` prevents the destination path from being used as the name by default, which can be confusing if the module is moved with `git mv` later.
+
+If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
+
+#### Updating
+
+To update dependencies or download them after a fresh `git clone`, use:
+
+`git submodule update --init --recursive --merge --remote`
+
+#### Removing
+
+To remove a submodule, use `git rm <submodule path>` (and not `git submodule deinit`) in accordance with [the docs](https://git-scm.com/docs/gitsubmodules#_forms).
+
+However, also note that:
+
+> the Git directory is kept around as it to make it possible to checkout past commits without requiring fetching from another repository.
+> To completely remove a submodule, manually delete `$GIT_DIR/modules/<name>/`.
+
+`$GIT_DIR` will usually be the `.git` folder.
