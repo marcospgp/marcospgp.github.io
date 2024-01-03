@@ -80,6 +80,10 @@ The difference may be small however since CPUs generally handle 64bit math bette
 
 When comparing distances, one can avoid the expensive square root operation by comparing squared distances.
 
+#### Exponentiation
+
+When raising a number to an integer exponent, direct multiplication (`x * x`) is more efficient than calling a function that accepts any real number as exponent.
+
 ## Multithreading
 
 Use the `SafeTask` wrapper:
