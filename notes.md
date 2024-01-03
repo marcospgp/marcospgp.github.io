@@ -46,6 +46,36 @@ See {% post_link 2023-12-02-unity-foot-sliding %}.
 
 [Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
 
+## Inspector
+
+### Textures
+
+It is often useful to generate textures for debugging code visually through the inspector.
+
+To view a texture through the inspector, assign it to a public or `[SerializeField]` field.
+
+Then generate the texture with the following logic.
+
+```C#
+var tex = new Texture2D(width, width, TextureFormat.RGBA32, mipChain: false);
+
+for (int i = 0; i < width; i++)
+{
+    for (int j = 0; j < width; j++)
+    {
+        tex.SetPixel(
+            i,
+            j,
+            Color.Lerp(Color.black, Color.white, VoronoiNoise.Get(i, j, 30f, 1234L))
+        );
+    }
+}
+
+tex.Apply();
+```
+
+Calling `Apply()` is required for the texture to appear right away, otherwise an update has to be triggered by changing something on the inspector (such as its anisotropic filtering level).
+
 ## LODs
 
 - Only the last LOD matters
