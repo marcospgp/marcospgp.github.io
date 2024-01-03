@@ -42,10 +42,6 @@ See {% post_link 2023-12-02-unity-foot-sliding %}.
 - Store `.blend` files directly inside the Unity project's "Assets" folder
 - There doesn't seem to be a way to store textures in `.blend` file, so keep them in "Assets" folder and use them in both Blender and Unity
 
-## Color banding
-
-[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
-
 ## Inspector
 
 ### Textures
@@ -144,6 +140,12 @@ These are the steps to set up dependencies through a standalone C# project:
 1. Build with `dotnet publish` (debug configuration is the default). Note we don't use `dotnet build`, which doesn't include dependency `.dll`s in build files.
 1. Copy the files in `./bin/Debug/netstandard2.1/publish/` to somewhere in the Unity project's `Assets` folder, such as `Assets/NuGetDependencies/`
 
+## Optimization
+
+### Microsoft's recommendations
+
+Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity)
+
 ## Procedural generation
 
 Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.html) on meshes that are updated frequently at runtime.
@@ -157,6 +159,22 @@ Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.htm
 Before version 2023.3.0a11, Shader Graph properties not marked as "Exposed" simply don't work unless initialized in code. The expected behavior would be to simply hide the property from the material inspector.
 
 There is more info about this issue in [this thread](https://forum.unity.com/threads/non-exposed-parameters-dont-work.912149).
+
+## Things to consider for every project
+
+These are things to think about when starting a new project, that can also be worth revisiting once in a while. Generally high-leverage settings with poor defaults or quick fixes for common issues.
+
+### Color banding
+
+[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
+
+### Mono vs IL2CPP
+
+Decide between [Mono or IL2CPP](https://www.reddit.com/r/Unity3D/comments/zag4ka/mono_or_il2cpp/).
+
+Generally, IL2CPP should be better as it can have better performance than Mono, although it may complicate [mod creation](https://www.reddit.com/r/GuidedHacking/comments/10r0t50/how_to_mod_unity_games_made_with_il2cpp/) (although hacking would also become more difficult accordingly).
+
+> [IL2CPP can improve performance across a variety of platforms, but the need to include machine code in built applications increases both the build time and the size of the final built application.](https://docs.unity3d.com/2023.2/Documentation/Manual/IL2CPP.html)
 
 ## Utilities repo
 
