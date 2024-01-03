@@ -115,11 +115,23 @@ Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
 
 ## Math
 
-### Frame rate independent lerp
+### Frame rate independence
 
-Use a [frame rate independent](https://marcospereira.me/2022/08/24/lerp-how-to-frame-rate-independent/) form of linear interpolation instead of the default `Mathf.Lerp()`.
+Everything that runs in `Update()` (as opposed to `FixedUpdate()`) should be carefully designed to ensure independence from variations in frame rate.
+
+For example, there is a specific formula for a frame rate independent version of calling `lerp` (linear interpolation) iteratively.
+
+There is an extensive post about this [here](https://marcospereira.me/2023/11/15/frame-rate-independent-lerp/).
 
 Ready to use code should be available in the [Unity utilities repo](https://github.com/marcospgp/unity-utilities).
+
+### Mathf vs MathF
+
+`UnityEngine.Mathf` relies on `System.Math`, which runs computations on the `double` type.
+
+`System.MathF` does computations on the `single`/`float32` type.
+
+The difference may be small however since CPUs generally handle 64bit math better than GPUs.
 
 ## Multithreading
 
