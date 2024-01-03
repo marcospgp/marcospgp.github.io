@@ -5,8 +5,6 @@ title: Notes
 
 This is where I keep notes for things I keep revisiting throughout my work. Entries are sorted alphabetically.
 
----
-
 # Unity game dev
 
 ## Analyzers
