@@ -82,6 +82,16 @@ Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
 
 ## Math
 
+### Floating point
+
+[Key Insights On IEEE 754 Floating Point Numbers](https://marcospereira.me/2023/12/15/floating-point/)
+
+#### Error accumulation
+
+Avoid updating decimal numbers iteratively, which can accumulate errors. Instead, prefer to calculate values from the underlying constants each time.
+
+This is one of the main concerns of the field of [numerical analysis](https://en.wikipedia.org/wiki/Numerical_analysis#Generation_and_propagation_of_errors).
+
 ### Frame rate independence
 
 Everything that runs in `Update()` (as opposed to `FixedUpdate()`) should be carefully designed to ensure independence from variations in frame rate.
@@ -154,21 +164,11 @@ The points below have more importance in the context of frequently run code, suc
 
 Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity)
 
-## Procedural generation
+## Procedural mesh generation
 
 Call [MarkDynamic](https://docs.unity3d.com/ScriptReference/Mesh.MarkDynamic.html) on meshes that are updated frequently at runtime.
 
-## Shaders
-
-### Shader Graph
-
-#### Hiding properties from inspector
-
-Before version 2023.3.0a11, Shader Graph properties not marked as "Exposed" simply don't work unless initialized in code. The expected behavior would be to simply hide the property from the material inspector.
-
-There is more info about this issue in [this thread](https://forum.unity.com/threads/non-exposed-parameters-dont-work.912149).
-
-## Things to consider for every project
+## Project set up
 
 These are things to think about when starting a new project, which can also be worth revisiting once in a while. Generally high-leverage settings with poor defaults or quick fixes for common issues.
 
@@ -183,6 +183,16 @@ Decide between [Mono or IL2CPP](https://www.reddit.com/r/Unity3D/comments/zag4ka
 Generally, IL2CPP should be better as it can have better performance than Mono, although it may complicate [mod creation](https://www.reddit.com/r/GuidedHacking/comments/10r0t50/how_to_mod_unity_games_made_with_il2cpp/) (although hacking would also become more difficult accordingly).
 
 > [IL2CPP can improve performance across a variety of platforms, but the need to include machine code in built applications increases both the build time and the size of the final built application.](https://docs.unity3d.com/2023.2/Documentation/Manual/IL2CPP.html)
+
+## Shaders
+
+### Shader Graph
+
+#### Hiding properties from inspector
+
+Before version 2023.3.0a11, Shader Graph properties not marked as "Exposed" simply don't work unless initialized in code. The expected behavior would be to simply hide the property from the material inspector.
+
+There is more info about this issue in [this thread](https://forum.unity.com/threads/non-exposed-parameters-dont-work.912149).
 
 ## Utilities repo
 
