@@ -142,6 +142,12 @@ These are the steps to set up dependencies through a standalone C# project:
 
 ## Optimization
 
+### General tips
+
+- Avoid generating garbage (allocating heap memory for short-lived objects) in frequently run code (such as that in `Update()`). One way to do this is to reuse objects stored in object fields.
+- Use fixed size collections over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
+- Use static lambda expressions over non-static ones to avoid heap allocations.
+
 ### Microsoft's recommendations
 
 Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity)
