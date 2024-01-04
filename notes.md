@@ -104,11 +104,11 @@ The difference may be small however since CPUs generally handle 64bit math bette
 
 #### Comparing distances
 
-When comparing distances, one can avoid the expensive square root operation by comparing squared distances.
+The expensive square root operation can be avoided by comparing squared distances.
 
 #### Exponentiation
 
-When raising a number to an integer exponent, direct multiplication (`x * x`) is more efficient than calling a function that accepts any real number as exponent.
+When raising a number to an integer exponent, direct multiplication (`x * x`) is more efficient than calling a function such as `MathF.Pow()` which accepts any real number as exponent.
 
 ## Multithreading
 
@@ -162,11 +162,11 @@ There is more info about this issue in [this thread](https://forum.unity.com/thr
 
 ## Things to consider for every project
 
-These are things to think about when starting a new project, that can also be worth revisiting once in a while. Generally high-leverage settings with poor defaults or quick fixes for common issues.
+These are things to think about when starting a new project, which can also be worth revisiting once in a while. Generally high-leverage settings with poor defaults or quick fixes for common issues.
 
 ### Color banding
 
-[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector.
+[Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector. I only tested this in URP.
 
 ### Mono vs IL2CPP
 
@@ -186,13 +186,13 @@ Generally, IL2CPP should be better as it can have better performance than Mono, 
 
 ### px vs rem
 
-There's no consensus on whether to always use `rem` or only for font size related styles (using mainly `px` otherwise).
+Generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
+
+There's no consensus on whether to use `rem` for everything or only for font size related styles (using mainly `px` otherwise).
 
 Browsers zoom by increasing the size of `px`, so this decision should only affect users who manually configure a different browser default font size.
 
 For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
-
-So generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
 
 ## Email
 
