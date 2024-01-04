@@ -144,9 +144,11 @@ These are the steps to set up dependencies through a standalone C# project:
 
 ### General tips
 
-- Avoid generating garbage (allocating heap memory for short-lived objects) in frequently run code (such as that in `Update()`). One way to do this is to reuse objects stored in object fields.
-- Use fixed size collections over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
-- Use static lambda expressions over non-static ones to avoid heap allocations.
+The points below have more importance in the context of frequently run code, such as that in `Update()`.
+
+- Avoid generating garbage (allocating heap memory for short-lived objects). One way to do this is to reuse objects, storing them in object fields.
+- Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
+- Use static over non-static lambda expressions to avoid heap allocations.
 
 ### Microsoft's recommendations
 
