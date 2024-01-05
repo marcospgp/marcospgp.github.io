@@ -122,7 +122,7 @@ When raising a number to an integer exponent, direct multiplication (`x * x`) is
 
 ## Multithreading
 
-Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization the Coroutine API compatible with async/await in C#.
+Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization the Coroutine API to make it compatible with async/await in C#.
 
 Multithreading with `Task` was already possible before this, with the caveat that pending tasks continue running even after exiting/entering play mode in the editor:
 
