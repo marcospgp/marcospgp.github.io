@@ -4,6 +4,8 @@ title: Safe Async Tasks in Unity
 tag: Game Dev 👾
 ---
 
+_2023 update: [Unity has introduced `Awaitable`](https://docs.unity3d.com/2023.3/Documentation/Manual/AwaitSupport.html) in version 2023.1, which improves compatibility with async/await features in C#. However, according to [this other documentation page](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html) "Unity doesn’t automatically stop code runnining in the background when you exit Play mode", which means this blog post and its `SafeTask` implementation is still relevant._
+
 Is Minecraft single threaded? I think it must be, because I remember a slight stutter when flying fast across the world. Too many chunks being loaded starts eating into the main thread's render time. Apparently this stutter was short and rare enough that it could be ignored by Notch, but I was not as lucky.
 
 ![Terrain]({% link assets/2022-05-06-safe-async-tasks-in-unity/terrain2.jpg %})
