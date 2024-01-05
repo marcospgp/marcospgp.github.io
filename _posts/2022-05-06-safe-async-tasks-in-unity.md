@@ -4,7 +4,7 @@ title: Safe Async Tasks in Unity
 tag: Game Dev 👾
 ---
 
-_2023 update: [Unity has introduced `Awaitable`](https://docs.unity3d.com/2023.3/Documentation/Manual/AwaitSupport.html) in version 2023.1, which improves compatibility with async/await features in C#. However, according to [this other documentation page](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html) "Unity doesn’t automatically stop code runnining in the background when you exit Play mode", which means this blog post and its `SafeTask` implementation is still relevant._
+_2023 update: [Unity has introduced `Awaitable`](https://docs.unity3d.com/2023.3/Documentation/Manual/AwaitSupport.html) in version 2023.1, which improves compatibility with async/await features in C#. However, according to [this other documentation page](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html) "Unity doesn’t automatically stop code running in the background when you exit Play mode", which means this blog post and its `SafeTask` implementation is still relevant._
 
 Is Minecraft single threaded? I think it must be, because I remember a slight stutter when flying fast across the world. Too many chunks being loaded starts eating into the main thread's render time. Apparently this stutter was short and rare enough that it could be ignored by Notch, but I was not as lucky.
 
@@ -12,7 +12,7 @@ Is Minecraft single threaded? I think it must be, because I remember a slight st
 
 I am working on infinite terrain in Unity, voxel based just like Minecraft - except it can be smoothed. The smoothing works by displacing each vertex towards the average of its neighbors. This makes building a chunk slow enough that I can't do it on the fly in a single thread. I thus had to find a way to do it in the background, as the player moves.
 
-I didn't even consider using Unity's coroutines for this - they are single threaded, so the most I could do is dedicate some miliseconds each frame towards building the chunks. This is an idea I dislike, as it compromises the game's framerate.
+I didn't even consider using Unity's coroutines for this - they are single threaded, so the most I could do is dedicate some milliseconds each frame towards building the chunks. This is an idea I dislike, as it compromises the game's framerate.
 
 Unity's new C# jobs were my first real option. I gave them a try, but the concept of defining tasks inside a struct and not really knowing what data is accessible from there really irked me. It is not at all clear at which level of abstraction a job should be defined (a single slow operation? the entire task one wants to accomplish?). Most of all, having to use a struct and pass data around with `NativeContainer`s made it hard to convert existing single threaded code into something that can run on a background thread.
 

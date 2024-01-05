@@ -126,7 +126,7 @@ Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1
 
 Multithreading with `Task` was already possible before this, with the caveat that pending tasks continue running even after exiting/entering play mode in the editor:
 
-> [Unity doesn’t automatically stop code runnining in the background when you exit Play mode.](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
+> [Unity doesn’t automatically stop code running in the background when you exit Play mode.](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
 
 To get around this, I implemented a `SafeTask` wrapper for `Task`:
 
