@@ -122,10 +122,22 @@ When raising a number to an integer exponent, direct multiplication (`x * x`) is
 
 ## Multithreading
 
-Use the `SafeTask` wrapper:
+Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization the Coroutine API that is compatible with async/await in C#.
+
+Multithreading with `Task` was already possible before this, with the caveat that pending tasks continue running even after exiting/entering play mode in the editor:
+
+> [Unity doesn’t automatically stop code runnining in the background when you exit Play mode.](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
+
+To get around this, I implemented a `SafeTask` wrapper for `Task`:
 
 - <https://github.com/marcospgp/unity-utilities/blob/main/Async/SafeTask.cs>
 - <https://marcospereira.me/2022/05/06/safe-async-tasks-in-unity/>
+
+Relevant links:
+
+- [Forum thread on multithreading](https://forum.unity.com/threads/multithreading-or-similar-in-unity.1078994/#post-9563953)
+- ["Overview of .NET in Unity" documentation page with "Async, tasks and Awaitable" section](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
+- [Await support documentation page](https://docs.unity3d.com/2023.3/Documentation/Manual/AwaitSupport.html)
 
 ## NuGet dependencies
 
