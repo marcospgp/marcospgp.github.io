@@ -147,7 +147,9 @@ Relevant links:
 
 ### Inter-thread communication
 
-Never share fields between threads without using `lock`, `volatile`, or a similar concurrency management method. Even a simple bool flag where one thread writes and the other reads should use `volatile` to avoid stale reads.
+Never share fields between threads without using `lock`, `volatile`, or a similar concurrency management method - even for simple value types such as a boolean flag.
+
+[Jon Skeet on StackOverflow](https://stackoverflow.com/a/11523074/2037431) recommends always using `Interlocked` over `volatile`.
 
 ### Optimization
 
