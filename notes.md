@@ -149,6 +149,11 @@ Relevant links:
 
 Never share fields between threads without using `lock`, `volatile`, or a similar concurrency management method. Even a simple bool flag where one thread writes and the other reads should use `volatile` to avoid stale reads.
 
+### Optimization
+
+- Use static lambdas with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
+- Prefer long-running tasks to starting new tasks frequently, which avoids `Task` object allocations and context switching overhead
+
 ## NuGet dependencies
 
 With no official NuGet support in Unity at time of writing, one can set up NuGet dependencies through a separate C# project.
@@ -172,9 +177,7 @@ These are the steps to set up dependencies through a standalone C# project:
 1. Build with `dotnet publish` (debug configuration is the default). Note we don't use `dotnet build`, which doesn't include dependency `.dll`s in build files.
 1. Copy the files in `./bin/Debug/netstandard2.1/publish/` to somewhere in the Unity project's `Assets` folder, such as `Assets/NuGetDependencies/`
 
-## Optimization
-
-### General tips
+## General optimization
 
 The points below have more importance in the context of frequently run code, such as that in `Update()`.
 
