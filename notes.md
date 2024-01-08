@@ -122,7 +122,7 @@ When raising a number to an integer exponent, direct multiplication (`x * x`) is
 
 ## Multithreading
 
-Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization the Coroutine API to make it compatible with async/await in C#.
+Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization of the Coroutine API to make it compatible with async/await in C#.
 
 Multithreading with `Task` was already possible before this, with the caveat that pending tasks continue running even after exiting/entering play mode in the editor:
 
@@ -168,7 +168,7 @@ These are the steps to set up dependencies through a standalone C# project:
 
 The points below have more importance in the context of frequently run code, such as that in `Update()`.
 
-- Avoid generating garbage (allocating heap memory for short-lived objects). One way to do this is to reuse objects, storing them in object fields.
+- [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, storing them in object fields.
 - Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
 - Use static over non-static lambda expressions to avoid heap allocations.
 
