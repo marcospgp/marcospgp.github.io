@@ -151,7 +151,7 @@ Never share fields between threads without using `lock`, `volatile`, or a simila
 
 ### Optimization
 
-- Use static lambdas with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
+- Use static lambdas (introduced in C# 9) with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
 - Prefer long-running tasks to starting new tasks frequently, which avoids `Task` object allocations and context switching overhead
 
 ## NuGet dependencies
@@ -181,9 +181,9 @@ These are the steps to set up dependencies through a standalone C# project:
 
 The points below have more importance in the context of frequently run code, such as that in `Update()`.
 
-- [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, storing them in object fields.
+- [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, by storing them in class fields instead of instantiating locally. Object pooling is a similar and popular strategy.
 - Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
-- Use static over non-static lambda expressions to avoid heap allocations.
+- Use static lambda expressions (introduced in C# 9) over non-static to avoid heap allocations.
 
 ### Microsoft's recommendations
 
