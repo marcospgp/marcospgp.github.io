@@ -122,13 +122,17 @@ When raising a number to an integer exponent, direct multiplication (`x * x`) is
 
 ## Multithreading
 
-Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization of the Coroutine API to make it compatible with async/await in C#.
+Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization of the Coroutine API (which handles things like waiting for the next frame) to make it compatible with async/await in C#.
 
-Multithreading with `Task` was already possible before this, with the caveat that pending tasks continue running even after exiting/entering play mode in the editor:
+The new `Awaitable` can also handle multithreading with explicit switching between main and background threads using `await Awaitable.MainThreadAsync()` and `await Awaitable.BackgroundThreadAsync()`.
+
+However, `BackgroundThreadAsync` appears to be [a mere wrapper](https://github.com/Unity-Technologies/UnityCsReference/blob/2d9918cf6dc3194015d75bd9845555f59a0015e4/Runtime/Export/Scripting/Awaitable.Threading.cs#L71) around `Task.Run()`, thus with no advantages when it comes to allocating `Task` objects.
+
+In addition to this, a previously existing issue where pending tasks continue running even after exiting/entering play mode in the Unity editor remains:
 
 > [Unity doesn’t automatically stop code running in the background when you exit Play mode.](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
 
-To get around this, I implemented a `SafeTask` wrapper for `Task`:
+To get around this, I had implemented a `SafeTask` wrapper as a replacement for `Task.Run()` (no other `Task` API functionality is replaced), which still makes sense to continue using:
 
 - <https://github.com/marcospgp/unity-utilities/blob/main/Async/SafeTask.cs>
 - <https://marcospereira.me/2022/05/06/safe-async-tasks-in-unity/>
