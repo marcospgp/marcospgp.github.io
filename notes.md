@@ -122,6 +122,8 @@ When raising a number to an integer exponent, direct multiplication (`x * x`) is
 
 ## Multithreading
 
+### Awaitable, Task, SafeTask
+
 Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization of the Coroutine API (which handles things like waiting for the next frame) to make it compatible with async/await in C#.
 
 The new `Awaitable` can also handle multithreading with explicit switching between main and background threads using `await Awaitable.MainThreadAsync()` and `await Awaitable.BackgroundThreadAsync()`.
@@ -142,6 +144,10 @@ Relevant links:
 - [Forum thread on multithreading](https://forum.unity.com/threads/multithreading-or-similar-in-unity.1078994/#post-9563953)
 - ["Overview of .NET in Unity" documentation page with "Async, tasks and Awaitable" section](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
 - [Await support documentation page](https://docs.unity3d.com/2023.3/Documentation/Manual/AwaitSupport.html)
+
+### Inter-thread communication
+
+Never share fields between threads without using `lock`, `volatile`, or a similar concurrency management method. Even a simple bool flag where one thread writes and the other reads should use `volatile` to avoid stale reads.
 
 ## NuGet dependencies
 
