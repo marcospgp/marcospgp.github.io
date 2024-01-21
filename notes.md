@@ -148,24 +148,21 @@ Relevant links:
 ### General tips
 
 - Use Tasks over manually creating Threads except for long lived tasks, to avoid hoarding a thread from .NET's thread pool.
-- Order of preference for concurrency management mechanisms:
-  1. Task model
-  1. Concurrent (thread safe) collections
-  1. Interlocked
-  1. lock
-  1. volatile
-  1. Lower level synchronization primitives (Mutex, Semaphore, ...)
+- Always use concurrency management mechanisms when sharing data across threads. Even when there is only a single writer thread, memory caching mechanisms can interfere with synchronization.
 
-#### Optimization
+Order of preference for concurrency management mechanisms:
+
+1. Task model
+1. Concurrent (thread safe) collections
+1. Interlocked
+1. lock
+1. volatile ([avoid this](https://stackoverflow.com/a/11523074/2037431) for being more obscure and harder to reason about than the Interlocked class)
+1. Lower level synchronization primitives (Mutex, Semaphore, ...)
+
+Optimization tips:
 
 - Use static lambdas (introduced in C# 9) with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
 - Prefer long-running tasks to starting new tasks frequently, which avoids `Task` object allocations and context switching overhead
-
-### Inter-thread communication
-
-Never share fields between threads without using `lock`, `volatile`, or a similar concurrency management method - even for simple value types such as a boolean flag.
-
-[Jon Skeet on StackOverflow](https://stackoverflow.com/a/11523074/2037431) recommends always using `Interlocked` over `volatile`.
 
 ## NuGet dependencies
 
@@ -200,7 +197,7 @@ The points below have more importance in the context of frequently run code, suc
 
 ### Microsoft's recommendations
 
-Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity)
+See Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity).
 
 ## Procedural mesh generation
 
