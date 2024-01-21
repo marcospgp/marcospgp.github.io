@@ -122,7 +122,7 @@ When raising a number to an integer exponent, direct multiplication (`x * x`) is
 
 ## Multithreading
 
-### Awaitable, Task, SafeTask
+### Awaitable vs Task
 
 Unity introduced `Awaitable` [in version 2023.1](https://docs.unity3d.com/2023.1/Documentation/ScriptReference/Awaitable.html), which essentially is a modernization of the Coroutine API (which handles things like waiting for the next frame) to make it compatible with async/await in C#.
 
@@ -145,16 +145,27 @@ Relevant links:
 - ["Overview of .NET in Unity" documentation page with "Async, tasks and Awaitable" section](https://docs.unity3d.com/2023.3/Documentation/Manual/overview-of-dot-net-in-unity.html)
 - [Await support documentation page](https://docs.unity3d.com/2023.3/Documentation/Manual/AwaitSupport.html)
 
+### General tips
+
+- Use Tasks over manually creating Threads except for long lived tasks, to avoid hoarding a thread from .NET's thread pool.
+- Order of preference for concurrency management mechanisms:
+  1. Task model
+  1. Concurrent (thread safe) collections
+  1. Interlocked
+  1. lock
+  1. volatile
+  1. Lower level synchronization primitives (Mutex, Semaphore, ...)
+
+#### Optimization
+
+- Use static lambdas (introduced in C# 9) with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
+- Prefer long-running tasks to starting new tasks frequently, which avoids `Task` object allocations and context switching overhead
+
 ### Inter-thread communication
 
 Never share fields between threads without using `lock`, `volatile`, or a similar concurrency management method - even for simple value types such as a boolean flag.
 
 [Jon Skeet on StackOverflow](https://stackoverflow.com/a/11523074/2037431) recommends always using `Interlocked` over `volatile`.
-
-### Optimization
-
-- Use static lambdas (introduced in C# 9) with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
-- Prefer long-running tasks to starting new tasks frequently, which avoids `Task` object allocations and context switching overhead
 
 ## NuGet dependencies
 
