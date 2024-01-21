@@ -161,7 +161,7 @@ Order of preference for concurrency management mechanisms:
 
 Optimization tips:
 
-- Use static lambdas (introduced in C# 9) with `Task.Run()` to avoid capturing scope, which requires heap allocations for the underlying class.
+- Use static lambdas (introduced in C# 9) with `Task.Run()` to avoid [capturing scope](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#capture-of-outer-variables-and-variable-scope-in-lambda-expressions), which requires heap allocations for the underlying class.
 - Prefer long-running tasks to starting new tasks frequently, which avoids `Task` object allocations and context switching overhead
 
 ## NuGet dependencies
@@ -193,7 +193,7 @@ The points below have more importance in the context of frequently run code, suc
 
 - [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, by storing them in class fields instead of instantiating locally. Object pooling is a similar and popular strategy.
 - Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
-- Use static lambda expressions (introduced in C# 9) over non-static to avoid heap allocations.
+- Use static lambda expressions (introduced in C# 9) over non-static to avoid [capturing scope](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#capture-of-outer-variables-and-variable-scope-in-lambda-expressions).
 
 ### Microsoft's recommendations
 
