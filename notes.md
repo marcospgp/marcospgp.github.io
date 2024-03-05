@@ -289,3 +289,23 @@ However, also note that:
 > To completely remove a submodule, manually delete `$GIT_DIR/modules/<name>/`.
 
 `$GIT_DIR` will usually be the `.git` folder.
+
+## Makefile
+
+Context on using `.ONESHELL` and `.SHELLFLAGS`:
+```
+# Including the ".ONESHELL" target makes all commands within a target run in the
+# same shell, instead of isolating each command into its own subshell.
+# This allows us to make use of python virtual environments in a more readable
+# way, and may also speed up execution.
+# https://www.gnu.org/software/make/manual/html_node/One-Shell.html
+.ONESHELL:
+
+# ".ONESHELL" causes make to no longer fail immediately. We restore this
+# behavior with the "-e" argument.
+# We also set "-o pipefail" and "-u" for added strictness.
+# Note that "-c" (the default argument when ".SHELLFLAGS" is not specified) must
+# be included, otherwise make will error.
+# https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html
+.SHELLFLAGS := -c -e -o pipefail -u
+```
