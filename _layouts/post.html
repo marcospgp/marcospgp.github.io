@@ -21,9 +21,14 @@ layout: default
   </span>
 </div>
 
+{% comment %}
+This Table of Contents block makes use of the Hierarchical TOC Generator plugin created by ChatGPT.
+It inserts a TOC for pages unless 'table_of_contents' is explicitly set to false in the front matter.
+{% endcomment %}
 <article class="table-of-contents">
-  {% if page.table_of_contents != false %} {% include table_of_contents.html
-  html=content %} {% endif %}
+  {% if page.table_of_contents != false %}
+    {{ page.table_of_contents | safe }}
+  {% endif %}
 </article>
 
 <article class="post-content">{{ content }}</article>
