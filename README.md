@@ -36,4 +36,4 @@ In this post we summarize the math behind deep learning and implement a simple n
 
 ## Anchors
 
-AnchorJS is used to add anchor links to headers. There is some [custom scripting](https://github.com/marcospgp/marcospgp.github.io/blob/432ed970cd9d8f3739fc9e4c5e4f2535f08fe6f5/_includes/footer.html#L16-L42) that includes parent headers when creating links starting at `h3`.
+AnchorJS is used to add anchor links to headers. There is some [custom scripting](/_includes/head.html) that includes parent header IDs in child headers, to avoid duplicate anchor links.

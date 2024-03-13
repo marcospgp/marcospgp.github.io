@@ -3,7 +3,9 @@
   <!-- Google tag (gtag.js) -->
   <script
     async
-    src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"
+    src="https://www.googletagmanager.com/gtag/js?id={{
+      site.google_tag_manager
+    }}"
   ></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,7 +29,7 @@
   <title>
     ` of the homepage. Dashes next to brackets are supposed to trim whitespace
     for cleanliness. {%- endcomment -%} {%- capture title -%} {%- if page.title
-    and page.title != site.title -%} {{- page.title | strip_html }} -&#32; {%-
+    and page.title != site.title -%} {{ -page.title | strip_html }} -&#32; {%-
     endif -%} {{- site.title | strip_html -}} {%- endcapture -%} <title>{{ title
     | strip_newlines }}
   </title>
@@ -50,7 +52,7 @@
   {% endif %} {% if site.fb_page %}
   <meta property="fb:pages" content="{{ site.fb_page_id }}" />
   {% endif %} {% if page.categories %}
-  <meta name="keywords" content="{{ page.categories | join: ', ' }}" />
+  <meta name="keywords" content="{{ page.categories | join : ', ' }}" />
   {% endif %}
 
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
@@ -59,7 +61,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ "/css/styles.css" | relative_url }}?{{
-  site.time | date: "%Y%m%d%H%M" }}" type="text/css">
+  site.time | date : "%Y%m%d%H%M" }}" type="text/css">
 
   <!-- Fonts -->
   {% if site.extended_fonts %}
@@ -104,25 +106,17 @@
   ></script>
   {% endif %}
 
-  <!-- Verifications -->
-  {% if site.google_verification %}
-  <meta
-    name="google-site-verification"
-    content="{{ site.google_verification }}"
-  />
-  {% endif %} {% if site.bing_verification %}
-  <meta name="msvalidate.01" content="{{ site.bing_verification }}" />
-  {% endif %}
-
   <!-- Open Graph -->
   <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
   <meta
     property="og:title"
-    content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}"
+    content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{
+      site.title | xml_escape
+    }}{% endif %}"
   />
-  <meta property="og:description" content="{{description}}" />
+  <meta property="og:description" content="{{ description }}" />
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
   <meta property="og:site_name" content="{{ site.title | xml_escape }}" />
   {% if site.post_preview_image %}
@@ -137,15 +131,20 @@
   {% endif %}
   <meta
     name="twitter:title"
-    content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+    content="{% if page.title %}{{ page.title }}{% else %}{{
+      site.title
+    }}{% endif %}"
   />
   <meta name="twitter:description" content="{{ description }}" />
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
   {% if site.post_preview_image %}
   <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg" />
-  {% endif %} {% include favicon.html %} {% if site.enable_anchorjs %}
-  <!-- AnchorJS -->
+  {% endif %}
 
+  {% include favicon.html %}
+
+  {% if site.enable_anchorjs %}
+  <!-- AnchorJS -->
   <script>
     // Set our own IDs for AnchorJS to use when linking to headers.
     //

@@ -15,7 +15,6 @@ google_tag_manager: G-8NMMK1ZP7T
 
 # Optional features
 animated: false
-show_post_footers: false
 show_social_icons: true
 enable_mathjax: true
 extended_fonts: true
@@ -28,10 +27,6 @@ post_preview_image: false
 fb_page: false
 fb_page_id:
 
-# Disqus post comments
-# (leave blank to disable Disqus)
-disqus_shortname:
-
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)
 facebook_comments:
@@ -40,33 +35,7 @@ facebook_comments_number: 10
 
 # Social icons
 github_username: marcospgp
-reddit_username:
-bitbucket_username:
-stackoverflow_id:
 twitter_username: voxelbased
-skype_username:
-steam_nickname:
-google_plus_id:
-linkedin_username:
-angellist_username:
-medium_id:
-bitcoin_url:
-paypal_url:
-telegram_username:
-vk_id:
-
-# Post sharing icons
-show_sharing_icons: false
-# Change to 'true' to enable individual icons
-share_facebook: false
-share_twitter: false
-share_googleplus: false
-share_linkedin: false
-share_digg: false
-share_tumblr: false
-share_reddit: false
-share_stumbleupon: false
-share_hackernews: false
 
 # Build settings
 markdown: kramdown

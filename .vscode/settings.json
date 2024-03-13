@@ -1,39 +1,8 @@
 {
-    "cSpell.words": [
-        "anchorjs",
-        "angellist",
-        "Backpropagation",
-        "Carmack",
-        "Codecademy",
-        "colorbox",
-        "convolutional",
-        "definecolor",
-        "displaystyle",
-        "Disqus",
-        "Driscoll",
-        "eqref",
-        "Fridman's",
-        "highlightalt",
-        "iframe",
-        "indexpage",
-        "jeffreytse",
-        "Lembcke",
-        "Lerp",
-        "lerp's",
-        "lerping",
-        "lineanchors",
-        "marcospereira",
-        "marcospgp",
-        "Mathf",
-        "mathjax",
-        "Minecraft",
-        "newcommand",
-        "Pereira",
-        "Pieter",
-        "rowid",
-        "stackoverflow",
-        "threadsafety",
-        "voxelbased",
-        "WSGI"
-    ]
+  "[html]": {
+    // Because Jekyll adds liquid templating to HTML files, auto formatting
+    // would remove line breaks between liquid tags, which are required for
+    // readability.
+    "editor.formatOnSave": false
+  }
 }
