@@ -10,6 +10,9 @@
 
 module Jekyll
   class HierarchicalIdGenerator < Jekyll::Generator
+    # Ensure that the hierarchical ID generator has a higher priority
+    # to make it run before the TOC generator.
+    priority :high
     def generate(site)
       site.documents.each do |doc|
         current_hierarchy = {}
