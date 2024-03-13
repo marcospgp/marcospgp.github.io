@@ -273,7 +273,7 @@ Including the `--name` prevents the destination path from being used as the name
 
 If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
 
-#### Updating
+#### Cloning & updating
 
 To update dependencies or download them after a fresh `git clone`, use:
 
@@ -292,8 +292,15 @@ However, also note that:
 
 ## Makefile
 
+### MacOS
+
+MacOS ships with an outdated version of make that does not support some functionality such as `.ONESHELL`.
+
+### `.ONESHELL` and `.SHELLFLAGS`
+
 Context on using `.ONESHELL` and `.SHELLFLAGS`:
-```
+
+```makefile
 # Including the ".ONESHELL" target makes all commands within a target run in the
 # same shell, instead of isolating each command into its own subshell.
 # This allows us to make use of python virtual environments in a more readable
