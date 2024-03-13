@@ -1,3 +1,13 @@
+# Hierarchical ID Generator - Written by ChatGPT
+# Generates unique hierarchical IDs for headers to ensure anchor links work correctly,
+# even with duplicate header names.
+# Example:
+# # Drinks          -> id="drinks"
+# ## Coffee         -> id="drinks--coffee"
+# ### Latte         -> id="drinks--coffee--latte"
+# ### Espresso      -> id="drinks--coffee--espresso"
+# ## Tea            -> id="drinks--tea"
+
 module Jekyll
   class HierarchicalIdGenerator < Jekyll::Generator
     def generate(site)
@@ -6,15 +16,14 @@ module Jekyll
 
         modified_content = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
           level = $1[1].to_i  # Extract the numerical level of the header, e.g., 1 for h1
-          attrs = $2
           content = $3.strip
 
-          # Generate an ID for the current header based on its content
-          new_id = content.parameterize
+          # Generate a URL-friendly ID from the header content
+          sanitized_id = content.parameterize
 
           # Update the current hierarchy with the new ID, removing any levels above the current
           current_hierarchy = current_hierarchy.select { |k, _| k < level }
-          current_hierarchy[level] = new_id
+          current_hierarchy[level] = sanitized_id
 
           # Construct the hierarchical ID by concatenating parent IDs
           hierarchical_id = current_hierarchy.values.join("--")
