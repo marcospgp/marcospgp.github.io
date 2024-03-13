@@ -34,6 +34,10 @@ And on the deployed site outputs:
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
 ```
 
-## Anchors
+## Header ID generation
 
-AnchorJS is used to add anchor links to headers. There is some [custom scripting](/_includes/head.html) that includes parent header IDs in child headers, to avoid duplicate anchor links.
+There is [a custom plugin](/_plugins/header-id-hierarchy.rb) to generate hierarchical IDs for headers.
+
+This is meant to avoid issues when linking to IDs when the document contains duplicate headers (under different parent headers), causing a conflict.
+
+AnchorJS is used to add anchor links to headers.
