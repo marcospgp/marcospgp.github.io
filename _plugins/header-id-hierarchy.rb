@@ -10,13 +10,14 @@
 
 module Jekyll
   class HierarchicalIdGenerator < Jekyll::Generator
-    # Ensure that the hierarchical ID generator has a higher priority
-    # to make it run before the TOC generator.
-    priority :high
+    priority :high  # Ensure this runs before the TOC generator
+
     def generate(site)
       site.documents.each do |doc|
-        current_hierarchy = {}
+        # Proceed only if doc.output is not nil
+        next if doc.output.nil?
 
+        current_hierarchy = {}
         modified_content = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
           level = $1[1].to_i  # Extract the numerical level of the header, e.g., 1 for h1
           content = $3.strip
