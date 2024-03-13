@@ -39,13 +39,16 @@ module Jekyll
     private
 
     def build_toc(html_content)
-      toc = '<ul>'
+      return "" if html_content.nil?  # Return an empty string if html_content is nil
+
+      toc = ""
       html_content.scan(/<(h[1-6])\s*id="([^"]+)"[^>]*>(.*?)<\/\1>/).each do |match|
         level, id, title = match
+        indent = "  " * (level[1].to_i - 1)  # Adjust indentation based on header level
         toc << "<li class=\"toc-level-#{level[1]}\"><a href=\"##{id}\">#{title.strip}</a></li>"
       end
-      toc << '</ul>'
-      toc
+
+      toc.empty? ? "" : "<ul>#{toc}</ul>"  # Wrap toc in <ul> tags if it's not empty
     end
   end
 end
