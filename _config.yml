@@ -1,27 +1,22 @@
 # Site settings
-title:       Marcos Pereira
+title: Marcos Pereira
 email:
-author:      Marcos Pereira
+author: Marcos Pereira
 description: "Marcos Pereira's personal website."
-baseurl:     ""
-url:         "https://marcospereira.me"
+baseurl: ""
+url: "https://marcospereira.me"
 date_format: "%b %-d, %Y"
 header_pages:
- - about-me.md
- - notes.md
+  - about-me.md
+  - notes.md
 
-# Google services
-google_verification:
 # Google analytics
 google_tag_manager: G-8NMMK1ZP7T
-# Bing services
-bing_verification:
 
 # Optional features
-animated:             false
-show_related_posts:   false
-show_post_footers:    false
-show_social_icons:    true
+animated: false
+show_post_footers: false
+show_social_icons: true
 enable_mathjax: true
 extended_fonts: true
 enable_anchorjs: true
@@ -73,43 +68,13 @@ share_reddit: false
 share_stumbleupon: false
 share_hackernews: false
 
-text:
-  share_buttons:
-    text:         'Share this post!'
-    facebook:     'Share on Facebook'
-    twitter:      'Share on Twitter'
-    googleplus:   'Share on Google+'
-    linkedin:     'Share on LinkedIn'
-    digg:         'Share on Digg'
-    tumblr:       'Share on Tumblr'
-    reddit:       'Share on Reddit'
-    stumbleupon:  'Share on StumbleUpon'
-    hackernews:   'Share on Hacker News'
-  post:
-    updated:        'Updated'
-    minute_read:    'minute read'
-    related_posts:  'Related Posts'
-  index:
-    coming_soon: 'Coming soon...'
-  contact:
-    email:    'Email Address'
-    content:  'What would you like to say?'
-    subject:  'New submission!'
-    submit:   'Say Hello'
-    ajax:
-      sending:  'sending..'
-      sent:     'Message sent!'
-      error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
-  og_locale: 'en_US'
-
 # Build settings
 markdown: kramdown
 kramdown:
   parse_block_html: true
 redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    pretty
+  extensions: ["smart", "tables", "with_toc_data"]
+permalink: pretty
 sass:
   style: compressed
 plugins:
@@ -134,18 +99,18 @@ future: true
 pagination:
   enabled: true
   debug: false
-  collection: 'posts'
+  collection: "posts"
   per_page: 12
-  permalink: '/page-:num/'
+  permalink: "/page-:num/"
   # Empty title because pagination is used in homepage, and we don't want to
   # mess with its `<title>`.
   title:
   limit: 0
-  sort_field: 'date'
+  sort_field: "date"
   sort_reverse: true
-  category: 'posts'
-  tag: ''
-  locale: ''
+  category: "posts"
+  tag: ""
+  locale: ""
   trail:
     before: 2
     after: 2

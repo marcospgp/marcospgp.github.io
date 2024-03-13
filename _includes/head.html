@@ -1,154 +1,188 @@
 <head>
   {% if site.google_tag_manager %}
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"></script>
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_manager }}"
+  ></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    gtag('config', '{{ site.google_tag_manager }}');
+    gtag("config", "{{ site.google_tag_manager }}");
   </script>
   {% endif %}
 
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
 
-  {% comment -%}
-  Pagination v2, which we use on the homepage, is setting `page.title`
-  erroneously (with a value equal to `site.title`).
-  We check for that to avoid repeating the site name in the `<title>` of the
-  homepage.
-  Dashes next to brackets are supposed to trim whitespace for cleanliness.
-  {%- endcomment -%}
+  {% comment -%} Pagination v2, which we use on the homepage, is setting
+  `page.title` erroneously (with a value equal to `site.title`). We check for
+  that to avoid repeating the site name in the `
+  <title>
+    ` of the homepage. Dashes next to brackets are supposed to trim whitespace
+    for cleanliness. {%- endcomment -%} {%- capture title -%} {%- if page.title
+    and page.title != site.title -%} {{- page.title | strip_html }} -&#32; {%-
+    endif -%} {{- site.title | strip_html -}} {%- endcapture -%} <title>{{ title
+    | strip_newlines }}
+  </title>
 
-  {%- capture title -%}
-  {%- if page.title and page.title != site.title -%}
-  {{- page.title | strip_html }} -&#32;
-  {%- endif -%}
-  {{- site.title | strip_html -}}
-  {%- endcapture -%}
+  {%- capture description -%} {%- if page.description -%} {{- page.description |
+  xml_escape -}} {%- elsif page.excerpt -%} {{- page.excerpt | strip_html |
+  xml_escape | truncatewords: 30 -}} {%- else -%} {{- site.description |
+  xml_escape -}} {%- endif -%} {%- endcapture %}
 
-  <title>{{ title | strip_newlines }}</title>
-
-  {%- capture description -%}
-  {%- if page.description -%}
-  {{- page.description | xml_escape -}}
-  {%- elsif page.excerpt -%}
-  {{- page.excerpt | strip_html | xml_escape | truncatewords: 30 -}}
-  {%- else -%}
-  {{- site.description | xml_escape -}}
-  {%- endif -%}
-  {%- endcapture %}
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ description }}">
-  <meta name="author" content="{{ site.author }}">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{ description }}" />
+  <meta name="author" content="{{ site.author }}" />
   <!-- <link rel="manifest" type="application/manifest+json; charset=utf-8" href="{{ "/manifest.json" | relative_url }}"> -->
-  {% if page.meta_robots %}<meta name="robots" content="{{ page.meta_robots }}">
-  {% else %}<meta name="robots" content="all">{% endif %}
-  {% if site.fb_page %}<meta property="fb:pages" content="{{ site.fb_page_id }}">{% endif %}
-  {% if page.categories %}<meta name="keywords" content="{{ page.categories | join: ', ' }}">{% endif %}
+  {% if page.meta_robots %}
+  <meta name="robots" content="{{ page.meta_robots }}" />
+  {% else %}
+  <meta name="robots" content="all" />
+  {% endif %} {% if site.fb_page %}
+  <meta property="fb:pages" content="{{ site.fb_page_id }}" />
+  {% endif %} {% if page.categories %}
+  <meta name="keywords" content="{{ page.categories | join: ', ' }}" />
+  {% endif %}
 
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{
+  site.title }}" href="{{ "/feed.xml" | relative_url }}">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ "/css/styles.css" | relative_url }}?{{ site.time | date: "%Y%m%d%H%M" }}" type="text/css">
+  <link rel="stylesheet" href="{{ "/css/styles.css" | relative_url }}?{{
+  site.time | date: "%Y%m%d%H%M" }}" type="text/css">
 
   <!-- Fonts -->
   {% if site.extended_fonts %}
-  <link href='//fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Lato:700,400&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic&amp;subset=latin-ext,latin"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:700,400&amp;subset=latin-ext,latin"
+    rel="stylesheet"
+    type="text/css"
+  />
   {% else %}
-  <link href='//fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Lato:700,400' rel='stylesheet' type='text/css'>
-  {% endif %}
-  {% if site.show_social_icons or site.show_sharing_icons %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:700,400"
+    rel="stylesheet"
+    type="text/css"
+  />
+  {% endif %} {% if site.show_social_icons or site.show_sharing_icons %}
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   {% endif %}
 
   <!-- MathJax -->
   {% if site.enable_mathjax %}
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
   {% endif %}
 
   <!-- Verifications -->
   {% if site.google_verification %}
-  <meta name="google-site-verification" content="{{ site.google_verification }}">
-  {% endif %}
-  {% if site.bing_verification %}
-  <meta name="msvalidate.01" content="{{ site.bing_verification }}">
+  <meta
+    name="google-site-verification"
+    content="{{ site.google_verification }}"
+  />
+  {% endif %} {% if site.bing_verification %}
+  <meta name="msvalidate.01" content="{{ site.bing_verification }}" />
   {% endif %}
 
   <!-- Open Graph -->
   <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
-  <meta property="og:locale" content="{{ site.text.og_locale | default: "en_US" }}">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}">
-  <meta property="og:description" content="{{description}}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:site_name" content="{{ site.title | xml_escape }}">
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="article" />
+  <meta
+    property="og:title"
+    content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}"
+  />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:site_name" content="{{ site.title | xml_escape }}" />
   {% if site.post_preview_image %}
-  <meta property="og:image" content="{{ site.url }}/images/me.jpeg">
+  <meta property="og:image" content="{{ site.url }}/images/me.jpeg" />
   {% endif %}
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary" />
   {% if site.twitter_username %}
-  <meta name="twitter:site" content="@{{ site.twitter_username }}">
-  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+  <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}" />
   {% endif %}
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{{ description }}">
-  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta
+    name="twitter:title"
+    content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+  />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
   {% if site.post_preview_image %}
-  <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg">
-  {% endif %}
-
-  {% include favicon.html %}
-
-  {% if site.enable_anchorjs %}<!-- AnchorJS -->
+  <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg" />
+  {% endif %} {% include favicon.html %} {% if site.enable_anchorjs %}
+  <!-- AnchorJS -->
 
   <script>
-      // Set our own IDs for AnchorJS to use when linking to headers.
-      //
-      // We include parent headers in children header IDs, except for "<h1>"s.
-      // This prevents issues such as adding an <h3> to an existing page
-      // where an equal <h3> was already present later in the page overriding
-      // the latter's link.
-      //
-      // This has been placed in the <head> because it must run before the
-      // table of contents is generated.
-      // AnchorJS still has to run after the <body> is rendered, so it is loaded
-      // at the bottom of the page.
-      //
-      // This was introduced for the Notes page, which changes often.
+    // Set our own IDs for AnchorJS to use when linking to headers.
+    //
+    // We include parent headers in children header IDs, except for "<h1>"s.
+    // This prevents issues such as adding an <h3> to an existing page
+    // where an equal <h3> was already present later in the page overriding
+    // the latter's link.
+    //
+    // This has been placed in the <head> because it must run before the
+    // table of contents is generated.
+    // AnchorJS still has to run after the <body> is rendered, so it is loaded
+    // at the bottom of the page.
+    //
+    // This was introduced for the Notes page, which changes often.
 
-      const headers = document.querySelectorAll('h2, h3, h4, h5, h6');
-      const lastHeaders = {};
+    const headers = document.querySelectorAll("h2, h3, h4, h5, h6");
+    const lastHeaders = {};
 
-      headers.forEach(header => {
-          let uniqueId = header.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+    headers.forEach((header) => {
+      let uniqueId = header.textContent
+        .trim()
+        .replace(/\s+/g, "-")
+        .toLowerCase();
 
-          const hLevel = parseInt(header.tagName[1]) - 1
+      const hLevel = parseInt(header.tagName[1]) - 1;
 
-          for (let i = hLevel; i >= 2; i--) {
-              const lastHeader = lastHeaders['h' + i];
-              if (lastHeader) {
-                  uniqueId = lastHeader.id + '--' + uniqueId;
-                  break;
-              }
-          }
+      for (let i = hLevel; i >= 2; i--) {
+        const lastHeader = lastHeaders["h" + i];
+        if (lastHeader) {
+          uniqueId = lastHeader.id + "--" + uniqueId;
+          break;
+        }
+      }
 
-          header.id = uniqueId;
-          lastHeaders[header.tagName.toLowerCase()] = header;
-      });
+      header.id = uniqueId;
+      lastHeaders[header.tagName.toLowerCase()] = header;
+    });
   </script>
 
   {% endif %}
