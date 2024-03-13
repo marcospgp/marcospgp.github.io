@@ -8,6 +8,14 @@
 # ### Espresso      -> id="drinks--coffee--espresso"
 # ## Tea            -> id="drinks--tea"
 
+# Custom implementation of `parameterize` for strings
+class String
+  def parameterize(separator = '-')
+    # Downcase, replace non-alphanumeric characters with the separator, and remove trailing separators
+    downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
+  end
+end
+
 Jekyll::Hooks.register :documents, :post_render do |document|
   current_hierarchy = {}
 
