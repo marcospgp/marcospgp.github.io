@@ -40,4 +40,4 @@ There is [a custom plugin](/_plugins/header-id-hierarchy.rb) to generate hierarc
 
 This is meant to avoid issues when linking to IDs when the document contains duplicate headers (under different parent headers), causing a conflict.
 
-AnchorJS is used to add anchor links to headers.
+AnchorJS is used to add anchor links in [footer.html](/_includes/footer.html).
