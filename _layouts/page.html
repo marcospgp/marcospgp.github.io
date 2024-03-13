@@ -7,9 +7,13 @@ layout: default
     <h1 class="page-title" style="text-transform: capitalize;" >{{ page.title }}</h1>
   </header>
 
+  {% comment %}
+  This Table of Contents block makes use of the Hierarchical TOC Generator plugin created by ChatGPT.
+  It inserts a TOC for pages unless 'table_of_contents' is explicitly set to false in the front matter.
+  {% endcomment %}
   <article class="table-of-contents">
     {% if page.table_of_contents != false %}
-      {% include table_of_contents.html html=content %}
+      {{ page.table_of_contents | safe }}
     {% endif %}
   </article>
 
