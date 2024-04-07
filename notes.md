@@ -211,6 +211,10 @@ These are things to think about when starting a new project, which can also be w
 
 [Fix color banding](https://forum.unity.com/threads/horrible-color-banding-for-lighting-fog.912368/#post-9386285) by checking "enable dithering" in the camera inspector. I only tested this in URP.
 
+### Editorconfig
+
+Create an `.editorconfig` file specifying code style preferences.
+
 ### Mono vs IL2CPP
 
 Decide between [Mono or IL2CPP](https://www.reddit.com/r/Unity3D/comments/zag4ka/mono_or_il2cpp/).
