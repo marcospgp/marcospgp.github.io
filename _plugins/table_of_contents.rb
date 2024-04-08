@@ -30,11 +30,11 @@ module Jekyll
       headers_found = false
       hierarchy = []
 
-      # Regex to match Markdown headers
-      content.scan(/^(\#{1,6})\s+(.+)$/).each do |match|
+      # Regex to match HTML headers
+      content.scan(/<(h[1-6])(.*?)>(.*?)<\/\1>/).each do |match|
         headers_found = true
-        level, title = match
-        header_level = level.length
+        tag, _, title = match
+        header_level = tag[1].to_i
 
         # Update the hierarchy based on the current header level
         hierarchy = hierarchy[0, header_level - 1]
