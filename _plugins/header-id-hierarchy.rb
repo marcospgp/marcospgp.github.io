@@ -17,29 +17,26 @@
 module Jekyll
   module HierarchicalHeadersAndUpdateLinks
 
-    # Function to create URL-friendly IDs
-    def self.parameterize(str, separator = '-')
-      str.downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
-    end
-
     Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
       header_map = {}
       current_hierarchy = []
 
-      # Generate hierarchical IDs and map based on 'href' values
+      # Generate hierarchical IDs and map based on original 'href' values
       doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
-        tag, _, content = $1, $2, $3.strip
+        tag, attrs, content = $1, $2, $3.strip
         level = tag[1].to_i
-        sanitized_id = HierarchicalHeadersAndUpdateLinks.parameterize(content)
 
-        # Adjust hierarchy based on the current level
+        # Extract or generate an ID for the header
+        id_match = attrs.match(/id="([^"]+)"/)
+        original_id = id_match ? id_match[1] : content.parameterize
+
+        # Adjust the hierarchy based on the current level and create the hierarchical ID
         current_hierarchy = current_hierarchy.slice(0, level - 1)
-        current_hierarchy << sanitized_id
-
+        current_hierarchy << original_id
         hierarchical_id = current_hierarchy.join("--")
 
-        # Map original 'href' value to the hierarchical ID
-        header_map["#" + sanitized_id] = "#" + hierarchical_id
+        # Map the original ID (or the parameterized content if no ID is present) to the hierarchical ID
+        header_map[original_id] = hierarchical_id
 
         # Return the modified header with the hierarchical ID
         "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
@@ -47,12 +44,12 @@ module Jekyll
 
       # Update 'href' attributes in links using the map
       doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
-        original_href = "#" + $1
-        if header_map.key?(original_href)
-          link.sub(original_href, header_map[original_href])
-        else
-          link
-        end
+        original_href = $1
+
+        # Use the original href to find the new hierarchical ID in the map
+        new_id = header_map[original_href]
+
+        new_id ? link.sub("##{original_href}", "##{new_id}") : link
       end
     end
   end
