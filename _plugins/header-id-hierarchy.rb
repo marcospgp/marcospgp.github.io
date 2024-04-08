@@ -17,42 +17,39 @@
 module Jekyll
   module HierarchicalHeadersAndUpdateLinks
 
-    # Define 'parameterize' as a module function
+    # Function to create URL-friendly IDs
     def self.parameterize(str, separator = '-')
       str.downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
-    end
-
-    # Define a function to strip HTML tags
-    def self.strip_html_tags(str)
-      str.gsub(/<\/?[^>]*>/, "")
     end
 
     Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
       header_map = {}
       current_hierarchy = []
 
+      # Generate hierarchical IDs and map based on 'href' values
       doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
-        tag, attrs, content = $1, $2, $3.strip
-
-        # Strip HTML from the header content before processing
-        plain_text_content = HierarchicalHeadersAndUpdateLinks.strip_html_tags(content)
-
+        tag, _, content = $1, $2, $3.strip
         level = tag[1].to_i
-        sanitized_id = HierarchicalHeadersAndUpdateLinks.parameterize(plain_text_content)
+        sanitized_id = HierarchicalHeadersAndUpdateLinks.parameterize(content)
+
+        # Adjust hierarchy based on the current level
         current_hierarchy = current_hierarchy.slice(0, level - 1)
-        current_hierarchy[level - 1] = sanitized_id
+        current_hierarchy << sanitized_id
 
         hierarchical_id = current_hierarchy.join("--")
 
-        header_map[sanitized_id] = hierarchical_id
+        # Map original 'href' value to the hierarchical ID
+        header_map["#" + sanitized_id] = "#" + hierarchical_id
 
-        "<#{tag} id=\"#{hierarchical_id}\">#{plain_text_content}</#{tag}>"
+        # Return the modified header with the hierarchical ID
+        "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
       end
 
+      # Update 'href' attributes in links using the map
       doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
-        original_id = HierarchicalHeadersAndUpdateLinks.parameterize($1)
-        if header_map.key?(original_id)
-          link.sub("##{original_id}", "##{header_map[original_id]}")
+        original_href = "#" + $1
+        if header_map.key?(original_href)
+          link.sub(original_href, header_map[original_href])
         else
           link
         end
