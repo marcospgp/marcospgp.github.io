@@ -12,10 +12,8 @@ layout: default
   It inserts a TOC for pages unless 'table_of_contents' is explicitly set to false in the front matter.
   {% endcomment %}
   <article class="table-of-contents">
-    table of contents!
     {% if page.table_of_contents != false %}
-    table of contents is not false!
-      {{ page.table_of_contents }}
+      {{ page.table_of_contents | safe }}
     {% endif %}
   </article>
 
