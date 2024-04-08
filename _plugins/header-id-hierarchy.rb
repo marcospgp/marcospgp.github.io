@@ -21,35 +21,36 @@ module Jekyll
       header_map = {}
       current_hierarchy = []
 
-      # Generate hierarchical IDs and map based on original 'href' values
       doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
         tag, attrs, content = $1, $2, $3.strip
         level = tag[1].to_i
 
-        # Extract or generate an ID for the header
+        # Directly use existing ID or content as the original ID
         id_match = attrs.match(/id="([^"]+)"/)
-        original_id = id_match ? id_match[1] : content.parameterize
+        original_id = id_match ? id_match[1] : content
 
-        # Adjust the hierarchy based on the current level and create the hierarchical ID
+        # Update hierarchy and construct hierarchical ID
         current_hierarchy = current_hierarchy.slice(0, level - 1)
         current_hierarchy << original_id
         hierarchical_id = current_hierarchy.join("--")
 
-        # Map the original ID (or the parameterized content if no ID is present) to the hierarchical ID
+        # Map original ID to hierarchical ID
         header_map[original_id] = hierarchical_id
 
-        # Return the modified header with the hierarchical ID
+        # Apply the hierarchical ID to the header
         "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
       end
 
-      # Update 'href' attributes in links using the map
+      # Update links to use hierarchical IDs
       doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
         original_href = $1
 
-        # Use the original href to find the new hierarchical ID in the map
-        new_id = header_map[original_href]
-
-        new_id ? link.sub("##{original_href}", "##{new_id}") : link
+        # Replace href with hierarchical ID if it exists in the map
+        if header_map.key?(original_href)
+          link.sub("##{original_href}", "##{header_map[original_href]}")
+        else
+          link
+        end
       end
     end
   end
