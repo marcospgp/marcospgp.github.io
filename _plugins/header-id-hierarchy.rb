@@ -14,14 +14,14 @@
 # becomes:
 # <a href="#drinks--coffee">Coffee</a>
 
+class String
+  def parameterize(separator = '-')
+    downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
+  end
+end
+
 module Jekyll
   module HierarchicalHeadersAndUpdateLinks
-    class String
-      def parameterize(separator = '-')
-        downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
-      end
-    end
-
     Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
       header_map = {}
       current_hierarchy = []
