@@ -13,45 +13,30 @@
 
 module Jekyll
   module TocFilter
-    def parameterize(str, separator = '-')
-      str.downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
-    end
-
     def table_of_contents(content)
       toc = ""
-      headers_found = false
-      hierarchy = []
+      current_level = 1
+      content.scan(/<(h[1-6]) id="([^"]+)">(.*?)<\/\1>/).each do |match|
+        level, id, title = match[0][1].to_i, match[1], match[2].strip
 
-      content.scan(/<(h[1-6])[^>]*>(.*?)<\/\1>/).each do |match|
-        headers_found = true
-        level = match[0][1].to_i
-        title = match[1].strip
-        sanitized_id = parameterize(title)
-
-        # Update the hierarchy based on the current header level
-        if level == 1
-          hierarchy = [sanitized_id]
-        elsif level > hierarchy.length
-          hierarchy << sanitized_id
-        else
-          hierarchy = hierarchy[0, level - 1]
-          hierarchy[-1] = sanitized_id
+        # Adjust TOC string based on header level changes
+        case level <=> current_level
+        when 1 # Moving down a level
+          toc << "<ul>" * (level - current_level)
+        when -1 # Moving up a level
+          toc << "</li></ul>" * (current_level - level) + "</li>"
+        else # Same level
+          toc << "</li>" unless toc.empty?
         end
 
-        # Generate the hierarchical ID for the header
-        hierarchical_id = hierarchy.join("--")
-
-        # Indent the TOC entry based on the hierarchy level
-        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a><ul>" if level > 1
-        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a></li>" if level == 1
-        toc << "</ul></li>" if level < 6
+        # Add current header to TOC
+        toc << "<li><a href=\"##{id}\">#{title}</a>"
+        current_level = level
       end
 
-      if headers_found
-        "<article class=\"table-of-contents\"><ul>#{toc}</ul></article>"
-      else
-        "No headers found for TOC."
-      end
+      toc << "</li>" + "</ul></li>" * (current_level - 1) unless toc.empty?
+
+      toc.empty? ? "No headers found for TOC." : "<article class=\"table-of-contents\"><ul>#{toc}</ul></article>"
     end
   end
 end
