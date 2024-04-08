@@ -26,26 +26,25 @@
 #       - [Espresso](#drinks--coffee--espresso)
 #     - [Tea](#drinks--tea)
 
-# Hooks for pages, posts, and documents
-[:pages, :posts, :documents].each do |type|
-  Jekyll::Hooks.register type, :post_render do |doc|
-    toc = "<ul>"
-    headers_found = 0  # Counter to track the number of headers processed
+Jekyll::Hooks.register [:pages, :posts, :documents], :pre_render do |doc|
+  toc = "<ul>"
+  headers_found = 0
 
-    doc.output.scan(/<(h[1-6])\s*id="([^"]+)"[^>]*>(.*?)<\/\1>/).each do |match|
-      level, id, title = match
-      indent = "  " * (level[1].to_i - 1)  # Adjust indentation based on header level
-      toc << "<li class=\"toc-level-#{level[1]}\"><a href=\"##{id}\">#{title.strip}</a></li>"
-      headers_found += 1
-    end
+  # Regex to match Markdown headers based on the number of '#' characters
+  # This will capture the header level and the header text
+  doc.content.scan(/^(\#{1,6})\s+(.+)$/).each do |match|
+    level, title = match
+    header_level = level.length  # Determine header level from number of '#' characters
+    sanitized_title = title.gsub(/[^\w\s-]/, '').strip.downcase.gsub(/\s+/, '-')  # Basic sanitization and slugification
 
-    toc << "</ul>"
+    toc << "<li class=\"toc-level-#{header_level}\"><a href=\"##{sanitized_title}\">#{title.strip}</a></li>\n"
+    headers_found += 1
+  end
 
-    if headers_found > 0
-      doc.data['table_of_contents'] = toc
+  toc << "</ul>"
 
-      puts "TOC generated for #{doc.relative_path} with #{headers_found} headers."
-      puts "TOC HTML:\n#{toc}"
-    end
+  # Only set the TOC data if headers were found
+  if headers_found > 0
+    doc.data['table_of_contents'] = toc
   end
 end
