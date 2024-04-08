@@ -14,48 +14,43 @@
 # becomes:
 # <a href="#drinks--coffee">Coffee</a>
 
-class String
-  def parameterize(separator = '-')
-    downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
-  end
-end
+module Jekyll
+  module HierarchicalHeadersAndUpdateLinks
+    class String
+      def parameterize(separator = '-')
+        downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
+      end
+    end
 
-Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
-  current_hierarchy = {}
-  header_id_map = {}
+    Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
+      header_map = {}
+      current_hierarchy = []
 
-  # Update header IDs with hierarchical structure
-  modified_content = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
-    level = $1[1].to_i
-    content = $3.strip
-    sanitized_id = content.parameterize
+      # Step 1: Convert all header IDs and build a map to use later
+      doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
+        tag, attrs, content = $1, $2, $3.strip
+        level = tag[1].to_i
 
-    current_hierarchy = current_hierarchy.select { |k, _| k < level }
-    current_hierarchy[level] = sanitized_id
+        sanitized_id = content.parameterize
+        current_hierarchy = current_hierarchy.slice(0, level - 1)
+        current_hierarchy[level - 1] = sanitized_id
 
-    hierarchical_id = current_hierarchy.values.join("--")
+        hierarchical_id = current_hierarchy.join("--")
 
-    # Map both original and sanitized IDs to the new hierarchical ID
-    header_id_map[content] = hierarchical_id
-    header_id_map[sanitized_id] = hierarchical_id
+        header_map[sanitized_id] = hierarchical_id
 
-    "<#{$1} id=\"#{hierarchical_id}\">#{content}</#{$1}>"
-  end
+        "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
+      end
 
-  # Update links to reflect the new hierarchical header IDs
-  modified_content.gsub!(/<a href="#([^"]+)">/) do |link_match|
-    original_id = $1
-
-    # Attempt to find a direct match or a parameterized match in the header ID map
-    new_id = header_id_map[original_id] || header_id_map[original_id.parameterize]
-
-    if new_id
-      link_match.sub("##{original_id}", "##{new_id}")
-    else
-      link_match
+      # Step 2: Update all links using the map created earlier
+      doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
+        original_id = $1.parameterize
+        if header_map.key?(original_id)
+          link.sub("##{original_id}", "##{header_map[original_id]}")
+        else
+          link
+        end
+      end
     end
   end
-
-  # Update the document's output with modified content
-  doc.output = modified_content
 end
