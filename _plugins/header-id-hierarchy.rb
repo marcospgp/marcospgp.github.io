@@ -14,24 +14,31 @@
 # becomes:
 # <a href="#drinks--coffee">Coffee</a>
 
-class String
-  def parameterize(separator = '-')
-    downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
-  end
-end
-
 module Jekyll
   module HierarchicalHeadersAndUpdateLinks
+
+    # Define 'parameterize' as a module function
+    def self.parameterize(str, separator = '-')
+      str.downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
+    end
+
+    # Define a function to strip HTML tags
+    def self.strip_html_tags(str)
+      str.gsub(/<\/?[^>]*>/, "")
+    end
+
     Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
       header_map = {}
       current_hierarchy = []
 
-      # Step 1: Convert all header IDs and build a map to use later
       doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
         tag, attrs, content = $1, $2, $3.strip
-        level = tag[1].to_i
 
-        sanitized_id = content.parameterize
+        # Strip HTML from the header content before processing
+        plain_text_content = HierarchicalHeadersAndUpdateLinks.strip_html_tags(content)
+
+        level = tag[1].to_i
+        sanitized_id = HierarchicalHeadersAndUpdateLinks.parameterize(plain_text_content)
         current_hierarchy = current_hierarchy.slice(0, level - 1)
         current_hierarchy[level - 1] = sanitized_id
 
@@ -39,12 +46,11 @@ module Jekyll
 
         header_map[sanitized_id] = hierarchical_id
 
-        "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
+        "<#{tag} id=\"#{hierarchical_id}\">#{plain_text_content}</#{tag}>"
       end
 
-      # Step 2: Update all links using the map created earlier
       doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
-        original_id = $1.parameterize
+        original_id = HierarchicalHeadersAndUpdateLinks.parameterize($1)
         if header_map.key?(original_id)
           link.sub("##{original_id}", "##{header_map[original_id]}")
         else
