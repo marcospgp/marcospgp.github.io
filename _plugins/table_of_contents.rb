@@ -29,8 +29,6 @@
 # Hooks for pages, posts, and documents
 [:pages, :posts, :documents].each do |type|
   Jekyll::Hooks.register type, :post_render do |doc|
-    puts "Generating TOC for document: #{doc.relative_path}"
-
     toc = "<ul>"
     headers_found = 0  # Counter to track the number of headers processed
 
@@ -39,16 +37,15 @@
       indent = "  " * (level[1].to_i - 1)  # Adjust indentation based on header level
       toc << "<li class=\"toc-level-#{level[1]}\"><a href=\"##{id}\">#{title.strip}</a></li>"
       headers_found += 1
-      puts "Found header: #{title.strip}, Level: #{level}, ID: #{id}"  # Debug log for each header
     end
 
     toc << "</ul>"
 
     if headers_found > 0
       doc.data['table_of_contents'] = toc
+
       puts "TOC generated for #{doc.relative_path} with #{headers_found} headers."
-    else
-      puts "No headers found for TOC in #{doc.relative_path}."
+      puts "TOC HTML:\n#{toc}"
     end
   end
 end
