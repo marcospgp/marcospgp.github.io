@@ -31,20 +31,19 @@ module Jekyll
       hierarchy = []
 
       # Regex to match HTML headers
-      content.scan(/<(h[1-6])(.*?)>(.*?)<\/\1>/).each do |match|
+      content.scan(/<(h[2-6])(.*?)>(.*?)<\/\1>/).each do |match|
         headers_found = true
         tag, _, title = match
         header_level = tag[1].to_i
 
         # Update the hierarchy based on the current header level
-        hierarchy = hierarchy[0, header_level - 1]
-        hierarchy << parameterize(title)
-
-        # Generate the hierarchical ID for the header
+        hierarchy = hierarchy[0, header_level - 2]  # Adjust to exclude h1
         hierarchical_id = generate_hierarchical_id(title, hierarchy)
 
-        # Append the TOC entry for the header
-        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a></li>\n"
+        # Construct the hierarchical structure for the TOC
+        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a>"
+        toc << "<ul>" if header_level < 6  # Add sub-list if not h6
+        toc << "</li>\n"
       end
 
       if headers_found
