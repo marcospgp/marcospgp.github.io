@@ -16,27 +16,30 @@ class String
   end
 end
 
-Jekyll::Hooks.register :documents, :post_render do |document|
-  current_hierarchy = {}
+# Hooks for pages, posts, and documents
+[:pages, :posts, :documents].each do |type|
+  Jekyll::Hooks.register type, :post_render do |doc|
+    current_hierarchy = {}
 
-  modified_content = document.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
-    level = $1[1].to_i  # Extract the numerical level of the header
-    content = $3.strip
+    modified_content = document.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
+      level = $1[1].to_i  # Extract the numerical level of the header
+      content = $3.strip
 
-    # Generate a URL-friendly ID from the header content
-    sanitized_id = content.parameterize
+      # Generate a URL-friendly ID from the header content
+      sanitized_id = content.parameterize
 
-    # Update the current hierarchy with the new ID, removing any levels above the current
-    current_hierarchy = current_hierarchy.select { |k, _| k < level }
-    current_hierarchy[level] = sanitized_id
+      # Update the current hierarchy with the new ID, removing any levels above the current
+      current_hierarchy = current_hierarchy.select { |k, _| k < level }
+      current_hierarchy[level] = sanitized_id
 
-    # Construct the hierarchical ID by concatenating parent IDs
-    hierarchical_id = current_hierarchy.values.join("--")
+      # Construct the hierarchical ID by concatenating parent IDs
+      hierarchical_id = current_hierarchy.values.join("--")
 
-    # Reconstruct the header tag with the new hierarchical ID
-    "<#{$1} id=\"#{hierarchical_id}\">#{content}</#{$1}>"
+      # Reconstruct the header tag with the new hierarchical ID
+      "<#{$1} id=\"#{hierarchical_id}\">#{content}</#{$1}>"
+    end
+
+    # Update the document's output with modified content
+    document.output = modified_content
   end
-
-  # Update the document's output with modified content
-  document.output = modified_content
 end
