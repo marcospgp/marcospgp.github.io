@@ -26,26 +26,29 @@
 #       - [Espresso](#drinks--coffee--espresso)
 #     - [Tea](#drinks--tea)
 
-Jekyll::Hooks.register :documents, :post_render do |document|
-  puts "Generating TOC for document: #{document.relative_path}"
+# Hooks for pages, posts, and documents
+[:pages, :posts, :documents].each do |type|
+  Jekyll::Hooks.register type, :post_render do |doc|
+    puts "Generating TOC for document: #{doc.relative_path}"
 
-  toc = "<ul>"
-  headers_found = 0  # Counter to track the number of headers processed
+    toc = "<ul>"
+    headers_found = 0  # Counter to track the number of headers processed
 
-  document.output.scan(/<(h[1-6])\s*id="([^"]+)"[^>]*>(.*?)<\/\1>/).each do |match|
-    level, id, title = match
-    indent = "  " * (level[1].to_i - 1)  # Adjust indentation based on header level
-    toc << "<li class=\"toc-level-#{level[1]}\"><a href=\"##{id}\">#{title.strip}</a></li>"
-    headers_found += 1
-    puts "Found header: #{title.strip}, Level: #{level}, ID: #{id}"  # Debug log for each header
-  end
+    doc.output.scan(/<(h[1-6])\s*id="([^"]+)"[^>]*>(.*?)<\/\1>/).each do |match|
+      level, id, title = match
+      indent = "  " * (level[1].to_i - 1)  # Adjust indentation based on header level
+      toc << "<li class=\"toc-level-#{level[1]}\"><a href=\"##{id}\">#{title.strip}</a></li>"
+      headers_found += 1
+      puts "Found header: #{title.strip}, Level: #{level}, ID: #{id}"  # Debug log for each header
+    end
 
-  toc << "</ul>"
+    toc << "</ul>"
 
-  if headers_found > 0
-    document.data['table_of_contents'] = toc
-    puts "TOC generated for #{document.relative_path} with #{headers_found} headers."
-  else
-    puts "No headers found for TOC in #{document.relative_path}."
+    if headers_found > 0
+      doc.data['table_of_contents'] = toc
+      puts "TOC generated for #{doc.relative_path} with #{headers_found} headers."
+    else
+      puts "No headers found for TOC in #{doc.relative_path}."
+    end
   end
 end

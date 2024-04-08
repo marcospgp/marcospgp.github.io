@@ -21,7 +21,7 @@ end
   Jekyll::Hooks.register type, :post_render do |doc|
     current_hierarchy = {}
 
-    modified_content = document.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
+    modified_content = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
       level = $1[1].to_i  # Extract the numerical level of the header
       content = $3.strip
 
@@ -40,6 +40,6 @@ end
     end
 
     # Update the document's output with modified content
-    document.output = modified_content
+    doc.output = modified_content
   end
 end
