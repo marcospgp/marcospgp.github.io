@@ -12,33 +12,42 @@
 # escaping.
 
 module Jekyll
-  module TocFilter
-    def table_of_contents(content)
-      toc = ""
-      current_level = 1
-      content.scan(/<(h[1-6]) id="([^"]+)">(.*?)<\/\1>/).each do |match|
-        level, id, title = match[0][1].to_i, match[1], match[2].strip
+  module HierarchicalHeadersAndUpdateLinks
+    class String
+      def parameterize(separator = '-')
+        downcase.gsub(/[^a-z0-9]+/i, separator).chomp(separator)
+      end
+    end
 
-        # Adjust TOC string based on header level changes
-        case level <=> current_level
-        when 1 # Moving down a level
-          toc << "<ul>" * (level - current_level)
-        when -1 # Moving up a level
-          toc << "</li></ul>" * (current_level - level) + "</li>"
-        else # Same level
-          toc << "</li>" unless toc.empty?
-        end
+    Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
+      header_map = {}
+      current_hierarchy = []
 
-        # Add current header to TOC
-        toc << "<li><a href=\"##{id}\">#{title}</a>"
-        current_level = level
+      # Step 1: Convert all header IDs and build a map to use later
+      doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
+        tag, attrs, content = $1, $2, $3.strip
+        level = tag[1].to_i
+
+        sanitized_id = content.parameterize
+        current_hierarchy = current_hierarchy.slice(0, level - 1)
+        current_hierarchy[level - 1] = sanitized_id
+
+        hierarchical_id = current_hierarchy.join("--")
+
+        header_map[sanitized_id] = hierarchical_id
+
+        "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
       end
 
-      toc << "</li>" + "</ul></li>" * (current_level - 1) unless toc.empty?
-
-      toc.empty? ? "No headers found for TOC." : "<article class=\"table-of-contents\"><ul>#{toc}</ul></article>"
+      # Step 2: Update all links using the map created earlier
+      doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
+        original_id = $1.parameterize
+        if header_map.key?(original_id)
+          link.sub("##{original_id}", "##{header_map[original_id]}")
+        else
+          link
+        end
+      end
     end
   end
 end
-
-Liquid::Template.register_filter(Jekyll::TocFilter)
