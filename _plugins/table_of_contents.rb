@@ -14,7 +14,7 @@
 module Jekyll
   module TocFilter
     def table_of_contents(input)
-      toc = "<ul>"
+      toc = ""
       headers_found = false
       prev_level = 0  # Track the previous header level
 
@@ -22,21 +22,23 @@ module Jekyll
       input.scan(/<(h[1-6])\s*id="([^"]+)"[^>]*>(.*?)<\/\1>/).each do |match|
         headers_found = true
         level, id, title = match
+        header_level = level[1].to_i
         sanitized_title = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
 
         # Adjust indentation based on header hierarchy
-        if level[1].to_i > prev_level
+        if header_level > prev_level
           toc << "<ul>"
-        elsif level[1].to_i < prev_level
-          toc << "</ul></li>"
+        elsif header_level < prev_level
+          toc << "</ul></li>" * (prev_level - header_level)
         end
 
         toc << "<li><a href=\"##{sanitized_title}\">#{title}</a>"
 
-        prev_level = level[1].to_i
+        prev_level = header_level
       end
 
-      toc << "</li></ul>"  # Close any remaining open list items and lists
+      # Close any remaining open list items and lists
+      toc << "</li></ul>" * prev_level
 
       if headers_found
         toc
