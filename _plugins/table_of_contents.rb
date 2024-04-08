@@ -26,7 +26,7 @@
 #       - [Espresso](#drinks--coffee--espresso)
 #     - [Tea](#drinks--tea)
 
-Jekyll::Hooks.register [:pages, :posts, :documents], :pre_render do |doc|
+Jekyll::Hooks.register [:pages, :documents], :pre_render do |doc|
   toc = "<ul>"
   headers_found = 0
 
