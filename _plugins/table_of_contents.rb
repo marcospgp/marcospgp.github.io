@@ -22,25 +22,29 @@ module Jekyll
       headers_found = false
       hierarchy = []
 
-      content.scan(/<(h[2-6])[^>]*>(.*?)<\/\1>/).each do |match|
+      content.scan(/<(h[1-6])[^>]*>(.*?)<\/\1>/).each do |match|
         headers_found = true
         level = match[0][1].to_i
         title = match[1].strip
         sanitized_id = parameterize(title)
 
         # Update the hierarchy based on the current header level
-        if level == 2
-          hierarchy = []
-        elsif level > hierarchy.length + 2
-          hierarchy = hierarchy[0, level - 2]
+        if level == 1
+          hierarchy = [sanitized_id]
+        elsif level > hierarchy.length
+          hierarchy << sanitized_id
+        else
+          hierarchy = hierarchy[0, level - 1]
+          hierarchy[-1] = sanitized_id
         end
-        hierarchy << sanitized_id
 
         # Generate the hierarchical ID for the header
         hierarchical_id = hierarchy.join("--")
 
-        # Append the TOC entry for the header
-        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a></li>\n"
+        # Indent the TOC entry based on the hierarchy level
+        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a><ul>" if level > 1
+        toc << "<li><a href=\"##{hierarchical_id}\">#{title}</a></li>" if level == 1
+        toc << "</ul></li>" if level < 6
       end
 
       if headers_found
