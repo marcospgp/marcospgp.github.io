@@ -17,12 +17,12 @@ module Jekyll
       toc = "<ul>"
       headers_found = false
 
-      input.scan(/^(\#{1,6})\s+(.+)$/).each do |match|
+      # Regex to match HTML headers
+      input.scan(/<(h[1-6])\s*id="([^"]+)"[^>]*>(.*?)<\/\1>/).each do |match|
         headers_found = true
-        level, title = match
-        header_level = level.length
+        level, id, title = match
         sanitized_title = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-        toc << "<li class=\"toc-level-#{header_level}\"><a href=\"##{sanitized_title}\">#{title}</a></li>\n"
+        toc << "<li class=\"toc-level-#{level[1]}\"><a href=\"##{sanitized_title}\">#{title}</a></li>\n"
       end
 
       toc << "</ul>"
