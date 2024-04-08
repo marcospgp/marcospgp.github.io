@@ -4,7 +4,7 @@
 #
 #   <article class="table-of-contents">
 #     {% if page.table_of_contents != false %}
-#       {{ content | table_of_contents }}
+#       {{ content | table_of_contents | safe }}
 #     {% endif %}
 #   </article>
 #
