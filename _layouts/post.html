@@ -29,7 +29,7 @@ It inserts a TOC for pages unless 'table_of_contents' is explicitly set to false
   table of contents!
   {% if page.table_of_contents != false %}
   table of contents is not false!
-    {{ page.table_of_contents | safe }}
+    {{ page.table_of_contents }}
   {% endif %}
 </article>
 
