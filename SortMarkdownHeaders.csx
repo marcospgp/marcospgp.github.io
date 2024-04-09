@@ -137,10 +137,12 @@ if (sortingIssues.Any())
         SortAndWriteHeaders(rootNode, filePath);
 
         Console.WriteLine("Markdown file updated successfully.");
+        Environment.Exit(0); // Exit with success code if issues were corrected
     }
     else
     {
         Console.WriteLine("Review the sorting issues listed above. Use --write to sort and update the markdown file.");
+        Environment.Exit(1); // Exit with error code if sorting issues were found
     }
 }
 else
@@ -153,6 +155,7 @@ else
     {
         Console.WriteLine("No sorting issues found.");
     }
+    Environment.Exit(0); // Exit with success code if no issues were found
 }
 
 void SortAndWriteHeaders(MarkdownNode node, string filePath)
