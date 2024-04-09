@@ -3,7 +3,73 @@ layout: page
 title: Notes
 ---
 
-This is where I keep notes for things I keep revisiting throughout my work. Entries are sorted alphabetically.
+This is where I keep notes for future reference. Entries are sorted alphabetically.
+
+# General development
+
+## Git
+
+### Commit without a message
+
+`git add -A && git commit --allow-empty-message -m '' && git push`
+
+### Submodules
+
+Git submodules are a nice way of setting up project dependencies.
+
+#### Adding
+
+You can add a dependency into a repo by running:
+
+`git submodule add --name steamworksnt https://github.com/marcospgp/steamworksnt.git <target-folder>`
+
+Including the `--name` prevents the destination path from being used as the name by default, which can be confusing if the module is moved with `git mv` later.
+
+If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
+
+#### Cloning & updating
+
+To update dependencies or download them after a fresh `git clone`, use:
+
+`git submodule update --init --recursive --merge --remote`
+
+#### Removing
+
+To remove a submodule, use `git rm <submodule path>` (and not `git submodule deinit`) in accordance with [the docs](https://git-scm.com/docs/gitsubmodules#_forms).
+
+However, also note that:
+
+> the Git directory is kept around as it to make it possible to checkout past commits without requiring fetching from another repository.
+> To completely remove a submodule, manually delete `$GIT_DIR/modules/<name>/`.
+
+`$GIT_DIR` will usually be the `.git` folder.
+
+## Makefile
+
+### MacOS
+
+MacOS ships with an outdated version of make that does not support some functionality such as `.ONESHELL`.
+
+### `.ONESHELL` and `.SHELLFLAGS`
+
+Context on using `.ONESHELL` and `.SHELLFLAGS`:
+
+```makefile
+# Including the ".ONESHELL" target makes all commands within a target run in the
+# same shell, instead of isolating each command into its own subshell.
+# This allows us to make use of python virtual environments in a more readable
+# way, and may also speed up execution.
+# https://www.gnu.org/software/make/manual/html_node/One-Shell.html
+.ONESHELL:
+
+# ".ONESHELL" causes make to no longer fail immediately. We restore this
+# behavior with the "-e" argument.
+# We also set "-o pipefail" and "-u" for added strictness.
+# Note that "-c" (the default argument when ".SHELLFLAGS" is not specified) must
+# be included, otherwise make will error.
+# https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html
+.SHELLFLAGS := -c -e -o pipefail -u
+```
 
 # Unity game dev
 
@@ -256,67 +322,3 @@ For those, it may be better to scale fonts only and keep spacing the same, as ot
 When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
 
 If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
-
-## Git
-
-### Commit without a message
-
-`git add -A && git commit --allow-empty-message -m '' && git push`
-
-### Submodules
-
-Git submodules are a nice way of setting up project dependencies.
-
-#### Adding
-
-You can add a dependency into a repo by running:
-
-`git submodule add --name steamworksnt https://github.com/marcospgp/steamworksnt.git <target-folder>`
-
-Including the `--name` prevents the destination path from being used as the name by default, which can be confusing if the module is moved with `git mv` later.
-
-If submodules will be used in-editor as part of a Unity project, they should be placed in the `Assets` folder.
-
-#### Cloning & updating
-
-To update dependencies or download them after a fresh `git clone`, use:
-
-`git submodule update --init --recursive --merge --remote`
-
-#### Removing
-
-To remove a submodule, use `git rm <submodule path>` (and not `git submodule deinit`) in accordance with [the docs](https://git-scm.com/docs/gitsubmodules#_forms).
-
-However, also note that:
-
-> the Git directory is kept around as it to make it possible to checkout past commits without requiring fetching from another repository.
-> To completely remove a submodule, manually delete `$GIT_DIR/modules/<name>/`.
-
-`$GIT_DIR` will usually be the `.git` folder.
-
-## Makefile
-
-### MacOS
-
-MacOS ships with an outdated version of make that does not support some functionality such as `.ONESHELL`.
-
-### `.ONESHELL` and `.SHELLFLAGS`
-
-Context on using `.ONESHELL` and `.SHELLFLAGS`:
-
-```makefile
-# Including the ".ONESHELL" target makes all commands within a target run in the
-# same shell, instead of isolating each command into its own subshell.
-# This allows us to make use of python virtual environments in a more readable
-# way, and may also speed up execution.
-# https://www.gnu.org/software/make/manual/html_node/One-Shell.html
-.ONESHELL:
-
-# ".ONESHELL" causes make to no longer fail immediately. We restore this
-# behavior with the "-e" argument.
-# We also set "-o pipefail" and "-u" for added strictness.
-# Note that "-c" (the default argument when ".SHELLFLAGS" is not specified) must
-# be included, otherwise make will error.
-# https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html
-.SHELLFLAGS := -c -e -o pipefail -u
-```
