@@ -41,3 +41,7 @@ This site includes custom plugins in the `/_plugins` folder.
 ## CI
 
 This project includes CI in `/.github/workflows/jekyll.yml`.
+
+## Helper scripts
+
+- `/SortMarkdownHeaders.csx`
