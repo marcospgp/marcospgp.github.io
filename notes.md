@@ -108,6 +108,18 @@ See {% post_link 2023-12-02-unity-foot-sliding %}.
 - Store `.blend` files directly inside the Unity project's "Assets" folder
 - There doesn't seem to be a way to store textures in `.blend` file, so keep them in "Assets" folder and use them in both Blender and Unity
 
+## General optimization
+
+The points below have more importance in the context of frequently run code, such as that in `Update()`.
+
+- [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, by storing them in class fields instead of instantiating locally. Object pooling is a similar and popular strategy.
+- Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
+- Use static lambda expressions (introduced in C# 9) over non-static to avoid [capturing scope](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#capture-of-outer-variables-and-variable-scope-in-lambda-expressions).
+
+### Microsoft's recommendations
+
+See Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity).
+
 ## Inspector
 
 ### Textures
@@ -252,18 +264,6 @@ These are the steps to set up dependencies through a standalone C# project:
 1. Add dependencies with `dotnet add package <package name> --version <version>` (can be copied from NuGet website directly)
 1. Build with `dotnet publish` (debug configuration is the default). Note we don't use `dotnet build`, which doesn't include dependency `.dll`s in build files.
 1. Copy the files in `./bin/Debug/netstandard2.1/publish/` to somewhere in the Unity project's `Assets` folder, such as `Assets/NuGetDependencies/`
-
-## General optimization
-
-The points below have more importance in the context of frequently run code, such as that in `Update()`.
-
-- [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, by storing them in class fields instead of instantiating locally. Object pooling is a similar and popular strategy.
-- Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
-- Use static lambda expressions (introduced in C# 9) over non-static to avoid [capturing scope](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#capture-of-outer-variables-and-variable-scope-in-lambda-expressions).
-
-### Microsoft's recommendations
-
-See Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity).
 
 ## Procedural mesh generation
 
