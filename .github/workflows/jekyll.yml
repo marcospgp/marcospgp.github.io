@@ -22,6 +22,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check_sorting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Install dotnet-script
+        run: dotnet tool install -g dotnet-script
+
+      - name: Run Sorting Check
+        run: dotnet script SortMarkdownHeaders.csx notes.md
+
   build:
     runs-on: ubuntu-latest
     steps:
