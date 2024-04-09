@@ -13,6 +13,9 @@
 # <a href="#coffee">Coffee</a>
 # becomes:
 # <a href="#drinks--coffee">Coffee</a>
+#
+# This was created for "notes.md", which contains many headers and where chances
+# of overlap on links to specific headers increase.
 
 module Jekyll
   module HierarchicalHeadersAndUpdateLinks

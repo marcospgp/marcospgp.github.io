@@ -6,7 +6,7 @@ Theme documentation [here](PIXYLL.md).
 
 ## Deployment
 
-This project uses a GitHub Action to deploy to GitHub Pages from the master branch.
+This project uses a GitHub Action to deploy to GitHub Pages from the main branch.
 
 ## Usage
 
@@ -34,10 +34,10 @@ And on the deployed site outputs:
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
 ```
 
-## Header ID generation
+## Custom plugins
 
-There is [a custom plugin](/_plugins/header-id-hierarchy.rb) to generate hierarchical IDs for headers.
+This site includes custom plugins in the `/_plugins` folder.
 
-This is meant to avoid issues when linking to IDs when the document contains duplicate headers (under different parent headers), causing a conflict.
+## CI
 
-AnchorJS is used to add anchor links in [footer.html](/_includes/footer.html).
+This project includes CI in `/.github/workflows/jekyll.yml`.
