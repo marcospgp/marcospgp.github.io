@@ -51,6 +51,7 @@ plugins:
   - jekyll-sitemap
 # https://github.com/jekyll/jekyll/issues/2938
 exclude:
+  - _helpers
   - Gemfile
   - Gemfile.lock
   - Rakefile
