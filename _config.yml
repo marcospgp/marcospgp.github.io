@@ -13,26 +13,6 @@ header_pages:
 # Google analytics
 google_tag_manager: G-8NMMK1ZP7T
 
-# Optional features
-animated: false
-show_social_icons: true
-enable_mathjax: true
-extended_fonts: true
-enable_anchorjs: true
-# Preview image for social media aka og:image and twitter:image
-post_preview_image: false
-
-# Facebook Page integration
-# (for instant articles and other stuff)
-fb_page: false
-fb_page_id:
-
-# Facebook Comments plugin
-# (leave blank to disable Facebook Comments, otherwise set it to true)
-facebook_comments:
-facebook_appid:
-facebook_comments_number: 10
-
 # Social icons
 github_username: marcospgp
 twitter_username: voxelbased

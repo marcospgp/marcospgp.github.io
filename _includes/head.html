@@ -59,9 +59,8 @@
   <meta name="robots" content="{{ page.meta_robots }}" />
   {% else %}
   <meta name="robots" content="all" />
-  {% endif %} {% if site.fb_page %}
-  <meta property="fb:pages" content="{{ site.fb_page_id }}" />
-  {% endif %} {% if page.categories %}
+  {% endif %}
+  {% if page.categories %}
   <meta name="keywords" content="{{ page.categories | join : ', ' }}" />
   {% endif %}
 
@@ -74,7 +73,6 @@
   site.time | date : "%Y%m%d%H%M" }}" type="text/css">
 
   <!-- Fonts -->
-  {% if site.extended_fonts %}
   <link
     href="//fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic&amp;subset=latin-ext,latin"
     rel="stylesheet"
@@ -85,18 +83,8 @@
     rel="stylesheet"
     type="text/css"
   />
-  {% else %}
-  <link
-    href="//fonts.googleapis.com/css?family=Merriweather:700,700italic,300,300italic"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <link
-    href="//fonts.googleapis.com/css?family=Lato:700,400"
-    rel="stylesheet"
-    type="text/css"
-  />
-  {% endif %} {% if site.show_social_icons or site.show_sharing_icons %}
+
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -104,17 +92,14 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-  {% endif %}
 
   <!-- MathJax -->
-  {% if site.enable_mathjax %}
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
     id="MathJax-script"
     async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
   ></script>
-  {% endif %}
 
   <!-- Open Graph -->
   <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
@@ -129,9 +114,9 @@
   <meta property="og:description" content="{{ description }}" />
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
   <meta property="og:site_name" content="{{ site.title | xml_escape }}" />
-  {% if site.post_preview_image %}
+  {% comment %}
   <meta property="og:image" content="{{ site.url }}/images/me.jpeg" />
-  {% endif %}
+  {% endcomment %}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
@@ -147,9 +132,9 @@
   />
   <meta name="twitter:description" content="{{ description }}" />
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
-  {% if site.post_preview_image %}
+  {% comment %}
   <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg" />
-  {% endif %}
+  {% endcomment %}
 
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon/apple-touch-icon.png" | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon/favicon-32x32.png" | relative_url }}">

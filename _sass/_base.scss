@@ -16,6 +16,8 @@ body {
 }
 
 body {
+  min-height: 100vh;
+
   // Remove default user agent stylesheet margin.
   margin: 0;
 
@@ -35,29 +37,29 @@ body {
   font-size: 100%;
 }
 
-.site {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
-}
+.social-icons {
+  font-size: 1.25rem;
+  width: 100%;
+  margin: $space-2 0;
 
-.site-wrap {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  a.fa {
+    cursor: pointer;
+    padding: 0.2em;
+    font-size: 1.5rem;
+  }
+
+  a.fa:first-child {
+    padding-left: 0;
+  }
+
+  a.fa:hover {
+    color: $color-text-secondary;
+  }
 }
 
 img {
   display: block;
-  margin: 3rem auto 3rem auto;
+  margin: $space-3 auto $space-3 auto;
   max-width: 100%;
 }
 
@@ -74,28 +76,9 @@ hr {
   border-bottom-color: $color-primary;
 }
 
-article {
-  margin-top: 2em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: $space-2;
-  margin-bottom: $space-1;
-}
-
 abbr {
   border-bottom: 1px black dotted;
   cursor: help;
-}
-
-small,
-.small {
-  font-size: 0.707rem;
 }
 
 sup {
@@ -183,6 +166,9 @@ h3,
 h4,
 h5,
 h6 {
+  margin-top: $space-2;
+  margin-bottom: $space-1;
+
   font-family: $heading-font-family;
   font-weight: bold;
   line-height: 1.5;

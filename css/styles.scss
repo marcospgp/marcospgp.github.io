@@ -4,11 +4,9 @@
 // ^ Blank front matter required for jekyll to process this file. This may cause
 // a linting error to show up below.
 
-@import 'variables';
-@import 'misc/code';
-@import 'misc/tables';
-@import 'misc/animations';
-@import 'misc/gists';
-@import 'base';
-@import 'header';
-@import 'home';
+@import "variables";
+@import "misc/code";
+@import "misc/tables";
+@import "misc/gists";
+@import "base";
+@import "home";
