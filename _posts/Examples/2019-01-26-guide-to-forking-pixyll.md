@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Guide to Forking Pixyll
 date: 2019-01-26 19:22
 summary: Pixyll is available to you under the MIT license.
@@ -9,11 +8,11 @@ published: false
 
 The following is an overview to copying and sharing Pixyll.[^1]
 
-Most people have an understanding of what the copyright and licensing obligations are for source code, but not everyone has practical experience.  There is a lot of information about how to use free and open source source code generally, but not necessarily how it works specifically.
+Most people have an understanding of what the copyright and licensing obligations are for source code, but not everyone has practical experience. There is a lot of information about how to use free and open source source code generally, but not necessarily how it works specifically.
 
 ## Basics
 
-Pixyll is free and open source software under the MIT license, a _permissive license_.  You can use Pixyll without charge and it is provided to you, "as is", without warranty of any kind.
+Pixyll is free and open source software under the MIT license, a _permissive license_. You can use Pixyll without charge and it is provided to you, "as is", without warranty of any kind.
 
 These are some of the rights for Pixyll since it is under the MIT license:[^2]
 
@@ -26,8 +25,8 @@ These are some of the rights for Pixyll since it is under the MIT license:[^2]
 Other rights you have of Pixyll under the MIT license:
 
 - You can **sell** copies of Pixyll, including copies you have modified.
-- You can **combine** Pixyll with other works that are under the MIT license, or other permissive licenses, a copyleft license or a proprietary license.  Pixyll already does this itself by using Jekyll, Ruby and other dependencies.
-- You can distribute copies of Pixyll to others under either the MIT license or you can **relicense** Pixyll under another license.  This includes a different permissive license, a copyleft license or a proprietary license.
+- You can **combine** Pixyll with other works that are under the MIT license, or other permissive licenses, a copyleft license or a proprietary license. Pixyll already does this itself by using Jekyll, Ruby and other dependencies.
+- You can distribute copies of Pixyll to others under either the MIT license or you can **relicense** Pixyll under another license. This includes a different permissive license, a copyleft license or a proprietary license.
 
 Your only responsibility is to preserve both the copyright notices of Pixyll and the MIT license in your copy or modified work.
 
@@ -47,7 +46,7 @@ If you want to publish a fork of Pixyll under a different name but keeping it un
     Copyright (c) 2021 Your Name
     Copyright (c) 2014-2021 John Otander for Pixyll
 
-However, if you want to publish a fork of Pixyll under a different name *and* a different license, then you should should still add your name to the copyright notices but have a section titled "Pixyll" at the bottom of your LICENSE file that preserves the copyright and license notices for Pixyll:
+However, if you want to publish a fork of Pixyll under a different name _and_ a different license, then you should should still add your name to the copyright notices but have a section titled "Pixyll" at the bottom of your LICENSE file that preserves the copyright and license notices for Pixyll:
 
     Pixyll
 
@@ -57,11 +56,12 @@ However, if you want to publish a fork of Pixyll under a different name *and* a 
 
     Permission is hereby granted, [...]
 
-If you are just modifying Pixyll in small ways to customize your site, you are not obligated to maintain the copyright notices of Pixyll on your site.  However, if you want to credit the Pixyll theme that would be appreciated, see section on "Pixyll Plug" in the README file that came with Pixyll.
+If you are just modifying Pixyll in small ways to customize your site, you are not obligated to maintain the copyright notices of Pixyll on your site. However, if you want to credit the Pixyll theme that would be appreciated, see section on "Pixyll Plug" in the README file that came with Pixyll.
 
 Thanks for using Pixyll, and happy hacking!
 
 ---
-[^1]: **Disclaimer**: This material is for informational purposes only, and should not be construed as legal advice or opinion.  For actual legal advice, you should consult with professional legal services.
+
+[^1]: **Disclaimer**: This material is for informational purposes only, and should not be construed as legal advice or opinion. For actual legal advice, you should consult with professional legal services.
 [^2]: This list of privileges are derived from the four freedoms of "The Free Software Definition" published by the GNU project <https://www.gnu.org/philosophy/free-sw.en.html>.
-[^3]: Using a different name from "Pixyll" for your derivate work helps avoid misdirected questions from people who are using your version.  It's similar to using version numbers to discrimate the revisions of software when troubleshooting issues.
+[^3]: Using a different name from "Pixyll" for your derivate work helps avoid misdirected questions from people who are using your version. It's similar to using version numbers to discrimate the revisions of software when troubleshooting issues.

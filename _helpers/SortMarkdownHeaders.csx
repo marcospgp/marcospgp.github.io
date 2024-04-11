@@ -53,7 +53,7 @@ class SortingHelper
             // Compare the headers of adjacent children
             if (string.Compare(node.Children[i].Header, node.Children[i + 1].Header, StringComparison.OrdinalIgnoreCase) > 0)
             {
-                sortingIssues.Add($"The header '{node.Children[i].Header}' at level {node.Children[i].Level} should come before '{node.Children[i + 1].Header}' at level {node.Children[i + 1].Level}");
+                sortingIssues.Add($"The header '{node.Children[i].Header}' at level {node.Children[i].Level} should appear after '{node.Children[i + 1].Header}' at level {node.Children[i + 1].Level}");
             }
         }
 

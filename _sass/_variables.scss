@@ -1,32 +1,24 @@
 // Typography
+$font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", serif !default;
+$heading-font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif !default;
+$monospace-font-family: "Source Code Pro", Consolas, monospace !default;
 $base-font-size: 15px !default;
-$font-family: 'Merriweather', 'PT Serif', Georgia, 'Times New Roman', serif !default;
-$heading-font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif !default;
-$monospace-font-family: 'Source Code Pro', Consolas, monospace !default;
 $h1: 2.2rem !default;
 $h2: 1.6rem !default;
 $h3: 1.4rem !default;
 $h4: 1.1rem !default;
 $h5: 1rem !default;
-$h6: .875rem !default;
+$h6: 0.875rem !default;
 
-// Colors
-$red: #b43a18;
-$yellow: #fffb00;
-$green: #007404;
-$blue: #002e8a !default;
-$dark-gray: #222 !default;
-$mid-gray: #444 !default;
-$light-gray: #777 !default;
-$lighter-gray: #efefef !default;
-$darken-1: rgba(#000,.0625) !default;
-$darken-2: rgba(#000,.125) !default;
-$darken-3: rgba(#000,.25) !default;
-$darken-4: rgba(#000,.5) !default;
-
-// Breakpoints
-$breakpoint-md: '(min-width: 52em)';
-$breakpoint-xl: '(min-width: 96em)';
+// Color scheme
+$color-background: #252525;
+$color-primary: #521de4;
+$color-secondary: hsl(273, 80%, 50%);
+$color-tertiary: hsl(337, 90%, 60%);
+$color-text-primary: #eee;
+$color-text-secondary: #ccc;
+$color-text-tertiary: #ff5596;
+$color-text-inverse: #000;
 
 // Whitespace
 $space-1: 8px !default;
@@ -39,20 +31,20 @@ $border-radius: 3px !default;
 
 // Code
 $pre-border-radius: 0;
-$hljs-comment: $mid-gray;
-$hljs-keyword: $blue;
-$hljs-name: $dark-gray;
-$hljs-number: $green;
-$hljs-string: $red;
-$hljs-title: $red;
-$hljs-type: $blue;
-$hljs-tag: $blue;
-$hljs-attribute: $green;
-$hljs-regexp: $green;
+$hljs-comment: #efefef;
+$hljs-keyword: #002e8a;
+$hljs-name: #fff;
+$hljs-number: #007404;
+$hljs-string: #b43a18;
+$hljs-title: #b43a18;
+$hljs-type: #002e8a;
+$hljs-tag: #002e8a;
+$hljs-attribute: #007404;
+$hljs-regexp: #007404;
 $hljs-symbol: #af0e57;
-$hljs-built-in: $blue;
-$hljs-preprocessor: $mid-gray;
+$hljs-built-in: #002e8a;
+$hljs-preprocessor: #efefef;
 $hljs-deletion: #ffdddd;
 $hljs-addition: #ddffdd;
-$hljs-change: $blue;
-$hljs-chunk: $light-gray;
+$hljs-change: #002e8a;
+$hljs-chunk: #777;

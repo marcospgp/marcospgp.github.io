@@ -10,7 +10,7 @@ code {
 }
 
 code {
-  color: $mid-gray;
+  color: $color-text-secondary;
 }
 
 pre {
@@ -18,7 +18,7 @@ pre {
   line-height: 1.11;
   overflow-x: scroll;
   margin-bottom: 0.88em;
-  background-color: $lighter-gray;
+  background-color: $color-secondary;
 }
 
 .highlight .p {
@@ -27,15 +27,15 @@ pre {
 }
 
 pre {
-    counter-reset: line-numbering;
-    white-space: pre;
-    overflow-x: auto;
-    word-break: inherit;
-    word-wrap: inherit;
+  counter-reset: line-numbering;
+  white-space: pre;
+  overflow-x: auto;
+  word-break: inherit;
+  word-wrap: inherit;
 }
 
 pre a {
-    background-image: none;
+  background-image: none;
 }
 
 pre a::before {
@@ -46,7 +46,7 @@ pre a::before {
   text-align: right;
   opacity: 0.7;
   display: inline-block;
-  color: $lighter-gray;
+  color: $color-secondary;
   margin-right: 16px;
   font-size: 13px;
   -webkit-touch-callout: none;

@@ -3,15 +3,88 @@
 {% include head.html %}
 <body class="site{% if site.animated %} animated fade-in-down{% endif %}">
   <div class="site-wrap">
-    {% include header.html %}
-
-    <div class="post-container p-responsive wrap m2" role="main">
-      <div class="measure">
-        {{ content }}
+    <div class="site-header">
+      <div>
+        <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
       </div>
+
+      {% if site.show_social_icons %}
+      <div class="social-icons">
+        <div class="social-icons-left">
+          {% if site.twitter_username %}
+            <a class="fa" href="https://x.com/{{ site.twitter_username }}" aria-label="X"><i class="fa-fw fa-brands fa-x-twitter"></i></a>
+          {% endif %}
+          {% if site.github_username %}
+            <a class="fa" href="https://github.com/{{ site.github_username }}" aria-label="github"><i class="fa-fw fa-brands fa-github"></i></a>
+          {% endif %}
+          <a class="fa" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed"><i class="fa-fw fa-solid fa-rss"></i></a>
+        </div>
+      </div>
+      {% endif %}
+
+      <nav>
+        {% assign default_paths = site.pages | map: "path" %}
+        {% assign page_paths = site.header_pages | default: default_paths %}
+
+        {% for path in page_paths %}
+
+            {% assign item = site.pages | where: "path", path | first %}
+
+            {% if page.title == item.title %}
+                <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% else %}
+                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% endif %}
+
+        {% endfor %}
+      </nav>
+    </div>
+
+
+    <div class="post-container" role="main">
+      {% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
+      {% if minutes == 0 %} {% assign minutes = 1 %} {% endif %}
+
+      <div class="measure">
+        <div class="post-header mb2">
+          <h1 class="page-title" style="text-transform: capitalize">
+            {{ page.title }}
+          </h1>
+          <span class="post-meta">{{ page.date | date: site.date_format }}</span><br />
+          {% if page.update_date %}
+          <span class="post-meta"
+            >Updated: {{ page.update_date | date: site.date_format }}</span
+          ><br />
+          {% endif %}
+          <span class="post-meta small">
+            {% if page.minutes %} {{ page.minutes }} minute read {% else %} {{ minutes
+            }} minute read {% endif %}
+          </span>
+        </div>
+
+        {% comment %}
+        This Table of Contents block makes use of the Hierarchical TOC Generator plugin created by ChatGPT.
+        It inserts a TOC for pages unless 'table_of_contents' is explicitly set to false in the front matter.
+        {% endcomment %}
+        <article class="table-of-contents">
+          {% if page.table_of_contents != false %}
+            {{ content | table_of_contents | safe }}
+          {% endif %}
+        </article>
+
+        <article class="post-content">{{ content }}</article>
+      </div>
+
     </div>
   </div>
 
-  {% include footer.html %}
+  {% if site.enable_anchorjs %}
+  <!-- AnchorJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>
+  <script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3, article h4, article h5, article h6');
+  </script>
+  {% endif %}
 </body>
 </html>

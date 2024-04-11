@@ -1,28 +1,28 @@
 .site-header {
   text-align: center;
-  margin: 3rem 0;
-}
+  padding-top: $space-4;
 
-.site-header a {
-  color: $dark-gray;
-  font-size: $h4;
-}
+  a {
+    font-size: $h4;
+    color: $color-text-primary;
+  }
 
-.site-header .site-title {
-  font-size: $h3;
+  .site-title {
+    font-size: $h3;
+  }
 }
 
 .site-header a:hover,
 .posts .post a:hover .post-title {
-  color: $mid-gray;
+  color: $color-text-secondary;
 }
 
 // Social icons
 
 .social-icons {
   font-size: 1.25rem;
-  padding: 0.5em 0 0 0;
   width: 100%;
+  margin: $space-2 0;
 }
 
 .social-icons a.fa {
@@ -36,5 +36,5 @@
 }
 
 .social-icons a.fa:hover {
-  color: $mid-gray;
+  color: $color-text-secondary;
 }

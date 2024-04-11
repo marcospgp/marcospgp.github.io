@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A checklist for SQLite
 tag: Web 💻
 ---

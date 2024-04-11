@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to avoid foot sliding
 tag: Game Dev 👾
 ---

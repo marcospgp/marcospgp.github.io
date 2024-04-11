@@ -1,5 +1,4 @@
 ---
-layout: page
 title: About Me
 table_of_contents: false
 ---

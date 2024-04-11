@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Resume
 table_of_contents: false
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to take a break
 tag: Life 👶
 ---

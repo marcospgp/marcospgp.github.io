@@ -1,11 +1,32 @@
 ---
-layout: page
 title: Notes
 ---
 
 This is where I keep notes for future reference. Entries are sorted alphabetically.
 
+# CSS
+
+## px vs rem
+
+Generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
+
+There's no consensus on whether to use `rem` for everything or only for font size related styles (using mainly `px` otherwise).
+
+Browsers zoom by increasing the size of `px`, so this decision should only affect users who manually configure a different browser default font size.
+
+For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
+
 # General development
+
+## Floating point
+
+[Key Insights On IEEE 754 Floating Point Numbers](https://marcospereira.me/2023/12/15/floating-point/)
+
+### Error accumulation
+
+Avoid updating decimal numbers iteratively, which can accumulate errors. Instead, prefer to calculate values from the underlying constants each time.
+
+This is one of the main concerns of the field of [numerical analysis](https://en.wikipedia.org/wiki/Numerical_analysis#Generation_and_propagation_of_errors).
 
 ## Git
 
@@ -116,6 +137,14 @@ The points below have more importance in the context of frequently run code, suc
 - Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
 - Use static lambda expressions (introduced in C# 9) over non-static to avoid [capturing scope](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#capture-of-outer-variables-and-variable-scope-in-lambda-expressions).
 
+### Comparing distances
+
+The expensive square root operation can be avoided by comparing squared distances.
+
+### Exponentiation
+
+When raising a number to an integer exponent, direct multiplication (`x * x`) is more efficient than calling a function such as `MathF.Pow()` which accepts any real number as exponent.
+
 ### Microsoft's recommendations
 
 See Microsoft's mixed reality [performance recommendations for Unity](https://learn.microsoft.com/en-us/windows/mixed-reality/develop/unity/performance-recommendations-for-unity).
@@ -158,19 +187,7 @@ Calling `Apply()` is required for the texture to appear right away, otherwise an
 
 Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
 
-## Math
-
-### Floating point
-
-[Key Insights On IEEE 754 Floating Point Numbers](https://marcospereira.me/2023/12/15/floating-point/)
-
-#### Error accumulation
-
-Avoid updating decimal numbers iteratively, which can accumulate errors. Instead, prefer to calculate values from the underlying constants each time.
-
-This is one of the main concerns of the field of [numerical analysis](https://en.wikipedia.org/wiki/Numerical_analysis#Generation_and_propagation_of_errors).
-
-### Frame rate independence
+## Frame rate independence
 
 Everything that runs in `Update()` (as opposed to `FixedUpdate()`) should be carefully designed to ensure independence from variations in frame rate.
 
@@ -180,23 +197,13 @@ There is an extensive post about this [here](https://marcospereira.me/2023/11/15
 
 Ready to use code should be available in the [Unity utilities repo](https://github.com/marcospgp/unity-utilities).
 
-### Mathf vs MathF
+## Mathf vs MathF
 
 `UnityEngine.Mathf` relies on `System.Math`, which runs computations on the `double` type.
 
 `System.MathF` does computations on the `single`/`float32` type.
 
 The difference may be small however since CPUs generally handle 64bit math better than GPUs.
-
-### Optimizations
-
-#### Comparing distances
-
-The expensive square root operation can be avoided by comparing squared distances.
-
-#### Exponentiation
-
-When raising a number to an integer exponent, direct multiplication (`x * x`) is more efficient than calling a function such as `MathF.Pow()` which accepts any real number as exponent.
 
 ## Multithreading
 
@@ -303,21 +310,7 @@ There is more info about this issue in [this thread](https://forum.unity.com/thr
 
 <https://github.com/marcospgp/unity-utilities>
 
-# Web
-
-## CSS
-
-### px vs rem
-
-Generally, `rem` and `em` should be used for font size related styles and `px` for everything else, such as margins or padding.
-
-There's no consensus on whether to use `rem` for everything or only for font size related styles (using mainly `px` otherwise).
-
-Browsers zoom by increasing the size of `px`, so this decision should only affect users who manually configure a different browser default font size.
-
-For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
-
-## Email
+# Email
 
 When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
 

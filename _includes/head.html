@@ -23,21 +23,31 @@
   <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
 
-  {% comment -%} Pagination v2, which we use on the homepage, is setting
-  `page.title` erroneously (with a value equal to `site.title`). We check for
-  that to avoid repeating the site name in the `
-  <title>
-    ` of the homepage. Dashes next to brackets are supposed to trim whitespace
-    for cleanliness. {%- endcomment -%} {%- capture title -%} {%- if page.title
-    and page.title != site.title -%} {{ -page.title | strip_html }} -&#32; {%-
-    endif -%} {{- site.title | strip_html -}} {%- endcapture -%} <title>{{ title
-    | strip_newlines }}
-  </title>
+  {% comment %}
+  Pagination v2, which we use on the homepage, is setting `page.title`
+  erroneously (with a value equal to `site.title`). We check for that to avoid
+  repeating the site name in the `title` of the homepage. Dashes next to
+  brackets are supposed to trim whitespace for cleanliness.
+  {% endcomment %}
 
-  {%- capture description -%} {%- if page.description -%} {{- page.description |
-  xml_escape -}} {%- elsif page.excerpt -%} {{- page.excerpt | strip_html |
-  xml_escape | truncatewords: 30 -}} {%- else -%} {{- site.description |
-  xml_escape -}} {%- endif -%} {%- endcapture %}
+  {%- capture title -%}
+    {%- if page.title and page.title != site.title -%}
+      {{ -page.title | strip_html }} -&#32;
+    {%- endif -%}
+    {{- site.title | strip_html -}}
+  {%- endcapture -%}
+
+  <title>{{ title | strip_newlines }}</title>
+
+  {%- capture description -%}
+    {%- if page.description -%}
+      {{- page.description | xml_escape -}}
+    {%- elsif page.excerpt -%}
+      {{- page.excerpt | strip_html | xml_escape | truncatewords: 30 -}}
+    {%- else -%}
+      {{- site.description | xml_escape -}}
+    {%- endif -%}
+  {%- endcapture %}
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -141,5 +151,9 @@
   <meta name="twitter:image" content="{{ site.url }}/images/me.jpeg" />
   {% endif %}
 
-  {% include favicon.html %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon/apple-touch-icon.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon/favicon-32x32.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon/favicon-16x16.png" | relative_url }}">
+  <link rel="manifest" href="{{ "/assets/favicon/site.webmanifest" | relative_url }}">
+
 </head>

@@ -1,5 +1,5 @@
 .post-container {
-  margin: 3rem;
+  margin-top: $space-3;
 }
 
 .posts {
@@ -7,52 +7,63 @@
 }
 
 .post {
-  margin: 3rem 0;
-}
+  margin: $space-3 0;
+  padding-left: $space-2;
 
-.post-link {
-  // Override anchor hover color.
-  color: $dark-gray !important;
+  .post-link {
+    color: $color-text-primary;
 
-  h3 {
-    margin: 0;
+    &:hover,
+    &:active {
+      color: $color-text-secondary;
+    }
+
+    h3 {
+      margin: 0;
+    }
   }
-}
 
-.post-meta {
-  font-family: $heading-font-family;
-  font-weight: 700;
-  font-size: 0.9rem;
-  width: auto;
-  margin: 0 0 1rem 0;
-  color: $mid-gray;
+  .post-summary {
+    color: $color-text-primary;
+  }
+
+  .post-meta {
+    font-family: $heading-font-family;
+    font-weight: 700;
+    font-size: 0.9rem;
+    width: auto;
+    margin: 0 0 1rem 0;
+    color: $color-text-secondary;
+  }
 }
 
 .pagination {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 3rem;
+  gap: $space-3;
   align-items: center;
   flex-wrap: wrap;
 
   font-size: $h2;
-  margin: 6rem 0;
+  padding: $space-4 0;
 
   .pagination-text {
     font-size: 1rem;
   }
 
   a {
-    color: $dark-gray;
+    color: $color-text-primary;
 
-    &:hover, &:focus, &:active {
-      color: $mid-gray;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-text-secondary;
     }
   }
 
   .disabled {
-    color: $mid-gray;
+    color: $color-text-secondary;
     text-decoration: line-through;
   }
 

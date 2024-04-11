@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Safe Async Tasks in Unity
 tag: Game Dev 👾
 ---

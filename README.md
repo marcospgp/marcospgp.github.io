@@ -8,6 +8,12 @@ Theme documentation [here](PIXYLL.md).
 
 This project uses a GitHub Action to deploy to GitHub Pages from the master branch.
 
+## Important folders
+
+- Custom plugins in `/_plugins`
+- CI in `/.github`
+- Helper scripts in `/_helpers`
+
 ## Usage
 
 To run the website locally, install Docker and run `docker compose up`.
@@ -33,15 +39,3 @@ And on the deployed site outputs:
 ```text
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
 ```
-
-## Custom plugins
-
-This site includes custom plugins in the `/_plugins` folder.
-
-## CI
-
-This project includes CI in `/.github/workflows/jekyll.yml`.
-
-## Helper scripts
-
-- `/SortMarkdownHeaders.csx`

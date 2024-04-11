@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Is Lerp Frame Rate Independent?"
 tag: Game Dev 👾
 published: false

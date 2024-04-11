@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Applying Neural Cellular Automata to the ARC Challenge
 tag: AI 🤖
 ---

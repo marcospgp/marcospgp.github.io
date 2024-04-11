@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A Simple Hash For Perlin Noise
 tag: Game Dev 👾
 ---

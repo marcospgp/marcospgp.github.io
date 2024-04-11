@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Floating origin in Unity
 tag: Game Dev 👾
 ---

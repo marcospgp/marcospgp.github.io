@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Hand sway in Unity
 tag: Game Dev 👾
 ---

@@ -9,12 +9,16 @@ html {
 
 // Expand height to fit screen.
 // Must be applied to both html and body.
-html, body {
+html,
+body {
   height: auto;
   min-height: 100%;
 }
 
 body {
+  // Remove default user agent stylesheet margin.
+  margin: 0;
+
   // Fix for links (<a>) overflowing out of body
   word-break: break-word;
 
@@ -24,8 +28,8 @@ body {
 
   line-height: normal;
 
-  color: $dark-gray;
-  background-color: white;
+  color: $color-text-primary;
+  background-color: $color-background;
 
   font-family: $font-family;
   font-size: 100%;
@@ -39,16 +43,16 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   min-height: 100vh;
 }
 
 .site-wrap {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 img {
@@ -59,7 +63,7 @@ img {
 
 pre,
 code {
-  background-color: $lighter-gray;
+  background-color: $color-primary;
   border-radius: $border-radius;
 }
 
@@ -67,25 +71,26 @@ hr {
   border: 0;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: $light-gray;
+  border-bottom-color: $color-primary;
 }
 
 article {
   margin-top: 2em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 1.5em;
-  margin-bottom: 1em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: $space-2;
+  margin-bottom: $space-1;
 }
 
 abbr {
   border-bottom: 1px black dotted;
   cursor: help;
-}
-
-p {
-  color: $dark-gray;
 }
 
 small,
@@ -103,7 +108,7 @@ details {
   margin-bottom: 1em;
 
   p {
-      margin: 1em;
+    margin: 1em;
   }
 }
 
@@ -130,7 +135,7 @@ code {
 }
 
 blockquote {
-  border-left: 5px solid $light-gray;
+  border-left: 5px solid $color-text-secondary;
   font-style: italic;
   margin: $space-3;
   padding: 0 8px;
@@ -157,9 +162,9 @@ a:active {
 
 .anchorjs-link:hover,
 .anchorjs-link:focus,
-.anchorjs-link:active{
-    border: 0;
-    color: #00396b;
+.anchorjs-link:active {
+  border: 0;
+  color: #00396b;
 }
 
 .measure {
@@ -189,7 +194,7 @@ h1 {
 
 h2 {
   font-size: $h2;
-  border-bottom: 1px solid $dark-gray;
+  border-bottom: 1px solid $color-text-primary;
 }
 
 h3 {
@@ -213,13 +218,16 @@ p {
   margin-bottom: 1em;
 }
 
-dl, ol, ul {
+dl,
+ol,
+ul {
   margin: 2em 0 2em 0;
   padding-left: $space-3;
 }
 
 // No margin for lists inside lists
-li ul, li ol {
+li ul,
+li ol {
   margin: 0;
 }
 
@@ -246,11 +254,10 @@ hr {
 }
 
 nav {
-  margin: 2rem 0;
-  line-height: 2;
+  margin: $space-2 0;
 
   a {
-    color: $dark-gray;
+    color: $color-text-primary;
   }
 
   a:hover,
@@ -259,7 +266,7 @@ nav {
   a.nav-active:hover,
   a.nav-active:focus,
   a.nav-active:active {
-    color: $mid-gray;
+    color: $color-text-secondary;
   }
 
   a.nav-active {
