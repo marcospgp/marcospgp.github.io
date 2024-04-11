@@ -1,60 +1,26 @@
-html {
-  // Set default font size in a relative unit in order to respect user's font
-  // size browser settings.
-  //
-  // Most browsers have default font size 16px.
-  // To set this to 15px, we do 15px/16px = 0.9375.
-  font-size: 93.75%;
-}
-
-// Expand height to fit screen.
-// Must be applied to both html and body.
-html,
-body {
-  height: auto;
-  min-height: 100%;
+* {
+  box-sizing: border-box;
 }
 
 body {
   min-height: 100vh;
+  max-width: 50rem;
 
-  // Remove default user agent stylesheet margin.
-  margin: 0;
+  margin: auto;
 
   // Fix for links (<a>) overflowing out of body
   word-break: break-word;
-
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-  line-height: normal;
 
   color: $color-text-primary;
   background-color: $color-background;
 
   font-family: $font-family;
-  font-size: 100%;
 }
 
-.social-icons {
-  font-size: 1.25rem;
-  width: 100%;
-  margin: $space-2 0;
-
-  a.fa {
-    cursor: pointer;
-    padding: 0.2em;
-    font-size: 1.5rem;
-  }
-
-  a.fa:first-child {
-    padding-left: 0;
-  }
-
-  a.fa:hover {
-    color: $color-text-secondary;
-  }
+// Font awesome icons.
+.fa {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 img {
@@ -112,9 +78,7 @@ iframe {
 }
 
 code {
-  // Set to 14px as a percentage of default size, which should be 15px.
-  // 14px = 14px/15px = 0.9(3)
-  font-size: 93.33%;
+  font-size: 0.9rem;
 }
 
 blockquote {
@@ -262,4 +226,100 @@ nav {
   a + a {
     margin-left: $space-2;
   }
+}
+
+.title-link {
+  color: $color-text-primary;
+
+  &:hover,
+  &:active {
+    color: $color-text-secondary;
+    text-decoration: underline;
+  }
+}
+
+.post-container {
+  margin-top: $space-3;
+}
+
+.posts {
+  margin: 3rem 0;
+}
+
+.post {
+  margin: $space-3 0;
+  padding-left: $space-2;
+
+  .post-link {
+    color: $color-text-primary;
+
+    &:hover,
+    &:active {
+      color: $color-text-secondary;
+    }
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .post-summary {
+    color: $color-text-primary;
+  }
+
+  .post-meta {
+    font-family: $heading-font-family;
+    font-weight: 700;
+    font-size: $h6;
+    width: auto;
+    margin: 0 0 1rem 0;
+    color: $color-text-secondary;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: $space-3;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-size: $h2;
+  padding: $space-4 0;
+
+  .pagination-text {
+    font-size: 1rem;
+  }
+
+  a {
+    color: $color-text-primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-text-secondary;
+    }
+  }
+
+  .disabled {
+    color: $color-text-secondary;
+    text-decoration: line-through;
+  }
+
+  > div {
+    width: 120px;
+  }
+}
+
+.button-disabled {
+  opacity: 0.55;
+  background-color: #999;
+}
+
+.button-disabled:hover,
+.button-disabled:active,
+.button-disabled:focus {
+  cursor: not-allowed;
+  background-color: #999;
 }

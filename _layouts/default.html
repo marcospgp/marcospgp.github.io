@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
 {% include head.html %}
 
 <body>
-  <div class="site-header">
-    <div>
-      <a href="{{ " /" | relative_url }}" class="site-title">{{ site.title }}</a>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h1>
+    <a href="{{ "/" | relative_url }}" class="title-link">{{ site.title }}</a>
+  </h1>
+
+  <div class="social-icons">
+    <div class="social-icons-left">
+      <a class="fa title-link" href="https://x.com/{{ site.twitter_username }}" aria-label="X">
+        <i class="fa-fw fa-brands fa-x-twitter"></i>
+      </a>
+      <a class="fa title-link" href="https://github.com/{{ site.github_username }}" aria-label="github">
+        <i class="fa-fw fa-brands fa-github"></i>
+      </a>
+      <a class="fa title-link" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed">
+        <i class="fa-fw fa-solid fa-rss"></i>
+      </a>
     </div>
-
-    <div class="social-icons">
-      <div class="social-icons-left">
-        {% if site.twitter_username %}
-        <a class="fa" href="https://x.com/{{ site.twitter_username }}" aria-label="X"><i
-            class="fa-fw fa-brands fa-x-twitter"></i></a>
-        {% endif %}
-        {% if site.github_username %}
-        <a class="fa" href="https://github.com/{{ site.github_username }}" aria-label="github"><i
-            class="fa-fw fa-brands fa-github"></i></a>
-        {% endif %}
-        <a class="fa" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed"><i
-            class="fa-fw fa-solid fa-rss"></i></a>
-      </div>
-    </div>
-
-    <nav>
-      {% assign default_paths = site.pages | map: "path" %}
-      {% assign page_paths = site.header_pages | default: default_paths %}
-
-      {% for path in page_paths %}
-
-      {% assign item = site.pages | where: "path", path | first %}
-
-      {% if page.title == item.title %}
-      <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-      {% else %}
-      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-      {% endif %}
-
-      {% endfor %}
-    </nav>
   </div>
 
+  <nav>
+    {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = site.header_pages | default: default_paths %}
+
+    {% for path in page_paths %}
+
+    {% assign item = site.pages | where: "path", path | first %}
+
+    {% if page.title == item.title %}
+    <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    {% else %}
+    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    {% endif %}
+
+    {% endfor %}
+  </nav>
 
   <div>
     {% if page.path contains '_posts' %}
@@ -51,7 +54,7 @@
       <span class="post-meta">{{ page.date | date: site.date_format }}</span><br />
       {% if page.update_date %}
       <span class="post-meta">Updated: {{ page.update_date | date: site.date_format }}</span>
-      <br />
+      <br>
       {% endif %}
       <span class="post-meta">
         {% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
@@ -59,12 +62,13 @@
         {{ minutes }} minute read
       </span>
     </div>
+    {% endif %}
 
     {% comment %}
-      This Table of Contents block makes use of the Hierarchical TOC Generator
-      plugin created by ChatGPT.
-      It inserts a TOC for pages unless 'table_of_contents' is explicitly set to
-      false in the front matter.
+    This Table of Contents block makes use of the Hierarchical TOC Generator
+    plugin created by ChatGPT.
+    It inserts a TOC for pages unless 'table_of_contents' is explicitly set to
+    false in the front matter.
     {% endcomment %}
     {% if page.table_of_contents != false %}
     <div class="table-of-contents">

@@ -36,7 +36,7 @@ module Jekyll
 
       toc << "</li>" + "</ul></li>" * (current_level - 1) unless toc.empty?
 
-      toc.empty? ? "No headers found for TOC." : "<article class=\"table-of-contents\"><ul>#{toc}</ul></article>"
+      toc.empty? ? "" : "<article class=\"table-of-contents\"><ul>#{toc}</ul></article>"
     end
   end
 end
