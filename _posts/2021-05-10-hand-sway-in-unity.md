@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Hand sway in Unity
 tag: Game Dev 👾
 ---

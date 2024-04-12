@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Floating origin in Unity
 tag: Game Dev 👾
 ---

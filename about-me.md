@@ -1,4 +1,5 @@
 ---
+layout: default
 title: About Me
 table_of_contents: false
 ---

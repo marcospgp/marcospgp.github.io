@@ -1,4 +1,5 @@
 ---
+layout: default
 title: How to avoid foot sliding
 tag: Game Dev 👾
 ---
@@ -36,4 +37,4 @@ This is what the resulting blend tree looks like:
 
 ![Blend tree]({% link assets/2023-12-02-unity-foot-sliding/unity-movement-blend-tree.jpg %})
 
-It may be possible to still blend between movement and other animations by nesting blend trees, although copy pasting a blend tree you previously created [requires a simple workaround](https://twitter.com/voxelbased/status/1720082569260343547).
+It may be possible to still blend between movement and other animations by nesting blend trees, although copy pasting a blend tree you previously created [requires a simple workaround](https://x.com/voxelbased/status/1720082569260343547).

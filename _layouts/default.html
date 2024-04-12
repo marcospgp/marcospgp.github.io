@@ -11,39 +11,45 @@
   <br>
 
   <h1>
-    <a href="{{ "/" | relative_url }}" class="title-link">{{ site.title }}</a>
+    <a href="{{ '/' | relative_url }}" class="title-link">{{ site.title }}</a>
   </h1>
 
-  <div class="social-icons">
-    <div class="social-icons-left">
-      <a class="fa title-link" href="https://x.com/{{ site.twitter_username }}" aria-label="X">
-        <i class="fa-fw fa-brands fa-x-twitter"></i>
-      </a>
-      <a class="fa title-link" href="https://github.com/{{ site.github_username }}" aria-label="github">
-        <i class="fa-fw fa-brands fa-github"></i>
-      </a>
-      <a class="fa title-link" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed">
-        <i class="fa-fw fa-solid fa-rss"></i>
-      </a>
-    </div>
+  <div>
+    <a class="fa title-link" href="https://x.com/{{ site.twitter_username }}" aria-label="X">
+      <i class="fa-fw fa-brands fa-x-twitter"></i>
+    </a>
+    <a class="fa title-link" href="https://github.com/{{ site.github_username }}" aria-label="github">
+      <i class="fa-fw fa-brands fa-github"></i>
+    </a>
+    <a class="fa title-link" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed">
+      <i class="fa-fw fa-solid fa-rss"></i>
+    </a>
   </div>
 
-  <nav>
-    {% assign default_paths = site.pages | map: "path" %}
-    {% assign page_paths = site.header_pages | default: default_paths %}
+  <br>
 
-    {% for path in page_paths %}
+  {% assign default_paths = site.pages | map: "path" %}
+  {% assign page_paths = site.header_pages | default: default_paths %}
 
-    {% assign item = site.pages | where: "path", path | first %}
+  {% for path in page_paths %}
 
-    {% if page.title == item.title %}
-    <a class="nav-active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-    {% else %}
-    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-    {% endif %}
+  {% assign item = site.pages | where: "path", path | first %}
 
-    {% endfor %}
-  </nav>
+  {% if page.title == item.title %}
+  <h3>
+    <a class="title-link active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  </h3>
+  {% else %}
+  <h3>
+    <a class="title-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  </h3>
+  {% endif %}
+
+  {% endfor %}
+
+  <br>
+  <hr>
+  <br>
 
   <div>
     {% if page.path contains '_posts' %}

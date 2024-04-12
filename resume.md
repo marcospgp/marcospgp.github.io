@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Resume
 table_of_contents: false
 ---
@@ -15,7 +16,7 @@ Developer based in [Porto, Portugal](https://goo.gl/maps/AAJhJkfqMChWV19s6).
 Main areas of focus: web, machine learning, and 3D games & simulations.
 
 - 10+ years of experience building products on the web;
-- Expert on state of the art machine learning & research lab member at the [Machine Learning Collective](https://twitter.com/ml_collective) under [Rosanne Liu](https://twitter.com/savvyRL) (Google DeepMind);
+- Expert on state of the art machine learning & research lab member at the [Machine Learning Collective](https://x.com/ml_collective) under [Rosanne Liu](https://x.com/savvyRL) (Google DeepMind);
 - Extensive experience with the Unity engine, including as an asset store publisher.
 
 ## Experience

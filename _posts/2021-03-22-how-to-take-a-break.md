@@ -1,4 +1,5 @@
 ---
+layout: default
 title: How to take a break
 tag: Life 👶
 ---

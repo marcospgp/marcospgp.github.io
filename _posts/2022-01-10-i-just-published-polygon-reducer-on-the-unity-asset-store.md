@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Polygon Reducer is now available on the Unity asset store
 tag: Game Dev 👾
 ---

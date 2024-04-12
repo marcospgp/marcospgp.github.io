@@ -1,4 +1,5 @@
 ---
+layout: default
 title: A checklist for SQLite
 tag: Web 💻
 ---
@@ -36,7 +37,7 @@ In my view, it is solid and useful, and can scale far further than one will most
 
 Being file based, one doesn't need to set up a standalone server - it can just sit alongside the rest of the app's code. This is what makes it attractive for me - it is the easiest way to get the power of SQL.
 
-It was initially brought to my attention by [Pieter Levels](https://twitter.com/levelsio/status/1520356430800617472), who is famous for using the simplest possible tech that gets the job done.
+It was initially brought to my attention by [Pieter Levels](https://x.com/levelsio/status/1520356430800617472), who is famous for using the simplest possible tech that gets the job done.
 
 This file based set up means SQLite is not a good idea for a containerized deployment, but I think it is perfect for a single server setup - such as renting a VPS for personal projects.
 

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Notes
 ---
 
@@ -133,7 +134,7 @@ See {% post_link 2023-12-02-unity-foot-sliding %}.
 
 The points below have more importance in the context of frequently run code, such as that in `Update()`.
 
-- [Avoid generating garbage](https://twitter.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, by storing them in class fields instead of instantiating locally. Object pooling is a similar and popular strategy.
+- [Avoid generating garbage](https://x.com/ID_AA_Carmack/status/1390195077209808898) (allocating heap memory for short-lived objects). One way to do this is to reuse objects, by storing them in class fields instead of instantiating locally. Object pooling is a similar and popular strategy.
 - Use fixed size over dynamically sized collections (such as arrays over lists) whenever possible, for the reduced overhead.
 - Use static lambda expressions (introduced in C# 9) over non-static to avoid [capturing scope](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions#capture-of-outer-variables-and-variable-scope-in-lambda-expressions).
 

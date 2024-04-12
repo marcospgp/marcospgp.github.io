@@ -1,4 +1,5 @@
 ---
+layout: default
 title: A Simple Hash For Perlin Noise
 tag: Game Dev 👾
 ---

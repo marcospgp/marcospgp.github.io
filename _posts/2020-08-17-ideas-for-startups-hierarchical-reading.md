@@ -1,4 +1,5 @@
 ---
+layout: default
 title: "Ideas For Startups by Paul Graham: A Hierarchical Reading"
 tag: Web 💻
 ---

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Backpropagation From Scratch
 tag: AI 🤖
 pinned: true

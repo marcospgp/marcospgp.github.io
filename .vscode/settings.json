@@ -1,8 +1,7 @@
 {
   "[html]": {
-    // Because Jekyll adds liquid templating to HTML files, auto formatting
-    // would remove line breaks between liquid tags, which are required for
-    // readability.
-    "editor.formatOnSave": false
+    // Prettier formatter formats HTML poorly when it includes liquid templates,
+    // as is the case with Jekyll.
+    "editor.defaultFormatter": "vscode.html-language-features"
   }
 }
