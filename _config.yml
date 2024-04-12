@@ -17,18 +17,25 @@ google_tag_manager: G-8NMMK1ZP7T
 github_username: marcospgp
 twitter_username: voxelbased
 
-# Build settings
-markdown: kramdown
+# Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
   parse_block_html: true
-redcarpet:
-  extensions: ["smart", "tables", "with_toc_data"]
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: "highlight"
+
 permalink: pretty
 sass:
   style: compressed
+
 plugins:
   - jekyll-paginate-v2
   - jekyll-sitemap
+
 # https://github.com/jekyll/jekyll/issues/2938
 exclude:
   - _helpers
@@ -40,7 +47,8 @@ exclude:
   - PIXYLL.md
   - screenshot.png
   - vendor
-# Render posts with future dates. Timezone differences means post with current
+
+# Render posts with future dates. Timezone differences means posts with current
 # date in author's timezone may not be rendered.
 # No current reason to hide future posts either.
 future: true

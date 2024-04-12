@@ -19,7 +19,7 @@ Where the exponent has an offset of -127 (meaning that `01111111` is 0).
 
 The formula to calculate the resulting number is:
 
-```text
+```plaintext
 (-1)^sign * 2^(exponent - 127) * 1.fraction
 ```
 
@@ -29,7 +29,7 @@ There are also two special cases for the exponent:
 
 1. Exponent with all zeros (`00000000`). This changes the exponent offset to -126 (the same as `00000001`), but the significand now starts with 0. This changes the formula into:
 
-   ```text
+   ```plaintext
    (-1)^sign * 2^(-126) * 0.fraction
    ```
 
@@ -37,7 +37,7 @@ There are also two special cases for the exponent:
 
 Also note that it's possible to represent both +0 and -0:
 
-```text
+```plaintext
 0_00000000_00000000000000000000000 = +0
 1_00000000_00000000000000000000000 = -0
 ```
@@ -48,7 +48,7 @@ Being aware of the internal design of a floating point number allows us to deriv
 
 ### Half of the representation space is between -1 and 1
 
-```text
+```plaintext
 1_01111111_00000000000000000000000 = -1
 0_01111111_00000000000000000000000 = 1
 ```
@@ -65,13 +65,13 @@ This means the distance between floating point numbers is fixed for each exponen
 
 The space between consecutive floating point numbers is determined by two things: the exponent `X` and the number of bits in the significand `B`. The formula is:
 
-```text
+```plaintext
 2^(X - 127) * 2^(-B)
 ```
 
 Which means for a 32-bit float (23-bit significand) and exponent 128 (`01111111`) the error is:
 
-```text
+```plaintext
 2^1 * 2^(-23) = 2 * 1/(2^23) = 1/(2^22)
 ```
 
@@ -79,7 +79,7 @@ And each successive exponent increases the spacing between adjacent floating poi
 
 With an exponent of 150, the error is exactly 1:
 
-```text
+```plaintext
 2^23 * 2^(-23) = 1
 ```
 

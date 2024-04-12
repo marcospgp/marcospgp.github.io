@@ -9,10 +9,9 @@
  */
 
 // Typography
-$font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", serif !default;
-$heading-font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif !default;
-$monospace-font-family: "Source Code Pro", Consolas, monospace !default;
-$base-font-size: 15px !default;
+$font-family: "Merriweather", serif;
+$heading-font-family: "Lato", sans-serif;
+$monospace-font-family: "Fira Code", monospace;
 $h1: 2.2rem !default;
 $h2: 1.6rem !default;
 $h3: 1.4rem !default;
@@ -21,12 +20,12 @@ $h5: 1rem !default;
 $h6: 0.875rem !default;
 
 // Color scheme
-$color-background: #252525;
+$color-background: #222;
 $color-primary: #521de4;
 $color-secondary: hsl(273, 80%, 50%);
 $color-tertiary: hsl(337, 90%, 60%);
-$color-text-primary: #eee;
-$color-text-secondary: #ccc;
+$color-text-primary: #e6e6e6;
+$color-text-secondary: #cbcbcb;
 $color-text-tertiary: #ff5596;
 $color-text-inverse: #000;
 
@@ -38,26 +37,6 @@ $space-4: 64px !default;
 
 // Border radius
 $border-radius: 3px !default;
-
-// Code
-$pre-border-radius: 0;
-$hljs-comment: #efefef;
-$hljs-keyword: #002e8a;
-$hljs-name: #fff;
-$hljs-number: #007404;
-$hljs-string: #b43a18;
-$hljs-title: #b43a18;
-$hljs-type: #002e8a;
-$hljs-tag: #002e8a;
-$hljs-attribute: #007404;
-$hljs-regexp: #007404;
-$hljs-symbol: #af0e57;
-$hljs-built-in: #002e8a;
-$hljs-preprocessor: #efefef;
-$hljs-deletion: #ffdddd;
-$hljs-addition: #ddffdd;
-$hljs-change: #002e8a;
-$hljs-chunk: #777;
 
 /*
  * Styles
@@ -71,6 +50,9 @@ body {
   min-height: 100vh;
   max-width: 50rem;
 
+  font-size: 0.95rem;
+  font-weight: lighter;
+
   margin: auto;
 
   // Fix for links (<a>) overflowing out of body
@@ -82,22 +64,10 @@ body {
   font-family: $font-family;
 }
 
-// Font awesome icons.
-.fa {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
 img {
   display: block;
   margin: $space-3 auto $space-3 auto;
   max-width: 100%;
-}
-
-pre,
-code {
-  background-color: $color-primary;
-  border-radius: $border-radius;
 }
 
 abbr {
@@ -112,69 +82,30 @@ sup {
 }
 
 details {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 
   p {
-    margin: 1em;
+    margin: 1rem;
   }
 }
 
-summary:hover {
-  cursor: pointer;
-}
-
 iframe {
-  margin-bottom: 1em;
-}
-
-.page-title {
-  margin: 1em 0 0 0;
-}
-
-.table-of-contents {
-  margin: 2rem 0;
+  margin-bottom: $space-2;
 }
 
 code {
   font-size: 0.9rem;
+  background-color: #0d1117;
+  color: #c8d0d8;
+  padding: 0 4px;
+  border-radius: 4px;
 }
 
 blockquote {
   border-left: 5px solid $color-text-secondary;
   font-style: italic;
   margin: $space-3;
-  padding: 0 8px;
-}
-
-a {
-  color: #005cad;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus,
-a:active {
-  text-decoration: underline;
-  border: 0;
-  color: #00396b;
-}
-
-.button:hover,
-.button:focus,
-.button:active {
-  color: white;
-}
-
-.anchorjs-link:hover,
-.anchorjs-link:focus,
-.anchorjs-link:active {
-  border: 0;
-  color: #00396b;
-}
-
-.measure {
-  margin: 0 auto;
-  max-width: 50rem;
+  padding: 0 $space-1;
 }
 
 // List markers (bullet points, numbers)
@@ -221,11 +152,6 @@ h6 {
   font-size: $h6;
 }
 
-p {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
 dl,
 ol,
 ul {
@@ -243,66 +169,67 @@ li {
   margin: 0.5em 0;
 }
 
-pre,
-code,
-samp {
-  font-family: $monospace-font-family;
-  font-size: inherit;
-}
-
-pre {
-  margin-top: 0;
-  margin-bottom: $space-2;
-  overflow-x: scroll;
-}
-
 hr {
   // Replace default agent stylesheet border with border-top to make it thinner.
   border: 0;
   border-top: 1px solid $color-text-primary;
 }
 
-.title-link {
-  color: $color-text-primary;
+a {
+  color: #90a1ff;
 
-  &:hover {
-    color: $color-text-secondary;
-    text-decoration: underline;
-  }
+  // &:visited {
+  //   color: #e078ff;
+  // }
 
-  &:active,
-  &.active {
+  &.title-link {
+    text-decoration: none;
     color: $color-text-primary;
-    text-decoration: underline;
-  }
 
-  &.disabled {
-    color: $color-text-secondary;
-    text-decoration: line-through;
+    &:hover {
+      color: $color-text-secondary;
+      text-decoration: underline;
+    }
+
+    &:active,
+    &.active {
+      text-decoration: underline;
+    }
+
+    &.disabled {
+      color: $color-text-secondary;
+      text-decoration: line-through;
+    }
   }
 }
 
-.post-meta {
-  font-family: $heading-font-family;
-  font-weight: 700;
-  font-size: $h6;
-  width: auto;
-  margin: 0 0 1rem 0;
+.muted {
   color: $color-text-secondary;
+}
+
+// Font awesome icons.
+.fa {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.table-of-contents {
+  margin: 2rem 0;
+}
+
+.anchorjs-link:hover,
+.anchorjs-link:focus,
+.anchorjs-link:active {
+  border: 0;
+  color: $color-primary;
 }
 
 /* Code styles */
 
-// pre,
-// pre code {
-//   background-color: transparent;
-//   border-radius: $pre-border-radius;
-// }
-
-// pre,
-// code {
-//   font-family: $monospace-font-family;
-// }
+pre,
+code {
+  font-family: $monospace-font-family;
+}
 
 // code {
 //   color: $color-text-secondary;

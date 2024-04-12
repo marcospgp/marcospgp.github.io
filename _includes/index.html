@@ -2,6 +2,7 @@
 Browse by tag. Requires pagination to be enabled.
 {% endcomment %}
 {% if page.pagination.enabled %}
+
 {% if page.pagination.tag %}
 <h3>
   <a class="title-link" href="{{ '/' | relative_url }}">All Posts</a>
@@ -33,45 +34,84 @@ Browse by tag. Requires pagination to be enabled.
 
 {% endif %}
 {% endfor %}
+
+<br>
+
 {% endif %}
 
 {% comment %}
 Pagination links to "#posts". If modifying, modify it there too.
 {% endcomment %}
-<div id="posts" class="posts">
+<div id="posts">
+  {% comment %}
+  Pinned posts.
+  {% endcomment %}
+  {% for post in paginator.posts %}
+  {% if post.pinned %}
+
+  <a class="title-link" href="{{ post.url | relative_url }}">
+    <h4 style="text-transform: capitalize;">{{ post.title }}</h4>
+  </a>
+
+  <h6 class="muted">
+    {% if site.date_format %}
+    {{ post.date | date: site.date_format }}
+    {% else %}
+    {{ post.date | date: "%b %-d, %Y" }}
+    {% endif %}
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    {{post.tags}}
+
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    Pinned 📌
+  </h6>
+
+  <br>
+
+  {% endif %}
+  {% endfor %}
+
+  {% comment %}
+  Non-pinned posts.
+  {% endcomment %}
   {% for post in paginator.posts %}
 
-  <div class="post">
+  {% comment %}
+  Must match posts where pinned is unspecified, so using "!= true" instead of
+  "== false".
+  {% endcomment %}
+  {% if post.pinned != true %}
 
-    <a href="{{ post.url | relative_url }}" class="post-link">
-      <h3 class="post-title" style="text-transform: capitalize;">{{ post.title }}</h3>
-    </a>
 
-    <p class="post-meta">
-      {% if site.date_format %}
-      {{ post.date | date: site.date_format }}
-      {% else %}
-      {{ post.date | date: "%b %-d, %Y" }}
-      {% endif %}
-      <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-      {{post.tags}}
+  <a class="title-link" href="{{ post.url | relative_url }}">
+    <h4 style="text-transform: capitalize;">{{ post.title }}</h4>
+  </a>
 
-      {% if post.highlight %}
-      <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-      Highlighted ⭐️
-      {% endif %}
-    </p>
+  <h6 class="muted">
+    {% if site.date_format %}
+    {{ post.date | date: site.date_format }}
+    {% else %}
+    {{ post.date | date: "%b %-d, %Y" }}
+    {% endif %}
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    {{post.tags}}
+  </h6>
 
-    <span class="post-summary">
-      {% if post.description %}
-      {{ post.description }}
-      {% else %}
-      {{ post.excerpt | strip_html | truncatewords: 30 }}
-      {% endif %}
-    </span>
+  {% if forloop.last == false %}
+  <br>
+  {% endif %}
 
-  </div>
+  <!--
+  <span>
+    {% if post.description %}
+    {{ post.description }}
+    {% else %}
+    {{ post.excerpt | strip_html | truncatewords: 30 }}
+    {% endif %}
+  </span>
+  -->
 
+  {% endif %}
   {% endfor %}
 </div>
 
@@ -117,5 +157,8 @@ Pagination links to "#posts". If modifying, modify it there too.
   </h3>
   {% endif %}
 </div>
+
+<br>
+<br>
 
 {% endif %}

@@ -22,7 +22,7 @@ Intuitively, we know how to make things in the render loop independent of fluctu
 
 For example, updating a position with a given velocity can be done with:
 
-```text
+```plaintext
 position = position + (velocity * delta_time)
 ```
 
@@ -32,7 +32,7 @@ But intuition is not enough. For example, if we introduce acceleration - a chang
 
 A first guess could be:
 
-```text
+```plaintext
 velocity = velocity + (acceleration * delta_time)
 position = position + (velocity * delta_time)
 ```
@@ -41,7 +41,7 @@ But this is not frame rate independent. A player running this at 60fps will see 
 
 The actual frame rate independent formulation is:
 
-```text
+```plaintext
 position = position + (velocity * delta_time) + (1/2 * acceleration * delta_time)
 velocity = velocity + (acceleration * delta_time)
 ```
@@ -58,7 +58,7 @@ This is common for animations with fixed durations, and matches the concept of e
 
 For example, with an easing curve `f(t) = t^2` one can animate a value with:
 
-```text
+```plaintext
 t = time_elapsed / total_duration
 value = start_value + (target_value * f(t))
 ```
@@ -81,7 +81,7 @@ Because if a step is divisible into two, we can keep dividing arbitrarily into a
 
 This can be expressed mathematically as:
 
-```text
+```plaintext
 f(a, t1 + t2) = f(f(a, t1), t2)
 ```
 
@@ -95,7 +95,7 @@ I was amazed at how closely the concept of flow lines up with frame rate indepen
 
 What we know about flows is that given a differential equation
 
-```text
+```plaintext
 dx/dt = F(x(t))
 ```
 
@@ -105,7 +105,7 @@ In other words, anything we can specify in terms of a change over time (differen
 
 We can also use flow directly to check whether a given function is frame rate independent, by simply expanding the property:
 
-```text
+```plaintext
 f(a, t1 + t2) = f(f(a, t1), t2)
 ```
 
@@ -117,37 +117,37 @@ Let's use motion with constant acceleration as an example.
 
 We know that the velocity changes by a value equal to the acceleration each second:
 
-```text
+```plaintext
 dv/dt = a
 ```
 
 And that the position changes by the velocity:
 
-```text
+```plaintext
 dx/dt = v
 ```
 
 Solving the first equation, we obtain:
 
-```text
+```plaintext
 v(t) = v0 + at
 ```
 
 Updating the second equation:
 
-```text
+```plaintext
 dx/dt = v0 + at
 ```
 
 And solving it:
 
-```text
+```plaintext
 x(t) = x0 + (v0 * t) + (1/2 * a * t^2)
 ```
 
 To run this iteratively, we can translate it into the following code:
 
-```text
+```plaintext
 x = x + (v * delta_time) + (1/2 * a * delta_time^2)
 v = v + (a * delta_time)
 ```
@@ -171,7 +171,7 @@ target speed, which changes when player inputs change.
 
 The lerp function is defined as:
 
-```text
+```plaintext
 lerp(a, b, d) = a + (b - a) * d
 ```
 
@@ -179,7 +179,7 @@ And what it does is move a value `a` towards a value `b` by a factor `d` with a 
 
 An often used yet frame rate dependent (basically, incorrect) way of running it iteratively is:
 
-```text
+```plaintext
 a = lerp(a, b, d * delta_time)
 ```
 
@@ -187,7 +187,7 @@ To make lerp properly frame rate independent, we can observe that what it does i
 
 This is equivalent to exponential decay - which is a popular differential equation:
 
-```text
+```plaintext
 da/dt = -ka
 ```
 
@@ -195,13 +195,13 @@ It reflects a scenario where the amount of something decreases at a rate proport
 
 To make our frame rate independent lerp, we can start by formulating a similar differential equation:
 
-```text
+```plaintext
 da/dt = (b - a) * d
 ```
 
 Which has the following solution:
 
-```text
+```plaintext
 a(t) = b + C * e^(-dt)
 ```
 
@@ -211,7 +211,7 @@ Remember that because `a(t)` is a solution to a differential equation, we know i
 
 To make `a(t)` start at a constant `a` and move towards a constant `b`, we can say that:
 
-```text
+```plaintext
 C = a - b
 
 a(t) = b + (a - b) * e^(-dt)
@@ -219,13 +219,13 @@ a(t) = b + (a - b) * e^(-dt)
 
 Let's also recall that:
 
-```text
+```plaintext
 lerp(a, b, d) = a + (b - a) * d
 ```
 
 We can try to modify `a(t)` in order to try to match lerp's format:
 
-```text
+```plaintext
 a(t) = b + (a - b) * e^(-dt)
      (add and remove a)
      = a + (a - b) * e^(-dt) + (b - a)
@@ -236,7 +236,7 @@ Now `a(t)` looks very much like lerp. There is only one thing left - we would li
 
 To do so, we need to find `k(d)` such that:
 
-```text
+```plaintext
 1 - e^(-k(d) * t) = 0.5
 ```
 
@@ -244,7 +244,7 @@ When `t = d`.
 
 Solving for `k(d)`:
 
-```text
+```plaintext
 1 - e^(-k(d) * d) = 0.5
   <=> e^(-k(d) * d) = 0.5
   <=> ln(0.5) = -k(d) * d
@@ -253,7 +253,7 @@ Solving for `k(d)`:
 
 Replacing `d` with `k(d)` in `a(t)`:
 
-```text
+```plaintext
 a(t) = a + (b - a) * (1 - e^[-dt])
      (replace d with k(d))
      = a + (b - a) * (1 - e^[-(-ln(0.5) / d) * t])
@@ -263,13 +263,13 @@ a(t) = a + (b - a) * (1 - e^[-dt])
 
 Now we can see that to call lerp iteratively in a frame rate independent way, with a factor `d` representing "time until half of original distance remains", we can use:
 
-```text
+```plaintext
 a = lerp(a, b, 1 - 0.5^(delta_time / d))
 ```
 
 To minimize the effect of floating point imprecision, because `delta_time` will tend to be very small, we can rearrange the order of operations:
 
-```text
+```plaintext
 a = lerp(a, b, 1 - (0.5^delta_time)^(1 / d))
 ```
 
@@ -279,32 +279,32 @@ It has been a long time thinking about frame rate independence before arriving a
 
 My initial approach began by formulating an iterative lerp:
 
-```text
+```plaintext
 a = lerp(a, b, d)
 ```
 
 As a recursive series:
 
-```text
+```plaintext
 S(0) = a
 S(n) = S(n-1) + (b - S(n-1)) * d
 ```
 
 Then obtaining a closed form expression - a function `f(n)` that returns the value of `a` after `n` frames have elapsed:
 
-```text
+```plaintext
 f(n) = b + (a - b) * (1 - d)^n
 ```
 
 Knowing that frames elapsed relate to time in the following manner:
 
-```text
+```plaintext
 n = t / delta_time
 ```
 
 Where `t` is total time elapsed, and `delta_time` is the interval between frames (assumed constant), we can replace `n` to obtain the following expression:
 
-```text
+```plaintext
 f(t) = b + (a - b) * (1 - d)^(t / delta_time)
 ```
 
@@ -312,13 +312,13 @@ We now can try to find out how to change the factor `d` such that variations in 
 
 This can be done with:
 
-```text
+```plaintext
 d -> (1 - d^delta_time)
 ```
 
 As we can see by making this replacement in the expression above:
 
-```text
+```plaintext
 f(t) = b + (a - b) * (1 - (1 - d^delta_time))^(t / delta_time)
      = b + (d^delta_time)^(t / delta_time) * (a - b)
      = b + d^t * (a - b)
@@ -328,7 +328,7 @@ f(t) = b + (a - b) * (1 - (1 - d^delta_time))^(t / delta_time)
 
 This is equivalent to calling lerp with:
 
-```text
+```plaintext
 lerp(a, b, 1 - d^delta_time)
 ```
 
@@ -340,20 +340,20 @@ Also, sums of series are closely related to integrals (and thus differential equ
 
 We skipped over this step before, but if you're curious about how we can turn the recursive series:
 
-```text
+```plaintext
 S(0) = a
 S(n) = S(n-1) + (b - S(n-1)) * d
 ```
 
 Into a closed form expression, which is the one we already saw above:
 
-```text
+```plaintext
 f(n) = b + (a - b) * (1 - d)^n
 ```
 
 A good general approach is to expand `S(n-1)` backwards a few steps (into `S(n-2)`, `S(n-3)`), and to look for patterns that can be replaced with sum formulas.
 
-```text
+```plaintext
 S(0) = a
 S(n) = S(n-1) + (b - S(n-1)) * d
      = S(n-1) * (1 - d) + db
@@ -363,7 +363,7 @@ S(n) = S(n-1) + (b - S(n-1)) * d
 
 Now that we have quite a long expression, we can reorganize it a bit:
 
-```text
+```plaintext
 S(n) = ([S(n-3) * (1 - d) + db] * (1 - d) + db) * (1 - d) + db
 
      (start by reversing it to make it easier to read left-to-right)
@@ -374,25 +374,25 @@ S(n) = ([S(n-3) * (1 - d) + db] * (1 - d) + db) * (1 - d) + db
 
 We can see two patterns above:
 
-```text
+```plaintext
 db + (1 - d) * db + (1 - d)^2 * db
 ```
 
 and
 
-```text
+```plaintext
 (1 - d)^3 * S(n-3)
 ```
 
 The first pattern is a geometric series - which has the following formula for the sum of the first `n` terms:
 
-```text
+```plaintext
 a + ar + ar^2 + ... + ar^(n-1) = a * (1 - r^n) / (1 - r)
 ```
 
 So with `a = db` and `r = (1 - d)` we can change it into the following:
 
-```text
+```plaintext
 db + (1 - d) * db + (1 - d)^2 * db
 
   = db * (1 - (1 - d)^n) / (1 - (1 - d))
@@ -402,7 +402,7 @@ db + (1 - d) * db + (1 - d)^2 * db
 
 The second pattern can be dealt with through a simple replacement:
 
-```text
+```plaintext
 (1 - d)^3 * S(n-3) = (1 - d)^n * a
 ```
 
@@ -410,7 +410,7 @@ Note that eventually the remaining `S(n-3)` term will become `a`, which is the s
 
 So by adding back together the the two patterns, `S(n)` becomes:
 
-```text
+```plaintext
 S(n) = b * (1 - (1 - d)^n) + (1 - d)^n * a
      = b - (b * (1 - d)^n) + (1 - d)^n * a
      = b + (a - b) * (1 - d)^n
@@ -418,7 +418,7 @@ S(n) = b * (1 - (1 - d)^n) + (1 - d)^n * a
 
 And now `S(n)` is no longer a recursive expression:
 
-```text
+```plaintext
 S(n) = b + (a - b) * (1 - d)^n
 ```
 

@@ -30,12 +30,12 @@ Note that dependency versions may not match exactly with the GitHub Action that 
 
 Which locally outputs:
 
-```text
+```plaintext
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset. It is assumed that the...
 ```
 
 And on the deployed site outputs:
 
-```text
+```plaintext
 In this post we summarize the math behind deep learning and implement a simple network that achieves 85% accuracy classifying digits from the MNIST dataset.
 ```
