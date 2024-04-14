@@ -28,14 +28,12 @@ $color-text-primary: #e6e6e6;
 $color-text-secondary: #aaa;
 $color-text-tertiary: #696969;
 
-// Whitespace
-$space-1: 8px !default;
-$space-2: 16px !default;
-$space-3: 32px !default;
-$space-4: 64px !default;
-
-// Border radius
-$border-radius: 3px !default;
+@mixin blockquote {
+  border-left: 4px solid $color-text-secondary;
+  margin: 1em 2em;
+  // Padding required to separate text from border.
+  padding: 0 2em;
+}
 
 /*
  * Styles
@@ -121,18 +119,6 @@ sup {
   top: -0.9ex;
 }
 
-details {
-  margin-bottom: 1rem;
-
-  p {
-    margin: 1rem;
-  }
-}
-
-iframe {
-  margin-bottom: $space-2;
-}
-
 code {
   font-size: 0.9rem;
   background-color: #0d1117;
@@ -142,22 +128,13 @@ code {
 }
 
 blockquote {
-  border-left: 5px solid $color-text-secondary;
+  @include blockquote;
   font-style: italic;
-  margin: $space-3;
-  padding: 0 $space-1;
 }
 
 // List markers (bullet points, numbers)
 ::marker {
   font-weight: bold;
-}
-
-dl,
-ol,
-ul {
-  margin: 2em 0 2em 0;
-  padding-left: $space-3;
 }
 
 // No margin for lists inside lists
@@ -209,6 +186,21 @@ code {
   font-family: $monospace-font-family;
 }
 
+details {
+  margin: 1em 0;
+
+  & > p {
+    @include blockquote;
+  }
+
+  summary p {
+    // Fix required for collapsible sections (using "<details>" and "<summary>"
+    display: inline;
+
+    cursor: pointer;
+  }
+}
+
 .muted {
   color: $color-text-secondary;
 }
@@ -232,8 +224,6 @@ code {
 
 #posts {
   .post-link {
-    margin-top: $space-3;
-
     h1,
     h2,
     h3,
