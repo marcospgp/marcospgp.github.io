@@ -17,9 +17,9 @@ October 2005
 (This essay is derived from a talk at the 2005 Startup School.)
 
 <details>
-<summary>People think it's hard to come up with good ideas for startups because they don't actually try to do it.</summary>
-
-<br>
+<summary>
+People think it's hard to come up with good ideas for startups because they don't actually try to do it.
+</summary>
 
 The number one question people ask me is probably "How do you get good ideas for startups?".
 
@@ -34,9 +34,9 @@ I think this is often the case. I think people believe that coming up with ideas
 </details>
 
 <details>
-<summary>I have a theory about why people think this. They overvalue ideas, which by themselves are worthless.</summary>
-
-<br>
+<summary>
+I have a theory about why people think this. They overvalue ideas, which by themselves are worthless.
+</summary>
 
 They think creating a startup is just a matter of implementing some fabulous initial idea. And since a successful startup is worth millions of dollars, a good idea is therefore a million dollar idea.
 
@@ -49,9 +49,9 @@ Actually, startup ideas are not million dollar ideas, and here's an experiment y
 ### Questions
 
 <details>
-<summary>An idea is just a starting point, and you should treat it like a question, not an assertion.</summary>
-
-<br>
+<summary>
+An idea is just a starting point, and you should treat it like a question, not an assertion.
+</summary>
 
 The fact is, most startups end up nothing like the initial idea. It would be closer to the truth to say the main value of your initial idea is that, in the process of discovering it's broken, you'll come up with your real idea.
 
@@ -70,9 +70,9 @@ One valuable way for an idea to be wrong is to be only a partial solution. When 
 ### Upwind
 
 <details>
-<summary>To generate ideas as questions, you need two things: Familiarity with recent technology, and friends to discuss it with.</summary>
-
-<br>
+<summary>
+To generate ideas as questions, you need two things: Familiarity with recent technology, and friends to discuss it with.
+</summary>
 
 So far, we've reduced the problem from thinking of a million dollar idea to thinking of a mistaken question. That doesn't seem so hard, does it?
 
@@ -83,9 +83,9 @@ Universities have both, and that's why so many startups grow out of them. They'r
 </details>
 
 <details>
-<summary>You should stay upwind as long as you can, investing in your future potential.</summary>
-
-<br>
+<summary>
+You should stay upwind as long as you can, investing in your future potential.
+</summary>
 
 The opposite extreme would be a well-paying but boring job at a big company. Big companies are biased against new technologies, and the people you'd meet there would be wrong too.
 
@@ -100,9 +100,9 @@ The right environment for having startup ideas need not be a university per se. 
 </details>
 
 <details>
-<summary>You need other people to generate good ideas.</summary>
-
-<br>
+<summary>
+You need other people to generate good ideas.
+</summary>
 
 It's obvious why you want exposure to new technology, but why do you need other people? Can't you just think of new ideas yourself? The empirical answer is: no. Even Einstein needed people to bounce ideas off. Ideas get developed in the process of explaining them to the right kind of person. You need that resistance, just as a carver needs the resistance of the wood.
 
@@ -117,9 +117,9 @@ When you realize that successful startups tend to have multiple founders who wer
 ### Doodling
 
 <details>
-<summary>You should converse with other people and then let your mind wander on its own.</summary>
-
-<br>
+<summary>
+You should converse with other people and then let your mind wander on its own.
+</summary>
 
 What these groups of co-founders do together is more complicated than just sitting down and trying to think of ideas. I suspect the most productive setup is a kind of together-alone-together sandwich. Together you talk about some hard problem, probably getting nowhere. Then, the next morning, one of you has an idea in the shower about how to solve it. He runs eagerly to to tell the others, and together they work out the kinks.
 
@@ -134,9 +134,9 @@ Perhaps letting your mind wander is like doodling with ideas. You have certain m
 </details>
 
 <details>
-<summary>You need to work for a while in an area so you can build the habits of mind necessary for new ideas to arise like doodles.</summary>
-
-<br>
+<summary>
+You need to work for a while in an area so you can build the habits of mind necessary for new ideas to arise like doodles.
+</summary>
 
 Conveniently, as I was writing this, my mind wandered: would it be useful to have metaphors in a programming language? I don't know; I don't have time to think about this. But it's convenient because this is an example of what I mean by habits of mind. I spend a lot of time thinking about language design, and my habit of always asking "would x be useful in a programming language" just got invoked.
 
@@ -147,9 +147,9 @@ Of course the habits of mind you invoke on some field don't have to be derived f
 </details>
 
 <details>
-<summary>Harder fields are better sources of habits of mind.</summary>
-
-<br>
+<summary>
+Harder fields are better sources of habits of mind.
+</summary>
 
 Are some kinds of work better sources of habits of mind than others? I suspect harder fields may be better sources, because to attack hard problems you need powerful solvents. I find math is a good source of metaphors-- good enough that it's worth studying just for that. Related fields are also good sources, especially when they're related in unexpected ways. Everyone knows computer science and electrical engineering are related, but precisely because everyone knows it, importing ideas from one to the other doesn't yield great profits. It's like importing something from Wisconsin to Michigan. Whereas (I claim) hacking and painting are also related, in the sense that hackers and painters are both makers, and this source of new ideas is practically virgin territory.
 
@@ -158,9 +158,9 @@ Are some kinds of work better sources of habits of mind than others? I suspect h
 ### Problems
 
 <details>
-<summary>Assembling ideas at random doesn't work because the search space is too big.</summary>
-
-<br>
+<summary>
+Assembling ideas at random doesn't work because the search space is too big.
+</summary>
 
 In theory you could stick together ideas at random and see what you came up with. What if you built a peer-to-peer dating site? Would it be useful to have an automatic book? Could you turn theorems into a commodity? When you assemble ideas at random like this, they may not be just stupid, but semantically ill-formed. What would it even mean to make theorems a commodity? You got me. I didn't think of that idea, just its name.
 
@@ -171,9 +171,9 @@ I find that to have good ideas I need to be working on some problem. You can't s
 </details>
 
 <details>
-<summary>Think of ideas in terms of problems, not solutions. Humans have a tendency to either tolerate problems or see current solutions as the best that can be done.</summary>
-
-<br>
+<summary>
+Think of ideas in terms of problems, not solutions. Humans have a tendency to either tolerate problems or see current solutions as the best that can be done.
+</summary>
 
 In a way, it's harder to see problems than their solutions. Most people prefer to remain in denial about problems. It's obvious why: problems are irritating. They're problems! Imagine if people in 1700 saw their lives the way we'd see them. It would have been unbearable. This denial is such a powerful force that, even when presented with possible solutions, people often prefer to believe they wouldn't work.
 
@@ -188,9 +188,9 @@ Let me repeat that recipe: finding the problem intolerable and feeling it must b
 ### Wealth
 
 <details>
-<summary>Startups need to make something people want. A good idea isn't always valuable, but it's a good approximation.</summary>
-
-<br>
+<summary>
+Startups need to make something people want. A good idea isn't always valuable, but it's a good approximation.
+</summary>
 
 So far most of what I've said applies to ideas in general. What's special about startup ideas? Startup ideas are ideas for companies, and companies have to make money. And the way to make money is to make something people want.
 
@@ -203,18 +203,18 @@ But valuable ideas are very close to good ideas, especially in technology. I thi
 </details>
 
 <details>
-<summary>One way to make something people want is to look at stuff people use now that's broken.</summary>
-
-<br>
+<summary>
+One way to make something people want is to look at stuff people use now that's broken.
+</summary>
 
 Dating sites are a prime example. They have millions of users, so they must be promising something people want. And yet they work horribly. Just ask anyone who uses them. It's as if they used the worse-is-better approach but stopped after the first stage and handed the thing over to marketers.
 
 </details>
 
 <details>
-<summary>Of course, the most obvious breakage in the average computer user's life is Windows itself.</summary>
-
-<br>
+<summary>
+Of course, the most obvious breakage in the average computer user's life is Windows itself.
+</summary>
 
 But this is a special case: you can't defeat a monopoly by a frontal attack. Windows can and will be overthrown, but not by giving people a better desktop OS. The way to kill it is to redefine the problem as a superset of the current one. The problem is not, what operating system should people use on desktop computers? but how should people use applications? There are answers to that question that don't even involve desktop computers.
 
@@ -223,9 +223,9 @@ Everyone thinks Google is going to solve this problem, but it is a very subtle o
 </details>
 
 <details>
-<summary>Another classic way to make something people want is to take a luxury and make it into a commmodity.</summary>
-
-<br>
+<summary>
+Another classic way to make something people want is to take a luxury and make it into a commmodity.
+</summary>
 
 People must want something if they pay a lot for it. And it is a very rare product that can't be made dramatically cheaper if you try.
 
@@ -238,9 +238,9 @@ Often to make something dramatically cheaper you have to redefine the problem. T
 </details>
 
 <details>
-<summary>One of the most useful mental habits I know I learned from Michael Rabin: that the best way to solve a problem is often to redefine it.</summary>
-
-<br>
+<summary>
+One of the most useful mental habits I know I learned from Michael Rabin: that the best way to solve a problem is often to redefine it.
+</summary>
 
 A lot of people use this technique without being consciously aware of it, but Rabin was spectacularly explicit. You need a big prime number? Those are pretty expensive. How about if I give you a big number that only has a 10 to the minus 100 chance of not being prime? Would that do? Well, probably; I mean, that's probably smaller than the chance that I'm imagining all this anyway.
 
@@ -249,9 +249,9 @@ Redefining the problem is a particularly juicy heuristic when you have competito
 </details>
 
 <details>
-<summary>Making things cheaper is actually a subset of a more general technique: making things easier.</summary>
-
-<br>
+<summary>
+Making things cheaper is actually a subset of a more general technique: making things easier.
+</summary>
 
 For a long time it was most of making things easier, but now that the things we build are so complicated, there's another rapidly growing subset: making things easier to use.
 
@@ -260,9 +260,9 @@ This is an area where there's great room for improvement. What you want to be ab
 </details>
 
 <details>
-<summary>Simplicity takes effort-- genius, even. And big companies seems to be particularly bad at it.</summary>
-
-<br>
+<summary>
+Simplicity takes effort-- genius, even. And big companies seems to be particularly bad at it.
+</summary>
 
 The average programmer seems to produce UI designs that are almost willfully bad. I was trying to use the stove at my mother's house a couple weeks ago. It was a new one, and instead of physical knobs it had buttons and an LED display. I tried pressing some buttons I thought would cause it to get hot, and you know what it said? "Err." Not even "Error." "Err." You can't just say "Err" to the user of a stove. You should design the UI so that errors are impossible. And the boneheads who designed this stove even had an example of such a UI to work from: the old one. You turn one knob to set the temperature and another to set the timer. What was wrong with that? It just worked.
 
@@ -273,9 +273,9 @@ It seems that, for the average engineer, more options just means more rope to ha
 ### Design for Exit
 
 <details>
-<summary>Think about how you might get acquired in the future, and make sure to build something multiple acquirers will want and compete for.</summary>
-
-<br>
+<summary>
+Think about how you might get acquired in the future, and make sure to build something multiple acquirers will want and compete for.
+</summary>
 
 Success for a startup approximately equals getting bought. You need some kind of exit strategy, because you can't get the smartest people to work for you without giving them options likely to be worth something. Which means you either have to get bought or go public, and the number of startups that go public is very small.
 
@@ -292,18 +292,18 @@ If an increasing number of startups are created to do product development on spe
 ### The Woz Route
 
 <details>
-<summary>The most productive way to generate startup ideas is also the most unlikely-sounding: by accident.</summary>
-
-<br>
+<summary>
+The most productive way to generate startup ideas is also the most unlikely-sounding: by accident.
+</summary>
 
 If you look at how famous startups got started, a lot of them weren't initially supposed to be startups. Lotus began with a program Mitch Kapor wrote for a friend. Apple got started because Steve Wozniak wanted to build microcomputers, and his employer, Hewlett-Packard, wouldn't let him do it at work. Yahoo began as David Filo's personal collection of links.
 
 </details>
 
 <details>
-<summary>This is not the only way to start startups. You can sit down and consciously come up with an idea for a company; we did. But measured in total market cap, the build-stuff-for-yourself model might be more fruitful.</summary>
-
-<br>
+<summary>
+This is not the only way to start startups. You can sit down and consciously come up with an idea for a company; we did. But measured in total market cap, the build-stuff-for-yourself model might be more fruitful.
+</summary>
 
 It certainly has to be the most fun way to come up with startup ideas. And since a startup ought to have multiple founders who were already friends before they decided to start a company, the rather surprising conclusion is that the best way to generate startup ideas is to do what hackers do for fun: cook up amusing hacks with your friends.
 
