@@ -1,7 +1,8 @@
 /*
   Written by ChatGPT.
 
-  Checks or sorts markdown headers alphabetically within their respective levels, depending on the --write flag.
+  Checks or sorts markdown headers alphabetically within their respective
+  levels, depending on the --write flag.
 
   Usage:
     dotnet tool install -g dotnet-script
@@ -47,17 +48,14 @@ class SortingHelper
 
     private static void CheckSortingRecursively(MarkdownNode node, List<string> sortingIssues)
     {
-        // Check sorting issues for immediate children of the current node
         for (int i = 0; i < node.Children.Count - 1; i++)
         {
-            // Compare the headers of adjacent children
             if (string.Compare(node.Children[i].Header, node.Children[i + 1].Header, StringComparison.OrdinalIgnoreCase) > 0)
             {
                 sortingIssues.Add($"The header '{node.Children[i].Header}' at level {node.Children[i].Level} should appear after '{node.Children[i + 1].Header}' at level {node.Children[i + 1].Level}");
             }
         }
 
-        // Recursively check sorting issues for each child node
         foreach (var child in node.Children)
         {
             CheckSortingRecursively(child, sortingIssues);
@@ -75,21 +73,11 @@ if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
 }
 
 var lines = File.ReadAllLines(filePath);
-var rootNode = new MarkdownNode(0, null, null); // Root node without a header
+var rootNode = new MarkdownNode(0, null, null);
 MarkdownNode currentNode = rootNode;
 bool inFencedCodeBlock = false;
 
-// Find the index of the first header line
-int firstHeaderIndex = lines.ToList().FindIndex(line => line.TrimStart().StartsWith("#"));
-if (firstHeaderIndex > 0)
-{
-    for (int i = 0; i < firstHeaderIndex; i++)
-    {
-        rootNode.AddContentLine(lines[i]);
-    }
-}
-
-foreach (var line in lines.Skip(firstHeaderIndex))
+foreach (var line in lines)
 {
     var trimmedLine = line.Trim();
 
@@ -131,51 +119,53 @@ if (sortingIssues.Any())
     }
     if (writeChanges)
     {
-        Console.WriteLine("Sorting issues found. Updating the markdown file...");
-
-        // Sort the headers alphabetically and update the file
         SortAndWriteHeaders(rootNode, filePath);
-
         Console.WriteLine("Markdown file updated successfully.");
-        Environment.Exit(0); // Exit with success code if issues were corrected
+        Environment.Exit(0);
     }
     else
     {
         Console.WriteLine("Review the sorting issues listed above. Use --write to sort and update the markdown file.");
-        Environment.Exit(1); // Exit with error code if sorting issues were found
+        Environment.Exit(1);
     }
 }
 else
 {
-    if (writeChanges)
-    {
-        Console.WriteLine("No sorting issues found. The markdown file is already sorted.");
-    }
-    else
-    {
-        Console.WriteLine("No sorting issues found.");
-    }
-    Environment.Exit(0); // Exit with success code if no issues were found
+    Console.WriteLine("No sorting issues found.");
+    Environment.Exit(0);
 }
 
-void SortAndWriteHeaders(MarkdownNode node, string filePath)
-{
-    var sortedLines = new List<string>();
-    WriteNode(node, sortedLines);
-    File.WriteAllLines(filePath, sortedLines);
-}
-
-void WriteNode(MarkdownNode node, List<string> lines)
+static void WriteNode(MarkdownNode node, List<string> lines)
 {
     if (node.Header != null)
     {
+        // Ensure a blank line before headers for readability, unless it's the very first item
+        if (lines.Count > 0 && lines.Last() != "")
+            lines.Add("");
+
         lines.Add(new string('#', node.Level) + " " + node.Header);
     }
-    lines.AddRange(node.Content);
 
-    // Sort children nodes alphabetically
+    // Directly add the content, assuming content includes proper formatting
+    foreach (var line in node.Content)
+    {
+        lines.Add(line);
+    }
+
+    // Sort children nodes alphabetically and process them
     foreach (var child in node.Children.OrderBy(child => child.Header, StringComparer.OrdinalIgnoreCase))
     {
         WriteNode(child, lines);
     }
+
+    // Remove any extra newline at the end to prevent duplication
+    if (node.Parent == null && lines.Count > 0 && lines.Last() == "")
+        lines.RemoveAt(lines.Count - 1);
+}
+
+static void SortAndWriteHeaders(MarkdownNode rootNode, string filePath)
+{
+    var sortedLines = new List<string>();
+    WriteNode(rootNode, sortedLines);
+    File.WriteAllLines(filePath, sortedLines);
 }
