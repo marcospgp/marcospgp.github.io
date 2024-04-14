@@ -39,6 +39,12 @@ $color-text-tertiary: #696969;
  * Styles
  */
 
+:root {
+  // Apply dark color scheme to things like scrollbar.
+  // Source: https://stackoverflow.com/a/66097469/2037431
+  color-scheme: dark;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -154,7 +160,7 @@ hr {
 }
 
 a {
-  color: #90a1ff;
+  color: #9aa9ff;
 
   // &:visited {
   //   color: #e078ff;
