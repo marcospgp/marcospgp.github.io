@@ -3,13 +3,17 @@
 
 {% include head.html %}
 
+{% comment %}
+Homepage is root url or any of the browse-by-tag pages.
+{% endcomment %}
+{% assign url_parts = page.url | split: '/' %}
+{% if page.url == '/index.html' or url_parts[1] == 'tags' %}
+{% assign is_homepage = true %}
+{% else %}
+{% assign is_homepage = false %}
+{% endif %}
+
 <body>
-
-  <br>
-  <br>
-  <br>
-  <br>
-
   <h1>
     <a href="{{ '/' | relative_url }}" class="title-link">{{ site.title }}</a>
   </h1>
@@ -26,32 +30,25 @@
     </a>
   </div>
 
-  <br>
-
-  <h3>
+  <h4>
     <a class="title-link" href="/">Posts</a>
-  </h3>
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
 
+    {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = site.header_pages | default: default_paths %}
 
-  {% assign default_paths = site.pages | map: "path" %}
-  {% assign page_paths = site.header_pages | default: default_paths %}
-
-  {% for path in page_paths %}
-  <h3>
+    {% for path in page_paths %}
     {% assign item = site.pages | where: "path", path | first %}
     <a class="title-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-  </h3>
-  {% endfor %}
 
-  <br>
-  <hr>
-  <br>
+    {% if forloop.last == false %}
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    {% endif %}
 
-  {% comment %}
-  Do not add page title if on homepage or one of the browse-by-tag pages.
-  {% endcomment %}
-  {% assign url_parts = page.url | split: '/' %}
-  {% if page.url != '/index.html' and url_parts[1] != 'tags' %}
+    {% endfor %}
+  </h4>
+
+  {% if is_homepage == false %}
   <h1 style="text-transform: capitalize">
     {{ page.title }}
   </h1>
@@ -74,12 +71,10 @@
   {% endif %}
 
   {% comment %}
-  This Table of Contents block makes use of the Hierarchical TOC Generator
-  plugin created by ChatGPT.
-  It inserts a TOC for pages unless 'table_of_contents' is explicitly set to
-  false in the front matter.
+  Add table of contents to all posts, and to pages that specify it in front
+  matter.
   {% endcomment %}
-  {% if page.table_of_contents != false %}
+  {% if page.path contains '_posts' or page.table_of_contents == true %}
   <div class="table-of-contents">
     {{ content | table_of_contents | safe }}
   </div>
@@ -88,14 +83,20 @@
   <div>{{ content }}</div>
 
   <br>
-  <hr>
-  <br>
+
+  {% comment %}
+  Display comments section on every post, and on pages that specify it in front
+  matter.
+  {% endcomment %}
+  {% if page.path contains '_posts' or page.comments_section == true %}
+  <script src="https://utteranc.es/client.js" repo="marcospgp/marcospgp.github.io" issue-term="pathname"
+    label="utterances-comments-section" theme="github-dark" crossorigin="anonymous" async>
+    </script>
+  {% endif %}
 
   <h3>
     <a class="title-link" href="#">Back to top</a>
   </h3>
-
-  <br>
 
   <!-- AnchorJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>

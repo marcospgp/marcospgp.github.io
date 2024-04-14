@@ -6,8 +6,8 @@
   Usage:
     dotnet tool install -g dotnet-script
     (add dotnet-script to $PATH)
-    Check: dotnet-script SortMarkdownHeaders.csx notes.md
-    Sort: dotnet-script SortMarkdownHeaders.csx --write notes.md
+    Check: dotnet-script _helpers/SortMarkdownHeaders.csx notes.md
+    Sort: dotnet-script _helpers/SortMarkdownHeaders.csx --write notes.md
 */
 
 using System;

@@ -2,6 +2,7 @@
 layout: default
 title: A checklist for SQLite
 tag: Web 💻
+pinned: true
 ---
 
 This is a field guide on setting up and making use of SQLite in the strictest, least error-prone way possible. Examples are based on Python, which provides SQLite as part of its standard library.

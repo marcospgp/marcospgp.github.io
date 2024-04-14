@@ -1,9 +1,10 @@
+<h1>Posts</h1>
+
 {% comment %}
 Browse by tag. Requires pagination to be enabled.
 {% endcomment %}
 {% if page.pagination.enabled %}
-
-<h4>
+<h5>
   {% if page.pagination.tag %}
   <a class="title-link" href="{{ '/' | relative_url }}">All Posts</a>
   {% else %}
@@ -34,10 +35,7 @@ Browse by tag. Requires pagination to be enabled.
   {% endif %}
 
   {% endfor %}
-</h4>
-
-<br>
-
+</h5>
 {% endif %}
 
 {% comment %}
@@ -50,24 +48,23 @@ Pagination links to "#posts". If modifying, modify it there too.
   {% for post in paginator.posts %}
   {% if post.pinned %}
 
-  <a class="title-link" href="{{ post.url | relative_url }}">
-    <h4 style="text-transform: capitalize;">{{ post.title }}</h4>
-  </a>
+  <div class="post-link">
+    <h4 class="post-title">
+      <a class="title-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h4>
+    <h6 class="muted">
+      {% if site.date_format %}
+      {{ post.date | date: site.date_format }}
+      {% else %}
+      {{ post.date | date: "%b %-d, %Y" }}
+      {% endif %}
+      <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+      {{post.tags}}
 
-  <h6 class="muted">
-    {% if site.date_format %}
-    {{ post.date | date: site.date_format }}
-    {% else %}
-    {{ post.date | date: "%b %-d, %Y" }}
-    {% endif %}
-    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-    {{post.tags}}
-
-    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-    Pinned 📌
-  </h6>
-
-  <br>
+      <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+      Pinned 📌
+    </h6>
+  </div>
 
   {% endif %}
   {% endfor %}
@@ -83,24 +80,22 @@ Pagination links to "#posts". If modifying, modify it there too.
   {% endcomment %}
   {% if post.pinned != true %}
 
-
-  <a class="title-link" href="{{ post.url | relative_url }}">
-    <h4 style="text-transform: capitalize;">{{ post.title }}</h4>
-  </a>
-
-  <h6 class="muted">
-    {% if site.date_format %}
-    {{ post.date | date: site.date_format }}
-    {% else %}
-    {{ post.date | date: "%b %-d, %Y" }}
-    {% endif %}
-    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-    {{post.tags}}
-  </h6>
-
-  {% if forloop.last == false %}
-  <br>
-  {% endif %}
+  <div class="post-link">
+    <h4 class="post-title">
+      <a class="title-link" href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </h4>
+    <h6 class="muted">
+      {% if site.date_format %}
+      {{ post.date | date: site.date_format }}
+      {% else %}
+      {{ post.date | date: "%b %-d, %Y" }}
+      {% endif %}
+      <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+      {{post.tags}}
+    </h6>
+  </div>
 
   <!--
   <span>
@@ -118,48 +113,40 @@ Pagination links to "#posts". If modifying, modify it there too.
 
 {% if paginator.total_pages > 1 %}
 
-<br>
-<br>
+<h3>Page {{ paginator.page }} of {{ paginator.total_pages }}</h3>
 
-<div>
-  <h3>Page {{ paginator.page }} of {{ paginator.total_pages }}</h3>
+{% if paginator.previous_page %}
 
-  {% if paginator.previous_page %}
+{% comment %}
+Special case is required for linking to page 1.
+See https://jekyllrb.com/docs/pagination/.
+{% endcomment %}
+{% if paginator.page == 2 %}
+<h3>
+  <a class="title-link" href="{{ '/' | relative_url }}#posts">Previous</a>
+</h3>
+{% else %}
+<h3>
+  <a class="title-link" href="{{ paginator.previous_page_path | relative_url }}#posts">Previous</a>
+</h3>
+{% endif %}
 
-  {% comment %}
-  Special case is required for linking to page 1.
-  See https://jekyllrb.com/docs/pagination/.
-  {% endcomment %}
-  {% if paginator.page == 2 %}
-  <h3>
-    <a class="title-link" href="{{ '/' | relative_url }}#posts">Previous</a>
-  </h3>
-  {% else %}
-  <h3>
-    <a class="title-link" href="{{ paginator.previous_page_path | relative_url }}#posts">Previous</a>
-  </h3>
-  {% endif %}
+{% else %}
 
-  {% else %}
+<h3>
+  <a class="title-link disabled">Previous</a>
+</h3>
 
-  <h3>
-    <a class="title-link disabled">Previous</a>
-  </h3>
+{% endif %}
 
-  {% endif %}
-
-  {% if paginator.next_page %}
-  <h3>
-    <a class="title-link" href="{{ paginator.next_page_path | relative_url }}#posts">Next</a>
-  </h3>
-  {% else %}
-  <h3>
-    <a class="title-link disabled">Next</a>
-  </h3>
-  {% endif %}
-</div>
-
-<br>
-<br>
+{% if paginator.next_page %}
+<h3>
+  <a class="title-link" href="{{ paginator.next_page_path | relative_url }}#posts">Next</a>
+</h3>
+{% else %}
+<h3>
+  <a class="title-link disabled">Next</a>
+</h3>
+{% endif %}
 
 {% endif %}

@@ -18,43 +18,30 @@
 # of overlap on links to specific headers increase.
 
 module Jekyll
-  module HierarchicalHeadersAndUpdateLinks
+  Jekyll::Hooks.register [:pages, :documents], :post_render do |document|
+    content = document.output
+    new_content = ''
+    inside_anchor = false
+    tag_depth = 0
 
-    Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
-      header_map = {}
-      current_hierarchy = []
-
-      doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
-        tag, attrs, content = $1, $2, $3.strip
-        level = tag[1].to_i
-
-        # Directly use existing ID or content as the original ID
-        id_match = attrs.match(/id="([^"]+)"/)
-        original_id = id_match ? id_match[1] : content
-
-        # Update hierarchy and construct hierarchical ID
-        current_hierarchy = current_hierarchy.slice(0, level - 1)
-        current_hierarchy << original_id
-        hierarchical_id = current_hierarchy.join("--")
-
-        # Map original ID to hierarchical ID
-        header_map[original_id] = hierarchical_id
-
-        # Apply the hierarchical ID to the header
-        "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
-      end
-
-      # Update links to use hierarchical IDs
-      doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
-        original_href = $1
-
-        # Replace href with hierarchical ID if it exists in the map
-        if header_map.key?(original_href)
-          link.sub("##{original_href}", "##{header_map[original_href]}")
-        else
-          link
+    content.scan(/<[^>]+>|[^<]+/).each do |fragment|
+      if fragment.start_with?('<')
+        if fragment.start_with?('<a ')
+          inside_anchor = true
+          tag_depth += 1
+        elsif fragment.start_with?('</a>')
+          tag_depth -= 1
+          inside_anchor = false if tag_depth == 0
+        elsif fragment.start_with?('<img ') && !inside_anchor
+          src_match = fragment.match(/src=['"]([^'"]*)['"]/)
+          src = src_match[1] if src_match
+          fragment = "<a href='#{src}' target='_blank'>#{fragment}</a>"
         end
       end
+
+      new_content += fragment
     end
+
+    document.output = new_content
   end
 end

@@ -2,9 +2,9 @@
 #
 # Adds the "language-<language>" class from "<pre>" elements to any child
 # "<code>" elements.
-# This is needed because Jekyll/Kramdown/Rouge add the class to "<pre>" elements
-# when generating code blocks, but highlight.js looks for the class in the
-# "<code>" element - and if it's not there, auto detects the language.
+# This is needed because Jekyll/Kramdown/Rouge add the class to a "<div>" parent
+# element when generating code blocks, but highlight.js looks for the class in
+# the "<code>" element - and if it's not there, auto detects the language.
 
 module Jekyll
   module TransferLanguageClass

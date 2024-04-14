@@ -3,7 +3,6 @@ layout: default
 pagination:
   enabled: true
   tag: AI 🤖
-table_of_contents: false
 ---
 
 {% include index.html %}

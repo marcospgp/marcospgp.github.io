@@ -12,12 +12,12 @@
 $font-family: "Merriweather", serif;
 $heading-font-family: "Lato", sans-serif;
 $monospace-font-family: "Fira Code", monospace;
-$h1: 2.2rem !default;
-$h2: 1.6rem !default;
-$h3: 1.4rem !default;
-$h4: 1.1rem !default;
-$h5: 1rem !default;
-$h6: 0.875rem !default;
+$h1: 2rem !default;
+$h2: 1.8rem !default;
+$h3: 1.5rem !default;
+$h4: 1.2rem !default;
+$h5: 1.1rem !default;
+$h6: 0.9rem !default;
 
 // Color scheme
 $color-background: #222;
@@ -25,9 +25,8 @@ $color-primary: #521de4;
 $color-secondary: hsl(273, 80%, 50%);
 $color-tertiary: hsl(337, 90%, 60%);
 $color-text-primary: #e6e6e6;
-$color-text-secondary: #cbcbcb;
-$color-text-tertiary: #ff5596;
-$color-text-inverse: #000;
+$color-text-secondary: #aaa;
+$color-text-tertiary: #696969;
 
 // Whitespace
 $space-1: 8px !default;
@@ -50,10 +49,14 @@ body {
   min-height: 100vh;
   max-width: 50rem;
 
+  // Center content.
+  margin: auto;
+
+  // For mobile.
+  padding: 0 1rem;
+
   font-size: 0.95rem;
   font-weight: lighter;
-
-  margin: auto;
 
   // Fix for links (<a>) overflowing out of body
   word-break: break-word;
@@ -64,9 +67,46 @@ body {
   font-family: $font-family;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.5em 0 1em 0;
+  font-family: $heading-font-family;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+h2 {
+  font-size: $h2;
+  border-bottom: 1px solid $color-text-primary;
+}
+
+h3 {
+  font-size: $h3;
+}
+
+h4 {
+  font-size: $h4;
+}
+
+h5 {
+  font-size: $h5;
+}
+
+h6 {
+  font-size: $h6;
+}
+
 img {
   display: block;
-  margin: $space-3 auto $space-3 auto;
+  margin: auto;
+  // Limiting img width is necessary, or it will grow larger than its container.
   max-width: 100%;
 }
 
@@ -111,45 +151,6 @@ blockquote {
 // List markers (bullet points, numbers)
 ::marker {
   font-weight: bold;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: $space-2;
-  margin-bottom: $space-1;
-
-  font-family: $heading-font-family;
-  font-weight: bold;
-  line-height: 1.5;
-}
-
-h1 {
-  font-size: $h1;
-}
-
-h2 {
-  font-size: $h2;
-  border-bottom: 1px solid $color-text-primary;
-}
-
-h3 {
-  font-size: $h3;
-}
-
-h4 {
-  font-size: $h4;
-}
-
-h5 {
-  font-size: $h5;
-}
-
-h6 {
-  font-size: $h6;
 }
 
 dl,
@@ -203,6 +204,11 @@ a {
   }
 }
 
+pre,
+code {
+  font-family: $monospace-font-family;
+}
+
 .muted {
   color: $color-text-secondary;
 }
@@ -224,69 +230,21 @@ a {
   color: $color-primary;
 }
 
-/* Code styles */
+#posts {
+  .post-link {
+    margin-top: $space-3;
 
-pre,
-code {
-  font-family: $monospace-font-family;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
+  }
+
+  .post-title {
+    text-transform: capitalize;
+  }
 }
-
-// code {
-//   color: $color-text-secondary;
-// }
-
-// pre {
-//   padding: 1.125em;
-//   line-height: 1.11;
-//   overflow-x: scroll;
-//   margin-bottom: 0.88em;
-//   background-color: $color-secondary;
-// }
-
-// .highlight .p {
-//   font-size: 1.125rem;
-//   line-height: 1;
-// }
-
-// pre {
-//   counter-reset: line-numbering;
-//   white-space: pre;
-//   overflow-x: auto;
-//   word-break: inherit;
-//   word-wrap: inherit;
-// }
-
-// pre a {
-//   background-image: none;
-// }
-
-// pre a::before {
-//   content: counter(line-numbering);
-//   counter-increment: line-numbering;
-//   padding-right: 1em; /* space after numbers */
-//   width: 25px;
-//   text-align: right;
-//   opacity: 0.7;
-//   display: inline-block;
-//   color: $color-secondary;
-//   margin-right: 16px;
-//   font-size: 13px;
-//   -webkit-touch-callout: none;
-//   -webkit-user-select: none;
-//   -khtml-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-// }
-
-// pre a:first-of-type::before {
-//   padding-top: 10px;
-// }
-
-// pre a:last-of-type::before {
-//   padding-bottom: 10px;
-// }
-
-// pre a:only-of-type::before {
-//   padding: 10px;
-// }

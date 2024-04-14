@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Resume
-table_of_contents: false
 ---
 
 <!-- Disable Anchor JS -->
