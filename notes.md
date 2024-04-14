@@ -101,6 +101,14 @@ Context on using `.ONESHELL` and `.SHELLFLAGS`:
 .SHELLFLAGS := -c -e -o pipefail -u
 ```
 
+# Hardware
+
+## Monitors
+
+### VA vs IPS vs OLED
+
+IPS is better. VA has issues with ghosting/black smearing. OLED has issues with pixel burn-in.
+
 # Unity game dev
 
 ## Analyzers
