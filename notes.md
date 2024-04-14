@@ -24,6 +24,7 @@ For those, it may be better to scale fonts only and keep spacing the same, as ot
 When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
 
 If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
+
 # General development
 
 ## Floating point
@@ -317,4 +318,3 @@ There is more info about this issue in [this thread](https://forum.unity.com/thr
 ## Utilities repo
 
 <https://github.com/marcospgp/unity-utilities>
-
