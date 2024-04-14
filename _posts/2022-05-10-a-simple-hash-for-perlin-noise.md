@@ -4,12 +4,20 @@ title: A Simple Hash For Perlin Noise
 tag: Game Dev 👾
 ---
 
+## A 2023 update
+
+This post is mainly about getting around patterns showing up when hashing consecutive numbers. This is a result of the FNV hash having poor avalanche properties.
+
+A simpler alternative I found to work around this is to hash twice when hashing coordinates. Doing this for each coordinate separately or with bytes concatenated didn't result in a noticeable difference.
+
+One should also consider [alternative hashing algorithms](https://stackoverflow.com/a/21315884/2037431), such as xxHash or MurmurHash. xxHash is available in the [System.IO.Hashing](https://www.nuget.org/packages/System.IO.Hashing/) package.
+
+## Fowler–Noll–Vo 1a
+
 I needed a hashing algorithm that is simple to implement and quick to compute, to be used as a basis
 for generating perlin noise in Unity.
 
 I couldn't rely on simple randomness since terrain generation has to be deterministic, especially for multiplayer games.
-
-## Fowler–Noll–Vo 1a
 
 I ended up implementing the [Fowler–Noll–Vo 1a hash](http://www.isthe.com/chongo/tech/comp/fnv/index.html), which is known for trading some quality for increased performance. It was designed to be fast, not secure - which is exactly what is needed in the context of procedural generation.
 
@@ -31,14 +39,151 @@ And this if we hash coordinates as integers, also with no tricks:
 
 ![Hash without tricks from integers]({% link assets/2022-05-10-a-simple-hash-for-perlin-noise/hash-without-tricks-int.jpg %}){: width="400px" }
 
-The full source code is below:
+```C#
+using System;
+using System.Text;
+using UnityEngine;
 
-<script src="https://gist.github.com/marcospgp/ed991372f1c814eb21b8b248db258187.js"></script>
+/// <summary>
+/// An implementation of the Fowler–Noll–Vo 1a hash
+/// https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#FNV-1a_hash
+/// http://www.isthe.com/chongo/tech/comp/fnv/index.html
+/// </summary>
+namespace MarcosPereira.Terrain {
+    public static class Hash {
+        /// <summary>
+        /// 32-bit prime number according to spec.
+        /// </summary>
+        private const uint PRIME = 16777619;
 
-## A 2023 update
+        /// <summary>
+        /// 32-bit starting hash value according to spec.
+        /// </summary>
+        private const uint OFFSET_BASIS = 2166136261;
 
-This post is mainly about getting around patterns showing up when hashing consecutive numbers. This is a result of the FNV hash having poor avalanche properties.
+        public static Texture2D DebugTexture(string seed = "green bananas") {
+            const int width = 256;
 
-A simpler alternative I found to work around this is to hash twice when hashing coordinates. Doing this for each coordinate separately or with bytes concatenated didn't result in a noticeable difference.
+            var texture = new Texture2D(
+                width,
+                width,
+                TextureFormat.RGBA32,
+                false
+            );
 
-One should also consider [alternative hashing algorithms](https://stackoverflow.com/a/21315884/2037431), such as xxHash or MurmurHash. xxHash is available in the [System.IO.Hashing](https://www.nuget.org/packages/System.IO.Hashing/) package.
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < width; y++) {
+                    float random01 = Hash.Get01(x, y, seed);
+
+                    texture.SetPixel(
+                        x,
+                        y,
+                        Color.Lerp(
+                            Color.black,
+                            Color.white,
+                            random01
+                        )
+                    );
+                }
+            }
+
+            texture.Apply();
+
+            return texture;
+        }
+
+        public static Vector2 GetDirection(Vector2 location, string seed) {
+            uint hash = Hash.Get(location.x, location.y, seed);
+
+            // 0 corresponds to 0 degrees, max value corresponds to 2π - ϵ
+            float angle = (float) hash / (float) uint.MaxValue;
+            angle *= (2f * Mathf.PI) - Mathf.Epsilon;
+
+            // This vector is already normalized
+            return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        }
+
+        public static float Get01(int x, int y, string seed) {
+            uint value = Hash.Get(x, y, seed);
+
+            return Mathf.Clamp01((float) value / (float) uint.MaxValue);
+        }
+
+        public static float Get01(float x, float y, string seed) {
+            uint value = Hash.Get(x, y, seed);
+
+            return Mathf.Clamp01((float) value / (float) uint.MaxValue);
+        }
+
+        public static uint Get(int x, int y, string seed) {
+            unchecked {
+                byte[] xb = BitConverter.GetBytes(x * Hash.PRIME);
+                byte[] yb = BitConverter.GetBytes(y * Hash.PRIME);
+
+                return Hash.Get(xb, yb, seed);
+            }
+        }
+
+        public static uint Get(float x, float y, string seed) {
+            unchecked {
+                byte[] xb = BitConverter.GetBytes(x * (float) Hash.PRIME);
+                byte[] yb = BitConverter.GetBytes(y * (float) Hash.PRIME);
+
+                return Hash.Get(xb, yb, seed);
+            }
+        }
+
+        private static uint Get(byte[] x, byte[] y, string seed) {
+            // Shuffle the bytes around to improve randomization.
+            byte[] bytes = new byte[] {
+                y[3],
+                x[0],
+                y[2],
+                x[1],
+                y[1],
+                x[2],
+                y[0],
+                x[3]
+            };
+
+            return Hash.Get(bytes, seed);
+        }
+
+        private static uint Get(byte[] bytes, uint offsetBasis) {
+            uint hash = offsetBasis;
+
+            for (int i = 0; i < bytes.Length; i++) {
+                // Default context should be unchecked for overflow,
+                // but we make sure.
+                unchecked {
+                    hash ^= (uint) bytes[i];
+                    hash *= Hash.PRIME;
+                }
+            }
+
+            return hash;
+        }
+
+        private static uint Get(byte[] bytes, string seed) =>
+            Hash.Get(bytes, Hash.GetOffsetBasis(seed));
+
+        private static uint GetOffsetBasis(string seed) {
+            // Prevent empty seeds, which would cause offsetBasis of 0, which
+            // is cautioned against in original hash instructions.
+            if (string.IsNullOrEmpty(seed)) {
+                throw new Exception("Null or empty seed string.");
+            }
+
+            // Reasoning for this seeding method:
+            // "The switch from FNV-0 to FNV-1 was purely to change the
+            // offset_basis to a non-zero value. The selection of that non-zero
+            // value is arbitrary."
+            // Source: http://www.isthe.com/chongo/tech/comp/fnv/index.html#FNV-param
+
+            byte[] bytes = Encoding.Unicode.GetBytes(seed);
+
+            return Hash.Get(bytes, Hash.OFFSET_BASIS);
+        }
+    }
+}
+```
