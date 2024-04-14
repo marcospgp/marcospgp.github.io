@@ -94,12 +94,14 @@ Homepage is root url or any of the browse-by-tag pages.
     </script>
   {% endif %}
 
+  {% if is_homepage == false %}
   <!-- AnchorJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"></script>
   <script>
     anchors.options.visible = 'always';
     anchors.add('.content h1, .content h2, .content h3, .content h4, .content h5, .content h6');
   </script>
+  {% endif %}
 </body>
 
 </html>
