@@ -4,7 +4,6 @@ title: "Ideas For Startups by Paul Graham: A Hierarchical Reading"
 tag: Web 💻
 ---
 
-
 I summarized [Paul Graham's "Ideas For Startups" essay](http://www.paulgraham.com/ideas.html) in an experimental reading format that I believe has a lot of potential.
 
 The text starts out in an easy to skim, summarized format, and particular sections can be expanded from their base idea to get into more detail.
@@ -13,7 +12,7 @@ Here is the text:
 
 ## Ideas For Startups
 
-*Written by Paul Graham and copied from [http://www.paulgraham.com/ideas.html](http://www.paulgraham.com/ideas.html)*
+_Written by Paul Graham and copied from [http://www.paulgraham.com/ideas.html](http://www.paulgraham.com/ideas.html)_
 
 October 2005
 
@@ -33,6 +32,7 @@ That might seem a stupid thing to ask. Why do they think it's hard? If people ca
 Well, maybe not. What people usually say is not that they can't think of ideas, but that they don't have any. That's not quite the same thing. It could be the reason they don't have any is that they haven't tried to generate them.
 
 I think this is often the case. I think people believe that coming up with ideas for startups is very hard-- that it must be very hard-- and so they don't try do to it. They assume ideas are like miracles: they either pop into your head or they don't.
+
 </details>
 
 <details>
@@ -45,6 +45,7 @@ They think creating a startup is just a matter of implementing some fabulous ini
 If coming up with an idea for a startup equals coming up with a million dollar idea, then of course it's going to seem hard. Too hard to bother trying. Our instincts tell us something so valuable would not be just lying around for anyone to discover.
 
 Actually, startup ideas are not million dollar ideas, and here's an experiment you can try to prove it: just try to sell one. Nothing evolves faster than markets. The fact that there's no market for startup ideas suggests there's no demand. Which means, in the narrow sense of the word, that startup ideas are worthless.
+
 </details>
 
 **Questions**
@@ -65,6 +66,7 @@ A question doesn't seem so challenging. It becomes: let's try making a web-based
 Treating a startup idea as a question changes what you're looking for. If an idea is a blueprint, it has to be right. But if it's a question, it can be wrong, so long as it's wrong in a way that leads to more ideas.
 
 One valuable way for an idea to be wrong is to be only a partial solution. When someone's working on a problem that seems too big, I always ask: is there some way to bite off some subset of the problem, then gradually expand from there? That will generally work unless you get trapped on a local maximum, like 1980s-style AI, or C.
+
 </details>
 
 **Upwind**
@@ -79,6 +81,7 @@ So far, we've reduced the problem from thinking of a million dollar idea to thin
 To generate such questions you need two things: to be familiar with promising new technologies, and to have the right kind of friends. New technologies are the ingredients startup ideas are made of, and conversations with friends are the kitchen they're cooked in.
 
 Universities have both, and that's why so many startups grow out of them. They're filled with new technologies, because they're trying to produce research, and only things that are new count as research. And they're full of exactly the right kind of people to have ideas with: the other students, who will be not only smart but elastic-minded to a fault.
+
 </details>
 
 <details>
@@ -95,6 +98,7 @@ I don't think people consciously realize this, but one reason downwind jobs like
 Grad school is the other end of the spectrum from a coding job at a big company: the pay's low but you spend most of your time working on new stuff. And of course, it's called "school," which makes that clear to everyone, though in fact all jobs are some percentage school.
 
 The right environment for having startup ideas need not be a university per se. It just has to be a situation with a large percentage of school.
+
 </details>
 
 <details>
@@ -109,6 +113,7 @@ This is one reason Y Combinator has a rule against investing in startups with on
 I didn't realize it till I was writing this, but that may help explain why there are so few female startup founders. I read on the Internet (so it must be true) that only 1.7% of VC-backed startups are founded by women. The percentage of female hackers is small, but not that small. So why the discrepancy?
 
 When you realize that successful startups tend to have multiple founders who were already friends, a possible explanation emerges. People's best friends are likely to be of the same sex, and if one group is a minority in some population, pairs of them will be a minority squared. [1]
+
 </details>
 
 **Doodling**
@@ -127,6 +132,7 @@ Taking a shower is like a form of meditation. You're alert, but there's nothing 
 What happens when your mind wanders? It may be like doodling. Most people have characteristic ways of doodling. This habit is unconscious, but not random: I found my doodles changed after I started studying painting. I started to make the kind of gestures I'd make if I were drawing from life. They were atoms of drawing, but arranged randomly. [2]
 
 Perhaps letting your mind wander is like doodling with ideas. You have certain mental gestures you've learned in your work, and when you're not paying attention, you keep making these same gestures, but somewhat randomly. In effect, you call the same functions on random arguments. That's what a metaphor is: a function applied to an argument of the wrong type.
+
 </details>
 
 <details>
@@ -139,6 +145,7 @@ Conveniently, as I was writing this, my mind wandered: would it be useful to hav
 If new ideas arise like doodles, this would explain why you have to work at something for a while before you have any. It's not just that you can't judge ideas till you're an expert in a field. You won't even generate ideas, because you won't have any habits of mind to invoke.
 
 Of course the habits of mind you invoke on some field don't have to be derived from working in that field. In fact, it's often better if they're not. You're not just looking for good ideas, but for good new ideas, and you have a better chance of generating those if you combine stuff from distant fields. As hackers, one of our habits of mind is to ask, could one open-source x? For example, what if you made an open-source operating system? A fine idea, but not very novel. Whereas if you ask, could you make an open-source play? you might be onto something.
+
 </details>
 
 <details>
@@ -147,6 +154,7 @@ Of course the habits of mind you invoke on some field don't have to be derived f
 <br>
 
 Are some kinds of work better sources of habits of mind than others? I suspect harder fields may be better sources, because to attack hard problems you need powerful solvents. I find math is a good source of metaphors-- good enough that it's worth studying just for that. Related fields are also good sources, especially when they're related in unexpected ways. Everyone knows computer science and electrical engineering are related, but precisely because everyone knows it, importing ideas from one to the other doesn't yield great profits. It's like importing something from Wisconsin to Michigan. Whereas (I claim) hacking and painting are also related, in the sense that hackers and painters are both makers, and this source of new ideas is practically virgin territory.
+
 </details>
 
 **Problems**
@@ -161,6 +169,7 @@ In theory you could stick together ideas at random and see what you came up with
 You might come up with something useful this way, but I never have. It's like knowing a fabulous sculpture is hidden inside a block of marble, and all you have to do is remove the marble that isn't part of it. It's an encouraging thought, because it reminds you there is an answer, but it's not much use in practice because the search space is too big.
 
 I find that to have good ideas I need to be working on some problem. You can't start with randomness. You have to start with a problem, then let your mind wander just far enough for new ideas to form.
+
 </details>
 
 <details>
@@ -175,6 +184,7 @@ I saw this phenomenon when I worked on spam filters. In 2002, most people prefer
 I found spam intolerable, and I felt it had to be possible to recognize it statistically. And it turns out that was all you needed to solve the problem. The algorithm I used was ridiculously simple. Anyone who'd really tried to solve the problem would have found it. It was just that no one had really tried to solve the problem. [3]
 
 Let me repeat that recipe: finding the problem intolerable and feeling it must be possible to solve it. Simple as it seems, that's the recipe for a lot of startup ideas.
+
 </details>
 
 **Wealth**
@@ -191,6 +201,7 @@ Wealth is what people want. I don't mean that as some kind of philosophical stat
 So an idea for a startup is an idea for something people want. Wouldn't any good idea be something people want? Unfortunately not. I think new theorems are a fine thing to create, but there is no great demand for them. Whereas there appears to be great demand for celebrity gossip magazines. Wealth is defined democratically. Good ideas and valuable ideas are not quite the same thing; the difference is individual tastes.
 
 But valuable ideas are very close to good ideas, especially in technology. I think they're so close that you can get away with working as if the goal were to discover good ideas, so long as, in the final stage, you stop and ask: will people actually pay for this? Only a few ideas are likely to make it that far and then get shot down; RPN calculators might be one example.
+
 </details>
 
 <details>
@@ -199,6 +210,7 @@ But valuable ideas are very close to good ideas, especially in technology. I thi
 <br>
 
 Dating sites are a prime example. They have millions of users, so they must be promising something people want. And yet they work horribly. Just ask anyone who uses them. It's as if they used the worse-is-better approach but stopped after the first stage and handed the thing over to marketers.
+
 </details>
 
 <details>
@@ -209,6 +221,7 @@ Dating sites are a prime example. They have millions of users, so they must be p
 But this is a special case: you can't defeat a monopoly by a frontal attack. Windows can and will be overthrown, but not by giving people a better desktop OS. The way to kill it is to redefine the problem as a superset of the current one. The problem is not, what operating system should people use on desktop computers? but how should people use applications? There are answers to that question that don't even involve desktop computers.
 
 Everyone thinks Google is going to solve this problem, but it is a very subtle one, so subtle that a company as big as Google might well get it wrong. I think the odds are better than 50-50 that the Windows killer-- or more accurately, Windows transcender-- will come from some little startup.
+
 </details>
 
 <details>
@@ -223,6 +236,7 @@ This was Henry Ford's plan. He made cars, which had been a luxury item, into a c
 When you make something cheaper you can sell more of them. But if you make something dramatically cheaper you often get qualitative changes, because people start to use it in different ways. For example, once computers get so cheap that most people can have one of their own, you can use them as communication devices.
 
 Often to make something dramatically cheaper you have to redefine the problem. The Model T didn't have all the features previous cars did. It only came in black, for example. But it solved the problem people cared most about, which was getting from place to place.
+
 </details>
 
 <details>
@@ -233,6 +247,7 @@ Often to make something dramatically cheaper you have to redefine the problem. T
 A lot of people use this technique without being consciously aware of it, but Rabin was spectacularly explicit. You need a big prime number? Those are pretty expensive. How about if I give you a big number that only has a 10 to the minus 100 chance of not being prime? Would that do? Well, probably; I mean, that's probably smaller than the chance that I'm imagining all this anyway.
 
 Redefining the problem is a particularly juicy heuristic when you have competitors, because it's so hard for rigid-minded people to follow. You can work in plain sight and they don't realize the danger. Don't worry about us. We're just working on search. Do one thing and do it well, that's our motto.
+
 </details>
 
 <details>
@@ -243,6 +258,7 @@ Redefining the problem is a particularly juicy heuristic when you have competito
 For a long time it was most of making things easier, but now that the things we build are so complicated, there's another rapidly growing subset: making things easier to use.
 
 This is an area where there's great room for improvement. What you want to be able to say about technology is: it just works. How often do you say that now?
+
 </details>
 
 <details>
@@ -253,6 +269,7 @@ This is an area where there's great room for improvement. What you want to be ab
 The average programmer seems to produce UI designs that are almost willfully bad. I was trying to use the stove at my mother's house a couple weeks ago. It was a new one, and instead of physical knobs it had buttons and an LED display. I tried pressing some buttons I thought would cause it to get hot, and you know what it said? "Err." Not even "Error." "Err." You can't just say "Err" to the user of a stove. You should design the UI so that errors are impossible. And the boneheads who designed this stove even had an example of such a UI to work from: the old one. You turn one knob to set the temperature and another to set the timer. What was wrong with that? It just worked.
 
 It seems that, for the average engineer, more options just means more rope to hang yourself. So if you want to start a startup, you can take almost any existing technology produced by a big company, and assume you could build something way easier to use.
+
 </details>
 
 **Design for Exit**
@@ -271,6 +288,7 @@ I think things are changing. If 98% of the time success means getting bought, wh
 Just be sure to make something multiple acquirers will want. Don't fix Windows, because the only potential acquirer is Microsoft, and when there's only one acquirer, they don't have to hurry. They can take their time and copy you instead of buying you. If you want to get market price, work on something where there's competition.
 
 If an increasing number of startups are created to do product development on spec, it will be a natural counterweight to monopolies. Once some type of technology is captured by a monopoly, it will only evolve at big company rates instead of startup rates, whereas alternatives will evolve with especial speed. A free market interprets monopoly as damage and routes around it.
+
 </details>
 
 **The Woz Route**
@@ -281,6 +299,7 @@ If an increasing number of startups are created to do product development on spe
 <br>
 
 If you look at how famous startups got started, a lot of them weren't initially supposed to be startups. Lotus began with a program Mitch Kapor wrote for a friend. Apple got started because Steve Wozniak wanted to build microcomputers, and his employer, Hewlett-Packard, wouldn't let him do it at work. Yahoo began as David Filo's personal collection of links.
+
 </details>
 
 <details>
@@ -289,6 +308,7 @@ If you look at how famous startups got started, a lot of them weren't initially 
 <br>
 
 It certainly has to be the most fun way to come up with startup ideas. And since a startup ought to have multiple founders who were already friends before they decided to start a company, the rather surprising conclusion is that the best way to generate startup ideas is to do what hackers do for fun: cook up amusing hacks with your friends.
+
 </details>
 
 It seems like it violates some kind of conservation law, but there it is: the best way to get a "million dollar idea" is just to do what hackers enjoy doing anyway.
@@ -301,7 +321,7 @@ It seems like it violates some kind of conservation law, but there it is: the be
 
 [3] Bill Yerazunis had solved the problem, but he got there by another path. He made a general-purpose file classifier so good that it also worked for spam.
 
-*Written by Paul Graham and copied from [http://www.paulgraham.com/ideas.html](http://www.paulgraham.com/ideas.html)*
+_Written by Paul Graham and copied from [http://www.paulgraham.com/ideas.html](http://www.paulgraham.com/ideas.html)_
 
 ## Closing note
 
