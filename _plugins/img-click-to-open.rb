@@ -3,27 +3,30 @@
 # Turns every "<img>" element in pages & posts into a link that opens the image.
 
 module Jekyll
-  class LinkifyImages < Jekyll::Generator
-    priority :low
+  Jekyll::Hooks.register [:pages, :documents], :post_render do |document|
+    content = document.output
+    new_content = ''
+    inside_anchor = false
+    tag_depth = 0
 
-    def generate(site)
-      site.pages.each { |page| linkify_images_in(page) }
-      site.posts.docs.each { |post| linkify_images_in(post) }
-    end
-
-    private
-
-    def linkify_images_in(document)
-      return if document.output.nil? || document.output.empty?
-
-      # This regex finds img tags not already inside anchor tags
-      regex = /(<img)/
-      new_output = document.output.gsub(regex) do |img_tag|
-        src = $2
-        "<a href=\"#{src}\" target=\"_blank\">#{img_tag}</a>"
+    content.scan(/<[^>]+>|[^<]+/).each do |fragment|
+      if fragment.start_with?('<')
+        if fragment.start_with?('<a ')
+          inside_anchor = true
+          tag_depth += 1
+        elsif fragment.start_with?('</a>')
+          tag_depth -= 1
+          inside_anchor = false if tag_depth == 0
+        elsif fragment.start_with?('<img ') && !inside_anchor
+          src_match = fragment.match(/src=['"]([^'"]*)['"]/)
+          src = src_match[1] if src_match
+          fragment = "<a href='#{src}' target='_blank'>#{fragment}</a>"
+        end
       end
 
-      document.output = new_output
+      new_content += fragment
     end
+
+    document.output = new_content
   end
 end
