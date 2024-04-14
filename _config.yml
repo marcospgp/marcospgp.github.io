@@ -24,11 +24,9 @@ kramdown:
   input: GFM
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
-    css_class: "highlight"
 
 permalink: pretty
+
 sass:
   style: compressed
 
@@ -58,7 +56,7 @@ pagination:
   enabled: true
   debug: false
   collection: "posts"
-  per_page: 12
+  per_page: 999999
   permalink: "/page-:num/"
   # Empty title because pagination is used in homepage, and we don't want to
   # mess with its `<title>`.

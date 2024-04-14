@@ -28,62 +28,64 @@
 
   <br>
 
+  <h3>
+    <a class="title-link" href="/">Posts</a>
+  </h3>
+
+
   {% assign default_paths = site.pages | map: "path" %}
   {% assign page_paths = site.header_pages | default: default_paths %}
 
   {% for path in page_paths %}
-
-  {% assign item = site.pages | where: "path", path | first %}
-
-  {% if page.title == item.title %}
   <h3>
-    <a class="title-link active" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-  </h3>
-  {% else %}
-  <h3>
+    {% assign item = site.pages | where: "path", path | first %}
     <a class="title-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
   </h3>
-  {% endif %}
-
   {% endfor %}
 
   <br>
   <hr>
   <br>
 
-  <div>
-    {% if page.path contains '_posts' %}
-    <div class="post-header">
-      <h1 class="page-title" style="text-transform: capitalize">
-        {{ page.title }}
-      </h1>
-      <span class="post-meta">{{ page.date | date: site.date_format }}</span><br />
-      {% if page.update_date %}
-      <span class="post-meta">Updated: {{ page.update_date | date: site.date_format }}</span>
-      <br>
-      {% endif %}
-      <span class="post-meta">
-        {% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
-        {% if minutes == 0 %} {% assign minutes = 1 %} {% endif %}
-        {{ minutes }} minute read
-      </span>
-    </div>
-    {% endif %}
+  {% comment %}
+  Do not add page title if on homepage or one of the browse-by-tag pages.
+  {% endcomment %}
+  {% assign url_parts = page.url | split: '/' %}
+  {% if page.url != '/index.html' and url_parts[1] != 'tags' %}
+  <h1 style="text-transform: capitalize">
+    {{ page.title }}
+  </h1>
+  {% endif %}
 
-    {% comment %}
-    This Table of Contents block makes use of the Hierarchical TOC Generator
-    plugin created by ChatGPT.
-    It inserts a TOC for pages unless 'table_of_contents' is explicitly set to
-    false in the front matter.
-    {% endcomment %}
-    {% if page.table_of_contents != false %}
-    <div class="table-of-contents">
-      {{ content | table_of_contents | safe }}
-    </div>
-    {% endif %}
+  {% if page.path contains '_posts' %}
+  <span>{{ page.date | date: site.date_format }}</span>
+  <br>
+  {% if page.update_date %}
+  <span>Updated: {{ page.update_date | date: site.date_format }}</span>
+  <br>
+  {% endif %}
+  {% comment %}
+  <span>
+    {% assign minutes = content | strip_html | number_of_words | divided_by: 180 %}
+    {% if minutes == 0 %} {% assign minutes = 1 %} {% endif %}
+    {{ minutes }} minute read
+  </span>
+  {% endcomment %}
+  {% endif %}
 
-    <div>{{ content }}</div>
+  {% comment %}
+  This Table of Contents block makes use of the Hierarchical TOC Generator
+  plugin created by ChatGPT.
+  It inserts a TOC for pages unless 'table_of_contents' is explicitly set to
+  false in the front matter.
+  {% endcomment %}
+  {% if page.table_of_contents != false %}
+  <div class="table-of-contents">
+    {{ content | table_of_contents | safe }}
   </div>
+  {% endif %}
+
+  <div>{{ content }}</div>
 
   <br>
   <hr>

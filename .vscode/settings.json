@@ -3,5 +3,19 @@
     // Prettier formatter formats HTML poorly when it includes liquid templates,
     // as is the case with Jekyll.
     "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "markdownlint.config": {
+    "default": true,
+    // Allow duplicate headings.
+    // Introduced for notes page. Links to headers are generated including
+    // the parent headers in the link, such as
+    // "heading-1--heading-2--heading-3".
+    "MD024": false,
+    // MD025 - Multiple top-level headings in the same document
+    "MD025": false,
+    // Allow raw html in markdown.
+    "MD033": false,
+    // MD041/first-line-heading/first-line-h1
+    "MD041": false
   }
 }

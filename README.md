@@ -2,8 +2,6 @@
 
 Repo for Jekyll based personal website.
 
-Theme documentation [here](PIXYLL.md).
-
 ## Deployment
 
 This project uses a GitHub Action to deploy to GitHub Pages from the master branch.

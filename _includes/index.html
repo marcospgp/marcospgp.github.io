@@ -3,37 +3,38 @@ Browse by tag. Requires pagination to be enabled.
 {% endcomment %}
 {% if page.pagination.enabled %}
 
-{% if page.pagination.tag %}
-<h3>
+<h4>
+  {% if page.pagination.tag %}
   <a class="title-link" href="{{ '/' | relative_url }}">All Posts</a>
-</h3>
-{% else %}
-<h3>
+  {% else %}
   <a class="title-link active" href="{{ '/' | relative_url }}">All Posts</a>
-</h3>
-{% endif %}
+  {% endif %}
 
-{% assign tags = site.tags | sort %}
+  <span style="font-weight: normal">&nbsp;•&nbsp;</span>
 
-{% for tag in tags %}
-{% if page.pagination.tag == tag[0] %}
+  {% assign tags = site.tags | sort %}
 
-<h3>
+  {% for tag in tags %}
+  {% if page.pagination.tag == tag[0] %}
+
   <a class="title-link active" href="{{ '/tags/' | append: tag[0] | relative_url }}">
     {{tag[0] | replace: ' ', '&nbsp;'}}
   </a>
-</h3>
 
-{% else %}
+  {% else %}
 
-<h3>
   <a class="title-link" href="{{ '/tags/' | append: tag[0] | relative_url }}">
     {{tag[0] | replace: ' ', '&nbsp;'}}
   </a>
-</h3>
 
-{% endif %}
-{% endfor %}
+  {% endif %}
+
+  {% if forloop.last == false %}
+  <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+  {% endif %}
+
+  {% endfor %}
+</h4>
 
 <br>
 

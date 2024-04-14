@@ -1,8 +1,8 @@
 ---
 layout: default
 pagination:
-enabled: true
-tag: Web 💻
+  enabled: true
+  tag: AI 🤖
 table_of_contents: false
 ---
 

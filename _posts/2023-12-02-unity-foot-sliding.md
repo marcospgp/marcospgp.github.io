@@ -1,6 +1,6 @@
 ---
 layout: default
-title: How to avoid foot sliding
+title: How to avoid foot sliding in Unity
 tag: Game Dev 👾
 ---
 

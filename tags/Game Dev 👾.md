@@ -1,8 +1,8 @@
 ---
 layout: default
 pagination:
-enabled: true
-tag: Game Dev 👾
+  enabled: true
+  tag: Game Dev 👾
 table_of_contents: false
 ---
 

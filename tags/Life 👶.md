@@ -1,8 +1,8 @@
 ---
 layout: default
 pagination:
-enabled: true
-tag: Life 👶
+  enabled: true
+  tag: Life 👶
 table_of_contents: false
 ---
 
