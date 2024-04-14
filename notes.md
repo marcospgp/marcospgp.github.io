@@ -19,6 +19,11 @@ Browsers zoom by increasing the size of `px`, so this decision should only affec
 
 For those, it may be better to scale fonts only and keep spacing the same, as otherwise they could simply use the zoom feature.
 
+# Email
+
+When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
+
+If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
 # General development
 
 ## Floating point
@@ -132,6 +137,16 @@ See {% post_link 2023-12-02-unity-foot-sliding %}.
 - Store `.blend` files directly inside the Unity project's "Assets" folder
 - There doesn't seem to be a way to store textures in `.blend` file, so keep them in "Assets" folder and use them in both Blender and Unity
 
+## Frame rate independence
+
+Everything that runs in `Update()` (as opposed to `FixedUpdate()`) should be carefully designed to ensure independence from variations in frame rate.
+
+For example, there is a specific formula for a frame rate independent version of calling `lerp` (linear interpolation) iteratively.
+
+There is an extensive post about this [here](https://marcospereira.me/2023/11/15/frame-rate-independent-lerp/).
+
+Ready to use code should be available in the [Unity utilities repo](https://github.com/marcospgp/unity-utilities).
+
 ## General optimization
 
 The points below have more importance in the context of frequently run code, such as that in `Update()`.
@@ -189,16 +204,6 @@ Calling `Apply()` is required for the texture to appear right away, otherwise an
 - Advancements like Nanite can change 3D lore fast
 
 Based on <https://medium.com/@jasonbooth_86226/when-to-make-lods-c3109c35b802>
-
-## Frame rate independence
-
-Everything that runs in `Update()` (as opposed to `FixedUpdate()`) should be carefully designed to ensure independence from variations in frame rate.
-
-For example, there is a specific formula for a frame rate independent version of calling `lerp` (linear interpolation) iteratively.
-
-There is an extensive post about this [here](https://marcospereira.me/2023/11/15/frame-rate-independent-lerp/).
-
-Ready to use code should be available in the [Unity utilities repo](https://github.com/marcospgp/unity-utilities).
 
 ## Mathf vs MathF
 
@@ -313,8 +318,3 @@ There is more info about this issue in [this thread](https://forum.unity.com/thr
 
 <https://github.com/marcospgp/unity-utilities>
 
-# Email
-
-When setting up email make sure to [enable SPF, DKIM, and DMARC](https://support.google.com/a/answer/10583557?sjid=7080635252494889890-EU) to properly authenticate messages. Use <https://www.dmarctester.com> to test this.
-
-If unable to send email through a third party client for a Google Workspace account, try enabling "Allow per-user outbound gateways" in the admin panel.
