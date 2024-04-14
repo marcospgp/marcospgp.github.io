@@ -1,8 +1,7 @@
 ---
 layout: default
 pagination:
-enabled: true
-permalink: /index.html
+  enabled: true
 ---
 
 {% include index.html %}
