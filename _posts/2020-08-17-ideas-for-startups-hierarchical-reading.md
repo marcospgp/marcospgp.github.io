@@ -8,8 +8,6 @@ I summarized [Paul Graham's "Ideas For Startups" essay](http://www.paulgraham.co
 
 The text starts out in an easy to skim, summarized format, and particular sections can be expanded from their base idea to get into more detail.
 
-Here is the text:
-
 ## Ideas For Startups
 
 _Written by Paul Graham and copied from [http://www.paulgraham.com/ideas.html](http://www.paulgraham.com/ideas.html)_
@@ -48,7 +46,7 @@ Actually, startup ideas are not million dollar ideas, and here's an experiment y
 
 </details>
 
-**Questions**
+### Questions
 
 <details>
 <summary>An idea is just a starting point, and you should treat it like a question, not an assertion.</summary>
@@ -69,7 +67,7 @@ One valuable way for an idea to be wrong is to be only a partial solution. When 
 
 </details>
 
-**Upwind**
+### Upwind
 
 <details>
 <summary>To generate ideas as questions, you need two things: Familiarity with recent technology, and friends to discuss it with.</summary>
@@ -116,7 +114,7 @@ When you realize that successful startups tend to have multiple founders who wer
 
 </details>
 
-**Doodling**
+### Doodling
 
 <details>
 <summary>You should converse with other people and then let your mind wander on its own.</summary>
@@ -157,7 +155,7 @@ Are some kinds of work better sources of habits of mind than others? I suspect h
 
 </details>
 
-**Problems**
+### Problems
 
 <details>
 <summary>Assembling ideas at random doesn't work because the search space is too big.</summary>
@@ -187,7 +185,7 @@ Let me repeat that recipe: finding the problem intolerable and feeling it must b
 
 </details>
 
-**Wealth**
+### Wealth
 
 <details>
 <summary>Startups need to make something people want. A good idea isn't always valuable, but it's a good approximation.</summary>
@@ -272,7 +270,7 @@ It seems that, for the average engineer, more options just means more rope to ha
 
 </details>
 
-**Design for Exit**
+### Design for Exit
 
 <details>
 <summary>Think about how you might get acquired in the future, and make sure to build something multiple acquirers will want and compete for.</summary>
@@ -291,7 +289,7 @@ If an increasing number of startups are created to do product development on spe
 
 </details>
 
-**The Woz Route**
+### The Woz Route
 
 <details>
 <summary>The most productive way to generate startup ideas is also the most unlikely-sounding: by accident.</summary>
@@ -313,7 +311,7 @@ It certainly has to be the most fun way to come up with startup ideas. And since
 
 It seems like it violates some kind of conservation law, but there it is: the best way to get a "million dollar idea" is just to do what hackers enjoy doing anyway.
 
-**Notes**
+### Notes
 
 [1] This phenomenon may account for a number of discrepancies currently blamed on various forbidden isms. Never attribute to malice what can be explained by math.
 
