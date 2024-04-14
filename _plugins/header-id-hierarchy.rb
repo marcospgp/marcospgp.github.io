@@ -18,62 +18,43 @@
 # of overlap on links to specific headers increase.
 
 module Jekyll
-  Jekyll::Hooks.register [:pages, :documents], :post_render do |document|
-    content = document.output
+  module HierarchicalHeadersAndUpdateLinks
 
-    # Simplified parser to build a tree structure
-    def build_tree(html)
-      tree = { tag: :root, children: [] }
-      current_node = tree
+    Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
+      header_map = {}
+      current_hierarchy = []
 
-      html.scan(/<(\w+)|<\/(\w+)>|([^<>]+)/) do |open_tag, close_tag, text|
-        if open_tag
-          new_node = { tag: open_tag.to_sym, children: [], parent: current_node }
-          current_node[:children] << new_node
-          current_node = new_node
-        elsif close_tag
-          current_node = current_node[:parent]
-        elsif text.strip != ''
-          current_node[:children] << { tag: :text, content: text }
-        end
+      doc.output = doc.output.gsub(/<(h[1-6])(.*?)>(.*?)<\/\1>/) do |match|
+        tag, attrs, content = $1, $2, $3.strip
+        level = tag[1].to_i
+
+        # Directly use existing ID or content as the original ID
+        id_match = attrs.match(/id="([^"]+)"/)
+        original_id = id_match ? id_match[1] : content
+
+        # Update hierarchy and construct hierarchical ID
+        current_hierarchy = current_hierarchy.slice(0, level - 1)
+        current_hierarchy << original_id
+        hierarchical_id = current_hierarchy.join("--")
+
+        # Map original ID to hierarchical ID
+        header_map[original_id] = hierarchical_id
+
+        # Apply the hierarchical ID to the header
+        "<#{tag} id=\"#{hierarchical_id}\">#{content}</#{tag}>"
       end
 
-      tree
-    end
+      # Update links to use hierarchical IDs
+      doc.output.gsub!(/<a href="#([^"]+)">/) do |link|
+        original_href = $1
 
-    # Traverser that ignores <a> tags and processes <img> tags
-    def process_tree(node)
-      return if node[:tag] == :a
-
-      node[:children].each do |child|
-        if child[:tag] == :img
-          src = child[:attributes][:src]
-          child[:parent][:children] << { tag: :a, attributes: { href: src, target: '_blank' }, children: [child] }
-          child[:parent][:children].delete(child)
+        # Replace href with hierarchical ID if it exists in the map
+        if header_map.key?(original_href)
+          link.sub("##{original_href}", "##{header_map[original_href]}")
         else
-          process_tree(child) if child[:children]
+          link
         end
       end
     end
-
-    tree = build_tree(content)
-    process_tree(tree)
-
-    # Render tree back to HTML
-    document.output = render_html(tree)
-  end
-
-  def render_html(node)
-    # Simplified rendering of the tree back to HTML
-    html = ''
-    node[:children].each do |child|
-      if child[:tag] == :text
-        html += child[:content]
-      else
-        inner_html = render_html(child)
-        html += "<#{child[:tag]} #{child[:attributes].map{|k,v| "#{k}='#{v}'"}.join(' ')}>#{inner_html}</#{child[:tag]}>"
-      end
-    end
-    html
   end
 end
