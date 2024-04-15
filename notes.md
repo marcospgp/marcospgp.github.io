@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Notes
-description: >
+description: >-
   This is where I keep notes for future reference. Entries are sorted alphabetically.
 table_of_contents: true
 comments_section: true
