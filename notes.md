@@ -103,6 +103,24 @@ Context on using `.ONESHELL` and `.SHELLFLAGS`:
 .SHELLFLAGS := -c -e -o pipefail -u
 ```
 
+## Shell
+
+My shell setup:
+
+- [Oh My Zsh](https://ohmyz.sh/)
+  - Switched to get case-insensitive path autocompletion, but has many more benefits over vanilla Z shell.
+- [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions) for history-based command autocompletion.
+  - Has more GitHub stars than [`zsh-autocomplete`](https://github.com/marlonrichert/zsh-autocomplete) so picked it, but both seem nice.
+
+`~/.zshrc` configuration:
+
+- Disabled `share_history`, which is a better workflow when managing multiple open shells across different projects:
+
+  ```shell
+  # Disable sharing command history across shells.
+  unsetopt share_history
+  ```
+
 # Hardware
 
 ## Monitors
