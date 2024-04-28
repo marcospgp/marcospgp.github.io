@@ -6,7 +6,7 @@ tags:
   - Dev
   - 👾
 ---
-Logarithmic progression is a simple but powerful idea in games. It became clear to me when thinking about incremental/idle games such as cookie clicker, but I think the concept applies to almost any other genre.
+Logarithmic progression is a simple but powerful idea. It became clear to me when thinking about incremental/idle games such as cookie clicker, but I think the concept applies to almost any other genre.
 
 The idea is simple - any progress made by the player only makes it possible to make more progress, but never takes away from the user's necessity to make progress through their own effort.
 
