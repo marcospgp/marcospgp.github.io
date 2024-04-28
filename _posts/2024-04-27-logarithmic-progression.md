@@ -16,4 +16,4 @@ You may make 1000 of something per second, but it would still take over 16 minut
 
 It's a logarithmic treadmill of dopamine.
 
-This doesn't just apply to raw numbers. Think about the farming mechanic in a game like minecraft, for example. It takes little effort to farm some wheat and curb your hunger indefinitely. There is no logarithmic progression here, it's just linear! But what if you could colonize a village, and have to feed 1000 mouths? What if you could herd 1000 sheep? What if you could feed tons of wheat into a carbon processing machine that creates biofuel to power a rocket so you can fly to the moon?
+This doesn't just apply to raw numbers. Think about the farming mechanic in a game like Minecraft, for example. It takes little effort to farm some wheat and curb your hunger indefinitely. There is no logarithmic progression here, it's just linear! But what if you could colonize a village, and have to feed 1000 mouths? What if you could herd 1000 sheep? What if you could feed tons of wheat into a carbon processing machine that creates biofuel to power a rocket so you can fly to the moon?
