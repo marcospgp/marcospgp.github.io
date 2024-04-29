@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2024-04-27-logarithmic-progression.md",
+                "file": "_posts/2024-04-29-.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2024-04-27-logarithmic-progression.md",
+                "file": "_posts/2024-04-29-.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2024-04-27-logarithmic-progression.md",
+                "file": "_posts/2024-04-29-.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2024-04-27-logarithmic-progression.md"
+                "file": "_posts/2024-04-29-.md"
               }
             }
           }
@@ -146,9 +146,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a805398c75df1fee",
+  "active": "322cb34fcafbb285",
   "lastOpenFiles": [
-    "_posts/2024-04-27-overarching-goals.md",
+    "_posts/2024-04-28-overarching-goals.md",
+    "_posts/2024-04-29-.md",
     "_posts/2024-04-27-logarithmic-progression.md",
     "_posts/2023-12-15-floating-point.md",
     "_posts/2023-12-14-z-buffer.md"
