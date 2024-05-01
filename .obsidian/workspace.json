@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6dd78b6a123fe4f7",
+        "id": "25cd4bf14067bda4",
         "type": "tabs",
         "children": [
           {
-            "id": "a805398c75df1fee",
+            "id": "79aecac6203fd6b5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -146,7 +146,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "322cb34fcafbb285",
+  "active": "79aecac6203fd6b5",
   "lastOpenFiles": [
     "_posts/2024-04-28-overarching-goals.md",
     "_posts/2024-04-29-.md",
