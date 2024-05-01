@@ -11,12 +11,8 @@
             "id": "79aecac6203fd6b5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2024-04-29-.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2024-04-29-.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2024-04-29-.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "_posts/2024-04-29-.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -148,8 +140,9 @@
   },
   "active": "79aecac6203fd6b5",
   "lastOpenFiles": [
-    "_posts/2024-04-28-overarching-goals.md",
     "_posts/2024-04-29-.md",
+    "_posts/2024-04-29-textures.md",
+    "_posts/2024-04-28-overarching-goals.md",
     "_posts/2024-04-27-logarithmic-progression.md",
     "_posts/2023-12-15-floating-point.md",
     "_posts/2023-12-14-z-buffer.md"

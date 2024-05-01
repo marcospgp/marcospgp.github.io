@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Logarithmic progression in games
-tags:
-  - Game Dev 👾
+tag: Game Dev 👾
 published: false
 ---
 
