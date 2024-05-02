@@ -72,7 +72,7 @@ Imagination and experimentation still seem to be the best tools for uncovering f
 
 ## Takeaways
 
-So Gabe's conception of fun is only part of the story, but indeed an important one - as what makes games different from other kinds of media is the interaction, and that's what makes them the most immersive.
+So Gabe's conception of fun is only part of the story, but indeed an important one - as what makes games different from other kinds of media is the interaction, and also what makes them the most immersive.
 
 If I were to compile a list of what makes fun fun, it would be something like:
 
