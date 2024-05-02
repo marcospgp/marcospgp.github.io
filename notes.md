@@ -329,6 +329,12 @@ These are things to think about when starting a new project, which can also be w
 
 Create a symlink from the project's root to the `.editorconfig` file in the [Unity Utilities](https://github.com/marcospgp/unity-utilities) repo, which should be installed as a git submodule in the `Assets` folder.
 
+### Git submodules
+
+Set up dependencies on other repos by installing them as git submodules under the `Assets` folder.
+
+An example would be the Unity utilities repo: <https://github.com/marcospgp/unity-utilities>
+
 ### Mono vs IL2CPP
 
 Decide between [Mono or IL2CPP](https://www.reddit.com/r/Unity3D/comments/zag4ka/mono_or_il2cpp/).
@@ -336,12 +342,6 @@ Decide between [Mono or IL2CPP](https://www.reddit.com/r/Unity3D/comments/zag4ka
 Generally, IL2CPP should be better as it can have better performance than Mono, although it may complicate [mod creation](https://www.reddit.com/r/GuidedHacking/comments/10r0t50/how_to_mod_unity_games_made_with_il2cpp/) (although hacking would also become more difficult accordingly).
 
 > [IL2CPP can improve performance across a variety of platforms, but the need to include machine code in built applications increases both the build time and the size of the final built application.](https://docs.unity3d.com/2023.2/Documentation/Manual/IL2CPP.html)
-
-### Git submodules
-
-Set up dependencies on other repos by installing them as git submodules under the `Assets` folder.
-
-An example would be the Unity utilities repo: <https://github.com/marcospgp/unity-utilities>
 
 ## Shaders
 
