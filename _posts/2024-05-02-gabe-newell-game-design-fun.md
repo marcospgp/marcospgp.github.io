@@ -69,3 +69,17 @@ In the end understanding the meaning of fun is equivalent to reverse engineering
 Each person has a slightly different one, and it is incredibly complex.
 
 Imagination and experimentation still seem to be the best tools for uncovering fun.
+
+## Takeaways
+
+So Gabe's conception of fun is only part of the story, but indeed an important one - as what makes games different from other kinds of media is the interaction, and that's what makes them the most immersive.
+
+If I were to compile a list of what makes fun fun, it would be something like:
+
+- Acknowledge the player's existence by reacting to their actions
+- Allow the player to make non-obvious decisions with real and hard to predict consequences
+- Allow the player to live out a real world fantasy or desire
+
+Now the onus is all on the real world to figure out what people fantasize about.
+
+(note that real world fantasy does not mean it has to be possible in the real world - just that if it were, it would be fun)
