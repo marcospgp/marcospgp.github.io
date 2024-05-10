@@ -182,6 +182,10 @@ And then because we remapped win + left/right/up/down, we restore that functiona
 - alt + up -> win + up
 - alt + down -> win + down
 
+Also restore PowerToys Run with:
+
+- ctrl + space -> alt + space
+
 Missing:
 
 - Erase to start of line (cmd + backspace on MacOS) (not very important as one can simply select the line, then erase.)
