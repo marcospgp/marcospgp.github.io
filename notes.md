@@ -175,6 +175,13 @@ Drag text lines up and down:
 
 Note: for win + left/right remap to work, "override windows snap" in PowerToys FancyZones must be disabled, as it overrides that shortcut.
 
+And then because we remapped win + left/right/up/down, we restore that functionality on the ctrl key (which is mapped as alt since we remapped ctrl -> alt and vice versa):
+
+- alt + left -> win + left
+- alt + right -> win + right
+- alt + up -> win + up
+- alt + down -> win + down
+
 Missing:
 
 - Erase to start of line (cmd + backspace on MacOS) (not very important as one can simply select the line, then erase.)
