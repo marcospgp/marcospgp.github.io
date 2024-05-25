@@ -173,16 +173,21 @@ Drag text lines up and down:
 - win + up -> alt + up
 - win + down -> alt + down
 
+Create new cursors up and down:
+
+- win + ctrl + up -> ctrl + alt + up
+- win + ctrl + down -> ctrl + alt + down
+
 Note: for win + left/right remap to work, "override windows snap" in PowerToys FancyZones must be disabled, as it overrides that shortcut.
 
-And then because we remapped win + left/right/up/down, we restore that functionality on the ctrl key (which is mapped as alt since we remapped ctrl -> alt and vice versa):
+And then because we remapped win + left/right/up/down, we restore that functionality (which basically moves windows around) on the real-world ctrl key (which has been remapped to alt, so we'll use that below):
 
 - alt + left -> win + left
 - alt + right -> win + right
 - alt + up -> win + up
 - alt + down -> win + down
 
-Also restore PowerToys Run with:
+Also restore PowerToys Run (the search box pop up that allows you to start apps faster) with:
 
 - ctrl + space -> alt + space
 
