@@ -180,16 +180,20 @@ Create new cursors up and down:
 
 Note: for win + left/right remap to work, "override windows snap" in PowerToys FancyZones must be disabled, as it overrides that shortcut.
 
-And then because we remapped win + left/right/up/down, we restore that functionality (which basically moves windows around) on the real-world ctrl key (which has been remapped to alt, so we'll use that below):
+Because we remapped win + left/right/up/down, we restore that functionality (which basically moves windows around) on the real-world ctrl key (which has been remapped to alt, so we'll use that below):
 
 - alt + left -> win + left
 - alt + right -> win + right
 - alt + up -> win + up
 - alt + down -> win + down
 
-Also restore PowerToys Run (the search box pop up that allows you to start apps faster) with:
+Restore PowerToys Run (the search box pop up that allows you to start apps faster) with:
 
 - ctrl + space -> alt + space
+
+Closing windows with alt + Q:
+
+- ctrl + q -> alt + F4
 
 Missing:
 
