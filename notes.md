@@ -107,7 +107,33 @@ Context on using `.ONESHELL` and `.SHELLFLAGS`:
 
 <https://en.wikipedia.org/wiki/The_Power_of_10:_Rules_for_Developing_Safety-Critical_Code>
 
-## Shell
+# Hardware
+
+## Monitors
+
+### VA vs IPS vs OLED
+
+IPS is better. VA has issues with ghosting/black smearing. OLED has issues with pixel burn-in.
+
+# OS setup
+
+## General
+
+- Install [Fira Code](https://github.com/tonsky/FiraCode) font
+
+## MacOS
+
+### Battery life
+
+Use AlDente to optimize battery longevity by limiting charging to 80%.
+
+### Keyboard ISO to ANSI
+
+To force MacOS to interpret a MacBook's ISO keyboard as ANSI, install Karabiner-Elements, then under "virtual keyboard" switch "country code 0" from ANSI to ISO (I know, counter intuitive but it works).
+
+After logging out and back in, the `§` key will now be interpreted as the proper `\``.
+
+### Shell
 
 My MacOS shell setup:
 
@@ -212,14 +238,6 @@ Missing:
       "when": "terminal.active"
     }
   ```
-
-# Hardware
-
-## Monitors
-
-### VA vs IPS vs OLED
-
-IPS is better. VA has issues with ghosting/black smearing. OLED has issues with pixel burn-in.
 
 # Unity game dev
 
