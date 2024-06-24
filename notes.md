@@ -123,9 +123,8 @@ IPS is better. VA has issues with ghosting/black smearing. OLED has issues with 
 
 ## MacOS
 
-### Battery life
-
-Use AlDente to optimize battery longevity by limiting charging to 80%.
+- Use AlDente to optimize battery longevity by limiting charging to 80%.
+- Set shortcut for "copy picture of selected area to the clipboard" to `cmd + shift + S` in `settings -> keyboard -> keyboard shortcuts -> screenshots`.
 
 ### Keyboard ISO to ANSI
 
