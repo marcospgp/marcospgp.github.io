@@ -109,11 +109,17 @@ Context on using `.ONESHELL` and `.SHELLFLAGS`:
 
 # Hardware
 
-## Monitors
+## Keyboard
 
-### VA vs IPS vs OLED
+### Ducky One 3
 
-IPS is better. VA has issues with ghosting/black smearing. OLED has issues with pixel burn-in.
+On MacOS, Cmd and Option keys are reversed for this keyboard. To fix, go to `System Settings -> Keyboard -> Keyboard Shortcuts... -> Modifier Keys` and switch Command and Option keys with each other.
+
+## Monitor
+
+### Panel
+
+OLED has best quality (true blacks) but pixel burn-in can be an issue. In comparison, IPS has good quality and best choice for price/quality ratio and PC usage (with static elements on screen which are pixel burn-in prone with OLED). VA has issues with ghosting/black smearing, and is cheaper but outdated. Never a good choice.
 
 # OS setup
 
@@ -131,6 +137,8 @@ IPS is better. VA has issues with ghosting/black smearing. OLED has issues with 
 To force MacOS to interpret a MacBook's ISO keyboard as ANSI, install Karabiner-Elements, then under "virtual keyboard" switch "country code 0" from ANSI to ISO (I know, counter intuitive but it works).
 
 After logging out and back in, the `§` key will now be interpreted as the proper `\``.
+
+This also frees up the `< >` key to be used as a go back button (go forward with CMD as modifier) for apps like VSCode.
 
 ### Shell
 
