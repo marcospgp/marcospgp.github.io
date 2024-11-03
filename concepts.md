@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About me
+title: Concepts
 ---
 
 - [Black swan](https://en.wikipedia.org/wiki/Black_swan_theory)
