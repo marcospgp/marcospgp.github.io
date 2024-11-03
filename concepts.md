@@ -16,9 +16,13 @@ table_of_contents: false
 - [Rule 30](https://en.wikipedia.org/wiki/Rule_30)
 - [Kolmogorov complexity](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
 
-# Statistics
+## Statistics
 
 - [Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
+
+## Society
+
+- [The emperor has no clothes](https://en.wikipedia.org/wiki/The_Emperor%27s_New_Clothes)
 
 ## Disqualified
 
