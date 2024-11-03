@@ -4,12 +4,21 @@ title: Concepts
 table_of_contents: false
 ---
 
+## From Nassim Taleb
+
 - [Black swan](https://en.wikipedia.org/wiki/Black_swan_theory)
 - [Lindy effect](https://en.wikipedia.org/wiki/Lindy_effect)
 - [Iatrogenesis](https://en.wikipedia.org/wiki/Iatrogenesis)
+
+## From Stephen Wolfram
+
 - [Computational irreducibility](https://en.wikipedia.org/wiki/Computational_irreducibility)
-- [Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
+- [Rule 30](https://en.wikipedia.org/wiki/Rule_30)
 - [Kolmogorov complexity](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
+
+# Statistics
+
+- [Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
 
 ## Disqualified
 
