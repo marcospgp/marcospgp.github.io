@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Concepts
+table_of_contents: false
 ---
 
 - [Black swan](https://en.wikipedia.org/wiki/Black_swan_theory)
