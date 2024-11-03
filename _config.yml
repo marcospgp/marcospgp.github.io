@@ -6,9 +6,6 @@ description: "Marcos Pereira's personal website."
 baseurl: ""
 url: "https://marcospereira.me"
 date_format: "%b %-d, %Y"
-header_pages:
-  - about-me.md
-  - notes.md
 
 # Google analytics
 google_tag_manager: G-8NMMK1ZP7T

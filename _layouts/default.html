@@ -37,15 +37,12 @@ Homepage is root url or any of the browse-by-tag pages.
     {% assign default_paths = site.pages | map: "path" %}
     {% assign page_paths = site.header_pages | default: default_paths %}
 
-    {% for path in page_paths %}
-    {% assign item = site.pages | where: "path", path | first %}
-    <a class="title-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-
-    {% if forloop.last == false %}
+    <a class="title-link" href="about-me.md">About me</a>
     <span style="font-weight: normal">&nbsp;•&nbsp;</span>
-    {% endif %}
+    <a class="title-link" href="notes.md">Notes</a>
+    <span style="font-weight: normal">&nbsp;•&nbsp;</span>
+    <a class="title-link" href="concepts.md">Concepts</a>
 
-    {% endfor %}
   </h4>
 
   {% if is_homepage == false %}
