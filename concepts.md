@@ -29,6 +29,7 @@ table_of_contents: false
 - [Mind virus](https://en.wikipedia.org/wiki/Viruses_of_the_Mind)
 - [Peter principle](https://en.wikipedia.org/wiki/Peter_principle)
 - [Goodhart's law](https://en.wikipedia.org/wiki/Goodhart%27s_law)
+- [Parkinson's law](https://en.wikipedia.org/wiki/Parkinson%27s_law)
 
 ## Disqualified
 
