@@ -25,6 +25,7 @@ table_of_contents: false
 ## Society
 
 - [The emperor has no clothes](https://en.wikipedia.org/wiki/The_Emperor%27s_New_Clothes)
+- [Mind virus](https://en.wikipedia.org/wiki/Viruses_of_the_Mind)
 
 ## Disqualified
 
