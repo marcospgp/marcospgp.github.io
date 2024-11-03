@@ -71,7 +71,7 @@ Homepage is root url or any of the browse-by-tag pages.
   Add table of contents to all posts, and to pages that specify it in front
   matter.
   {% endcomment %}
-  {% if page.path contains '_posts' or page.table_of_contents == true %}
+  {% if page.table_of_contents != false %}
   <div class="table-of-contents">
     {{ content | table_of_contents | safe }}
   </div>
@@ -85,7 +85,7 @@ Homepage is root url or any of the browse-by-tag pages.
   Display comments section on every post, and on pages that specify it in front
   matter.
   {% endcomment %}
-  {% if page.path contains '_posts' or page.comments_section == true %}
+  {% if page.comments_section != false %}
   <script src="https://utteranc.es/client.js" repo="marcospgp/marcospgp.github.io" issue-term="pathname"
     label="utterances-comments-section" theme="github-dark" crossorigin="anonymous" async>
     </script>

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: About me
+table_of_contents: false
+comments_section: false
 ---
 
 Hi there! I am Marcos, a developer from Portugal with a focus on web, AI, and games.
