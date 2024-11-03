@@ -9,6 +9,8 @@ table_of_contents: false
 - [Black swan](https://en.wikipedia.org/wiki/Black_swan_theory)
 - [Lindy effect](https://en.wikipedia.org/wiki/Lindy_effect)
 - [Iatrogenesis](https://en.wikipedia.org/wiki/Iatrogenesis)
+- [Antifragility](https://en.wikipedia.org/wiki/Antifragility)
+- [Skin in the game](<https://en.wikipedia.org/wiki/Skin_in_the_game_(phrase)>)
 
 ## From Stephen Wolfram
 
