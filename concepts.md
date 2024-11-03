@@ -25,3 +25,7 @@ table_of_contents: false
 - [Dunning–Kruger effect](https://en.wikipedia.org/wiki/Dunning–Kruger_effect): a case of [autocorrelation](https://economicsfromthetopdown.com/2022/04/08/the-dunning-kruger-effect-is-autocorrelation/).
 
   If people had random judgments of their performance, plotting the difference between these and their actual performance would still surface the reported effect, simply due to [regression to the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean).
+
+  In a way the concept is still valid, but its only conclusion should be that people tend towards the mean when judging their performance.
+
+  Most of all, this paper is a lesson in poor graph design and the power of memes and [herd mentality](https://en.wikipedia.org/wiki/Herd_mentality).
