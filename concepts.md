@@ -1,3 +1,8 @@
+---
+layout: default
+title: About me
+---
+
 - [Black swan](https://en.wikipedia.org/wiki/Black_swan_theory)
 - [Lindy effect](https://en.wikipedia.org/wiki/Lindy_effect)
 - [Iatrogenesis](https://en.wikipedia.org/wiki/Iatrogenesis)
