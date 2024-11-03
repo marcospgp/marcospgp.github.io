@@ -21,6 +21,7 @@ table_of_contents: false
 ## Statistics
 
 - [Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
+- Pareto [principle](https://en.wikipedia.org/wiki/Pareto_principle)/[distribution](https://en.wikipedia.org/wiki/Pareto_distribution)
 
 ## Society
 
