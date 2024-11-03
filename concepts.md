@@ -7,6 +7,8 @@ title: Concepts
 - [Lindy effect](https://en.wikipedia.org/wiki/Lindy_effect)
 - [Iatrogenesis](https://en.wikipedia.org/wiki/Iatrogenesis)
 - [Computational irreducibility](https://en.wikipedia.org/wiki/Computational_irreducibility)
+- [Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
+- [Kolmogorov complexity](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
 
 ## Disqualified
 
