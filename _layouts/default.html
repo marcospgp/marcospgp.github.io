@@ -67,10 +67,6 @@ Homepage is root url or any of the browse-by-tag pages.
   {% endcomment %}
   {% endif %}
 
-  {% comment %}
-  Add table of contents to all posts, and to pages that specify it in front
-  matter.
-  {% endcomment %}
   {% if page.table_of_contents != false %}
   <div class="table-of-contents">
     {{ content | table_of_contents | safe }}

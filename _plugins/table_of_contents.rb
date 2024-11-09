@@ -1,6 +1,6 @@
 # Hierarchical TOC Generator - Written by ChatGPT
 #
-# Usage in templates:
+# Usage in layouts:
 #
 #   <article class="table-of-contents">
 #     {% if page.table_of_contents != false %}
