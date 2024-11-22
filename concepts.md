@@ -30,6 +30,7 @@ table_of_contents: false
 - [Peter principle](https://en.wikipedia.org/wiki/Peter_principle)
 - [Goodhart's law](https://en.wikipedia.org/wiki/Goodhart%27s_law)
 - [Parkinson's law](https://en.wikipedia.org/wiki/Parkinson%27s_law)
+- [Bikeshedding](https://en.wikipedia.org/wiki/Law_of_triviality)
 
 ## Disqualified
 
