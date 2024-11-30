@@ -18,6 +18,10 @@ table_of_contents: false
 - [Rule 30](https://en.wikipedia.org/wiki/Rule_30)
 - [Kolmogorov complexity](https://en.wikipedia.org/wiki/Kolmogorov_complexity)
 
+## Biology
+
+- [Variable ratio reinforcement schedule](https://en.wikipedia.org/wiki/Reinforcement)
+
 ## Statistics
 
 - [Regression toward the mean](https://en.wikipedia.org/wiki/Regression_toward_the_mean)
