@@ -36,6 +36,10 @@ table_of_contents: false
 - [Parkinson's law](https://en.wikipedia.org/wiki/Parkinson%27s_law)
 - [Bikeshedding](https://en.wikipedia.org/wiki/Law_of_triviality)
 
+## Decision making
+
+- [Pairwise comparison](https://en.wikipedia.org/wiki/Pairwise_comparison_(psychology))
+
 ## Disqualified
 
 - [Dunning–Kruger effect](https://en.wikipedia.org/wiki/Dunning–Kruger_effect): a case of [autocorrelation](https://economicsfromthetopdown.com/2022/04/08/the-dunning-kruger-effect-is-autocorrelation/).
