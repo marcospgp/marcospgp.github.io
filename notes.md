@@ -368,16 +368,9 @@ OLED has best quality (true blacks) but pixel burn-in can be an issue. In compar
 - Use AlDente to optimize battery longevity by limiting charging to 80%.
 - Use linearmouse to make external mice usable
 - Install bento box to manage windows
-- Set shortcut for "copy picture of selected area to the clipboard" to `cmd + shift + S` in `settings -> keyboard -> keyboard shortcuts -> screenshots`.
+- Set shortcut for "copy picture of selected area to the clipboard" to `opt + shift + S` in `settings -> keyboard -> keyboard shortcuts -> screenshots` to emulate windows' snipping tool shortcut.
 - Enable keyboard navigation in `settings -> keyboard` to allow selecting buttons such as "cancel" in prompt dialogs with the keyboard.
-
-### Keyboard ISO to ANSI
-
-To force MacOS to interpret a MacBook's ISO keyboard as ANSI, install Karabiner-Elements, then under "virtual keyboard" switch "country code 0" from ANSI to ISO (I know, counter intuitive but it works).
-
-After logging out and back in, the `§` key will now be interpreted as the proper `\``.
-
-This also frees up the `< >` key to be used as a go back button (go forward with CMD as modifier) for apps like VSCode.
+- Install karabiner elements and set keyboard to ISO to switch the § and \` keys (on the US international layout), emulating a proper ANSI keyboard. This also frees up the `< >` key to be used as a go back button (go forward with CMD as modifier) for apps like VSCode.
 
 ### Shell
 
@@ -391,6 +384,7 @@ My MacOS shell setup:
 
 `~/.zshrc` configuration:
 
+- Set theme to `ZSH_THEME="arrow"`
 - Disabled `share_history`, which avoids live updating command history when managing multiple open shells across different projects:
 
   ```shell
