@@ -365,6 +365,8 @@ OLED has best quality (true blacks) but pixel burn-in can be an issue. In compar
 ## MacOS
 
 - Use AlDente to optimize battery longevity by limiting charging to 80%.
+- Use linearmouse to make external mice usable
+- Install bento box to manage windows
 - Set shortcut for "copy picture of selected area to the clipboard" to `cmd + shift + S` in `settings -> keyboard -> keyboard shortcuts -> screenshots`.
 - Enable keyboard navigation in `settings -> keyboard` to allow selecting buttons such as "cancel" in prompt dialogs with the keyboard.
 
