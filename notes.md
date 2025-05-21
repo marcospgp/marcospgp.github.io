@@ -348,7 +348,7 @@ Context on using `.ONESHELL` and `.SHELLFLAGS`:
 
 ### Ducky One 3
 
-On MacOS, Cmd and Option keys are reversed for this keyboard. To fix, go to `System Settings -> Keyboard -> Keyboard Shortcuts... -> Modifier Keys` and switch Command and Option keys with each other.
+Cmd and opt keys are reversed for this keyboard on macOS. This can be fixed with "simple modifications" in karabiner elements.
 
 ## Monitor
 
