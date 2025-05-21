@@ -367,7 +367,7 @@ OLED has best quality (true blacks) but pixel burn-in can be an issue. In compar
 - Install homebrew, git, ohmyzsh
 - Use AlDente to optimize battery longevity by limiting charging to 80%.
 - Use linearmouse to make external mice usable
-- Install bento box to manage windows
+- Install bento box to manage windows. Disable "restore window size on unsnap".
 - Set shortcut for "copy picture of selected area to the clipboard" to `opt + shift + S` in `settings -> keyboard -> keyboard shortcuts -> screenshots` to emulate windows' snipping tool shortcut.
 - Enable keyboard navigation in `settings -> keyboard` to allow selecting buttons such as "cancel" in prompt dialogs with the keyboard.
 - Install karabiner elements and set keyboard to ISO to switch the § and \` keys (on the US international layout), emulating a proper ANSI keyboard. This also frees up the `< >` key to be used as a go back button (go forward with CMD as modifier) for apps like VSCode.
